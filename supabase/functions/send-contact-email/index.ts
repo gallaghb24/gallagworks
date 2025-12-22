@@ -27,10 +27,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Received contact form submission:", { name, email, company });
 
-    // Send notification email to the business
+    // Send notification email to Ben
     const notificationEmail = await resend.emails.send({
-      from: "Intelligent Transformation Studio <onboarding@resend.dev>",
-      to: [email], // In production, change this to your business email
+      from: "Intelligent Transformation Studio <hello@intelligenttransformation.studio>",
+      to: ["ben@gallag.co.uk"],
       subject: `New contact from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -46,7 +46,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to the person who submitted
     const confirmationEmail = await resend.emails.send({
-      from: "Intelligent Transformation Studio <onboarding@resend.dev>",
+      from: "Intelligent Transformation Studio <hello@intelligenttransformation.studio>",
       to: [email],
       subject: "Thank you for reaching out",
       html: `
