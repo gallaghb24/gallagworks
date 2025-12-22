@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,13 +41,12 @@ const Navigation = () => {
           {/* Logo */}
           <a
             href="#"
-            className="font-display text-xl font-semibold text-foreground"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            Intelligent Transformation Studio
+            <img src={logo} alt="Intelligent Transformation Studio" className="h-10 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
