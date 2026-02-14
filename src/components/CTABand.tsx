@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface CTABandProps {
-  headline?: string;
+  headline?: React.ReactNode;
 }
 
 const CTABand = ({ headline = "Ready to remove friction from a specific workflow?" }: CTABandProps) => {
