@@ -13,7 +13,7 @@ const Footer = () => {
         <div className={`max-w-4xl mx-auto scroll-fade-in ${isVisible ? "visible" : ""}`}>
           <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-12">
             <div>
-              <div className="font-display text-lg font-semibold mb-4">
+              <div className="font-display text-lg font-semibold mb-4 text-primary">
                 Intelligent Transformation Studio
               </div>
               <a
