@@ -18,7 +18,7 @@ const ProofPoints = () => {
             CREDIBILITY
           </span>
           <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
-            How this helps in practice
+            What changes
           </h2>
           <div className="grid sm:grid-cols-2 gap-6">
             {points.map((point, i) => (
