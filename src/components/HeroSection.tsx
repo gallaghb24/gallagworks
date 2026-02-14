@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-8 animate-fade-in-up">
-            We <span className="font-bold">redesign workflows</span> and build automation that{" "}
+            We redesign workflows and build automation that{" "}
             <span className="text-primary">removes friction</span> from day-to-day operations.
           </h1>
 
