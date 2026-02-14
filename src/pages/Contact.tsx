@@ -78,7 +78,7 @@ const Contact = () => {
                 <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 animate-fade-in-up">
                   Let's talk
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+                <p className="text-lg text-foreground/70 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                   Whether you've got a specific problem in mind or you're just exploring what's possible, a discovery call is the best place to start.
                 </p>
               </div>

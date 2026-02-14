@@ -4,12 +4,12 @@ const engagements = [
   {
     title: "Diagnostic",
     scope: "Fixed scope",
-    description: "A structured review of a specific workflow, process, or operational area. You get a clear picture of where time is lost, where errors creep in, and what's worth automating. Typically 2–4 weeks.",
+    description: "A structured review of a specific workflow, process, or operational area. You get a clear picture of where time is lost, where errors creep in, and what's worth automating. Typically 2 – 4 weeks.",
   },
   {
     title: "Pilot",
     scope: "Time-boxed",
-    description: "We take one workflow and redesign it end to end — mapping, simplifying, and building working automation. A concrete proof of value before committing further. Typically 4–8 weeks.",
+    description: "We take one workflow and redesign it end to end – mapping, simplifying, and building working automation. A concrete proof of value before committing further. Typically 4 – 8 weeks.",
   },
   {
     title: "Scale and rollout",
@@ -24,7 +24,7 @@ const engagements = [
   {
     title: "Build support",
     scope: "",
-    description: "When you need specialist development resource — custom tooling, integrations, or data pipelines — we bring trusted developers who understand the operational context.",
+    description: "When you need specialist development resource – custom tooling, integrations, or data pipelines – we bring trusted developers who understand the operational context.",
   },
 ];
 
@@ -32,7 +32,7 @@ const EngagementTypes = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-28" ref={ref}>
+    <section className="py-16 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-4 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
@@ -57,7 +57,7 @@ const EngagementTypes = () => {
                     <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">{e.scope}</span>
                   )}
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-sm">{e.description}</p>
+                <p className="text-muted-foreground leading-relaxed text-base md:text-sm">{e.description}</p>
               </div>
             ))}
           </div>

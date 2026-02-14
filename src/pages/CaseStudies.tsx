@@ -47,7 +47,7 @@ const CaseStudies = () => {
               <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 animate-fade-in-up">
                 What this looks like in practice
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              <p className="text-lg text-foreground/70 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 Anonymised examples from recent engagements. Different sectors, similar patterns.
               </p>
             </div>
