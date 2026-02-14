@@ -30,7 +30,7 @@ const Services = () => {
         </section>
 
         <EngagementTypes />
-        <HowWeWork />
+        <HowWeWork showLink={false} />
         <FAQSection />
         <CTABand headline="Have a workflow in mind? Let's look at it together." />
       </main>
