@@ -12,10 +12,9 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
-        <ProofPoints />
-
         <ServicesSummary />
         <HowWeWork />
+        <ProofPoints />
         <CTABand headline="Ready to reclaim time from day-to-day operations?" />
       </main>
       <Footer />

@@ -28,9 +28,6 @@ const ServicesSummary = () => {
     <section className="py-16 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${isVisible ? "visible" : ""}`}>
-            SERVICES
-          </span>
           <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
             What we do
           </h2>
