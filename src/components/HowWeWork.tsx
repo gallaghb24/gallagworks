@@ -17,7 +17,7 @@ const steps = [
   {
     number: "03",
     title: "Build and embed",
-    description: "We implement working automation and stay until it's adopted. No handover documents that gather dust.",
+    description: "We deliver working automation with adoption planning and governance baked in. Not strategy decks that gather dust.",
     icon: Zap,
   },
 ];
