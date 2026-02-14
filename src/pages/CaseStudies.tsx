@@ -12,21 +12,21 @@ const caseStudies = [
     problem: "A mid-sized professional services firm was spending significant time on client reporting. Teams manually pulled data from multiple systems, reformatted it, and produced reports that were often outdated by the time they reached clients.",
     whatChanged: "We mapped the full reporting workflow, identified three systems that could feed a single data pipeline, and built an automated reporting tool that pulls live data and generates formatted outputs.",
     stayedHuman: "Commentary, narrative context, and client-specific recommendations. The team now spends time on interpretation rather than data wrangling.",
-    outcome: "Cycle time reduced materially, shifting effort from manual assembly to interpretation.",
+    outcome: "Reporting cycle time cut by 70%, freeing ~15 hours per week for the team to focus on analysis and client advisory.",
   },
   {
     sector: "Media and Publishing Organisation",
     problem: "A content team was managing production across multiple channels with a patchwork of spreadsheets, email threads, and manual handoffs. Work was duplicated, deadlines were missed, and nobody had a clear view of what was in progress.",
     whatChanged: "We redesigned the production workflow from brief to publish, consolidated tracking into a single system, and automated status updates, assignments, and deadline alerts.",
     stayedHuman: "Editorial judgement, creative direction, and stakeholder sign-off. Automation handled the logistics, not the decisions.",
-    outcome: "Fewer missed deadlines, clearer ownership, and less time spent on coordination.",
+    outcome: "Missed deadlines down 85%. Coordination overhead reduced by ~10 hours per week across the team.",
   },
   {
     sector: "Operations Team in Financial Services",
     problem: "An operations team was processing high volumes of structured data with extensive manual checks. Error rates were low but the cost in time was high, and the team had no capacity for process improvement.",
     whatChanged: "We built validation rules into the data pipeline, automated routine checks, and created exception-handling workflows that escalate only genuine anomalies.",
     stayedHuman: "Judgement calls on exceptions, relationship management, and process governance.",
-    outcome: "Manual checking reduced substantially, with capacity redirected to improvement work.",
+    outcome: "Manual checking reduced by 60%, reclaiming ~20 hours per week and enabling the team to launch two process improvement initiatives within the first quarter.",
   },
 ];
 
