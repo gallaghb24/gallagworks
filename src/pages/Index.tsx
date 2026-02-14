@@ -1,11 +1,9 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import WhatWeDoSection from "@/components/WhatWeDoSection";
-import StatsSection from "@/components/StatsSection";
-import ApproachSection from "@/components/ApproachSection";
-import CapabilitiesSection from "@/components/CapabilitiesSection";
-import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
+import ProofPoints from "@/components/ProofPoints";
+import ServicesSummary from "@/components/ServicesSummary";
+import HowWeWork from "@/components/HowWeWork";
+import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -14,12 +12,10 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
-        <WhatWeDoSection />
-        <StatsSection />
-        <ApproachSection />
-        <CapabilitiesSection />
-        <AboutSection />
-        <ContactSection />
+        <ProofPoints />
+        <ServicesSummary />
+        <HowWeWork />
+        <CTABand />
       </main>
       <Footer />
     </div>
