@@ -33,7 +33,7 @@ const ServicesSummary = () => {
             What we do
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
+          <div className="grid md:grid-cols-3 gap-6">
             {services.map((s, i) => (
               <div
                 key={i}
