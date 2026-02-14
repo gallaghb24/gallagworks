@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ArrowRight, Loader2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -18,6 +19,7 @@ const Contact = () => {
     company: "",
     message: "",
   });
+  const { ref, isVisible } = useScrollAnimation();
 
   useEffect(() => {
     document.title = "Contact | Intelligent Transformation Studio";
@@ -86,7 +88,6 @@ const Contact = () => {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg font-medium group"
                   onClick={() => {
-                    // Placeholder: replace with Calendly or booking link
                     window.open("#book", "_blank");
                   }}
                 >
@@ -101,7 +102,7 @@ const Contact = () => {
                 </span>
               </div>
 
-              <div className="border-t border-border pt-12">
+              <div className={`border-t border-border pt-12 scroll-fade-in ${isVisible ? "visible" : ""}`} ref={ref}>
                 <h2 className="font-display text-xl font-semibold text-foreground mb-6 text-center">
                   Send a message
                 </h2>

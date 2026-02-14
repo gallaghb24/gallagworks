@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const caseStudies = [
   {
@@ -29,6 +30,8 @@ const caseStudies = [
 ];
 
 const CaseStudies = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   useEffect(() => {
     document.title = "Case Studies | Intelligent Transformation Studio";
     window.scrollTo(0, 0);
@@ -51,11 +54,15 @@ const CaseStudies = () => {
           </div>
         </section>
 
-        <section className="pb-20">
+        <section className="pb-20" ref={ref}>
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto space-y-8">
               {caseStudies.map((cs, i) => (
-                <div key={i} className="animate-fade-in-up" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div
+                  key={i}
+                  className={`scroll-fade-in ${isVisible ? "visible" : ""}`}
+                  style={{ transitionDelay: `${i * 0.12}s` }}
+                >
                   <CaseStudyCard {...cs} />
                 </div>
               ))}

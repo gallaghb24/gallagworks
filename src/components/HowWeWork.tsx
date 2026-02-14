@@ -1,3 +1,5 @@
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 const steps = [
   {
     number: "01",
@@ -17,11 +19,13 @@ const steps = [
 ];
 
 const HowWeWork = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center">
+          <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
             How we work
           </h2>
 
@@ -29,8 +33,8 @@ const HowWeWork = () => {
             {steps.map((step, i) => (
               <div
                 key={i}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                className={`scroll-fade-in ${isVisible ? "visible" : ""}`}
+                style={{ transitionDelay: `${(i + 1) * 0.12}s` }}
               >
                 <span className="text-primary font-display text-sm font-semibold tracking-wide">{step.number}</span>
                 <h3 className="font-display text-xl font-semibold text-foreground mt-2 mb-3">{step.title}</h3>

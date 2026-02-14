@@ -1,3 +1,5 @@
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 const engagements = [
   {
     title: "Diagnostic",
@@ -27,14 +29,16 @@ const engagements = [
 ];
 
 const EngagementTypes = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4 text-center">
+          <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-4 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
             Engagement types
           </h2>
-          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+          <p className={`text-muted-foreground text-center mb-12 max-w-2xl mx-auto scroll-fade-in ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
             We structure work to match where you are — from initial assessment through to long-term advisory.
           </p>
 
@@ -42,10 +46,10 @@ const EngagementTypes = () => {
             {engagements.map((e, i) => (
               <div
                 key={i}
-                className={`bg-card border border-border rounded-lg p-8 animate-fade-in-up ${
+                className={`bg-card border border-border rounded-lg p-8 card-hover scroll-fade-in ${isVisible ? "visible" : ""} ${
                   i === engagements.length - 1 && engagements.length % 2 !== 0 ? "md:col-span-2 md:max-w-[calc(50%-0.75rem)]" : ""
                 }`}
-                style={{ animationDelay: `${i * 0.08}s` }}
+                style={{ transitionDelay: `${(i + 1) * 0.08}s` }}
               >
                 <div className="flex items-baseline gap-3 mb-3">
                   <h3 className="font-display text-lg font-semibold text-foreground">{e.title}</h3>

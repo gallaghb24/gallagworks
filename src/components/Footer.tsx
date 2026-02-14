@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <footer className="py-16 bg-footer text-footer-foreground">
+    <footer className="py-16 bg-footer text-footer-foreground" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto">
+        <div className={`max-w-4xl mx-auto scroll-fade-in ${isVisible ? "visible" : ""}`}>
           <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-12">
             <div>
               <div className="font-display text-lg font-semibold mb-4">
