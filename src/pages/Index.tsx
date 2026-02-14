@@ -5,7 +5,6 @@ import ServicesSummary from "@/components/ServicesSummary";
 import HowWeWork from "@/components/HowWeWork";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
-import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   return (
@@ -13,7 +12,6 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
-        <SectionDivider />
         <ProofPoints />
 
         {/* Implementation-first operating principle */}
@@ -25,11 +23,8 @@ const Index = () => {
           </div>
         </div>
 
-        <SectionDivider />
         <ServicesSummary />
-        <SectionDivider />
         <HowWeWork />
-        <SectionDivider />
         <CTABand />
       </main>
       <Footer />
