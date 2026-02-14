@@ -1,81 +1,76 @@
 
+# Visual Texture and Brand Polish
 
-# Tweak Plan: Premium Polish, Mobile Readability, and Conversion
+## Changes (14 items)
 
-## A) Prioritised Changes
+1. **Remove CredibilitySection** -- Delete import and usage from `Index.tsx`. Delete `CredibilitySection.tsx`.
+2. **Add "Implementation-first" block on Home** -- Place a short standalone line after ProofPoints and before ServicesSummary (no founder framing).
+3. **Coral-tinted cards on Diagnose/Build/Embed** -- `ServicesSummary.tsx`: change card bg to `#FFF1EF`, border to `#F2C7C2`.
+4. **Coral left rail on neutral cards** -- Add `border-l-4 border-l-primary` to proof point cards (`ProofPoints.tsx`), engagement type cards (`EngagementTypes.tsx`), FAQ accordion items (`FAQSection.tsx`), and case study cards (`CaseStudyCard.tsx`).
+5. **Section dividers** -- Create a reusable `SectionDivider` component (1px stone line + 40px coral accent segment, left-aligned). Insert between major sections on all pages.
+6. **Kicker labels** -- Add uppercase coral kicker text (letter-spaced, small) above each H2: "PROOF", "ENGAGEMENTS", "METHOD", "FAQ", "CASE STUDIES", "CONTACT" in their respective components/pages.
+7. **Hero grid texture** -- Add a CSS `background-image` using a repeating linear-gradient grid pattern at ~4% opacity to all hero sections (Home, Services, Case Studies, Contact).
+8. **Icons on Diagnose/Build/Embed cards** -- Use lucide-react: `Search`, `Wrench`, `Anchor` in `ServicesSummary.tsx`.
+9. **Icons on How We Work steps** -- Use lucide-react: `Map`, `Layers`, `Zap` in `HowWeWork.tsx`.
+10. **Fix em dash in EngagementTypes** -- Line 42 has `—`, replace with ` – `.
+11. **Fix em dash in Services page** -- Line 26 `–` is correct already, but ensure consistency.
+12. **Standardise FAQ section padding** -- Change `py-20` to `py-16` in `FAQSection.tsx`.
+13. **Hero grid CSS utility** -- Add `.hero-grid` class in `index.css` with the subtle grid pattern.
+14. **Add icons to proof points (optional)** -- Skip to avoid mobile clutter per the brief.
 
-1. **Hero sub-headline contrast** -- Change `text-muted-foreground` to `text-foreground/70` on the hero `<p>` tag. Current muted-foreground (`hsl(20 8% 40%)`) is too washed out against the stone background. (`HeroSection.tsx`)
+## Technical Details
 
-2. **Mobile body text sizing** -- Add `text-base md:text-sm` to proof point card text, engagement type descriptions, and how-we-work paragraphs so mobile gets 16px (browser default, no zoom issues) while desktop stays compact. Increase `leading-relaxed` to `leading-relaxed` (already set) or bump to `leading-7` where needed. (`ProofPoints.tsx`, `EngagementTypes.tsx`, `HowWeWork.tsx`, `ServicesSummary.tsx`, `CaseStudyCard.tsx`)
+### New files
+| File | Purpose |
+|------|---------|
+| `src/components/SectionDivider.tsx` | Reusable divider: 1px `border-border` line with a 40px coral accent segment left-aligned |
 
-3. **Mobile spacing rhythm** -- Standardise section padding to `py-16 lg:py-28` (currently some are `py-20 lg:py-28`, others `py-20 lg:py-24`). Standardise card padding to `p-6 md:p-8`. (`ProofPoints.tsx`, `ServicesSummary.tsx`, `HowWeWork.tsx`, `EngagementTypes.tsx`, `CTABand.tsx`)
-
-4. **Credibility section** -- Create `CredibilitySection.tsx` and place it on the Home page between ProofPoints and ServicesSummary. Title: "Led by Ben Gallagher". 2-3 bullets + InfoSec line. Uses scroll animation. (`CredibilitySection.tsx`, `Index.tsx`)
-
-5. **Em dash to en dash** -- Replace all `—` with ` -- ` across `ProofPoints.tsx`, `HowWeWork.tsx`, `EngagementTypes.tsx`, `Services.tsx`. (5 occurrences total.)
-
-6. **Mobile CTA in hamburger menu** -- Move the "Book a discovery call" button to the top of the mobile menu (before nav links), styled as a full-width button. (`Navigation.tsx`)
-
-7. **"See how we work" secondary CTA upgrade** -- Change from inline text link to an outlined button (`variant="outline"`) with the coral border and stronger visual weight. (`ServicesSummary.tsx`)
-
-8. **Card border/shadow improvement** -- Darken `--border` from `28 20% 83%` to `28 18% 78%`. Add a very subtle box-shadow to `.card-hover` base state: `box-shadow: 0 1px 3px 0 hsl(var(--foreground) / 0.04)`. (`index.css`)
-
-9. **Button hover/pressed states** -- Add `active:scale-[0.98]` to the primary button variant for a confident pressed feel. Ensure consistent `rounded-full` on all CTA buttons (already mostly done). (`button.tsx`)
-
-10. **Sub-headline contrast on Services and Case Studies pages** -- Same fix as hero: change `text-muted-foreground` to `text-foreground/70` on page sub-headlines. (`Services.tsx`, `CaseStudies.tsx`, `Contact.tsx`)
-
----
-
-## B) Implementation Notes
+### Files to delete
+| File | Reason |
+|------|--------|
+| `src/components/CredibilitySection.tsx` | Founder section removed per brief |
 
 ### Files to edit
 
 | File | Changes |
 |------|---------|
-| `src/index.css` | Darken `--border` to `28 18% 78%`. Add base `box-shadow` to `.card-hover`. |
-| `src/components/ui/button.tsx` | Add `active:scale-[0.98] transition-all` to base CVA string. |
-| `src/components/HeroSection.tsx` | Change sub-headline class from `text-muted-foreground` to `text-foreground/70`. |
-| `src/components/ProofPoints.tsx` | Fix em dash. Add `text-base` to card text for mobile sizing. Standardise section padding to `py-16 lg:py-28`. |
-| `src/components/ServicesSummary.tsx` | Add `text-base` to description text. Upgrade "See how we work" to outlined Button. Standardise padding. |
-| `src/components/HowWeWork.tsx` | Fix em dash. Add `text-base` to step descriptions. Standardise padding. |
-| `src/components/EngagementTypes.tsx` | Fix 3 em dashes. Change description from `text-sm` to `text-base md:text-sm`. Standardise padding. |
-| `src/components/CTABand.tsx` | Standardise padding to `py-16 lg:py-24`. |
-| `src/components/CaseStudyCard.tsx` | Add `text-base` to paragraph text for mobile. |
-| `src/components/Navigation.tsx` | Move CTA button to top of mobile menu, before nav links. |
-| `src/pages/Services.tsx` | Fix em dash in sub-headline. Change `text-muted-foreground` to `text-foreground/70`. |
-| `src/pages/CaseStudies.tsx` | Change `text-muted-foreground` to `text-foreground/70` on sub-headline. |
-| `src/pages/Contact.tsx` | Change `text-muted-foreground` to `text-foreground/70` on sub-headline. |
-| `src/pages/Index.tsx` | Import and insert `CredibilitySection` between `ProofPoints` and `ServicesSummary`. |
+| `src/index.css` | Add `.hero-grid` utility class with repeating-linear-gradient grid at 4% opacity |
+| `src/pages/Index.tsx` | Remove `CredibilitySection` import/usage. Add `SectionDivider` between sections. Add "Implementation-first" standalone block after ProofPoints. |
+| `src/components/HeroSection.tsx` | Add `hero-grid` class to section element |
+| `src/components/ProofPoints.tsx` | Add kicker label "PROOF". Add `border-l-4 border-l-primary` to cards. |
+| `src/components/ServicesSummary.tsx` | Add kicker label "SERVICES". Change card bg/border to coral-tinted (`bg-[#FFF1EF] border-[#F2C7C2]`). Add lucide icons (Search, Wrench, Anchor). |
+| `src/components/HowWeWork.tsx` | Add kicker label "METHOD". Add lucide icons (Map, Layers, Zap). |
+| `src/components/EngagementTypes.tsx` | Add kicker label "ENGAGEMENTS". Add `border-l-4 border-l-primary` to cards. Fix em dash on line 42. |
+| `src/components/FAQSection.tsx` | Add kicker label "FAQ". Add `border-l-4 border-l-primary` to accordion items. Fix padding `py-20` to `py-16`. |
+| `src/components/CaseStudyCard.tsx` | Add `border-l-4 border-l-primary` to card wrapper. |
+| `src/pages/Services.tsx` | Add `hero-grid` to hero section. Add `SectionDivider` between sections. |
+| `src/pages/CaseStudies.tsx` | Add kicker label "CASE STUDIES" to hero. Add `hero-grid` to hero section. Add `SectionDivider` before CTA. |
+| `src/pages/Contact.tsx` | Add kicker label "CONTACT" to hero. Add `hero-grid` to hero section. |
+| `src/components/CTABand.tsx` | No changes needed (no kicker here -- it's a CTA, not a content section). |
 
-### New file
+### CSS: `.hero-grid` pattern
+```css
+.hero-grid {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(31,31,31,0.04) 0px, rgba(31,31,31,0.04) 1px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(90deg, rgba(31,31,31,0.04) 0px, rgba(31,31,31,0.04) 1px, transparent 1px, transparent 60px);
+}
+```
 
-| File | Purpose |
-|------|---------|
-| `src/components/CredibilitySection.tsx` | Compact trust signal section with title, bullet points, and InfoSec line. Uses `useScrollAnimation` hook and existing design tokens. |
+### Kicker label pattern (consistent across all sections)
+```tsx
+<span className="text-primary text-xs font-semibold uppercase tracking-[0.15em]">PROOF</span>
+```
 
-### Credibility section content
+### SectionDivider component
+```tsx
+<div className="container mx-auto px-6 lg:px-12">
+  <div className="max-w-4xl mx-auto relative">
+    <div className="h-px bg-border" />
+    <div className="absolute top-0 left-0 h-px w-10 bg-primary" />
+  </div>
+</div>
+```
 
-**Title:** "Led by Ben Gallagher"
-
-**Bullets:**
-- Operational AI and workflow transformation across industries -- from professional services to media to financial operations.
-- Implementation-first: working automation, adoption planning, and governance -- not just strategy decks.
-- I lead engagements directly and bring specialist build support when needed.
-
-**Footer line:** "NDA and InfoSec-aligned delivery as standard."
-
-### CSS token changes
-
-| Token | Before | After |
-|-------|--------|-------|
-| `--border` | `28 20% 83%` | `28 18% 78%` |
-| `.card-hover` base shadow | none | `box-shadow: 0 1px 3px 0 hsl(var(--foreground) / 0.04)` |
-
-### No changes to
-- Colour palette (stone, coral, charcoal, dark footer -- untouched)
-- Routing or page structure
-- Logo
-- Contact form logic
-- Footer layout
-- Font families (Sora + Inter)
-
+### "Implementation-first" block (Home, after ProofPoints)
+A compact, standalone line in a slightly emphasised style -- not a section with its own heading, just a strong sentence with a coral left border, placed inside its own small wrapper.
