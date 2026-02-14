@@ -71,10 +71,13 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        <section className="pt-32 pb-20 lg:pb-32">
+        <section className="pt-32 pb-20 lg:pb-32 hero-grid">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
+                <span className="block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 animate-fade-in-up">
+                  CONTACT
+                </span>
                 <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 animate-fade-in-up">
                   Let's talk
                 </h1>

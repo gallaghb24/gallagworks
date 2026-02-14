@@ -8,7 +8,7 @@ interface CaseStudyCardProps {
 
 const CaseStudyCard = ({ sector, problem, whatChanged, stayedHuman, outcome }: CaseStudyCardProps) => {
   return (
-    <div className="bg-card border border-border rounded-lg p-8 md:p-10 card-hover">
+    <div className="bg-card border border-border border-l-4 border-l-primary rounded-lg p-8 md:p-10 card-hover">
       <h3 className="font-display text-xl font-semibold text-foreground mb-6">{sector}</h3>
 
       <div className="space-y-5">

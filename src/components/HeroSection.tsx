@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-[85vh] flex items-center justify-center pt-24 pb-16">
+    <section className="min-h-[85vh] flex items-center justify-center pt-24 pb-16 hero-grid">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-8 animate-fade-in-up">
