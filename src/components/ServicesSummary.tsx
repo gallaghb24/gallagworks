@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const services = [
   {
@@ -17,11 +18,13 @@ const services = [
 ];
 
 const ServicesSummary = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center">
+          <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
             What we do
           </h2>
 
@@ -29,8 +32,8 @@ const ServicesSummary = () => {
             {services.map((s, i) => (
               <div
                 key={i}
-                className="bg-card border border-border rounded-lg p-8 animate-fade-in-up"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                className={`bg-card border border-border rounded-lg p-8 card-hover scroll-fade-in ${isVisible ? "visible" : ""}`}
+                style={{ transitionDelay: `${(i + 1) * 0.1}s` }}
               >
                 <h3 className="font-display text-xl font-semibold text-foreground mb-3">{s.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{s.description}</p>
@@ -38,7 +41,7 @@ const ServicesSummary = () => {
             ))}
           </div>
 
-          <div className="text-center">
+          <div className={`text-center scroll-fade-in ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.4s" }}>
             <Link
               to="/services"
               className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors group"

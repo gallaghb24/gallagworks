@@ -73,7 +73,7 @@ const Navigation = () => {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-background border-t border-border py-4">
+          <div className="md:hidden bg-background border-t border-border py-4 mobile-menu-enter">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
