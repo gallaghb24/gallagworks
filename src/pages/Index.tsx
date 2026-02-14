@@ -25,7 +25,7 @@ const Index = () => {
 
         <ServicesSummary />
         <HowWeWork />
-        <CTABand />
+        <CTABand headline="Ready to reclaim time from day-to-day operations?" />
       </main>
       <Footer />
     </div>
