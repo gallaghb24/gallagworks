@@ -3,7 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const points = [
   "Workflow redesign across operations, finance, marketing, and client delivery.",
   "Automation deployed into day-to-day use – not left in a slide deck.",
-  "Exceptions surfaced to humans, routine work handled by systems.",
+  "Exceptions and decisions surfaced to humans, routine work handled by systems.",
   "Capacity released for the work that requires human judgement.",
 ];
 
