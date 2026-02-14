@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Search, Wrench, Anchor } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Search, Wrench, Anchor } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const services = [
@@ -49,19 +47,6 @@ const ServicesSummary = () => {
             ))}
           </div>
 
-          <div className={`text-center scroll-fade-in ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.4s" }}>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-full border-primary text-primary hover:bg-primary/10 px-8 font-medium group"
-            >
-              <Link to="/services">
-                See how we work
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-          </div>
         </div>
       </div>
     </section>
