@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "How long does an engagement take?",
-    a: "A diagnostic is typically 2–4 weeks. A pilot runs 4–8 weeks. Scale and advisory engagements are ongoing. We'll scope it properly before anything starts.",
+    a: "A diagnostic is typically 2 – 4 weeks. A pilot runs 4 – 8 weeks. Scale and advisory engagements are ongoing. We'll scope it properly before anything starts.",
   },
   {
     q: "What industries do you work with?",

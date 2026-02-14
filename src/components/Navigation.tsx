@@ -75,6 +75,14 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-background border-t border-border py-4 mobile-menu-enter">
             <div className="flex flex-col gap-4">
+              <div className="px-4">
+                <Button
+                  asChild
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
+                >
+                  <Link to="/contact">Book a discovery call</Link>
+                </Button>
+              </div>
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
@@ -84,14 +92,6 @@ const Navigation = () => {
                   {link.label}
                 </Link>
               ))}
-              <div className="px-4 pt-2">
-                <Button
-                  asChild
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
-                >
-                  <Link to="/contact">Book a discovery call</Link>
-                </Button>
-              </div>
             </div>
           </div>
         )}

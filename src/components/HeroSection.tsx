@@ -11,7 +11,7 @@ const HeroSection = () => {
             We redesign workflows and build automation that removes friction from day-to-day operations.
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+          <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
             Operational AI and workflow transformation for organisations ready to move past slides and into implementation.
           </p>
 

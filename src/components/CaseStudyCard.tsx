@@ -14,15 +14,15 @@ const CaseStudyCard = ({ sector, problem, whatChanged, stayedHuman, outcome }: C
       <div className="space-y-5">
         <div>
           <h4 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Problem</h4>
-          <p className="text-muted-foreground leading-relaxed">{problem}</p>
+          <p className="text-muted-foreground leading-relaxed text-base md:text-sm">{problem}</p>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">What changed</h4>
-          <p className="text-muted-foreground leading-relaxed">{whatChanged}</p>
+          <p className="text-muted-foreground leading-relaxed text-base md:text-sm">{whatChanged}</p>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">What stayed human</h4>
-          <p className="text-muted-foreground leading-relaxed">{stayedHuman}</p>
+          <p className="text-muted-foreground leading-relaxed text-base md:text-sm">{stayedHuman}</p>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Outcome</h4>

@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ProofPoints from "@/components/ProofPoints";
+import CredibilitySection from "@/components/CredibilitySection";
 import ServicesSummary from "@/components/ServicesSummary";
 import HowWeWork from "@/components/HowWeWork";
 import CTABand from "@/components/CTABand";
@@ -13,6 +14,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <ProofPoints />
+        <CredibilitySection />
         <ServicesSummary />
         <HowWeWork />
         <CTABand />

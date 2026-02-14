@@ -22,8 +22,8 @@ const Services = () => {
               <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 animate-fade-in-up">
                 How we work
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                Every engagement starts with understanding. We don't bring pre-built solutions — we design around how your organisation actually operates.
+              <p className="text-lg text-foreground/70 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+                Every engagement starts with understanding. We don't bring pre-built solutions – we design around how your organisation actually operates.
               </p>
             </div>
           </div>

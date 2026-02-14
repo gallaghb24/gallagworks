@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -21,7 +22,7 @@ const ServicesSummary = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-28" ref={ref}>
+    <section className="py-16 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
@@ -36,19 +37,23 @@ const ServicesSummary = () => {
                 style={{ transitionDelay: `${(i + 1) * 0.1}s` }}
               >
                 <h3 className="font-display text-xl font-semibold text-foreground mb-3">{s.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{s.description}</p>
+                <p className="text-muted-foreground leading-relaxed text-base md:text-sm">{s.description}</p>
               </div>
             ))}
           </div>
 
           <div className={`text-center scroll-fade-in ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.4s" }}>
-            <Link
-              to="/services"
-              className="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors group"
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="rounded-full border-primary text-primary hover:bg-primary/10 px-8 font-medium group"
             >
-              See how we work
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+              <Link to="/services">
+                See how we work
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

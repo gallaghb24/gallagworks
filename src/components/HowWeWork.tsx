@@ -4,7 +4,7 @@ const steps = [
   {
     number: "01",
     title: "Understand",
-    description: "We map how work actually flows. Not the org chart version — the real one, with the workarounds and the spreadsheets.",
+    description: "We map how work actually flows. Not the org chart version – the real one, with the workarounds and the spreadsheets.",
   },
   {
     number: "02",
@@ -22,7 +22,7 @@ const HowWeWork = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-28" ref={ref}>
+    <section className="py-16 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
@@ -38,7 +38,7 @@ const HowWeWork = () => {
               >
                 <span className="text-primary font-display text-sm font-semibold tracking-wide">{step.number}</span>
                 <h3 className="font-display text-xl font-semibold text-foreground mt-2 mb-3">{step.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                <p className="text-muted-foreground leading-relaxed text-base md:text-sm">{step.description}</p>
               </div>
             ))}
           </div>
