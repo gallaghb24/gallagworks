@@ -8,7 +8,21 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-8 animate-fade-in-up">
-            We redesign workflows and build automation that removes friction from day-to-day operations.
+            We <span className="font-bold">redesign workflows</span> and build automation that{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10">removes friction</span>
+              <span
+                className="absolute left-0 right-0 bottom-[0.08em] h-[3px] rounded-full z-0"
+                style={{ backgroundColor: '#E15A4F' }}
+                aria-hidden="true"
+              />
+              <span
+                className="absolute inset-0 rounded z-0"
+                style={{ backgroundColor: 'rgba(225,90,79,0.10)' }}
+                aria-hidden="true"
+              />
+            </span>{" "}
+            from day-to-day operations.
           </h1>
 
           <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
