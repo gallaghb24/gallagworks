@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Footer = () => {
@@ -30,16 +28,6 @@ const Footer = () => {
                 <Link to="/case-studies" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Case Studies</Link>
                 <Link to="/contact" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Contact</Link>
               </nav>
-              <Button
-                asChild
-                size="sm"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full group"
-              >
-                <Link to="/contact">
-                  Book a discovery call
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
             </div>
           </div>
 
