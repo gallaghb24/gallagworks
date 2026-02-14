@@ -14,11 +14,14 @@ const ProofPoints = () => {
     <section className="py-16 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
+          <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${isVisible ? "visible" : ""}`}>
+            PROOF
+          </span>
           <div className="grid sm:grid-cols-2 gap-6">
             {points.map((point, i) => (
               <div
                 key={i}
-                className={`border border-border rounded-lg p-6 card-hover scroll-fade-in ${isVisible ? "visible" : ""}`}
+                className={`border border-border border-l-4 border-l-primary rounded-lg p-6 card-hover scroll-fade-in ${isVisible ? "visible" : ""}`}
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <p className="text-foreground font-medium leading-relaxed text-base md:text-sm">{point}</p>

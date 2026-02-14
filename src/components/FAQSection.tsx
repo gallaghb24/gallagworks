@@ -37,9 +37,12 @@ const FAQSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-28" ref={ref}>
+    <section className="py-16 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
+          <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${isVisible ? "visible" : ""}`}>
+            FAQ
+          </span>
           <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
             Common questions
           </h2>
@@ -51,7 +54,7 @@ const FAQSection = () => {
                 className={`scroll-fade-in ${isVisible ? "visible" : ""}`}
                 style={{ transitionDelay: `${(i + 1) * 0.06}s` }}
               >
-                <AccordionItem value={`faq-${i}`} className="border border-border rounded-lg px-6 bg-card">
+                <AccordionItem value={`faq-${i}`} className="border border-border border-l-4 border-l-primary rounded-lg px-6 bg-card">
                   <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-5">
                     {faq.q}
                   </AccordionTrigger>

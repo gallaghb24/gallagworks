@@ -93,6 +93,13 @@
     transform: translateY(0);
   }
 
+  /* Hero grid texture */
+  .hero-grid {
+    background-image:
+      repeating-linear-gradient(0deg, rgba(31,31,31,0.04) 0px, rgba(31,31,31,0.04) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(90deg, rgba(31,31,31,0.04) 0px, rgba(31,31,31,0.04) 1px, transparent 1px, transparent 60px);
+  }
+
   /* Card hover effect */
   .card-hover {
     transition: transform 0.25s ease-out, border-color 0.25s ease-out, box-shadow 0.25s ease-out;

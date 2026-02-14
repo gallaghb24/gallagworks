@@ -35,18 +35,21 @@ const EngagementTypes = () => {
     <section className="py-16 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
+          <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${isVisible ? "visible" : ""}`}>
+            ENGAGEMENTS
+          </span>
           <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-4 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
             Engagement types
           </h2>
           <p className={`text-muted-foreground text-center mb-12 max-w-2xl mx-auto scroll-fade-in ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-            We structure work to match where you are — from initial assessment through to long-term advisory.
+            We structure work to match where you are – from initial assessment through to long-term advisory.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
             {engagements.map((e, i) => (
               <div
                 key={i}
-                className={`bg-card border border-border rounded-lg p-8 card-hover scroll-fade-in ${isVisible ? "visible" : ""} ${
+                className={`bg-card border border-border border-l-4 border-l-primary rounded-lg p-8 card-hover scroll-fade-in ${isVisible ? "visible" : ""} ${
                   i === engagements.length - 1 && engagements.length % 2 !== 0 ? "md:col-span-2 md:max-w-[calc(50%-0.75rem)]" : ""
                 }`}
                 style={{ transitionDelay: `${(i + 1) * 0.08}s` }}
