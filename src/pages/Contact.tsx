@@ -71,7 +71,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        <section className="pt-32 pb-20 lg:pb-32 hero-grid">
+        <section className="pt-32 pb-20 lg:pb-32">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">

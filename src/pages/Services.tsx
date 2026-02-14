@@ -5,7 +5,6 @@ import HowWeWork from "@/components/HowWeWork";
 import FAQSection from "@/components/FAQSection";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
-import SectionDivider from "@/components/SectionDivider";
 
 const Services = () => {
   useEffect(() => {
@@ -17,7 +16,7 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        <section className="pt-32 pb-16 hero-grid">
+        <section className="pt-32 pb-16">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 animate-fade-in-up">
@@ -30,13 +29,9 @@ const Services = () => {
           </div>
         </section>
 
-        <SectionDivider />
         <EngagementTypes />
-        <SectionDivider />
         <HowWeWork />
-        <SectionDivider />
         <FAQSection />
-        <SectionDivider />
         <CTABand headline="Have a workflow in mind? Let's look at it together." />
       </main>
       <Footer />

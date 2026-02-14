@@ -3,7 +3,6 @@ import Navigation from "@/components/Navigation";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
-import SectionDivider from "@/components/SectionDivider";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const caseStudies = [
@@ -42,7 +41,7 @@ const CaseStudies = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        <section className="pt-32 pb-16 hero-grid">
+        <section className="pt-32 pb-16">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <span className="block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 animate-fade-in-up">
@@ -74,7 +73,6 @@ const CaseStudies = () => {
           </div>
         </section>
 
-        <SectionDivider />
         <CTABand headline="See something similar to your situation?" />
       </main>
       <Footer />
