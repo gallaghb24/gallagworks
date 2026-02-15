@@ -1,128 +1,124 @@
 
-# Gallag Works Homepage Overhaul
+
+# Copy and Visual Overhaul: Operational Engineering Voice
 
 ## Overview
-Complete rebrand and visual overhaul of the homepage, transforming from the warm, centre-aligned "Intelligent Transformation Studio" into a dark, left-aligned, engineering-studio aesthetic for "Gallag Works."
-
-This plan covers the homepage only. Other pages (About, Services, Case Studies, Contact) will retain their current structure but will inherit the new colour palette and typography through the global theme changes.
+Update copy across the entire site to embed three signature concepts -- "AI is an Operational X-Ray" (diagnostic), "Decision Inboxes" (outcome), and "Data Glue" (the problem we fix) -- and reformat case studies as technical Project Schematics. The "How we work" section gets a blueprint/technical-drawing aesthetic.
 
 ---
 
-## 1. Global Theme Changes
+## 1. Hero Section (HeroSection.tsx)
 
-### Fonts (index.html + index.css + tailwind.config.ts)
-- Load **Archivo** (bold sans-serif for headings) and **JetBrains Mono** (monospace for labels/numbers) via Google Fonts
-- Keep **Inter** for body text
-- Add `font-mono` mapping to JetBrains Mono in Tailwind config
-- Replace `font-display` mapping from Sora to Archivo
-
-### Colour Palette (index.css CSS variables)
-- **Background**: Deep Charcoal `#1A1A1A`
-- **Foreground**: Crisp White `#F5F5F5`
-- **Primary (accent)**: Safety Orange `#FF5F1F`
-- **Muted foreground**: Light Grey `#A0A0A0`
-- **Border**: `#2E2E2E` (subtle dark border)
-- **Footer**: Slightly darker `#111111`
-- **Card / popover**: `#222222`
-
-### Global Styles (index.css)
-- Remove the `hero-grid` warm background texture
-- Remove the `card-hover` shadow/lift effect (replaced with border-only interactions)
-- Update `scroll-fade-in` to work with the dark palette
+**Copy changes:**
+- Subtext updated to introduce the core concepts: "We use AI as an Operational X-Ray to expose the Data Glue -- the manual re-keying and spreadsheet handoffs -- then engineer Decision Inboxes so your team moves from managing tasks to making decisions."
+- Terminal lines updated to reflect the new vocabulary:
+  - `> running operational x-ray...`
+  - `> scanning data glue: manual re-keying detected`
+  - `> mapping spreadsheet handoffs...`
+  - `> friction identified: 4 handoff points`
+  - `> engineering decision inbox...`
+  - `> routing exceptions to human judgement`
+  - `> deploying automation pipeline...`
+  - `> data glue eliminated: 3 processes`
+  - `> decision inbox live: ops team`
+  - `> capacity released: 12h/week`
 
 ---
 
-## 2. Navigation (Navigation.tsx)
+## 2. Services / What We Do (ServicesSummary.tsx)
 
-- Replace logo image with a text wordmark: **GALLAG WORKS** in Archivo bold + a small monospace tagline "Operational Engineering"
-- Sticky header with glassmorphism: `bg-[#1A1A1A]/80 backdrop-blur-md border-b border-[#2E2E2E]`
-- "Book a discovery call" button: Safety Orange pill (`bg-[#FF5F1F] rounded-full`)
-- Nav links in light grey, white on hover/active
-- Mobile menu: dark background with orange accent
-
----
-
-## 3. Hero Section (HeroSection.tsx)
-
-- **Layout**: Switch from centred to a two-column grid (`grid-cols-1 lg:grid-cols-2`)
-  - **Left column**: Left-aligned headline "Operational Engineering for the AI Era." in large bold Archivo. Subtext in light grey. Safety Orange CTA button.
-  - **Right column**: Animated terminal/code window component showing scrolling operational engineering commands (pure CSS animation, no dependencies). Dark card with monospace text, a fake title bar with coloured dots, and auto-scrolling lines like `> mapping workflow nodes...`, `> deploying automation pipeline...`, etc.
+**Copy changes to the three service rows:**
+- **[01 DIAGNOSE]**: "AI is an Operational X-Ray. We scan how work actually flows to expose the Data Glue -- the manual re-keying, spreadsheet handoffs, and copy-paste chains -- that silently consumes your team's time."
+- **[02 BUILD]**: "We fix the Data Glue before we automate. Remove duplication, clarify ownership, clean the data layer. Then we engineer Decision Inboxes so your team moves from managing tasks to making decisions."
+- **[03 EMBED]**: "Working automation deployed into day-to-day use with adoption planning, governance, and exception routing baked in. Not strategy decks that gather dust."
 
 ---
 
-## 4. Services Section (ServicesSummary.tsx)
+## 3. How We Work -- Blueprint Aesthetic (HowWeWork.tsx)
 
-- Remove the coral-tinted cards entirely
-- Replace with a **vertical list with 1px horizontal dividers**
-- Each row: monospace label on the left (e.g., `[01 DIAGNOSE]`) in Safety Orange, description text on the right in light grey
-- Responsive: stacks vertically on mobile with label above description
-- Remove the "Explore our services" button (or restyle as a minimal text link)
+**Copy changes to the three steps:**
+- **01 X-Ray**: "Run the Operational X-Ray. Map every input, handoff, decision point, and failure mode. Find the Data Glue."
+- **02 Engineer**: "Fix the Data Glue first. Eliminate re-keying, consolidate spreadsheet handoffs, clarify ownership. Build Decision Inboxes that surface only what needs human judgement."
+- **03 Deploy**: "Ship working automation with adoption planning and governance baked in. Monitor, iterate, and hand over."
 
----
-
-## 5. How We Work Section (HowWeWork.tsx)
-
-- Create a **horizontal flow diagram** layout
-- Three steps connected by literal SVG/CSS lines
-- Each step: a bordered box with monospace step number (`01`, `02`, `03`) in orange, title in white, description in grey
-- Connecting lines: 1px solid orange/grey lines between boxes
-- Responsive: vertical flow on mobile with vertical connecting lines
+**Visual changes -- blueprint aesthetic:**
+- Add a subtle CSS grid-dot or grid-line background pattern to the section (using a repeating CSS background-image of faint dots/lines on the charcoal) to evoke a technical drawing
+- Add a monospace `[BLUEPRINT]` kicker label
+- Add dashed connecting lines between steps (dashed border style instead of solid) to look like technical drawing annotation lines
+- Add small "pin" markers (small circles) at connection points
+- Keep the bordered boxes but switch to dashed borders to reinforce the schematic feel
 
 ---
 
-## 6. Outcomes / Proof Points (ProofPoints.tsx)
+## 4. Outcomes / Proof Points (ProofPoints.tsx)
 
-- Replace the text-only cards with a **data grid** layout
-- Each item gets a large bold metric/label (e.g., "Capacity Released", "Rework Eliminated") in white Archivo, with a supporting line underneath in grey
-- Grid: `grid-cols-2 lg:grid-cols-4` for a dense data-panel feel
-- Each cell separated by 1px borders, no rounded corners
-- Monospace kicker label `[OUTCOMES]` at the top
-
----
-
-## 7. CTA Band (CTABand.tsx)
-
-- Dark section with 1px top/bottom borders
-- Headline left-aligned or centred in bold white
-- Safety Orange CTA button
-- Email line below in monospace grey
+**Updated metrics to reflect new vocabulary:**
+- **Data Glue Eliminated**: "Manual re-keying, spreadsheet handoffs, and copy-paste chains removed from core workflows."
+- **Decision Inboxes Live**: "Exceptions and decisions routed to the right humans -- not buried in process noise."
+- **Capacity Released**: "Routine work handled by systems, freeing teams for judgement-led tasks."
+- **Adoption Achieved**: "Automation deployed into day-to-day use -- not left in a slide deck."
 
 ---
 
-## 8. Footer (Footer.tsx)
+## 5. Case Studies -- Project Schematic Format (CaseStudies.tsx + CaseStudyCard.tsx)
 
-- Update brand name to "Gallag Works"
-- Update email address to `hello@gallagworks.com` (or keep current if not changing domain yet)
-- Dark background (`#111`), 1px top border, minimal layout
-- Monospace copyright line
+**CaseStudyCard.tsx -- new props and layout:**
+- Replace the current props (`problem`, `whatChanged`, `stayedHuman`, `outcome`) with a new "Project Schematic" structure:
+  - `projectId` (e.g., "GW-001")
+  - `title` (e.g., "POS Job Workflow")
+  - `sector`
+  - `friction` -- array of strings describing the friction points (the Data Glue)
+  - `engineering` -- array of strings describing what was engineered
+  - `humanLayer` -- what stayed human
+  - `result` -- the measurable outcome
+- Visual layout: monospace project ID header, then two columns on desktop -- left column for FRICTION (in orange-tinted section), right column for ENGINEERING -- followed by HUMAN LAYER and RESULT rows
+- Use 1px borders and monospace section labels (`[FRICTION]`, `[ENGINEERING]`, `[HUMAN LAYER]`, `[RESULT]`) to look like a technical project spec
+
+**CaseStudies.tsx -- updated data:**
+- Rename the three case studies with project schematic framing:
+  1. **GW-001 | POS Job Workflow** (Professional Services): Friction = manual data pulls from multiple systems, reformatting, reports outdated on delivery. Engineering = single data pipeline, automated report generation, live data feeds. Human Layer = commentary, narrative, client recommendations. Result = reporting cycle cut 70%, 15h/week reclaimed.
+  2. **GW-002 | Costing Process** (Media/Publishing): Friction = spreadsheet handoffs, email coordination, duplicated tracking, missed deadlines. Engineering = consolidated production system, automated status/assignments/alerts. Human Layer = editorial judgement, creative direction, stakeholder sign-off. Result = missed deadlines down 85%, 10h/week coordination overhead removed.
+  3. **GW-003 | Validation Pipeline** (Financial Services): Friction = high-volume manual checks, no capacity for improvement. Engineering = validation rules in data pipeline, automated checks, exception-handling workflows. Human Layer = judgement calls on exceptions, relationship management, governance. Result = manual checking reduced 60%, 20h/week reclaimed.
+- Update page title to "Project Schematics | Gallag Works"
+- Update heading to "Project Schematics" with subtext "Technical summaries from recent engagements. Different sectors, same engineering approach."
 
 ---
 
-## 9. Page Title / Meta (index.html)
+## 6. About Page (About.tsx)
 
-- Update `<title>` to "Gallag Works | Operational Engineering"
-- Update meta description and OG tags
+**Copy updates to embed new vocabulary:**
+- Point of View section: weave in "Data Glue" and "Decision Inboxes" language. E.g., "Most organisations don't have an AI problem. They have a Data Glue problem -- manual re-keying, spreadsheet handoffs, and copy-paste chains that silently consume capacity."
+- Add a line: "We engineer Decision Inboxes: structured views that surface only the exceptions and choices that need human judgement."
 
 ---
 
-## Technical Details
+## 7. Services Page (Services.tsx)
 
-### Files Modified
-1. **index.html** -- title, meta tags, font imports
-2. **src/index.css** -- CSS variables (full palette swap), remove old utilities, add new ones
-3. **tailwind.config.ts** -- font families (Archivo, JetBrains Mono), updated colour references
-4. **src/components/Navigation.tsx** -- text wordmark, glassmorphism, orange CTA, dark mobile menu
-5. **src/components/HeroSection.tsx** -- two-column grid, left-aligned copy, terminal animation component
-6. **src/components/ServicesSummary.tsx** -- vertical divider list with monospace labels
-7. **src/components/HowWeWork.tsx** -- horizontal flow diagram with connecting lines
-8. **src/components/ProofPoints.tsx** -- data grid layout with bold metrics
-9. **src/components/CTABand.tsx** -- dark bordered section, left-align option
-10. **src/components/Footer.tsx** -- brand name, dark styling
-11. **src/pages/Index.tsx** -- update CTA headline text, email address if needed
-12. **src/pages/About.tsx** -- update document title reference from "Intelligent Transformation Studio" to "Gallag Works"
+- Update page title to "Services | Gallag Works"
+- Update intro copy to reference the Operational X-Ray and Data Glue concepts
 
-### New Components
-- **TerminalAnimation** (inline in HeroSection or separate file) -- pure CSS animated terminal window with scrolling monospace text lines
+---
 
-### No New Dependencies
-All achieved with existing Tailwind, Lucide icons, and CSS animations.
+## 8. Navigation and CTA updates
+
+- Update CTA headline in Index.tsx to: "Ready to eliminate the Data Glue from your operations?"
+- Update the email address across the site from `hello@intelligenttransformation.studio` to `hello@gallagworks.com` (Index.tsx, About.tsx, Footer.tsx)
+
+---
+
+## Files Modified
+
+1. `src/components/HeroSection.tsx` -- copy + terminal lines
+2. `src/components/ServicesSummary.tsx` -- service descriptions
+3. `src/components/HowWeWork.tsx` -- step copy + blueprint CSS aesthetic (dashed borders, grid-dot background, pin markers)
+4. `src/components/ProofPoints.tsx` -- metric labels and descriptions
+5. `src/components/CaseStudyCard.tsx` -- new props interface and schematic layout
+6. `src/pages/CaseStudies.tsx` -- new data structure, page title, heading
+7. `src/pages/About.tsx` -- copy updates with new vocabulary
+8. `src/pages/Services.tsx` -- page title and intro copy
+9. `src/pages/Index.tsx` -- CTA headline, email address
+10. `src/components/Footer.tsx` -- email address
+11. `src/index.css` -- blueprint grid-dot background utility class for How We Work section
+
+No new dependencies required.
+
