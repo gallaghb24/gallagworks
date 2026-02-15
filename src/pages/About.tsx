@@ -82,26 +82,24 @@ const About = () => {
         {/* What you can expect */}
         <section className="py-16 lg:py-28" ref={expect.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto">
-              <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
+            <div className="max-w-3xl mx-auto text-center">
+              <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
                 WORKING TOGETHER
               </span>
-              <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
+              <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
                 What you can expect
               </h2>
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="space-y-8">
                 {expectItems.map((item, i) => {
                   const Icon = item.icon;
                   return (
                     <div
                       key={i}
-                      className={`border border-border border-l-4 border-l-primary rounded-lg p-6 card-hover scroll-fade-in ${expect.isVisible ? "visible" : ""}`}
+                      className={`flex flex-col items-center gap-3 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
-                      <div className="flex items-start gap-4">
-                        <Icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" strokeWidth={1.5} />
-                        <p className="text-foreground font-medium leading-relaxed text-base md:text-sm">{item.text}</p>
-                      </div>
+                      <Icon className="h-6 w-6 text-primary" strokeWidth={1.5} />
+                      <p className="text-foreground/70 text-base leading-relaxed">{item.text}</p>
                     </div>
                   );
                 })}
