@@ -59,7 +59,7 @@ const About = () => {
                 POINT OF VIEW
               </span>
               <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-10 scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
-                My approach
+                The approach
               </h2>
               <div className={`space-y-6 scroll-fade-in ${approach.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
                 <p className="text-foreground/70 leading-relaxed text-base">
