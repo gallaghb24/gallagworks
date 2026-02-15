@@ -25,7 +25,7 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <nav className="flex gap-6">
                 <Link to="/services" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Services</Link>
-                <Link to="/about" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">About</Link>
+                <Link to="/about" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Who we are</Link>
                 <Link to="/case-studies" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Case Studies</Link>
                 <Link to="/contact" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Contact</Link>
               </nav>
