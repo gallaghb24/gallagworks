@@ -16,6 +16,16 @@ const Index = () => {
         <HowWeWork />
         <ProofPoints />
         <CTABand headline={<>Ready to <span className="text-primary">reclaim time</span> from day-to-day operations?</>} />
+        <section className="-mt-12 pb-16">
+          <div className="container mx-auto px-6 lg:px-12 text-center">
+            <p className="text-foreground/50 text-sm">
+              Or email{" "}
+              <a href="mailto:hello@intelligenttransformation.studio" className="text-primary hover:underline">
+                hello@intelligenttransformation.studio
+              </a>
+            </p>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
