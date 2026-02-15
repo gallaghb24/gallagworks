@@ -1,39 +1,16 @@
 
-# Add About page at /about
 
-## Overview
-Create a dedicated About page focused on credibility, point of view, and working style. The page reuses existing design patterns (hero styling, section spacing, typography, scroll animations, CTA band) without duplicating service or engagement content.
+# Replace centred bullets with coral left-rail cards in "Where this helps most"
 
-## Files to create
+## What changes
+The five bullet items in the "Where this helps most" section (lines 126-137) will be replaced with the same coral left-rail card grid used in the "What you can expect" section above it.
 
-### `src/pages/About.tsx`
-New page component with:
-- Page hero matching the Services page pattern (centred H1 + subtitle, `pt-32 pb-16`)
-- Five content sections using the existing spacing (`py-16 lg:py-28`), scroll-fade-in animations, and coral kicker labels
-- Sections: "My approach", "What you can expect", "Where this helps most", "Background", and a CTA using the existing `CTABand` component
-- Bullet sections use the existing coral left-rail card style from ProofPoints
-- All copy exactly as specified in the brief, UK English
-- Meta title set via `useEffect` consistent with other pages
+## Changes to `src/pages/About.tsx`
 
-## Files to modify
+1. **Add Lucide icons** to the imports: `Settings`, `BarChart3`, `Megaphone`, `BookOpen`, `Mail`
+2. **Replace the `fitItems` string array** (lines 16-22) with an array of objects containing icon and text, matching the `expectItems` pattern
+3. **Replace the `<ul>` list** (lines 126-137) with a `grid sm:grid-cols-2 gap-6` layout using the coral left-rail card style (`border border-border border-l-4 border-l-primary rounded-lg p-6 card-hover`) with icon + text, identical to the "What you can expect" cards
+4. **Update the wrapper** from `max-w-3xl` to `max-w-4xl` to match the expect section width
 
-### `src/App.tsx`
-- Import `About` page component
-- Add `<Route path="/about" element={<About />} />` before the catch-all route
+No new files or dependencies needed.
 
-### `src/components/Navigation.tsx`
-- Add `{ to: "/about", label: "About" }` to the `navLinks` array (inserted before "Contact" to keep logical order: Services, About, Case Studies, Contact)
-
-## Design details
-- Hero: same centred layout as Services page (`max-w-3xl mx-auto text-center`)
-- Section kickers: small uppercase coral text (e.g. "POINT OF VIEW", "WORKING TOGETHER", "FIT", "BACKGROUND") matching the existing pattern from ProofPoints
-- Bullet items: coral left-rail cards (`border border-border border-l-4 border-l-primary rounded-lg p-6 card-hover`) with scroll-fade-in and staggered delays
-- "My approach" paragraphs rendered as standard body text with `text-foreground/70` styling
-- "Background" paragraphs rendered similarly, each as a `<p>` with spacing
-- Final CTA uses the shared `CTABand` component with headline "Want to talk it through?" plus a secondary email line below
-- Lucide icons on bullet items are optional; will add appropriate monoline icons (e.g. `Clock`, `Target`, `Wrench`, `Users`, `Shield`) to the "What you can expect" list for visual consistency
-
-## Technical details
-- No new dependencies required
-- Reuses `useScrollAnimation` hook, `Navigation`, `Footer`, `CTABand` components
-- No database or backend changes needed
