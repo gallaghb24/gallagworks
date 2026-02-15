@@ -2,16 +2,16 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const metrics = [
   {
+    metric: "Data Glue Eliminated",
+    detail: "Manual re-keying, spreadsheet handoffs, and copy-paste chains removed from core workflows.",
+  },
+  {
+    metric: "Decision Inboxes Live",
+    detail: "Exceptions and decisions routed to the right humans – not buried in process noise.",
+  },
+  {
     metric: "Capacity Released",
     detail: "Routine work handled by systems, freeing teams for judgement-led tasks.",
-  },
-  {
-    metric: "Rework Eliminated",
-    detail: "Handoff errors and manual checks removed from core workflows.",
-  },
-  {
-    metric: "Decisions Surfaced",
-    detail: "Exceptions and decisions routed to humans, not buried in process.",
   },
   {
     metric: "Adoption Achieved",

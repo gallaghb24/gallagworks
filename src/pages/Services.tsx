@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 
 const Services = () => {
   useEffect(() => {
-    document.title = "Services | Intelligent Transformation Studio";
+    document.title = "Services | Gallag Works";
     window.scrollTo(0, 0);
   }, []);
 
@@ -18,12 +18,15 @@ const Services = () => {
       <main>
         <section className="pt-32 pb-16">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 animate-fade-in-up">
+            <div className="max-w-3xl">
+              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block animate-fade-in">
+                [SERVICES]
+              </span>
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in-up">
                 Our services
               </h1>
-              <p className="text-lg text-foreground/70 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                Every engagement starts with understanding. We don't bring pre-built solutions – we design around how your organisation actually operates.
+              <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+                Every engagement starts with the Operational X-Ray – understanding where the Data Glue sits before we design anything. We don't bring pre-built solutions; we engineer around how your organisation actually operates.
               </p>
             </div>
           </div>

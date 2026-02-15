@@ -15,13 +15,13 @@ const Index = () => {
         <ServicesSummary />
         <HowWeWork />
         <ProofPoints />
-        <CTABand headline={<>Ready to <span className="text-primary">reclaim time</span> from day-to-day operations?</>} />
+        <CTABand headline={<>Ready to eliminate the <span className="text-primary">Data Glue</span> from your operations?</>} />
         <section className="-mt-12 pb-16">
           <div className="container mx-auto px-6 lg:px-12 text-center">
             <p className="text-muted-foreground text-sm font-mono">
               Or email{" "}
-              <a href="mailto:hello@intelligenttransformation.studio" className="text-primary hover:underline">
-                hello@intelligenttransformation.studio
+              <a href="mailto:hello@gallagworks.com" className="text-primary hover:underline">
+                hello@gallagworks.com
               </a>
             </p>
           </div>

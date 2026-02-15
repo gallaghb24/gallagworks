@@ -3,21 +3,21 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const steps = [
   {
     number: "01",
-    title: "Understand",
+    title: "X-Ray",
     description:
-      "We map how work actually flows. Not the org chart version – the real one, with the workarounds and the spreadsheets.",
+      "Run the Operational X-Ray. Map every input, handoff, decision point, and failure mode. Find the Data Glue.",
   },
   {
     number: "02",
-    title: "Redesign",
+    title: "Engineer",
     description:
-      "We simplify before we automate. Remove duplication, clarify ownership, fix the data. Technology comes after the thinking.",
+      "Fix the Data Glue first. Eliminate re-keying, consolidate spreadsheet handoffs, clarify ownership. Build Decision Inboxes that surface only what needs human judgement.",
   },
   {
     number: "03",
-    title: "Build & embed",
+    title: "Deploy",
     description:
-      "We deliver working automation with adoption planning and governance baked in. Not strategy decks that gather dust.",
+      "Ship working automation with adoption planning and governance baked in. Monitor, iterate, and hand over.",
   },
 ];
 
@@ -25,7 +25,7 @@ const HowWeWork = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 lg:py-28 border-t border-border" ref={ref}>
+    <section className="py-16 lg:py-28 border-t border-border blueprint-grid" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
@@ -33,7 +33,7 @@ const HowWeWork = () => {
               isVisible ? "visible" : ""
             }`}
           >
-            [METHOD]
+            [BLUEPRINT]
           </span>
           <h2
             className={`font-display text-3xl md:text-4xl font-bold text-foreground mb-12 scroll-fade-in ${
@@ -54,15 +54,23 @@ const HowWeWork = () => {
                 {/* Connecting line (between boxes) */}
                 {i < steps.length - 1 && (
                   <>
-                    {/* Desktop horizontal line */}
-                    <div className="hidden md:block absolute top-1/2 -right-[1px] w-8 h-px bg-primary z-10" style={{ right: "-16px" }} />
-                    {/* Mobile vertical line */}
-                    <div className="md:hidden absolute bottom-0 left-8 w-px h-8 bg-primary translate-y-full z-10" />
+                    {/* Desktop horizontal dashed line */}
+                    <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 items-center z-10" style={{ right: "-16px", width: "32px" }}>
+                      <div className="w-2 h-2 rounded-full border-2 border-primary bg-background flex-shrink-0" />
+                      <div className="flex-1 border-t-2 border-dashed border-primary/50" />
+                      <div className="w-2 h-2 rounded-full border-2 border-primary bg-background flex-shrink-0" />
+                    </div>
+                    {/* Mobile vertical dashed line */}
+                    <div className="md:hidden flex flex-col items-center absolute bottom-0 left-8 translate-y-full z-10" style={{ height: "32px" }}>
+                      <div className="w-2 h-2 rounded-full border-2 border-primary bg-background flex-shrink-0" />
+                      <div className="flex-1 border-l-2 border-dashed border-primary/50" />
+                      <div className="w-2 h-2 rounded-full border-2 border-primary bg-background flex-shrink-0" />
+                    </div>
                   </>
                 )}
 
                 <div
-                  className={`border border-border p-8 ${
+                  className={`border border-dashed border-border p-8 ${
                     i < steps.length - 1 ? "mb-8 md:mb-0 md:mr-8" : ""
                   }`}
                 >

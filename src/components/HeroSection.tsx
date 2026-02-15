@@ -3,22 +3,16 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const terminalLines = [
-  "> mapping workflow nodes...",
-  "> scanning handoff points...",
-  "> identifying manual bottlenecks...",
-  "> rework detected: 3 loops in approval chain",
-  "> simplifying decision tree...",
+  "> running operational x-ray...",
+  "> scanning data glue: manual re-keying detected",
+  "> mapping spreadsheet handoffs...",
+  "> friction identified: 4 handoff points",
+  "> engineering decision inbox...",
+  "> routing exceptions to human judgement",
   "> deploying automation pipeline...",
-  "> connecting data sources...",
-  "> validating exception routes...",
-  "> ownership matrix updated",
-  "> governance rules applied",
-  "> running integration tests...",
-  "> all checks passed ✓",
-  "> pipeline deployed to production",
-  "> monitoring active",
+  "> data glue eliminated: 3 processes",
+  "> decision inbox live: ops team",
   "> capacity released: 12h/week",
-  "> error rate reduced: -68%",
 ];
 
 const HeroSection = () => {
@@ -40,8 +34,7 @@ const HeroSection = () => {
               className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed animate-fade-in-up"
               style={{ animationDelay: "0.15s" }}
             >
-              We redesign workflows and build automation that removes friction
-              from day-to-day operations.
+              We use AI as an Operational X-Ray to expose the Data Glue – the manual re-keying and spreadsheet handoffs – then engineer Decision Inboxes so your team moves from managing tasks to making decisions.
             </p>
 
             <div
@@ -73,7 +66,7 @@ const HeroSection = () => {
                 <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
                 <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
                 <span className="ml-3 font-mono text-xs text-muted-foreground">
-                  workflow-engine.sh
+                  operational-x-ray.sh
                 </span>
               </div>
               {/* Terminal body */}
@@ -83,9 +76,9 @@ const HeroSection = () => {
                     <p
                       key={i}
                       className={`font-mono text-sm leading-7 ${
-                        line.includes("✓") || line.includes("passed")
+                        line.includes("live") || line.includes("released")
                           ? "text-primary"
-                          : line.includes("detected") || line.includes("error")
+                          : line.includes("detected") || line.includes("friction")
                           ? "text-primary/70"
                           : "text-muted-foreground"
                       }`}

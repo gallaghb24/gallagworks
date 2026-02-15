@@ -44,7 +44,7 @@ const About = () => {
               <h1 className={`font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 scroll-fade-in ${hero.isVisible ? "visible" : ""}`}>
                 Who we are
               </h1>
-              <p className={`text-lg text-foreground/70 leading-relaxed scroll-fade-in ${hero.isVisible ? "visible" : ""}`} style={{ animationDelay: "0.1s" }}>
+              <p className={`text-lg text-muted-foreground leading-relaxed scroll-fade-in ${hero.isVisible ? "visible" : ""}`} style={{ animationDelay: "0.1s" }}>
                 Operator-led workflow transformation. Implementation-first automation that teams actually adopt.
               </p>
             </div>
@@ -62,16 +62,16 @@ const About = () => {
                 The approach
               </h2>
               <div className={`space-y-6 scroll-fade-in ${approach.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-                <p className="text-foreground/70 leading-relaxed text-base">
-                  Most organisations do not have an AI problem. They have a workflow problem.
+                <p className="text-muted-foreground leading-relaxed text-base">
+                  Most organisations don't have an AI problem. They have a Data Glue problem – manual re-keying, spreadsheet handoffs, and copy-paste chains that silently consume capacity.
                 </p>
-                <p className="text-foreground/70 leading-relaxed text-base">
-                  We start by making the work explicit: inputs, handoffs, decisions, checks, and failure modes.
+                <p className="text-muted-foreground leading-relaxed text-base">
+                  We use AI as an Operational X-Ray: making the work explicit – inputs, handoffs, decisions, checks, and failure modes – so we can see exactly where the friction sits.
                 </p>
-                <p className="text-foreground/70 leading-relaxed text-base">
-                  Then we simplify, clarify ownership, fix the data, and automate the repeatable parts.
+                <p className="text-muted-foreground leading-relaxed text-base">
+                  Then we fix the Data Glue before we automate. Clarify ownership, clean the data layer, and engineer Decision Inboxes – structured views that surface only the exceptions and choices that need human judgement.
                 </p>
-                <p className="text-foreground/70 leading-relaxed text-base">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   Implementation-first: working automation, adoption planning, and governance – not just strategy decks.
                 </p>
               </div>
@@ -120,7 +120,7 @@ const About = () => {
               <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-6 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
                 Where this helps most
               </h2>
-              <p className={`text-foreground/70 leading-relaxed text-base mb-8 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+              <p className={`text-muted-foreground leading-relaxed text-base mb-8 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
                 This approach works best with teams that already know something is broken – they just need a structured way to fix it.
               </p>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -155,16 +155,16 @@ const About = () => {
                 Experience and working style
               </h2>
               <div className={`space-y-6 scroll-fade-in ${background.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-                <p className="text-foreground/70 leading-relaxed text-base">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   I've spent close to 20 years working at the intersection of operations, delivery, and technology – building and running efficient teams, and putting in place the systems and ways of working that keep them effective as scale and complexity increase.
                 </p>
-                <p className="text-foreground/70 leading-relaxed text-base">
-                  That experience has covered workflow redesign and implementation across operations, finance, marketing, and client delivery. Most of the time the issues are not dramatic, they are cumulative: handoffs, spreadsheets, manual checks, unclear ownership, and rework that quietly become "how things work".
+                <p className="text-muted-foreground leading-relaxed text-base">
+                  That experience has covered workflow redesign and implementation across operations, finance, marketing, and client delivery. Most of the time the issues are not dramatic, they are cumulative: the Data Glue – handoffs, spreadsheets, manual checks, unclear ownership, and rework that quietly become "how things work".
                 </p>
-                <p className="text-foreground/70 leading-relaxed text-base">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   I focus on making the work explicit, reducing avoidable variation, clarifying responsibility, and building automation that people actually use day to day.
                 </p>
-                <p className="text-foreground/70 leading-relaxed text-base">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   I lead engagements directly. When specialist build resource is needed – integrations, data pipelines, or lightweight internal tools – I bring trusted engineers who deliver against the operational design.
                 </p>
               </div>
@@ -176,10 +176,10 @@ const About = () => {
         <CTABand headline="Want to talk it through?" />
         <section className="-mt-12 pb-16">
           <div className="container mx-auto px-6 lg:px-12 text-center">
-            <p className="text-foreground/50 text-sm">
+            <p className="text-muted-foreground text-sm">
               Or email{" "}
-              <a href="mailto:hello@intelligenttransformation.studio" className="text-primary hover:underline">
-                hello@intelligenttransformation.studio
+              <a href="mailto:hello@gallagworks.com" className="text-primary hover:underline">
+                hello@gallagworks.com
               </a>
             </p>
           </div>

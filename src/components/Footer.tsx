@@ -18,10 +18,10 @@ const Footer = () => {
                 Operational Engineering
               </span>
               <a
-                href="mailto:hello@intelligenttransformation.studio"
+                href="mailto:hello@gallagworks.com"
                 className="text-footer-foreground/70 hover:text-footer-foreground transition-colors text-sm font-mono"
               >
-                hello@intelligenttransformation.studio
+                hello@gallagworks.com
               </a>
             </div>
 
