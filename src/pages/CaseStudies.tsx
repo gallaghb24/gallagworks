@@ -7,25 +7,56 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const caseStudies = [
   {
-    sector: "Professional Services Firm",
-    problem: "A mid-sized professional services firm was spending significant time on client reporting. Teams manually pulled data from multiple systems, reformatted it, and produced reports that were often outdated by the time they reached clients.",
-    whatChanged: "We mapped the full reporting workflow, identified three systems that could feed a single data pipeline, and built an automated reporting tool that pulls live data and generates formatted outputs.",
-    stayedHuman: "Commentary, narrative context, and client-specific recommendations. The team now spends time on interpretation rather than data wrangling.",
-    outcome: "Reporting cycle time cut by 70%, freeing ~15 hours per week for the team to focus on analysis and client advisory.",
+    projectId: "GW-001",
+    title: "POS Job Workflow",
+    sector: "Professional Services",
+    friction: [
+      "Manual data pulls from multiple systems",
+      "Reformatting and re-keying between tools",
+      "Reports outdated by the time they reached clients",
+    ],
+    engineering: [
+      "Single data pipeline replacing manual pulls",
+      "Automated report generation with formatted outputs",
+      "Live data feeds replacing static snapshots",
+    ],
+    humanLayer: "Commentary, narrative context, and client-specific recommendations. The team now spends time on interpretation rather than data wrangling.",
+    result: "Reporting cycle cut 70%. 15h/week reclaimed for analysis and client advisory.",
   },
   {
-    sector: "Media and Publishing Organisation",
-    problem: "A content team was managing production across multiple channels with a patchwork of spreadsheets, email threads, and manual handoffs. Work was duplicated, deadlines were missed, and nobody had a clear view of what was in progress.",
-    whatChanged: "We redesigned the production workflow from brief to publish, consolidated tracking into a single system, and automated status updates, assignments, and deadline alerts.",
-    stayedHuman: "Editorial judgement, creative direction, and stakeholder sign-off. Automation handled the logistics, not the decisions.",
-    outcome: "Missed deadlines down 85%. Coordination overhead reduced by ~10 hours per week across the team.",
+    projectId: "GW-002",
+    title: "Costing Process",
+    sector: "Media / Publishing",
+    friction: [
+      "Spreadsheet handoffs between teams",
+      "Email-based coordination and status chasing",
+      "Duplicated tracking across multiple sheets",
+      "Missed deadlines from unclear ownership",
+    ],
+    engineering: [
+      "Consolidated production system replacing spreadsheets",
+      "Automated status updates and assignment routing",
+      "Deadline alerts and escalation workflows",
+    ],
+    humanLayer: "Editorial judgement, creative direction, and stakeholder sign-off. Automation handled the logistics, not the decisions.",
+    result: "Missed deadlines down 85%. 10h/week coordination overhead removed.",
   },
   {
-    sector: "Operations Team in Financial Services",
-    problem: "An operations team was processing high volumes of structured data with extensive manual checks. Error rates were low but the cost in time was high, and the team had no capacity for process improvement.",
-    whatChanged: "We built validation rules into the data pipeline, automated routine checks, and created exception-handling workflows that escalate only genuine anomalies.",
-    stayedHuman: "Judgement calls on exceptions, relationship management, and process governance.",
-    outcome: "Manual checking reduced by 60%, reclaiming ~20 hours per week and enabling the team to launch two process improvement initiatives within the first quarter.",
+    projectId: "GW-003",
+    title: "Validation Pipeline",
+    sector: "Financial Services",
+    friction: [
+      "High-volume manual checks on structured data",
+      "No capacity for process improvement",
+      "Error rates low but time cost unsustainable",
+    ],
+    engineering: [
+      "Validation rules built into the data pipeline",
+      "Automated routine checks with exception routing",
+      "Decision Inbox for genuine anomalies only",
+    ],
+    humanLayer: "Judgement calls on exceptions, relationship management, and process governance.",
+    result: "Manual checking reduced 60%. 20h/week reclaimed. Two process improvement initiatives launched in first quarter.",
   },
 ];
 
@@ -33,7 +64,7 @@ const CaseStudies = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   useEffect(() => {
-    document.title = "Case Studies | Intelligent Transformation Studio";
+    document.title = "Project Schematics | Gallag Works";
     window.scrollTo(0, 0);
   }, []);
 
@@ -43,15 +74,15 @@ const CaseStudies = () => {
       <main>
         <section className="pt-32 pb-16">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <span className="block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 animate-fade-in-up">
-                CASE STUDIES
+            <div className="max-w-3xl">
+              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block animate-fade-in">
+                [PROJECT SCHEMATICS]
               </span>
-              <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 animate-fade-in-up">
-                What this looks like in practice
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in-up">
+                Project Schematics
               </h1>
-              <p className="text-lg text-foreground/70 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                Anonymised examples from recent engagements. Different sectors, similar patterns.
+              <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+                Technical summaries from recent engagements. Different sectors, same engineering approach.
               </p>
             </div>
           </div>
@@ -59,7 +90,7 @@ const CaseStudies = () => {
 
         <section className="pb-20" ref={ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto space-y-8">
+            <div className="max-w-4xl space-y-8">
               {caseStudies.map((cs, i) => (
                 <div
                   key={i}

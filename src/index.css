@@ -124,3 +124,9 @@
 .terminal-scroll {
   animation: terminal-scroll 20s linear infinite;
 }
+
+/* Blueprint grid-dot background */
+.blueprint-grid {
+  background-image: radial-gradient(circle, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

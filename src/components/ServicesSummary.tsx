@@ -5,21 +5,18 @@ import { Link } from "react-router-dom";
 const services = [
   {
     label: "01 DIAGNOSE",
-    title: "Diagnose",
     description:
-      "Understand where time, errors, and rework accumulate. Map how work actually flows – not the org chart version.",
+      "AI is an Operational X-Ray. We scan how work actually flows to expose the Data Glue – the manual re-keying, spreadsheet handoffs, and copy-paste chains – that silently consumes your team's time.",
   },
   {
     label: "02 BUILD",
-    title: "Build",
     description:
-      "Redesign the workflow and implement automation that fits how your team actually works. Technology comes after the thinking.",
+      "We fix the Data Glue before we automate. Remove duplication, clarify ownership, clean the data layer. Then we engineer Decision Inboxes so your team moves from managing tasks to making decisions.",
   },
   {
     label: "03 EMBED",
-    title: "Embed",
     description:
-      "Ongoing advisory and support to make change stick. Adoption planning, governance, and exception handling baked in.",
+      "Working automation deployed into day-to-day use with adoption planning, governance, and exception routing baked in. Not strategy decks that gather dust.",
   },
 ];
 
