@@ -151,13 +151,16 @@ const About = () => {
               </h2>
               <div className={`space-y-6 scroll-fade-in ${background.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
                 <p className="text-foreground/70 leading-relaxed text-base">
-                  I work at the intersection of operations, delivery, and technology – helping teams take messy, high-variation work and turn it into clear systems that run reliably day to day.
+                  I've spent close to 20 years working at the intersection of operations, delivery, and technology – building and running efficient teams, and putting in place the systems and ways of working that keep them effective as scale and complexity increase.
                 </p>
                 <p className="text-foreground/70 leading-relaxed text-base">
-                  My background spans workflow redesign and implementation across operations, finance, marketing operations, and client delivery. The common pattern is always the same: too much time lost to handoffs, spreadsheets, manual checks, and rework. I focus on making the work explicit, simplifying what can be simplified, and building automation that people actually use.
+                  That experience has covered workflow redesign and implementation across operations, finance, marketing operations, and client delivery. Most of the time the issues are not dramatic, they are cumulative: handoffs, spreadsheets, manual checks, unclear ownership, and rework that quietly become "how things work".
                 </p>
                 <p className="text-foreground/70 leading-relaxed text-base">
-                  I lead engagements directly, and when specialist build resource is needed – integrations, data pipelines, or lightweight internal tools – I bring trusted engineers who can deliver against the operational design.
+                  I focus on making the work explicit, reducing avoidable variation, clarifying responsibility, and building automation that people actually use day to day.
+                </p>
+                <p className="text-foreground/70 leading-relaxed text-base">
+                  I lead engagements directly. When specialist build resource is needed – integrations, data pipelines, or lightweight internal tools – I bring trusted engineers who deliver against the operational design.
                 </p>
               </div>
             </div>
