@@ -159,7 +159,7 @@ const About = () => {
                   I've spent close to 20 years working at the intersection of operations, delivery, and technology – building and running efficient teams, and putting in place the systems and ways of working that keep them effective as scale and complexity increase.
                 </p>
                 <p className="text-foreground/70 leading-relaxed text-base">
-                  That experience has covered workflow redesign and implementation across operations, finance, marketing operations, and client delivery. Most of the time the issues are not dramatic, they are cumulative: handoffs, spreadsheets, manual checks, unclear ownership, and rework that quietly become "how things work".
+                  That experience has covered workflow redesign and implementation across operations, finance, marketing, and client delivery. Most of the time the issues are not dramatic, they are cumulative: handoffs, spreadsheets, manual checks, unclear ownership, and rework that quietly become "how things work".
                 </p>
                 <p className="text-foreground/70 leading-relaxed text-base">
                   I focus on making the work explicit, reducing avoidable variation, clarifying responsibility, and building automation that people actually use day to day.
