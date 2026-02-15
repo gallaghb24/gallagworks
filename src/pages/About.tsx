@@ -66,7 +66,7 @@ const About = () => {
                   Most organisations do not have an AI problem. They have a workflow problem.
                 </p>
                 <p className="text-foreground/70 leading-relaxed text-base">
-                  I start by making the work explicit: inputs, handoffs, decisions, checks, and failure modes.
+                  We start by making the work explicit: inputs, handoffs, decisions, checks, and failure modes.
                 </p>
                 <p className="text-foreground/70 leading-relaxed text-base">
                   Then we simplify, clarify ownership, fix the data, and automate the repeatable parts.
