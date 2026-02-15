@@ -6,17 +6,20 @@ const Footer = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <footer className="py-16 bg-footer text-footer-foreground" ref={ref}>
+    <footer className="py-16 bg-footer text-footer-foreground border-t border-border" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className={`max-w-4xl mx-auto scroll-fade-in ${isVisible ? "visible" : ""}`}>
+        <div className={`max-w-5xl scroll-fade-in ${isVisible ? "visible" : ""}`}>
           <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-12">
             <div>
-              <div className="font-display text-lg font-semibold mb-4 text-primary">
-                Intelligent Transformation Studio
+              <div className="font-display text-lg font-bold mb-2 text-foreground">
+                GALLAG WORKS
               </div>
+              <span className="font-mono text-xs text-muted-foreground tracking-widest uppercase block mb-4">
+                Operational Engineering
+              </span>
               <a
                 href="mailto:hello@intelligenttransformation.studio"
-                className="text-footer-foreground/70 hover:text-footer-foreground transition-colors text-sm"
+                className="text-footer-foreground/70 hover:text-footer-foreground transition-colors text-sm font-mono"
               >
                 hello@intelligenttransformation.studio
               </a>
@@ -32,9 +35,9 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-footer-foreground/10 pt-6">
-            <p className="text-xs text-footer-foreground/50">
-              © {currentYear} Intelligent Transformation Studio. All rights reserved.
+          <div className="border-t border-border pt-6">
+            <p className="font-mono text-xs text-footer-foreground/50">
+              © {currentYear} Gallag Works. All rights reserved.
             </p>
           </div>
         </div>
