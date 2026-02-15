@@ -20,7 +20,7 @@ const Services = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 animate-fade-in-up">
-                How we work
+                Our services
               </h1>
               <p className="text-lg text-foreground/70 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 Every engagement starts with understanding. We don't bring pre-built solutions – we design around how your organisation actually operates.
@@ -30,7 +30,7 @@ const Services = () => {
         </section>
 
         <EngagementTypes />
-        <HowWeWork showLink={false} />
+        <HowWeWork />
         <FAQSection />
         <CTABand headline="Have a workflow in mind? Let's look at it together." />
       </main>
