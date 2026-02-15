@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CTABand from "@/components/CTABand";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Clock, Target, Wrench, Users, Shield } from "lucide-react";
+import { Clock, Target, Wrench, Users, Shield, Settings, BarChart3, Megaphone, BookOpen, Mail } from "lucide-react";
 
 const expectItems = [
   { icon: Clock, text: "Fast clarity on where time and rework are accumulating" },
@@ -14,11 +14,11 @@ const expectItems = [
 ];
 
 const fitItems = [
-  "Operations and delivery teams",
-  "Finance and reporting workflows",
-  "Marketing operations and campaign delivery",
-  "Knowledge-heavy support functions",
-  "Teams with spreadsheet and email-based handoffs",
+  { icon: Settings, text: "Operations and delivery teams" },
+  { icon: BarChart3, text: "Finance and reporting workflows" },
+  { icon: Megaphone, text: "Marketing operations and campaign delivery" },
+  { icon: BookOpen, text: "Knowledge-heavy support functions" },
+  { icon: Mail, text: "Teams with spreadsheet and email-based handoffs" },
 ];
 
 const About = () => {
@@ -113,28 +113,33 @@ const About = () => {
         {/* Where this helps most */}
         <section className="py-16 lg:py-28" ref={fit.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
+            <div className="max-w-4xl mx-auto">
+              <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
                 FIT
               </span>
-              <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-6 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
+              <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-6 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
                 Where this helps most
               </h2>
-              <p className={`text-foreground/70 leading-relaxed text-base mb-8 scroll-fade-in ${fit.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+              <p className={`text-foreground/70 leading-relaxed text-base mb-8 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
                 This approach works best with teams that already know something is broken – they just need a structured way to fix it.
               </p>
-              <ul className="space-y-4">
-                {fitItems.map((item, i) => (
-                  <li
-                    key={i}
-                    className={`flex items-center gap-3 text-foreground/70 text-base scroll-fade-in ${fit.isVisible ? "visible" : ""}`}
-                    style={{ transitionDelay: `${(i + 1) * 0.1}s` }}
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {fitItems.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={i}
+                      className={`border border-border border-l-4 border-l-primary rounded-lg p-6 card-hover scroll-fade-in ${fit.isVisible ? "visible" : ""}`}
+                      style={{ transitionDelay: `${(i + 1) * 0.1}s` }}
+                    >
+                      <div className="flex items-start gap-4">
+                        <Icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" strokeWidth={1.5} />
+                        <p className="text-foreground font-medium leading-relaxed text-base md:text-sm">{item.text}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
