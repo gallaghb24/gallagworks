@@ -23,7 +23,7 @@ const fitItems = [
 
 const About = () => {
   useEffect(() => {
-    document.title = "About | Intelligent Transformation Studio";
+    document.title = "Who we are | Intelligent Transformation Studio";
     window.scrollTo(0, 0);
   }, []);
 
@@ -42,7 +42,7 @@ const About = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className={`font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 scroll-fade-in ${hero.isVisible ? "visible" : ""}`}>
-                About
+                Who we are
               </h1>
               <p className={`text-lg text-foreground/70 leading-relaxed scroll-fade-in ${hero.isVisible ? "visible" : ""}`} style={{ animationDelay: "0.1s" }}>
                 Operator-led workflow transformation. Implementation-first automation that teams actually adopt.
@@ -54,7 +54,7 @@ const About = () => {
         {/* Point of view */}
         <section className="py-16 lg:py-28" ref={approach.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center">
               <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
                 POINT OF VIEW
               </span>
@@ -113,7 +113,7 @@ const About = () => {
         {/* Where this helps most */}
         <section className="py-16 lg:py-28" ref={fit.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center">
               <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
                 FIT
               </span>
@@ -142,12 +142,12 @@ const About = () => {
         {/* Background */}
         <section className="py-16 lg:py-28" ref={background.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center">
               <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
                 BACKGROUND
               </span>
               <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-10 scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
-                Background
+                Experience and working style
               </h2>
               <div className={`space-y-6 scroll-fade-in ${background.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
                 <p className="text-foreground/70 leading-relaxed text-base">
