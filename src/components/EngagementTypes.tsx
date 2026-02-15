@@ -24,7 +24,7 @@ const engagements = [
   {
     title: "Build support",
     scope: "",
-    description: "When you need specialist development resource – custom tooling, integrations, or data pipelines – we bring trusted developers who understand the operational context.",
+    description: "When you need specialist development resource – custom tooling, integrations, or data pipelines – we bring trusted engineers who understand the operational context.",
   },
 ];
 
