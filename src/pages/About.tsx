@@ -23,7 +23,7 @@ const fitItems = [
 
 const About = () => {
   useEffect(() => {
-    document.title = "Who we are | Intelligent Transformation Studio";
+    document.title = "Who we are | Gallag Works";
     window.scrollTo(0, 0);
   }, []);
 

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,7 +14,6 @@ const Navigation = () => {
     const handleScroll = () => {
       const currentY = window.scrollY;
       setIsScrolled(currentY > 50);
-      // Only hide/show on mobile (< 768px)
       if (window.innerWidth < 768) {
         setIsHidden(currentY > lastScrollY && currentY > 80);
       } else {
@@ -43,13 +41,20 @@ const Navigation = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isHidden && !isMobileMenuOpen ? "-translate-y-full" : "translate-y-0"
       } ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md border-b border-border"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <Link to="/">
-            <img src={logo} alt="Intelligent Transformation Studio" className="h-10 w-auto" />
+          <Link to="/" className="flex flex-col">
+            <span className="font-display text-lg font-bold tracking-tight text-foreground">
+              GALLAG WORKS
+            </span>
+            <span className="font-mono text-[10px] text-muted-foreground tracking-widest uppercase">
+              Operational Engineering
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -58,7 +63,9 @@ const Navigation = () => {
                 key={link.to}
                 to={link.to}
                 className={`text-sm font-medium transition-colors ${
-                  location.pathname === link.to ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  location.pathname === link.to
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}
