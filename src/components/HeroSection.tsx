@@ -16,7 +16,7 @@ const HeroSection = () => {
             Operational AI and workflow transformation for organisations ready to move past slides and into implementation.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <div className="animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
             <Button
               asChild
               size="lg"
@@ -27,12 +27,6 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <span className="text-muted-foreground text-sm">
-              or email{" "}
-              <a href="mailto:hello@intelligenttransformation.studio" className="underline hover:text-foreground transition-colors">
-                hello@intelligenttransformation.studio
-              </a>
-            </span>
           </div>
         </div>
       </div>
