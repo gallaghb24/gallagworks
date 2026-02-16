@@ -2,37 +2,37 @@ import { Helmet } from "react-helmet-async";
 
 const caseStudySchemas = [
   {
-    id: "GW-001",
+    id: "GW-LOG-201",
     name: "POS Job Workflow Automation",
     description: "Reporting cycle cut 70%. 15h/week reclaimed for analysis and client advisory by replacing manual data pulls with a single automated pipeline.",
     slug: "pos-job-workflow",
   },
   {
-    id: "GW-002",
+    id: "GW-LOG-202",
     name: "Costing Process Re-engineering",
     description: "Missed deadlines down 85%. 10h/week coordination overhead removed by consolidating spreadsheet handoffs into an automated production system.",
     slug: "costing-process",
   },
   {
-    id: "GW-003",
+    id: "GW-LOG-203",
     name: "Validation Pipeline Automation",
     description: "Manual checking reduced 60%. 20h/week reclaimed by building validation rules into the data pipeline with exception-only routing.",
     slug: "validation-pipeline",
   },
   {
-    id: "GW-004",
+    id: "GW-LOG-204",
     name: "Multichannel Content Orchestration",
     description: "1,200 hours reclaimed annually. Lead times slashed by 50% from 2 days to under 24 hours through LLM-based ingestion and automated data standardisation.",
     slug: "multichannel-content-orchestration",
   },
   {
-    id: "GW-005",
+    id: "GW-LOG-205",
     name: "Enterprise Reporting Automation",
     description: "98% reduction in processing time. 360 hours reclaimed annually while removing 100% of data integrity risk via automated drag-and-drop mapping.",
     slug: "enterprise-reporting-automation",
   },
   {
-    id: "GW-006",
+    id: "GW-LOG-206",
     name: "High-Volume Allocation Logistics",
     description: "Manual workload reduced by 97%. Task duration cut from 10 hours to 15 minutes through intelligent RPA-based allocation merging.",
     slug: "high-volume-allocation-logistics",
