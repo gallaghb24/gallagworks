@@ -6,6 +6,7 @@ interface UseCountUpOptions {
   suffix?: string;
   duration?: number;
   flickerDuration?: number;
+  formatValue?: (n: number) => string;
 }
 
 export function useCountUp({
@@ -14,11 +15,14 @@ export function useCountUp({
   suffix = "",
   duration = 1800,
   flickerDuration = 700,
+  formatValue,
 }: UseCountUpOptions) {
   const [display, setDisplay] = useState(`${prefix}0${suffix}`);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const hasRun = useRef(false);
+
+  const fmt = useCallback((n: number) => formatValue ? formatValue(n) : String(n), [formatValue]);
 
   const animate = useCallback(() => {
     if (hasRun.current) return;
@@ -31,26 +35,23 @@ export function useCountUp({
       const elapsed = now - startTime;
 
       if (elapsed < flickerDuration) {
-        // Flicker phase: show random digits
         const digits = target.toString().length;
         const randomNum = Math.floor(Math.random() * Math.pow(10, digits));
-        setDisplay(`${prefix}${randomNum}${suffix}`);
+        setDisplay(`${prefix}${fmt(randomNum)}${suffix}`);
         requestAnimationFrame(step);
       } else if (elapsed < totalDuration) {
-        // Count-up phase: ease out to target
         const countProgress = (elapsed - flickerDuration) / duration;
-        const eased = 1 - Math.pow(1 - countProgress, 3); // cubic ease-out
+        const eased = 1 - Math.pow(1 - countProgress, 3);
         const current = Math.round(eased * target);
-        setDisplay(`${prefix}${current}${suffix}`);
+        setDisplay(`${prefix}${fmt(current)}${suffix}`);
         requestAnimationFrame(step);
       } else {
-        // Lock to final value
-        setDisplay(`${prefix}${target}${suffix}`);
+        setDisplay(`${prefix}${fmt(target)}${suffix}`);
       }
     };
 
     requestAnimationFrame(step);
-  }, [target, prefix, suffix, duration, flickerDuration]);
+  }, [target, prefix, suffix, duration, flickerDuration, fmt]);
 
   useEffect(() => {
     const el = ref.current;
