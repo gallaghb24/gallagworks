@@ -42,14 +42,9 @@ const Cookies = () => {
 
                 <div className="border-t border-border pt-8">
                   <h2 className="text-lg font-bold text-foreground mb-4">3. Analytics (PostHog Cookieless)</h2>
-                  <p className="mb-4">
-                    We use PostHog to understand how visitors interact with our content. We have configured PostHog in a cookieless mode, meaning:
+                  <p>
+                    We use PostHog to understand site traffic. This is configured in memory-only mode with cookies disabled. We do not track you across other websites, and we do not store persistent identifiers on your device. This allows us to maintain your privacy while improving our operational content.
                   </p>
-                  <ul className="space-y-3 list-disc list-inside">
-                    <li>No persistent tracking cookies are placed on your device.</li>
-                    <li>No personal data is stored in your browser's local storage for analytics purposes.</li>
-                    <li>We see what pages are being read, but we do not know who is reading them.</li>
-                  </ul>
                 </div>
 
                 <div className="border-t border-border pt-8">

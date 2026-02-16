@@ -31,6 +31,12 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitState("idle");
 
+    // Track conversion intent anonymously
+    try {
+      const posthog = (await import("posthog-js")).default;
+      posthog.capture("consultation_request_initiated");
+    } catch (_) { /* analytics should never block submission */ }
+
     try {
       const { error: dbError } = await supabase
         .from("contact_submissions")
