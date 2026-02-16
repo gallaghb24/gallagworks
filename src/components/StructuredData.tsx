@@ -104,6 +104,11 @@ const StructuredData = () => {
     description: cs.description,
     identifier: cs.id,
     url: `https://gallagworks.lovable.app/insights/${cs.slug}`,
+    hasPart: {
+      "@type": "WebPageElement",
+      name: "Technical Schematic",
+      url: `https://gallagworks.lovable.app/insights/${cs.slug}#schematic`,
+    },
     author: {
       "@type": "Organization",
       name: "Gallag Works",

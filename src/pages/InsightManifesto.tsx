@@ -136,6 +136,15 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
+        label: "THE STRATEGIC COST",
+        title: "When Reporting Becomes the Product",
+        paragraphs: [
+          "There is a quiet corrosion that happens when a professional services team spends more time assembling reports than interpreting them. The advisory function – the reason clients pay premium rates – atrophies. The team becomes a data factory, and the client relationship shifts from strategic partnership to transactional delivery.",
+          "Stale data compounds the problem. When the numbers in a client-facing report are already 48 hours old by the time they're presented, the advisory layer built on top of them is performative. The client senses it. Trust erodes not through a single failure, but through a pattern of diminishing relevance. The team knows the data is stale. The client suspects it. Neither party addresses it because the manual process is so entrenched that questioning it feels like questioning the team's competence.",
+          "The real strategic cost is not the 15 hours per week of wrangling. It is the advisory credibility that leaks away with every outdated report. A team that could be identifying margin opportunities, flagging seasonal risks, or shaping procurement strategy is instead trapped in a cycle of data assembly. The organisation is paying for insight and receiving spreadsheets.",
+        ],
+      },
+      {
         label: "02: THE ENGINEERING",
         title: "A Single Pipeline Replacing Manual Pulls",
         paragraphs: [
@@ -173,6 +182,15 @@ const insightData: InsightEntry[] = [
         title: "Spreadsheets as the Operating System",
         paragraphs: [
           "Multiple teams were coordinating complex costing workflows through a patchwork of spreadsheets, email chains, and duplicated tracking files. Ownership was unclear. Status chasing consumed hours weekly. Deadlines were missed not because of competence failures, but because the system itself was built on manual handoffs that couldn't scale.",
+        ],
+      },
+      {
+        label: "THE STRATEGIC COST",
+        title: "The Illusion of Under-Resourcing",
+        paragraphs: [
+          "When deadlines are consistently missed, the instinctive organisational response is to add headcount. More coordinators. More project managers. More people to chase the status updates that the existing people are already chasing. This is the illusion of under-resourcing – the belief that the problem is capacity when the actual problem is architectural.",
+          "Spreadsheet-based coordination creates an invisible tax on every participant. Each handoff requires someone to update their version, notify the next person, and confirm receipt. Multiply this across four teams and a dozen costing submissions per week, and you have built an informal bureaucracy that consumes hours but produces no trackable output. It does not appear on any timesheet. It does not show up in any utilisation report. It is pure friction, and it is indistinguishable from productive work.",
+          "The strategic consequence is more damaging than the time loss. When coordination overhead dominates the working week, the team loses the capacity for the analytical work that actually drives margin. Costing accuracy suffers not because the team lacks skill, but because they lack the operational space to apply it. The organisation is paying for expertise and receiving administration.",
         ],
       },
       {
@@ -217,6 +235,15 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
+        label: "THE STRATEGIC COST",
+        title: "The Paradox of Perfect Compliance",
+        paragraphs: [
+          "Low error rates are often celebrated as evidence of a well-functioning team. In this case, they masked a deeper problem: the error rates were low precisely because the team was spending 20 hours per week on manual verification. The process was accurate because it was unsustainably labour-intensive. Remove the labour, and the accuracy collapses. This is not quality – it is dependency.",
+          "The paradox creates a strategic trap. Leadership sees low error rates and concludes the process is working. The team knows it is working only because they are absorbing the cost personally – through overtime, through deferred improvement work, through the slow accumulation of operational debt that never gets addressed because there is simply no capacity to address it.",
+          "The genuine strategic cost is not the time spent checking. It is the improvement work that never happens. The process optimisation initiatives that get deferred quarter after quarter. The automation opportunities that remain on a backlog no one has time to review. The organisation is paying its most experienced people to perform routine verification that a rules engine could handle in milliseconds, while the work that would actually transform operational performance sits permanently in the queue.",
+        ],
+      },
+      {
         label: "02: THE ENGINEERING",
         title: "Exception-Only Routing",
         paragraphs: [
@@ -254,6 +281,15 @@ const insightData: InsightEntry[] = [
         title: "500+ Line Briefs and 5-Hour QC Loops",
         paragraphs: [
           "High-volume client briefs containing 500+ lines of product data were arriving with inconsistent formatting and misspellings. Each occurrence triggered a 5-hour manual QC loop. Brief-to-studio handoffs carried 2-day lead times. The account team had normalised the friction – copy-pasting had become the default operating mode rather than the exception.",
+        ],
+      },
+      {
+        label: "THE STRATEGIC COST",
+        title: "The Normalisation of Copy-Paste Culture",
+        paragraphs: [
+          "When an account team spends the majority of its week reformatting client data, something fundamental shifts in the team's identity. They stop thinking of themselves as strategic partners and start thinking of themselves as production operatives. The copy-paste becomes the job. Client calls become data collection exercises rather than relationship-building opportunities. The team's capacity for proactive thinking – for spotting upsell opportunities, for anticipating seasonal challenges, for deepening the client partnership – is consumed by the mechanics of data handling.",
+          "This normalisation is insidious because it is gradual. No one decides to become a data entry team. It happens one brief at a time, one QC loop at a time, one 'quick fix' at a time. Each individual task feels manageable. But aggregated across 500-line briefs arriving weekly, the cumulative effect is a team that has been architecturally prevented from scaling client relationships.",
+          "The strategic cost extends beyond the team. When lead times stretch to two days for what should be a same-day turnaround, the client begins to look elsewhere – not because the work is poor, but because the responsiveness does not match the premium they are paying. The organisation loses competitive advantage not through a strategic failure, but through an operational one that no one has the bandwidth to diagnose.",
         ],
       },
       {
@@ -297,6 +333,15 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
+        label: "THE STRATEGIC COST",
+        title: "The Opportunity Cost of Blind Leadership",
+        paragraphs: [
+          "In high-stakes enterprise reporting, the quality of leadership decisions is directly constrained by the quality of the data that informs them. When pricing reports require 30 hours of manual assembly, the data that reaches decision-makers is not just late – it is shaped by the limitations of whoever assembled it. Manual processes introduce silent editorial choices: which columns get included, how outliers are handled, whether discrepancies are flagged or quietly smoothed over. The report becomes an interpretation, not a reflection.",
+          "The 'last-minute rush' that precedes every reporting deadline creates a secondary cost that rarely appears in post-mortems. When account and finance teams spend the final 48 hours before a status call scrambling to reconcile numbers, they arrive at the meeting exhausted and defensive rather than prepared and strategic. The conversation shifts from 'what should we do with this data' to 'is this data correct'. Leadership is flying blind – not because the data does not exist, but because the process of assembling it has consumed all the capacity that should have been spent analysing it.",
+          "The cumulative effect is an organisation where reporting is feared rather than leveraged. Teams avoid asking new questions because every new data request triggers another manual assembly cycle. The reporting function becomes a bottleneck rather than an enabler, and strategic agility suffers because the operational infrastructure cannot support it.",
+        ],
+      },
+      {
         label: "02: THE ENGINEERING",
         title: "Drag-and-Drop Automated Mapping",
         paragraphs: [
@@ -334,6 +379,15 @@ const insightData: InsightEntry[] = [
         title: "30+ Project Owners, One Master List",
         paragraphs: [
           "Single campaigns were split across 30+ project owners, each with siloed store allocations. Every month, someone spent 10 hours manually merging dozens of Excel files into a 'Master List'. Any client change required repeating hours of manual rework. The team was trapped in a cycle of Data Glue that made reactive agility impossible.",
+        ],
+      },
+      {
+        label: "THE STRATEGIC COST",
+        title: "Operational Fragility at Scale",
+        paragraphs: [
+          "When a single client change – a revised store list, an updated allocation split – requires hours of manual rework, the organisation has built operational fragility into its delivery model. The team cannot respond with agility because the consolidation process is entirely manual. Every change cascades through dozens of spreadsheets, each requiring individual updates, re-validation, and re-export. The process that should take minutes takes half a day, and the client experiences this as sluggishness.",
+          "This fragility creates a perverse incentive structure. Teams begin to resist client changes – not explicitly, but through delay and complexity signalling. 'We can do that, but it will take until Thursday.' The client learns to stop asking. The relationship becomes rigid where it should be responsive, and the organisation loses the competitive advantage that comes from being operationally nimble.",
+          "At scale, manual consolidation also introduces compounding risk. When 30+ project owners each maintain siloed allocation files, there is no single source of truth. Discrepancies between versions go undetected until they surface as delivery errors. The team spends as much time reconciling conflicts as it does performing the actual consolidation. The organisation is not just slow – it is structurally incapable of guaranteeing accuracy across high-volume campaigns without heroic individual effort.",
         ],
       },
       {
@@ -551,15 +605,17 @@ const InsightManifesto = () => {
           </section>
         ))}
 
-        {/* Technical Schematic */}
+        {/* Technical Schematic — Blueprint Inset */}
         {entry.schematic && (
-          <section className="pb-20">
+          <section id="schematic" className="py-16 border-t border-b border-border" style={{ backgroundColor: '#1A1C1E' }}>
             <div className="container mx-auto px-6 lg:px-12">
               <div className="max-w-4xl">
-                <div className="border-t border-border pt-12 mb-10">
-                  <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-2">
-                    [TECHNICAL SCHEMATIC]
-                  </span>
+                <div className="mb-10">
+                  <div className="border-b border-border pb-4 mb-6">
+                    <span className="font-mono text-sm text-primary uppercase tracking-widest font-semibold">
+                      [TECHNICAL SCHEMATIC]
+                    </span>
+                  </div>
                 </div>
                 <TechnicalSchematic schematic={entry.schematic} />
 
