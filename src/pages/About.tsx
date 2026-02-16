@@ -46,7 +46,7 @@ const About = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I bring 20 years directing enterprise delivery and managing £15m+ multichannel contracts for major UK retailers to every project.
+                Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I led operational transformation for Tier-1 retailers and FTSE 100 entities, managing £15M+ annual multichannel contracts.
               </p>
             </div>
           </div>
@@ -113,7 +113,7 @@ const About = () => {
               <p
                 className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
-                Nearly two decades directing enterprise client delivery and managing £15m+ multichannel marketing and retail accounts taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
+                Nearly two decades directing enterprise client delivery and managing £15M+ multichannel contracts for Tier-1 retailers and FTSE 100 entities taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
               </p>
             </div>
           </div>
