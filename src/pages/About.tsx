@@ -3,13 +3,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CTABand from "@/components/CTABand";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useCountUp } from "@/hooks/useCountUp";
 
-const stats = [
-  { value: "20 Years", label: "in Operations" },
-  { value: "£15m+", label: "Contract Oversight" },
-  { value: "4,000+", label: "Users Transitioned to New Systems" },
-  { value: "30+", label: "Person Team Leadership" },
-];
+const commaFormat = (n: number) => n.toLocaleString();
 
 const About = () => {
   useEffect(() => {
@@ -19,6 +15,18 @@ const About = () => {
 
   const method = useScrollAnimation();
   const exp = useScrollAnimation();
+
+  const c1 = useCountUp({ target: 20, suffix: " Years" });
+  const c2 = useCountUp({ target: 15, prefix: "£", suffix: "m+" });
+  const c3 = useCountUp({ target: 4000, suffix: "+", formatValue: commaFormat });
+  const c4 = useCountUp({ target: 30, suffix: "+" });
+
+  const stats = [
+    { counter: c1, label: "in Operations" },
+    { counter: c2, label: "Contract Oversight" },
+    { counter: c3, label: "Users Transitioned to New Systems" },
+    { counter: c4, label: "Person Team Leadership" },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -89,8 +97,11 @@ const About = () => {
                     className={`bg-[#1A1C1E] border border-[#2F3133] p-6 clip-reveal-down ${exp.isVisible ? "visible" : ""}`}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                   >
-                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-primary mb-2">
-                      {stat.value}
+                    <p
+                      ref={stat.counter.ref}
+                      className="font-mono text-2xl md:text-3xl font-extrabold text-primary mb-2"
+                    >
+                      {stat.counter.display}
                     </p>
                     <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
                       {stat.label}
