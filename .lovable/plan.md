@@ -1,81 +1,40 @@
 
-# "Who We Are" Page: Architectural Polish
+# Hero Schematic Redesign: Abstract Geometric Art
 
 ## Overview
-Strip all SaaS-style elements and centre-alignment from the About page. Enforce the same left-aligned engineering grid, sharp-cornered cards, and generous whitespace established on the homepage and Services page.
+Replace the literal software architecture diagram (icons, labels, funnels, diamonds) with a pure geometric abstraction representing "untangling the mess." No text, no icons -- just lines and geometry.
 
 ---
 
-## 1. Hero Section (lines 41-52)
+## Visual Composition
 
-- Remove `mx-auto text-center` from the inner container
-- Left-align the H1 and intro paragraph
-- Add monospace kicker: `[WHO WE ARE]`
-- Constrain intro paragraph with `max-w-[600px]`
-- Use `font-bold` on H1 to match other pages
+The SVG will have three zones flowing left to right:
 
----
+**Left -- The Tangle:**
+A dense web of 12-15 thin, curved bezier paths in dark grey (`#2F3133` at varying opacities 0.2-0.5). These lines originate from scattered points on the far left and weave, cross, and loop over each other chaotically, converging toward the centre. Think of it like a ball of tangled wire viewed from above.
 
-## 2. "The Approach" Section (lines 55-80)
+**Centre -- The Filter:**
+A single sharp-edged geometric shape -- a perfect square (rotated 0 degrees, axis-aligned) rendered with a crisp white stroke (`#F5F5F5`, strokeWidth 1.5) and no fill. Slightly larger than the tangle's convergence point to feel like a gateway/filter. The tangled lines feed into the left edge of this square and disappear.
 
-- Remove `mx-auto text-center` from container -- left-align everything
-- Change kicker to monospace style: `font-mono text-xs text-primary uppercase tracking-widest` with text `[POINT OF VIEW]`
-- Constrain paragraph block with `max-w-[650px]`
-- Left-align all body paragraphs (they inherit from parent, just need to remove the centred container)
-- Increase vertical padding to `py-20 lg:py-32` for more generous spacing
+**Right -- The Order:**
+Three perfectly straight, horizontal, parallel lines emerge from the right edge of the square and extend cleanly off the right side of the SVG viewport. Two lines in white (`#F5F5F5`, strokeWidth 0.75), and the middle line in Safety Orange (`#FF5F1F`, strokeWidth 1) -- the single touch of colour.
 
 ---
 
-## 3. "What You Can Expect" Cards (lines 83-110)
+## Technical Details
 
-- Remove `mx-auto` from container -- left-align the section
-- Left-align kicker and heading, switch kicker to monospace `[WORKING TOGETHER]`
-- **Card styling changes:**
-  - Remove: `border-l-4 border-l-primary rounded-lg card-hover`
-  - Add: `bg-[#1A1C1E] border border-[#2F3133] p-8` (sharp corners, Matte Slate background, 1px Graphite border)
-- Icon styling: keep `strokeWidth={1.5}` for thin line-art look, keep Safety Orange colour
-- Increase section padding to `py-20 lg:py-32`
-
----
-
-## 4. "Where This Helps Most" Cards (lines 114-145)
-
-- Same treatment as "What you can expect" above
-- Remove `mx-auto` and `text-center` from container, kicker, heading, and description
-- Switch kicker to monospace `[FIT]`
-- Constrain the sub-paragraph with `max-w-[600px]`
-- **Card styling**: identical to above -- remove SaaS borders, apply `bg-[#1A1C1E] border border-[#2F3133] p-8`
-- Increase section padding to `py-20 lg:py-32`
+- **SVG viewport**: `680 x 400` (same width as current, slightly shorter since no labels)
+- **Background**: Transparent (no fill on the SVG)
+- **All text and labels removed**: Zero `<text>` elements
+- **All icons removed**: No rectangles acting as email/spreadsheet/database icons
+- **Line style**: Razor-thin -- 0.5px for tangle lines, 0.75px for output lines, 1.5px for the central square
+- **Central square**: Approximately 80x80 units, positioned at centre of viewport
+- **Tangle lines**: ~14 bezier curves using `<path>` with cubic beziers, varying opacity (0.15-0.45) to create depth
+- **Output lines**: 3 horizontal lines spaced ~30px apart vertically, extending from square's right edge to beyond the viewport (x=700+)
+- **Animation**: Keep existing `animate-fade-in-up` on the container; no additional animation needed
 
 ---
 
-## 5. "Experience and Working Style" Section (lines 148-173)
+## File Modified
 
-- **Convert to 2-column layout**: heading on the left (4-5 columns), body paragraphs on the right (7-8 columns)
-- Remove `mx-auto text-center` from container
-- Switch kicker to monospace `[BACKGROUND]`
-- Left-align all paragraphs
-- Constrain the right-column text with `max-w-[650px]`
-- Ensure text is `text-foreground` (Crisp Off-White) for the "Executive Memo" feel -- or keep muted-foreground for body with foreground for heading
-- Increase section padding to `py-20 lg:py-32`
-- Use alternating `bg-slate` background to create depth
-
----
-
-## 6. CTA / Email Section (lines 176-186)
-
-- Keep as-is (already handled by CTABand component with generous padding from prior updates)
-
----
-
-## Files Modified
-
-1. **src/pages/About.tsx** -- all changes are in this single file
-
-## Summary of Changes
-- Kill all `text-center` and `mx-auto` centring on text containers
-- Replace all kickers with monospace `font-mono text-xs text-primary uppercase tracking-widest` format
-- Replace card classes from `border-l-4 border-l-primary rounded-lg card-hover` to `bg-[#1A1C1E] border border-[#2F3133]` with increased padding
-- Convert "Experience" section to a 2-column grid layout
-- Add `max-w-[600px]` / `max-w-[650px]` constraints to all body text blocks
-- Increase vertical padding on all sections for generous, premium spacing
+1. **src/components/HeroSection.tsx** -- Replace the entire SVG block (lines 48-144) with the new abstract geometric composition. Everything outside the SVG (headline, paragraph, button, grid layout) remains untouched.
