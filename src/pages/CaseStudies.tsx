@@ -111,7 +111,7 @@ const caseStudies = [
 ];
 
 const CaseStudies = () => {
-  
+
 
   useEffect(() => {
     document.title = "Project Schematics | Gallag Works";
@@ -148,7 +148,20 @@ const CaseStudies = () => {
           </div>
         </section>
 
+        <section className="pb-20">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl">
+              <div className="border border-border p-6">
+                <p className="font-mono text-xs text-muted-foreground leading-relaxed">
+                  [NOTICE: CLIENT PRIVACY] To respect enterprise non-disclosure agreements, specific brand names have been abstracted. Verification of outcomes and deeper operational context can be provided during a formal consultation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <CTABand headline="See something similar to your situation?" />
+
       </main>
       <Footer hideCTA />
     </div>

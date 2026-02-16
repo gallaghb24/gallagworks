@@ -13,7 +13,7 @@ const ProofPoints = () => {
       counter: counter1,
       label: "Quantified Margin Recovery",
       detail:
-        "Identifying and engineering out over £1.5M in cumulative operational leakage for major UK retailers by eradicating \u201CData Glue\u201D and manual friction.",
+        "Identifying and engineering out over £1.5M in cumulative operational leakage for Tier-1 retailers and enterprise clients by eradicating \u201CData Glue\u201D and manual friction.",
     },
     {
       counter: counter2,
