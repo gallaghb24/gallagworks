@@ -41,6 +41,24 @@ const glossaryTerms = [
     definition:
       "Skilled, expensive talent operating as manual connectors between disconnected systems – performing data transfers, format conversions, and status updates that should be handled by engineered pipelines. Human Middleware is the most visible symptom of Data Glue in an organisation.",
   },
+  {
+    id: "systemic-leakage",
+    term: "Systemic Leakage",
+    definition:
+      "The incremental, often silent loss of operational margin due to unoptimised workflows, redundant communications, and uncaptured data fidelity. Leakage is the cumulative result of Data Glue that has been left untreated for multiple fiscal cycles.",
+  },
+  {
+    id: "capacity-reclamation",
+    term: "Capacity Reclamation",
+    definition:
+      "The measurable conversion of 'shadow work' into strategic bandwidth. Reclamation is not about reducing headcount, but about redirecting the 20–40% of time currently lost to manual friction back into high-value, revenue-generating activities.",
+  },
+  {
+    id: "logic-gates",
+    term: "Logic Gates",
+    definition:
+      "Automated validation checkpoints within an operational pipeline that programmatically determine if data is 'clean' enough to proceed or requires routing to a Decision Inbox. Logic Gates replace manual 'quality checking' loops with instant, error-free verification.",
+  },
 ];
 
 const Glossary = () => {
