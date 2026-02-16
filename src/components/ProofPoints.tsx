@@ -30,8 +30,8 @@ const ProofPoints = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 border-draw" ref={ref}>
-      <div className={`container mx-auto px-6 lg:px-12 ${isVisible ? "" : ""}`}>
+    <section className={`py-20 lg:py-32 border-draw ${isVisible ? "visible" : ""}`} ref={ref}>
+      <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
             className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
