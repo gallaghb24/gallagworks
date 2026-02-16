@@ -26,7 +26,7 @@ const Services = () => {
                 Our services
               </h1>
               <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                Every engagement starts with the Operational X-Ray. We don't bring pre-built solutions; we engineer around how your organization actually operates.
+                Most operational friction is invisible. We use a proprietary diagnostic framework to expose the 'Data Glue' consuming your team's capacity – then we engineer the infrastructure to remove it. No 50-page strategy decks; just working systems.
               </p>
             </div>
           </div>
