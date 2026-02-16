@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import "./index.css";
 
 // PostHog cookieless analytics – no cookies, no persistent identifiers
-posthog.init("phc_PLACEHOLDER_API_KEY", {
+posthog.init("phc_BtikiRHz5OPnBiHKbtxIqwh9V2piWhtfSuv0U24CSuD", {
   api_host: "https://eu.i.posthog.com",
   persistence: "memory",
   disable_cookie: true,
