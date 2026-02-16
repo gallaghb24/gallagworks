@@ -90,10 +90,10 @@ const HeroSchematic = () => {
   const [renderTick, setRenderTick] = useState(0);
   const pulseIdRef = useRef(0);
   const frameCountRef = useRef(0);
-  const hasFlashedRef = useRef(false);
   const [showFlash, setShowFlash] = useState(false);
   const arrivalsRef = useRef(0);
   const [outputRevealed, setOutputRevealed] = useState(false);
+  const outputRevealedRef = useRef(false);
 
   // ── Phase 1: Build ──
   useEffect(() => {
@@ -156,22 +156,16 @@ const HeroSchematic = () => {
         // Count first-time arrivals for input pulses
         if (!p.done && advanced.done && advanced.phase === "input") {
           arrivalsRef.current++;
-          if (arrivalsRef.current >= 3) {
+          // Flash core on every arrival
+          setShowFlash(true);
+          setTimeout(() => setShowFlash(false), 200);
+          if (arrivalsRef.current >= 3 && !outputRevealedRef.current) {
+            outputRevealedRef.current = true;
             setOutputRevealed(true);
           }
         }
         return advanced;
       });
-
-      // Flash on first arrival
-      if (!hasFlashedRef.current) {
-        const arrived = pulses.find(p => p.phase === "input" && p.done && p.opacity > 0.5);
-        if (arrived) {
-          hasFlashedRef.current = true;
-          setShowFlash(true);
-          setTimeout(() => setShowFlash(false), 200);
-        }
-      }
 
       // Remove fully faded
       pulses = pulses.filter((p) => p.opacity > 0 || !p.done);
@@ -199,7 +193,7 @@ const HeroSchematic = () => {
       }
 
       // Spawn output pulses (only after dots reach core)
-      if (outputRevealed && frameCountRef.current % 18 === 0) {
+      if (outputRevealedRef.current && frameCountRef.current % 18 === 0) {
         const wp: [number, number][] = [
           [CORE.x + CORE.size, OUTPUT_Y[1]],
           [620, OUTPUT_Y[1]],
@@ -225,7 +219,7 @@ const HeroSchematic = () => {
 
     rafRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [buildPhase, advancePulse, outputRevealed]);
+  }, [buildPhase, advancePulse]);
 
   const lineLen = (i: number) => {
     const [x1, y1, x2, y2] = MAZE_LINES[i];
