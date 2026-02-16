@@ -1,30 +1,26 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const engagements = [
+const tiers = [
   {
-    title: "Diagnostic",
-    scope: "Fixed scope",
-    description: "A structured review of a specific workflow, process, or operational area. You get a clear picture of where time is lost, where errors creep in, and what's worth automating. Typically 2 – 4 weeks.",
+    number: "01",
+    title: "Operational Audit & X-Ray",
+    sublabel: "2–4 Weeks | Fixed Scope",
+    description:
+      "A surgical deep dive into the 'as-is' state. We expose the Data Glue — the manual re-keying and spreadsheet handoffs — that silently consumes 30% of your team's capacity. You receive a logic schematic of where your margin is leaking.",
   },
   {
-    title: "Pilot",
-    scope: "Time-boxed",
-    description: "We take one workflow and redesign it end to end – mapping, simplifying, and building working automation. A concrete proof of value before committing further. Typically 4 – 8 weeks.",
+    number: "02",
+    title: "Structural Prototype",
+    sublabel: "4–8 Weeks | Proof of Value",
+    description:
+      "We re-engineer one high-friction workflow end-to-end. We don't just 'test' AI; we build working infrastructure that proves the ROI and protects the P&L before you commit to scaling.",
   },
   {
-    title: "Scale and rollout",
-    scope: "",
-    description: "Extending what worked in the pilot across teams, departments, or geographies. Includes change management, documentation, and training.",
-  },
-  {
-    title: "Fractional advisory",
-    scope: "Retainer",
-    description: "Ongoing operational AI guidance embedded in your leadership rhythm. Strategy, vendor evaluation, governance, and prioritisation without a full-time hire.",
-  },
-  {
-    title: "Build support",
-    scope: "",
-    description: "When you need specialist development resource – custom tooling, integrations, or data pipelines – we bring trusted engineers who understand the operational context.",
+    number: "03",
+    title: "Enterprise Integration",
+    sublabel: "Retainer or Phase-Based",
+    description:
+      "Transformation at scale. We focus on the human-in-the-loop governance and champion-led adoption that ensures the system actually sticks across teams and geographies.",
   },
 ];
 
@@ -32,35 +28,44 @@ const EngagementTypes = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 lg:py-28" ref={ref}>
+    <section className="py-24 lg:py-36" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
-          <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${isVisible ? "visible" : ""}`}>
-            [ENGAGEMENTS]
+          <span
+            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block scroll-fade-in ${isVisible ? "visible" : ""}`}
+          >
+            [ENGAGEMENT TIERS]
           </span>
-          <h2 className={`font-display text-3xl md:text-4xl font-bold text-foreground mb-4 scroll-fade-in ${isVisible ? "visible" : ""}`}>
-            Engagement types
+          <h2
+            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-6 scroll-fade-in ${isVisible ? "visible" : ""}`}
+          >
+            Three tiers. One methodology.
           </h2>
-          <p className={`text-muted-foreground mb-12 max-w-[600px] scroll-fade-in ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-            We structure work to match where you are – from initial assessment through to long-term advisory.
+          <p
+            className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 scroll-fade-in ${isVisible ? "visible" : ""}`}
+          >
+            Every engagement is scoped to deliver a measurable outcome — not a slide deck.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {engagements.map((e, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {tiers.map((tier, index) => (
               <div
-                key={i}
-                className={`bg-[#1A1C1E] border border-[#2F3133] p-10 scroll-fade-in ${isVisible ? "visible" : ""} ${
-                  i === engagements.length - 1 && engagements.length % 2 !== 0 ? "md:col-span-2 md:max-w-[calc(50%-0.75rem)]" : ""
-                }`}
-                style={{ transitionDelay: `${(i + 1) * 0.08}s` }}
+                key={tier.number}
+                className={`bg-[#1A1C1E] border border-[#2F3133] p-8 scroll-fade-in ${isVisible ? "visible" : ""}`}
+                style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-baseline gap-3 mb-3">
-                  <h3 className="font-display text-lg font-semibold text-foreground">{e.title}</h3>
-                  {e.scope && (
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-primary border border-primary px-2 py-0.5">{e.scope}</span>
-                  )}
-                </div>
-                <p className="text-muted-foreground leading-relaxed text-base md:text-sm">{e.description}</p>
+                <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
+                  [{tier.number}]
+                </span>
+                <h3 className="text-xl font-extrabold text-foreground mb-2">
+                  {tier.title}
+                </h3>
+                <p className="font-mono text-xs text-primary/80 uppercase tracking-wider mb-6">
+                  {tier.sublabel}
+                </p>
+                <p className="text-muted-foreground font-light leading-relaxed">
+                  {tier.description}
+                </p>
               </div>
             ))}
           </div>

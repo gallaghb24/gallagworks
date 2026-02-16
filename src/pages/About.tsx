@@ -3,194 +3,112 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CTABand from "@/components/CTABand";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Clock, Target, Wrench, Users, Shield, Settings, BarChart3, Megaphone, BookOpen, Mail } from "lucide-react";
 
-const expectItems = [
-  { icon: Clock, text: "Fast clarity on where time and rework are accumulating" },
-  { icon: Target, text: "Scope that is specific enough to deliver, not vague 'transformation'" },
-  { icon: Wrench, text: "Working automation in your real tools and environments" },
-  { icon: Users, text: "Adoption support: roles, decision points, exception handling" },
-  { icon: Shield, text: "InfoSec-aligned delivery under NDA, least-privilege access" },
-];
-
-const fitItems = [
-  { icon: Settings, text: "Operations and delivery teams" },
-  { icon: BarChart3, text: "Finance and reporting workflows" },
-  { icon: Megaphone, text: "Marketing operations and campaign delivery" },
-  { icon: BookOpen, text: "Knowledge-heavy support functions" },
-  { icon: Mail, text: "Teams with spreadsheet and email-based handoffs" },
+const stats = [
+  { value: "20 Years", label: "in Operations" },
+  { value: "£15m+", label: "Contract Oversight" },
+  { value: "4,000+", label: "User Platform Adoptions" },
+  { value: "30+", label: "Person Team Leadership" },
 ];
 
 const About = () => {
   useEffect(() => {
-    document.title = "Who we are | Gallag Works";
+    document.title = "The Principal | Gallag Works";
     window.scrollTo(0, 0);
   }, []);
 
-  const hero = useScrollAnimation();
-  const approach = useScrollAnimation();
-  const expect = useScrollAnimation();
-  const fit = useScrollAnimation();
-  const background = useScrollAnimation();
+  const method = useScrollAnimation();
+  const exp = useScrollAnimation();
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-16" ref={hero.ref}>
+        <section className="pt-32 pb-24">
           <div className="container mx-auto px-6 lg:px-12">
-            <div>
-              <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${hero.isVisible ? "visible" : ""}`}>
-                [WHO WE ARE]
+            <div className="max-w-3xl">
+              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block animate-fade-in">
+                [THE PRINCIPAL]
               </span>
-              <h1 className={`text-4xl md:text-5xl font-bold text-foreground mb-6 scroll-fade-in ${hero.isVisible ? "visible" : ""}`}>
-                Who we are
+              <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 animate-fade-in-up">
+                Principal-Led Transformation.
               </h1>
-              <p className={`text-lg text-muted-foreground leading-relaxed max-w-[600px] scroll-fade-in ${hero.isVisible ? "visible" : ""}`} style={{ animationDelay: "0.1s" }}>
-                Operator-led workflow transformation. Implementation-first automation that teams actually adopt.
+              <p
+                className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] animate-fade-in-up"
+                style={{ animationDelay: "0.1s" }}
+              >
+                Gallag Works is an independent studio, not a high-volume agency. You work directly with the Principal. I bring nearly two decades of experience directing enterprise delivery and managing £15m+ multichannel contracts for major UK retailers to every project.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Point of view */}
-        <section className="py-20 lg:py-32" ref={approach.ref}>
+        {/* The Methodology */}
+        <section className="py-24 lg:py-36 bg-slate" ref={method.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div>
-              <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
-                [POINT OF VIEW]
+            <div className="max-w-5xl">
+              <span
+                className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block scroll-fade-in ${method.isVisible ? "visible" : ""}`}
+              >
+                [THE METHODOLOGY]
               </span>
-              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-10 scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
-                The approach
+              <h2
+                className={`text-3xl md:text-4xl font-extrabold text-foreground mb-8 scroll-fade-in ${method.isVisible ? "visible" : ""}`}
+              >
+                Engineering the problem, not the symptom.
               </h2>
-              <div className={`space-y-6 max-w-[650px] scroll-fade-in ${approach.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-                <p className="text-muted-foreground leading-relaxed text-base">
-                  Most organisations don't have an AI problem. They have a Data Glue problem – manual re-keying, spreadsheet handoffs, and copy-paste chains that silently consume capacity.
-                </p>
-                <p className="text-muted-foreground leading-relaxed text-base">
-                  We use AI as an Operational X-Ray: making the work explicit – inputs, handoffs, decisions, checks, and failure modes – so we can see exactly where the friction sits.
-                </p>
-                <p className="text-muted-foreground leading-relaxed text-base">
-                  Then we fix the Data Glue before we automate. Clarify ownership, clean the data layer, and engineer Decision Inboxes – structured views that surface only the exceptions and choices that need human judgement.
-                </p>
-                <p className="text-muted-foreground leading-relaxed text-base">
-                  Implementation-first: working automation, adoption planning, and governance – not just strategy decks.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* What you can expect */}
-        <section className="py-20 lg:py-32" ref={expect.ref}>
-          <div className="container mx-auto px-6 lg:px-12">
-            <div>
-              <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
-                [WORKING TOGETHER]
-              </span>
-              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-12 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
-                What you can expect
-              </h2>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {expectItems.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={i}
-                      className={`bg-[#1A1C1E] border border-[#2F3133] p-8 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}
-                      style={{ transitionDelay: `${i * 0.1}s` }}
-                    >
-                      <div className="flex items-start gap-4">
-                        <Icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" strokeWidth={1.5} />
-                        <p className="text-foreground font-medium leading-relaxed text-base md:text-sm">{item.text}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Where this helps most */}
-        <section className="py-20 lg:py-32" ref={fit.ref}>
-          <div className="container mx-auto px-6 lg:px-12">
-            <div>
-              <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
-                [FIT]
-              </span>
-              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-6 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
-                Where this helps most
-              </h2>
-              <p className={`text-muted-foreground leading-relaxed text-base mb-8 max-w-[600px] scroll-fade-in ${fit.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-                This approach works best with teams that already know something is broken – they just need a structured way to fix it.
+              <p
+                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] scroll-fade-in ${method.isVisible ? "visible" : ""}`}
+              >
+                Most organizations don't have an AI problem. They have a 'How things work' problem. I engineer the 'Data Glue' out of the system so your people go back to making decisions, not managing tasks. I lead engagements directly, ensuring that what we build is technically sound, commercially viable, and actually adopted.
               </p>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {fitItems.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={i}
-                      className={`bg-[#1A1C1E] border border-[#2F3133] p-8 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}
-                      style={{ transitionDelay: `${(i + 1) * 0.1}s` }}
-                    >
-                      <div className="flex items-start gap-4">
-                        <Icon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" strokeWidth={1.5} />
-                        <p className="text-foreground font-medium leading-relaxed text-base md:text-sm">{item.text}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Background — 2-column layout */}
-        <section className="py-20 lg:py-32 bg-[#1A1C1E]" ref={background.ref}>
+        {/* Experience Block */}
+        <section className="py-24 lg:py-36" ref={exp.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-              <div className="lg:col-span-4">
-                <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
-                  [BACKGROUND]
-                </span>
-                <h2 className={`text-3xl md:text-4xl font-semibold text-foreground scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
-                  Experience and working style
-                </h2>
+            <div className="max-w-5xl">
+              <span
+                className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block scroll-fade-in ${exp.isVisible ? "visible" : ""}`}
+              >
+                [EXPERIENCE]
+              </span>
+              <h2
+                className={`text-3xl md:text-4xl font-extrabold text-foreground mb-12 scroll-fade-in ${exp.isVisible ? "visible" : ""}`}
+              >
+                The track record.
+              </h2>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                {stats.map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className={`bg-[#1A1C1E] border border-[#2F3133] p-6 scroll-fade-in ${exp.isVisible ? "visible" : ""}`}
+                    style={{ transitionDelay: `${index * 0.1}s` }}
+                  >
+                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-foreground mb-2">
+                      {stat.value}
+                    </p>
+                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <div className="lg:col-span-8">
-                <div className={`space-y-6 max-w-[650px] scroll-fade-in ${background.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-                  <p className="text-muted-foreground leading-relaxed text-base">
-                    I've spent close to 20 years working at the intersection of operations, delivery, and technology – building and running efficient teams, and putting in place the systems and ways of working that keep them effective as scale and complexity increase.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed text-base">
-                    That experience has covered workflow redesign and implementation across operations, finance, marketing, and client delivery. Most of the time the issues are not dramatic, they are cumulative: the Data Glue – handoffs, spreadsheets, manual checks, unclear ownership, and rework that quietly become "how things work".
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed text-base">
-                    I focus on making the work explicit, reducing avoidable variation, clarifying responsibility, and building automation that people actually use day to day.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed text-base">
-                    I lead engagements directly. When specialist build resource is needed – integrations, data pipelines, or lightweight internal tools – I bring trusted engineers who deliver against the operational design.
-                  </p>
-                </div>
-              </div>
+
+              <p
+                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] scroll-fade-in ${exp.isVisible ? "visible" : ""}`}
+              >
+                Nearly two decades directing enterprise client delivery and managing £15m+ multichannel marketing and retail accounts taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <CTABand headline="Want to talk it through?" />
-        <section className="-mt-12 pb-16">
-          <div className="container mx-auto px-6 lg:px-12 text-center">
-            <p className="text-muted-foreground text-sm">
-              Or email{" "}
-              <a href="mailto:hello@gallag.works" className="text-primary hover:underline">
-                hello@gallag.works
-              </a>
-            </p>
-          </div>
-        </section>
+        <CTABand headline="Have a workflow in mind? Let's look at it together." />
       </main>
       <Footer />
     </div>
