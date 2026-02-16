@@ -23,6 +23,12 @@ const Philosophy = () => {
           >
             You cannot scale a business on brute-force human effort, but you also can't fix bad logic with shiny technology. At Gallag Works, we start with the operational reality. We understand margin, SLAs, and adoption. We simplify the workflow first, kill the redundant steps, and build the automation second.
           </p>
+          <p
+            className={`text-lg text-foreground font-bold leading-relaxed max-w-[600px] mt-8 scroll-fade-in ${isVisible ? "visible" : ""}`}
+            style={{ transitionDelay: "0.3s" }}
+          >
+            Everyone is buying AI tools. No one is engineering the logic to make them work. We do the latter.
+          </p>
         </div>
       </div>
     </section>

@@ -11,7 +11,7 @@ const metrics = [
     stat: "98%",
     label: "Manual Effort Reduction",
     detail:
-      "Eradicating the 'Data Glue' from core workflows to cut manual effort by up to 98% on targeted tasks — reallocating thousands of hours toward strategic growth.",
+      "Up to 98% reduction in repetitive data entry across core workflows — eradicating the 'Data Glue' and reallocating thousands of hours toward strategic growth.",
   },
   {
     stat: "50%",
