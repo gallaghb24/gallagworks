@@ -103,17 +103,17 @@ const Insights = () => {
               {/* Technical Index Table */}
               <div className="border border-border">
                 {/* Header Row */}
-                <div className="hidden md:grid grid-cols-12 border-b border-foreground px-6 py-4">
-                  <span className="col-span-2 font-mono text-xs text-muted-foreground uppercase tracking-widest">
+                <div className="hidden md:grid grid-cols-20 border-b border-foreground px-6 py-4" style={{ gridTemplateColumns: '15% 45% 25% 15%' }}>
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
                     [REF]
                   </span>
-                  <span className="col-span-5 font-mono text-xs text-muted-foreground uppercase tracking-widest">
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
                     [TOPIC]
                   </span>
-                  <span className="col-span-3 font-mono text-xs text-muted-foreground uppercase tracking-widest">
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
                     [PRIMARY METRIC]
                   </span>
-                  <span className="col-span-2 font-mono text-xs text-muted-foreground uppercase tracking-widest text-right">
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest text-right">
                     [STATUS]
                   </span>
                 </div>
@@ -123,20 +123,21 @@ const Insights = () => {
                   <Link
                     key={item.ref}
                     to={`/insights/${item.slug}`}
-                    className="grid grid-cols-1 md:grid-cols-12 px-6 py-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group"
+                    className="grid grid-cols-1 md:grid-cols-none px-6 py-4 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group items-start"
+                    style={{ gridTemplateColumns: '15% 45% 25% 15%' }}
                   >
-                    <div className="md:col-span-2 flex items-center gap-2 mb-2 md:mb-0">
+                    <div className="flex items-start gap-2 mb-2 md:mb-0">
                       <span className="font-mono text-sm text-primary font-semibold tracking-wider">
                         {item.ref}
                       </span>
                     </div>
-                    <span className="md:col-span-5 text-foreground font-medium group-hover:text-primary transition-colors mb-1 md:mb-0">
+                    <span className="text-foreground font-medium group-hover:text-primary transition-colors mb-1 md:mb-0">
                       {item.topic}
                     </span>
-                    <span className="md:col-span-3 font-mono text-sm text-muted-foreground">
+                    <span className="font-mono text-sm text-muted-foreground">
                       {item.metric}
                     </span>
-                    <span className="md:col-span-2 font-mono text-xs text-primary uppercase tracking-widest md:text-right">
+                    <span className="font-mono text-xs text-primary uppercase tracking-widest md:text-right">
                       [{item.status}]
                     </span>
                   </Link>
