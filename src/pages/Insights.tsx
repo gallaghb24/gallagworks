@@ -7,7 +7,7 @@ import SEOHead from "@/components/SEOHead";
 
 const insights = [
   {
-    ref: "GW-INS-001",
+    ref: "GW-LOG-101",
     topic: "Eradicating the Enterprise Data Glue",
     metric: "1,200hrs+ Reclaimed",
     status: "VERIFIED",
@@ -15,7 +15,7 @@ const insights = [
     type: "MANIFESTO",
   },
   {
-    ref: "GW-001",
+    ref: "GW-LOG-201",
     topic: "POS Job Workflow Automation",
     metric: "70% Cycle Reduction",
     status: "VERIFIED",
@@ -23,7 +23,7 @@ const insights = [
     type: "SCHEMATIC",
   },
   {
-    ref: "GW-002",
+    ref: "GW-LOG-202",
     topic: "Costing Process Re-engineering",
     metric: "85% Fewer Missed Deadlines",
     status: "VERIFIED",
@@ -31,7 +31,7 @@ const insights = [
     type: "SCHEMATIC",
   },
   {
-    ref: "GW-003",
+    ref: "GW-LOG-203",
     topic: "Validation Pipeline Automation",
     metric: "60% Manual Checking Removed",
     status: "VERIFIED",
@@ -39,7 +39,7 @@ const insights = [
     type: "SCHEMATIC",
   },
   {
-    ref: "GW-004",
+    ref: "GW-LOG-204",
     topic: "Multichannel Content Orchestration",
     metric: "1,200hrs Reclaimed Annually",
     status: "VERIFIED",
@@ -47,7 +47,7 @@ const insights = [
     type: "SCHEMATIC",
   },
   {
-    ref: "GW-005",
+    ref: "GW-LOG-205",
     topic: "Enterprise Reporting Automation",
     metric: "98% Processing Time Cut",
     status: "VERIFIED",
@@ -55,7 +55,7 @@ const insights = [
     type: "SCHEMATIC",
   },
   {
-    ref: "GW-006",
+    ref: "GW-LOG-206",
     topic: "High-Volume Allocation Logistics",
     metric: "97% Workload Reduction",
     status: "VERIFIED",

@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useEffect, ReactNode } from "react";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -13,7 +13,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 interface ManifestoSection {
   label: string;
   title: string;
-  paragraphs: string[];
+  paragraphs: ReactNode[];
   metrics?: { value: string; label: string }[];
 }
 
@@ -38,10 +38,20 @@ interface InsightEntry {
   faqSchema?: object;
 }
 
+// ── Inline citation component ─────────────────────────────────────
+const LogRef = ({ code, slug }: { code: string; slug: string }) => (
+  <Link
+    to={`/insights/${slug}#schematic`}
+    className="text-primary no-underline hover:brightness-125 transition-all font-mono text-sm"
+  >
+    [{code}]
+  </Link>
+);
+
 const insightData: InsightEntry[] = [
   {
     slug: "eradicating-enterprise-data-glue",
-    ref: "GW-INS-001",
+    ref: "GW-LOG-101",
     title: "Eradicating the Enterprise Data Glue",
     subtitle: "A field manifesto on identifying and engineering out the manual friction that silently erodes enterprise margins.",
     date: "FEB 2026",
@@ -51,7 +61,7 @@ const insightData: InsightEntry[] = [
         label: "01: THE PROBLEM",
         title: "Your Most Expensive Employees Are Being Used as Human Middleware",
         paragraphs: [
-          "In every enterprise we've diagnosed, the same structural failure appears: skilled, expensive talent operating as human middleware between disconnected systems. This is Data Glue – the manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity.",
+          <>In every enterprise we've diagnosed, the same structural failure appears: skilled, expensive talent operating as human middleware between disconnected systems. This is <Link to="/glossary#data-glue" className="text-primary no-underline hover:brightness-125 transition-all">Data Glue</Link> – the manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity.</>,
           "Data Glue is not a technology problem. It's an architectural one. It emerges when organisations grow faster than their operational infrastructure, leaving teams to bridge the gaps with manual workarounds. These workarounds become normalised. They survive restructures. They outlast the people who created them. And they silently erode margin every single day.",
           "The cost is not abstract. It is measurable in hours, headcount, error rates, and missed deadlines. But because it's distributed across dozens of micro-tasks, it never appears on a single line item. It's invisible until you engineer the visibility.",
         ],
@@ -60,7 +70,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE EVIDENCE",
         title: "Reclaiming 1,200 Hours of Annual Capacity",
         paragraphs: [
-          "During an Operational X-Ray for a Tier-1 Health & Beauty Retailer, we mapped every manual touchpoint in their multichannel content orchestration pipeline. The diagnostic revealed a 25% capacity loss – over a quarter of the team's working hours consumed by Data Glue activities with zero strategic value.",
+          <>During an Operational X-Ray for a Tier-1 Health & Beauty Retailer, we mapped every manual touchpoint in their multichannel content orchestration pipeline <LogRef code="LOG-204" slug="multichannel-content-orchestration" />. The diagnostic revealed a 25% capacity loss – over a quarter of the team's working hours consumed by Data Glue activities with zero strategic value.</>,
           "High-volume client briefs – 500+ lines of product data – were arriving with inconsistent formatting and misspellings. Each occurrence triggered a 5-hour manual QC loop. Brief-to-studio handoffs carried 2-day lead times. The team had normalised the friction.",
           "We engineered a custom ingestion pipeline using LLM-based brand correction, automated data standardisation, and one-click reformatting for production-ready outputs. The result:",
         ],
@@ -75,7 +85,7 @@ const insightData: InsightEntry[] = [
         title: "Engineering Out £1.5M+ in Annual Operational Leakage",
         paragraphs: [
           "Across engagements with Tier-1 retailers and FTSE 100 entities, we have identified and engineered out over £1.5M in cumulative annual operational leakage. This figure represents the fully-loaded cost of Data Glue: the salaries consumed by manual re-keying, the margin lost to delayed turnaround times, and the opportunity cost of strategic talent trapped in procedural work.",
-          "In one engagement with a national leisure group, an enterprise reporting pipeline that consumed 30 hours of manual Excel manipulation per month was reduced to a 10-minute automated workflow – a 98% reduction in processing time. 360 hours were reclaimed annually while removing 100% of data integrity risk.",
+          <>In one engagement with a national leisure group, an enterprise reporting pipeline that consumed 30 hours of manual Excel manipulation per month was reduced to a 10-minute automated workflow – a 98% reduction in processing time <LogRef code="LOG-205" slug="enterprise-reporting-automation" />. 360 hours were reclaimed annually while removing 100% of data integrity risk.</>,
           "The pattern is consistent: organisations don't have an AI problem. They have a structural workflow problem. The margin recovery is not achieved by adding more tools. It is achieved by engineering the Data Glue out of the system so your people return to making decisions, not managing tasks.",
         ],
       },
@@ -122,7 +132,7 @@ const insightData: InsightEntry[] = [
   },
   {
     slug: "pos-job-workflow",
-    ref: "GW-001",
+    ref: "GW-LOG-201",
     title: "POS Job Workflow Automation",
     subtitle: "How replacing fragmented data pulls with a single automated pipeline reclaimed 15 hours per week for strategic advisory.",
     date: "FEB 2026",
@@ -153,7 +163,7 @@ const insightData: InsightEntry[] = [
       },
     ],
     schematic: {
-      ref: "GW-001",
+      ref: "GW-LOG-201",
       sector: "Professional Services",
       friction: [
         "Manual data pulls from multiple systems",
@@ -171,7 +181,7 @@ const insightData: InsightEntry[] = [
   },
   {
     slug: "costing-process",
-    ref: "GW-002",
+    ref: "GW-LOG-202",
     title: "Costing Process Re-engineering",
     subtitle: "Eliminating spreadsheet handoffs and email-based coordination to remove 10 hours of weekly overhead and cut missed deadlines by 85%.",
     date: "FEB 2026",
@@ -202,7 +212,7 @@ const insightData: InsightEntry[] = [
       },
     ],
     schematic: {
-      ref: "GW-002",
+      ref: "GW-LOG-202",
       sector: "Media / Publishing",
       friction: [
         "Spreadsheet handoffs between teams",
@@ -221,7 +231,7 @@ const insightData: InsightEntry[] = [
   },
   {
     slug: "validation-pipeline",
-    ref: "GW-003",
+    ref: "GW-LOG-203",
     title: "Validation Pipeline Automation",
     subtitle: "Building validation rules into the data pipeline to eliminate unsustainable manual checking and free capacity for process improvement.",
     date: "FEB 2026",
@@ -252,7 +262,7 @@ const insightData: InsightEntry[] = [
       },
     ],
     schematic: {
-      ref: "GW-003",
+      ref: "GW-LOG-203",
       sector: "Financial Services",
       friction: [
         "High-volume manual checks on structured data",
@@ -270,7 +280,7 @@ const insightData: InsightEntry[] = [
   },
   {
     slug: "multichannel-content-orchestration",
-    ref: "GW-004",
+    ref: "GW-LOG-204",
     title: "Multichannel Content Orchestration",
     subtitle: "Engineering out the Data Glue at the briefing stage to reclaim 1,200 hours annually and slash lead times by 50%.",
     date: "FEB 2026",
@@ -301,7 +311,7 @@ const insightData: InsightEntry[] = [
       },
     ],
     schematic: {
-      ref: "GW-004",
+      ref: "GW-LOG-204",
       sector: "Retail & Commerce",
       friction: [
         "High-volume client briefs (500+ lines) arriving with inconsistent data and misspellings",
@@ -319,7 +329,7 @@ const insightData: InsightEntry[] = [
   },
   {
     slug: "enterprise-reporting-automation",
-    ref: "GW-005",
+    ref: "GW-LOG-205",
     title: "Enterprise Reporting Automation",
     subtitle: "Replacing 30 hours of monthly Excel manipulation with a 10-minute automated pipeline – a 98% reduction in processing time.",
     date: "FEB 2026",
@@ -350,7 +360,7 @@ const insightData: InsightEntry[] = [
       },
     ],
     schematic: {
-      ref: "GW-005",
+      ref: "GW-LOG-205",
       sector: "Media / Entertainment",
       friction: [
         "Fragmented data sources requiring 30 hours of manual Excel manipulation per month",
@@ -368,7 +378,7 @@ const insightData: InsightEntry[] = [
   },
   {
     slug: "high-volume-allocation-logistics",
-    ref: "GW-006",
+    ref: "GW-LOG-206",
     title: "High-Volume Allocation Logistics",
     subtitle: "Cutting a 10-hour manual merging task to 15 minutes through intelligent RPA-based allocation consolidation.",
     date: "FEB 2026",
@@ -399,7 +409,7 @@ const insightData: InsightEntry[] = [
       },
     ],
     schematic: {
-      ref: "GW-006",
+      ref: "GW-LOG-206",
       sector: "Retail & Commerce",
       friction: [
         "Single campaigns split across 30+ project owners, each with siloed store allocations",
