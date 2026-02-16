@@ -1,74 +1,81 @@
 
-# Services Page: Engineering Schematic Polish
+# "Who We Are" Page: Architectural Polish
 
 ## Overview
-Strip all SaaS-style elements (rounded corners, thick coloured borders, boxy accordions) from the Services page and enforce the "Engineering Schematic" aesthetic -- sharp corners, 1px graphite borders, generous whitespace, and monospace labels.
+Strip all SaaS-style elements and centre-alignment from the About page. Enforce the same left-aligned engineering grid, sharp-cornered cards, and generous whitespace established on the homepage and Services page.
 
 ---
 
-## 1. Services Intro Paragraph (Services.tsx)
+## 1. Hero Section (lines 41-52)
 
-Add `max-w-[600px]` to the body paragraph on line 28 to constrain reading width to ~60-65 characters, matching the Philosophy section treatment.
-
----
-
-## 2. Engagement Types Cards (EngagementTypes.tsx)
-
-**Remove SaaS styling:**
-- Remove `border-l-4 border-l-primary` (thick orange left border)
-- Remove `rounded-lg` (rounded corners)
-- Remove `card-hover` class
-
-**New "Technical Brief" styling:**
-- Sharp corners (no border-radius)
-- `bg-[#1A1C1E]` (Matte Slate) background
-- `border border-[#2F3133]` (1px Graphite border)
-- Increase padding to `p-10` for more whitespace
-
-**Tags (e.g., "Fixed scope", "Time-boxed"):**
-- Remove `bg-primary/10 rounded-full`
-- Replace with: `font-mono text-[10px] uppercase tracking-widest text-primary border border-primary px-2 py-0.5` -- monospace, Safety Orange text, 1px orange border, transparent background, sharp corners
-
-**Section labels:**
-- Change kicker from centred to left-aligned with monospace `[ENGAGEMENTS]` style
-- Change heading and subtext to left-aligned
+- Remove `mx-auto text-center` from the inner container
+- Left-align the H1 and intro paragraph
+- Add monospace kicker: `[WHO WE ARE]`
+- Constrain intro paragraph with `max-w-[600px]`
+- Use `font-bold` on H1 to match other pages
 
 ---
 
-## 3. How We Work -- Blueprint Refinement (HowWeWork.tsx)
+## 2. "The Approach" Section (lines 55-80)
 
-**Borders:**
-- Change step boxes from `border-dashed` to `border border-[#2F3133]` (solid 1px Graphite)
-
-**Connecting lines:**
-- Replace dashed connecting lines with solid thin graphite lines
-- Replace the `border-2 border-primary` pin dots with smaller `w-1.5 h-1.5 bg-primary rounded-full` Safety Orange dots (no border, just filled)
-- Remove `border-dashed border-primary/50` from connecting segments, use `border-[#2F3133]` solid instead
+- Remove `mx-auto text-center` from container -- left-align everything
+- Change kicker to monospace style: `font-mono text-xs text-primary uppercase tracking-widest` with text `[POINT OF VIEW]`
+- Constrain paragraph block with `max-w-[650px]`
+- Left-align all body paragraphs (they inherit from parent, just need to remove the centred container)
+- Increase vertical padding to `py-20 lg:py-32` for more generous spacing
 
 ---
 
-## 4. FAQ Section -- Architectural List (FAQSection.tsx)
+## 3. "What You Can Expect" Cards (lines 83-110)
 
-**Complete restyle:**
-- Remove `border border-border border-l-4 border-l-primary rounded-lg px-6 bg-card` from AccordionItem
-- Replace with: `border-b border-[#2F3133] bg-transparent` -- just a bottom border separator, no box, no background
-- Remove `space-y-3` from the Accordion wrapper (items now flow as a continuous list separated by border lines)
-- Keep `hover:no-underline` on the trigger
-- Section labels: left-align kicker and heading with monospace `[FAQ]` style
+- Remove `mx-auto` from container -- left-align the section
+- Left-align kicker and heading, switch kicker to monospace `[WORKING TOGETHER]`
+- **Card styling changes:**
+  - Remove: `border-l-4 border-l-primary rounded-lg card-hover`
+  - Add: `bg-[#1A1C1E] border border-[#2F3133] p-8` (sharp corners, Matte Slate background, 1px Graphite border)
+- Icon styling: keep `strokeWidth={1.5}` for thin line-art look, keep Safety Orange colour
+- Increase section padding to `py-20 lg:py-32`
 
 ---
 
-## 5. CTA Band (CTABand.tsx)
+## 4. "Where This Helps Most" Cards (lines 114-145)
 
-- Increase vertical padding from `py-20 lg:py-28` to `py-28 lg:py-40` for a more generous, high-end finish
-- No other changes needed (button is already Safety Orange)
+- Same treatment as "What you can expect" above
+- Remove `mx-auto` and `text-center` from container, kicker, heading, and description
+- Switch kicker to monospace `[FIT]`
+- Constrain the sub-paragraph with `max-w-[600px]`
+- **Card styling**: identical to above -- remove SaaS borders, apply `bg-[#1A1C1E] border border-[#2F3133] p-8`
+- Increase section padding to `py-20 lg:py-32`
+
+---
+
+## 5. "Experience and Working Style" Section (lines 148-173)
+
+- **Convert to 2-column layout**: heading on the left (4-5 columns), body paragraphs on the right (7-8 columns)
+- Remove `mx-auto text-center` from container
+- Switch kicker to monospace `[BACKGROUND]`
+- Left-align all paragraphs
+- Constrain the right-column text with `max-w-[650px]`
+- Ensure text is `text-foreground` (Crisp Off-White) for the "Executive Memo" feel -- or keep muted-foreground for body with foreground for heading
+- Increase section padding to `py-20 lg:py-32`
+- Use alternating `bg-slate` background to create depth
+
+---
+
+## 6. CTA / Email Section (lines 176-186)
+
+- Keep as-is (already handled by CTABand component with generous padding from prior updates)
 
 ---
 
 ## Files Modified
 
-1. **src/pages/Services.tsx** -- constrain intro paragraph width
-2. **src/components/EngagementTypes.tsx** -- card redesign, tag styling, left-align section
-3. **src/components/HowWeWork.tsx** -- solid borders, solid connecting lines, smaller orange dots
-4. **src/components/FAQSection.tsx** -- strip to minimal bordered list, left-align section
-5. **src/components/CTABand.tsx** -- increase vertical padding
+1. **src/pages/About.tsx** -- all changes are in this single file
+
+## Summary of Changes
+- Kill all `text-center` and `mx-auto` centring on text containers
+- Replace all kickers with monospace `font-mono text-xs text-primary uppercase tracking-widest` format
+- Replace card classes from `border-l-4 border-l-primary rounded-lg card-hover` to `bg-[#1A1C1E] border border-[#2F3133]` with increased padding
+- Convert "Experience" section to a 2-column grid layout
+- Add `max-w-[600px]` / `max-w-[650px]` constraints to all body text blocks
+- Increase vertical padding on all sections for generous, premium spacing
