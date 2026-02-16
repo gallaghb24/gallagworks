@@ -6,10 +6,21 @@ import Principal from "@/components/Principal";
 import ProofPoints from "@/components/ProofPoints";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
+import heroBg from "@/assets/hero-bg.png";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* Hero background image – sits behind nav and hero */}
+      <div className="absolute top-0 right-0 h-[85vh] w-[60%] lg:w-[55%] z-0 hidden lg:block">
+        <img
+          src={heroBg}
+          alt=""
+          className="object-cover object-right h-full w-full"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+      </div>
+
       <Navigation />
       <main>
         <HeroSection />
