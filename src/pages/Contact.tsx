@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,7 +19,6 @@ const Contact = () => {
   });
 
   useEffect(() => {
-    document.title = "Contact | Gallag Works";
     window.scrollTo(0, 0);
   }, []);
 
@@ -67,6 +67,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Contact"
+        description="Request a consultation with Gallag Works. Every engagement starts with the Operational X-Ray – a structured diagnostic of your workflow friction."
+        path="/contact"
+      />
       <Navigation />
       <main>
         <section className="pt-32 pb-20 lg:pb-32">

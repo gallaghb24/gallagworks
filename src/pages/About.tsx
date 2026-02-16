@@ -4,12 +4,12 @@ import Footer from "@/components/Footer";
 import CTABand from "@/components/CTABand";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
+import SEOHead from "@/components/SEOHead";
 
 const commaFormat = (n: number) => n.toLocaleString();
 
 const About = () => {
   useEffect(() => {
-    document.title = "The Principal | Gallag Works";
     window.scrollTo(0, 0);
   }, []);
 
@@ -30,6 +30,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="The Principal"
+        description="20 years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. Principal-led operational transformation managing £15M+ multichannel contracts."
+        path="/about"
+      />
       <Navigation />
       <main>
         {/* Hero */}
