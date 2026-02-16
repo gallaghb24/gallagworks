@@ -30,7 +30,7 @@ const EngagementTypes = () => {
   return (
     <section className="py-24 lg:py-36" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-5xl">
+        <div className="max-w-7xl">
           <span
             className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block scroll-fade-in ${isVisible ? "visible" : ""}`}
           >
