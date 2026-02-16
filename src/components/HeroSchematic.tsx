@@ -200,10 +200,9 @@ const HeroSchematic = () => {
 
       // Spawn output pulses (only after dots reach core)
       if (outputRevealed && frameCountRef.current % 18 === 0) {
-        const outIdx = Math.floor(frameCountRef.current / 18) % 3;
         const wp: [number, number][] = [
-          [CORE.x + CORE.size, OUTPUT_Y[outIdx]],
-          [620, OUTPUT_Y[outIdx]],
+          [CORE.x + CORE.size, OUTPUT_Y[1]],
+          [620, OUTPUT_Y[1]],
         ];
         pulses.push({
           id: pulseIdRef.current++,
