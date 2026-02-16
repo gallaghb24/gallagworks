@@ -1,23 +1,62 @@
 
+# Legal Infrastructure and Cookieless Analytics
 
-# Soften the Hero Background Gradient
+## 1. New Pages: /privacy and /cookies
 
-A single change to `src/pages/Index.tsx` line 21 -- adjust the gradient stops to create a much more gradual, subtle fade from the dark background into the image.
+Create two new page components following the existing page pattern (Navigation + main content + Footer). Both will use the established dark mode architectural style:
+- Left-aligned text, max-width 720px
+- JetBrains Mono label tags, Inter body copy
+- 1px graphite border separators
+- Placeholder content structure ready for the client's legal text
 
-## Current gradient
-```
-hsl(var(--background)) 20%, hsl(var(--background)/0.6) 45%, transparent 70%
-```
+**Files:**
+- `src/pages/Privacy.tsx` -- new
+- `src/pages/Cookies.tsx` -- new
+- `src/App.tsx` -- add routes for `/privacy` and `/cookies`
 
-## New gradient
-```
-hsl(var(--background)) 5%, hsl(var(--background)/0.7) 25%, hsl(var(--background)/0.3) 50%, transparent 75%
-```
+## 2. PostHog Cookieless Analytics
 
-This adds an extra stop and spreads them wider so the transition is smoother and less harsh, revealing more of the image while still protecting the left-side copy legibility.
+Add the PostHog JS snippet to the app entry point with strict cookieless configuration.
 
-## File changed
-| File | Change |
-|------|--------|
-| `src/pages/Index.tsx` | Update gradient CSS on line 21 |
+- Install `posthog-js` dependency
+- Initialise in `src/main.tsx` with `persistence: 'memory'` and `disable_cookies: true`
+- No cookie consent banner whatsoever
 
+A PostHog project API key will be needed. This will be hardcoded in the client-side init (standard practice for PostHog public keys, same as their docs recommend).
+
+**Question for you:** Do you have your PostHog project API key and host URL ready to provide, or should I use a placeholder you can swap later?
+
+## 3. Privacy Disclaimer on CTA Buttons
+
+Add a discreet line beneath every "Request a Consultation" button:
+
+> Data is processed in accordance with our [Privacy Policy].
+
+Styled as `font-mono text-xs text-muted-foreground/50` with a link to `/privacy`.
+
+**Files affected:**
+- `src/components/HeroSection.tsx` -- below hero CTA
+- `src/components/CTABand.tsx` -- below CTA band button
+- `src/pages/Contact.tsx` -- below the submit button
+
+## 4. Footer Updates
+
+Restructure the footer to add a Legal section and update the copyright line:
+
+- Add "Privacy" and "Cookies" links in a new legal nav group, styled consistently with existing footer links
+- Replace the copyright text with: "© 2026 Gallag Works Ltd. Registered in England and Wales: 17033965."
+
+**File:** `src/components/Footer.tsx`
+
+---
+
+## Technical Summary
+
+| Change | File(s) | Type |
+|---|---|---|
+| Privacy page | `src/pages/Privacy.tsx`, `src/App.tsx` | New file + route |
+| Cookies page | `src/pages/Cookies.tsx`, `src/App.tsx` | New file + route |
+| PostHog init | `src/main.tsx` | Edit |
+| Privacy disclaimer | `HeroSection.tsx`, `CTABand.tsx`, `Contact.tsx` | Edit |
+| Footer legal section | `Footer.tsx` | Edit |
+| PostHog dependency | `package.json` | New dependency |
