@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -15,15 +15,15 @@ const Navigation = () => {
       const currentY = window.scrollY;
       setIsScrolled(currentY > 50);
       if (window.innerWidth < 768) {
-        setIsHidden(currentY > lastScrollY && currentY > 80);
+        setIsHidden(currentY > lastScrollY.current && currentY > 80);
       } else {
         setIsHidden(false);
       }
-      setLastScrollY(currentY);
+      lastScrollY.current = currentY;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
