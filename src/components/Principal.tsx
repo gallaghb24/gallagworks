@@ -10,12 +10,12 @@ const Principal = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block scroll-fade-in ${isVisible ? "visible" : ""}`}
+            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
           >
             [THE PRINCIPAL]
           </span>
 
-          <div className={`scroll-fade-in ${isVisible ? "visible" : ""}`}>
+          <div className={`clip-reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.08s" }}>
             <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-8 leading-tight">
               Built by an Operator, not an Agency.
             </h2>

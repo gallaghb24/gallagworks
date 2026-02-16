@@ -94,6 +94,50 @@
     transform: translateY(0);
   }
 
+  /* Mechanical clip-reveal: left-to-right unroll */
+  .clip-reveal {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: clip-path;
+  }
+
+  .clip-reveal.visible {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* Top-to-bottom variant */
+  .clip-reveal-down {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: clip-path;
+  }
+
+  .clip-reveal-down.visible {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* Border draw animation */
+  .border-draw {
+    position: relative;
+  }
+
+  .border-draw::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: hsl(var(--border));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .border-draw.visible::before {
+    transform: scaleX(1);
+  }
+
   .bg-slate {
     background-color: hsl(var(--slate));
   }

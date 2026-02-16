@@ -25,20 +25,21 @@ const HowWeWork = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-24 lg:py-36 border-t border-[#2F3133] blueprint-grid" ref={ref}>
+    <section className="py-24 lg:py-36 border-draw blueprint-grid" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${
+            className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block clip-reveal ${
               isVisible ? "visible" : ""
             }`}
           >
             [BLUEPRINT]
           </span>
           <h2
-            className={`font-display text-3xl md:text-4xl font-extrabold text-foreground mb-12 scroll-fade-in ${
+            className={`font-display text-3xl md:text-4xl font-extrabold text-foreground mb-12 clip-reveal ${
               isVisible ? "visible" : ""
             }`}
+            style={{ transitionDelay: "0.08s" }}
           >
             How we work
           </h2>
@@ -48,13 +49,13 @@ const HowWeWork = () => {
             {steps.map((step, i) => (
               <div
                 key={i}
-                className={`relative scroll-fade-in ${isVisible ? "visible" : ""} ${i < steps.length - 1 ? "md:pr-8" : ""}`}
-                style={{ transitionDelay: `${(i + 1) * 0.12}s` }}
+                className={`relative clip-reveal-down ${isVisible ? "visible" : ""} ${i < steps.length - 1 ? "md:pr-8" : ""}`}
+                style={{ transitionDelay: `${0.15 + (i + 1) * 0.12}s` }}
               >
                 {/* Connecting dots (between boxes) */}
                 {i < steps.length - 1 && (
                   <>
-                    {/* Desktop horizontal connector — anchored to right edge of padding gap */}
+                    {/* Desktop horizontal connector */}
                     <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 right-0 items-center z-10 w-8">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                       <div className="flex-1 border-t border-[#2F3133]" />
