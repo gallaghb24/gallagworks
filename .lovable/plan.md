@@ -1,59 +1,74 @@
 
-# Hero Diagram Overhaul and UI Polish
+# Services Page: Engineering Schematic Polish
 
 ## Overview
-Three targeted changes: replace the hero SVG with a larger, high-fidelity technical schematic; polish the Philosophy section typography; and update copy in the Principal and Hero sections.
+Strip all SaaS-style elements (rounded corners, thick coloured borders, boxy accordions) from the Services page and enforce the "Engineering Schematic" aesthetic -- sharp corners, 1px graphite borders, generous whitespace, and monospace labels.
 
 ---
 
-## 1. Hero Section Diagram -- Full Rebuild (HeroSection.tsx)
+## 1. Services Intro Paragraph (Services.tsx)
 
-Replace the current simple SVG with a much larger, detailed "Technical Schematic" spanning the full right column.
-
-**Left Side -- "Unstructured Inputs and Manual Friction":**
-- Four input source icons rendered as small labelled rectangles with simple Lucide-style line-art icons inside (Email, Spreadsheet, Database, Chat/Slack)
-- Tangled, crossing grey lines emerging from each source and converging toward the centre
-- Monospace label above: `UNSTRUCTURED INPUTS & MANUAL FRICTION`
-
-**Centre -- "Operational Engineering Core":**
-- A larger bordered rectangle containing internal structure:
-  - A funnel shape at the entry point
-  - Three diamond-shaped decision nodes (logic gates) connected by internal lines
-- Monospace label inside or below: `OPERATIONAL ENGINEERING CORE`
-- Sub-label: `Simplify. Standardise. Validate.`
-
-**Right Side -- Three Clean Output Streams:**
-- Three parallel horizontal lines emerging from the central box, each terminating at a labelled endpoint with a small icon circle
-- Top stream: Safety Orange accent dot + label "Structured Decisions (Human-in-the-Loop)"
-- Middle stream: Safety Orange accent dot + label "Autonomous Workflows (AI & Automation)"
-- Bottom stream: Grey dot + label "Exception Handling (Routed for Review)"
-
-**SVG viewport**: Increase from `400x320` to approximately `600x400` for more detail. Remove `max-w-md` constraint so it fills the column. The diagram container uses `w-full` to span wide.
-
-**Style**: Thin 1px lines in white/grey. Safety Orange used only on the two top output dots and their connecting lines to highlight the critical value path.
+Add `max-w-[600px]` to the body paragraph on line 28 to constrain reading width to ~60-65 characters, matching the Philosophy section treatment.
 
 ---
 
-## 2. Hero Headline -- "AI Era." in Orange (HeroSection.tsx)
+## 2. Engagement Types Cards (EngagementTypes.tsx)
 
-Split the H1 so that "AI Era." is wrapped in a `<span className="text-primary">` to render in Safety Orange, while the rest remains Off-White.
+**Remove SaaS styling:**
+- Remove `border-l-4 border-l-primary` (thick orange left border)
+- Remove `rounded-lg` (rounded corners)
+- Remove `card-hover` class
+
+**New "Technical Brief" styling:**
+- Sharp corners (no border-radius)
+- `bg-[#1A1C1E]` (Matte Slate) background
+- `border border-[#2F3133]` (1px Graphite border)
+- Increase padding to `p-10` for more whitespace
+
+**Tags (e.g., "Fixed scope", "Time-boxed"):**
+- Remove `bg-primary/10 rounded-full`
+- Replace with: `font-mono text-[10px] uppercase tracking-widest text-primary border border-primary px-2 py-0.5` -- monospace, Safety Orange text, 1px orange border, transparent background, sharp corners
+
+**Section labels:**
+- Change kicker from centred to left-aligned with monospace `[ENGAGEMENTS]` style
+- Change heading and subtext to left-aligned
 
 ---
 
-## 3. Philosophy Section -- Constrain Paragraph Width (Philosophy.tsx)
+## 3. How We Work -- Blueprint Refinement (HowWeWork.tsx)
 
-Add `max-w-[600px]` to the body paragraph element to limit it to roughly 60-65 characters per line for better readability. The paragraph stays left-aligned within its container (no centring of the text block itself, as the section is left-aligned by design).
+**Borders:**
+- Change step boxes from `border-dashed` to `border border-[#2F3133]` (solid 1px Graphite)
+
+**Connecting lines:**
+- Replace dashed connecting lines with solid thin graphite lines
+- Replace the `border-2 border-primary` pin dots with smaller `w-1.5 h-1.5 bg-primary rounded-full` Safety Orange dots (no border, just filled)
+- Remove `border-dashed border-primary/50` from connecting segments, use `border-[#2F3133]` solid instead
 
 ---
 
-## 4. Principal Section -- "design" to "engineering" (Principal.tsx)
+## 4. FAQ Section -- Architectural List (FAQSection.tsx)
 
-Change "operational design studio" to "operational engineering studio" in the body copy.
+**Complete restyle:**
+- Remove `border border-border border-l-4 border-l-primary rounded-lg px-6 bg-card` from AccordionItem
+- Replace with: `border-b border-[#2F3133] bg-transparent` -- just a bottom border separator, no box, no background
+- Remove `space-y-3` from the Accordion wrapper (items now flow as a continuous list separated by border lines)
+- Keep `hover:no-underline` on the trigger
+- Section labels: left-align kicker and heading with monospace `[FAQ]` style
+
+---
+
+## 5. CTA Band (CTABand.tsx)
+
+- Increase vertical padding from `py-20 lg:py-28` to `py-28 lg:py-40` for a more generous, high-end finish
+- No other changes needed (button is already Safety Orange)
 
 ---
 
 ## Files Modified
 
-1. **src/components/HeroSection.tsx** -- Complete SVG rebuild with high-fidelity schematic; H1 orange accent on "AI Era."
-2. **src/components/Philosophy.tsx** -- Add `max-w-[600px]` to body paragraph
-3. **src/components/Principal.tsx** -- Replace "design" with "engineering" in body text
+1. **src/pages/Services.tsx** -- constrain intro paragraph width
+2. **src/components/EngagementTypes.tsx** -- card redesign, tag styling, left-align section
+3. **src/components/HowWeWork.tsx** -- solid borders, solid connecting lines, smaller orange dots
+4. **src/components/FAQSection.tsx** -- strip to minimal bordered list, left-align section
+5. **src/components/CTABand.tsx** -- increase vertical padding
