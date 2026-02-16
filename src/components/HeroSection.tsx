@@ -9,9 +9,6 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left column */}
           <div className="lg:col-span-5">
-            <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block animate-fade-in">
-              [OPERATIONAL ENGINEERING]
-            </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-8 animate-fade-in-up">
               Operational Engineering for the <span className="text-primary">AI Era.</span>
             </h1>
