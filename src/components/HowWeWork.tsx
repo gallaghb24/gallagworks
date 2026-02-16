@@ -25,7 +25,7 @@ const HowWeWork = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 lg:py-28 border-t border-[#2F3133] blueprint-grid" ref={ref}>
+    <section className="py-24 lg:py-36 border-t border-[#2F3133] blueprint-grid" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
@@ -36,7 +36,7 @@ const HowWeWork = () => {
             [BLUEPRINT]
           </span>
           <h2
-            className={`font-display text-3xl md:text-4xl font-bold text-foreground mb-12 scroll-fade-in ${
+            className={`font-display text-3xl md:text-4xl font-extrabold text-foreground mb-12 scroll-fade-in ${
               isVisible ? "visible" : ""
             }`}
           >
@@ -80,7 +80,7 @@ const HowWeWork = () => {
                   <h3 className="font-display text-xl font-bold text-foreground mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <p className="text-muted-foreground font-light leading-relaxed text-sm">
                     {step.description}
                   </p>
                 </div>

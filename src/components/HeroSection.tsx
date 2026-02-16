@@ -12,12 +12,12 @@ const HeroSection = () => {
             <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block animate-fade-in">
               [OPERATIONAL ENGINEERING]
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-8 animate-fade-in-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-8 animate-fade-in-up">
               Operational Engineering for the <span className="text-primary">AI Era.</span>
             </h1>
 
             <p
-              className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed animate-fade-in-up"
+              className="text-lg md:text-xl text-muted-foreground font-light max-w-[720px] mb-10 leading-relaxed animate-fade-in-up"
               style={{ animationDelay: "0.15s" }}
             >
               We help operations and commercial leaders untangle the 'Data Glue' – the manual re-keying, spreadsheets, and workarounds that kill capacity. We simplify the logic, then build the AI infrastructure to run it.
@@ -30,7 +30,7 @@ const HeroSection = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg font-medium group"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-6 text-lg font-medium group"
               >
                 <Link to="/contact">
                   Request a Consultation

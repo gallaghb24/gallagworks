@@ -31,7 +31,7 @@ const Navigation = () => {
 
   const navLinks = [
     { to: "/services", label: "Services" },
-    { to: "/about", label: "Who we are" },
+    { to: "/about", label: "The Principal" },
     { to: "/case-studies", label: "Case Studies" },
     { to: "/contact", label: "Contact" },
   ];
@@ -73,7 +73,7 @@ const Navigation = () => {
             ))}
             <Button
               asChild
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-6"
             >
               <Link to="/contact">Request a Consultation</Link>
             </Button>
@@ -98,7 +98,7 @@ const Navigation = () => {
               <div className="px-4">
                 <Button
                   asChild
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-none"
                 >
                   <Link to="/contact">Request a Consultation</Link>
                 </Button>

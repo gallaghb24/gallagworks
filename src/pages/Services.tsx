@@ -16,17 +16,17 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        <section className="pt-32 pb-16">
+        <section className="pt-32 pb-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block animate-fade-in">
                 [SERVICES]
               </span>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in-up">
+              <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 animate-fade-in-up">
                 Our services
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-[600px] animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                Every engagement starts with the Operational X-Ray – understanding where the Data Glue sits before we design anything. We don't bring pre-built solutions; we engineer around how your organisation actually operates.
+              <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+                Every engagement starts with the Operational X-Ray. We don't bring pre-built solutions; we engineer around how your organization actually operates.
               </p>
             </div>
           </div>
