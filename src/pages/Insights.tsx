@@ -103,17 +103,17 @@ const Insights = () => {
               {/* Technical Index Table */}
               <div className="border border-border">
                 {/* Header Row */}
-                <div className="hidden md:grid grid-cols-20 border-b border-foreground px-6 py-4" style={{ gridTemplateColumns: '15% 45% 25% 15%' }}>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
+                <div className="hidden md:grid border-b border-foreground px-6 py-4" style={{ gridTemplateColumns: '15% 45% 28% 12%' }}>
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
                     [REF]
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
                     [TOPIC]
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
                     [PRIMARY METRIC]
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest text-right">
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed text-right">
                     [STATUS]
                   </span>
                 </div>
@@ -123,21 +123,19 @@ const Insights = () => {
                   <Link
                     key={item.ref}
                     to={`/insights/${item.slug}`}
-                    className="grid grid-cols-1 md:grid-cols-none px-6 py-4 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group items-start"
-                    style={{ gridTemplateColumns: '15% 45% 25% 15%' }}
+                    className="grid grid-cols-1 md:grid-cols-none px-6 pt-6 pb-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group items-start"
+                    style={{ gridTemplateColumns: '15% 45% 28% 12%' }}
                   >
-                    <div className="flex items-start gap-2 mb-2 md:mb-0">
-                      <span className="font-mono text-sm text-primary font-semibold tracking-wider">
-                        {item.ref}
-                      </span>
-                    </div>
-                    <span className="text-foreground font-medium group-hover:text-primary transition-colors mb-1 md:mb-0">
+                    <span className="font-mono text-sm text-primary font-semibold tracking-wider leading-relaxed m-0 mb-2 md:mb-0">
+                      {item.ref}
+                    </span>
+                    <span className="text-sm text-foreground font-medium group-hover:text-primary transition-colors leading-relaxed m-0 mb-1 md:mb-0">
                       {item.topic}
                     </span>
-                    <span className="font-mono text-sm text-muted-foreground">
+                    <span className="font-mono text-sm text-muted-foreground leading-relaxed m-0">
                       {item.metric}
                     </span>
-                    <span className="font-mono text-xs text-primary uppercase tracking-widest md:text-right">
+                    <span className="font-mono text-xs text-primary uppercase tracking-widest leading-relaxed m-0 md:text-right">
                       [{item.status}]
                     </span>
                   </Link>
