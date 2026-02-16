@@ -32,7 +32,7 @@ const About = () => {
                 [THE PRINCIPAL]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 animate-fade-in-up">
-                Principal-Led Transformation.
+                Operator-Led Transformation.
               </h1>
               <p
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] animate-fade-in-up"
