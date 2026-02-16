@@ -1,8 +1,9 @@
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import ProofPoints from "@/components/ProofPoints";
+import Philosophy from "@/components/Philosophy";
 import ServicesSummary from "@/components/ServicesSummary";
-import HowWeWork from "@/components/HowWeWork";
+import Principal from "@/components/Principal";
+import ProofPoints from "@/components/ProofPoints";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
 
@@ -12,16 +13,17 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
+        <Philosophy />
         <ServicesSummary />
-        <HowWeWork />
+        <Principal />
         <ProofPoints />
-        <CTABand headline={<>Ready to eliminate the <span className="text-primary">Data Glue</span> from your operations?</>} />
-        <section className="-mt-12 pb-16">
-          <div className="container mx-auto px-6 lg:px-12 text-center">
+        <CTABand />
+        <section className="-mt-8 pb-16">
+          <div className="container mx-auto px-6 lg:px-12">
             <p className="text-muted-foreground text-sm font-mono">
               Or email{" "}
-              <a href="mailto:hello@gallagworks.com" className="text-primary hover:underline">
-                hello@gallagworks.com
+              <a href="mailto:hello@gallag.works" className="text-primary hover:underline">
+                hello@gallag.works
               </a>
             </p>
           </div>

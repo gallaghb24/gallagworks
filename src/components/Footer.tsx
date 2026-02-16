@@ -11,17 +11,17 @@ const Footer = () => {
         <div className={`max-w-5xl scroll-fade-in ${isVisible ? "visible" : ""}`}>
           <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-12">
             <div>
-              <div className="font-display text-lg font-bold mb-2 text-foreground">
+              <div className="text-lg font-bold mb-2 text-foreground">
                 GALLAG WORKS
               </div>
               <span className="font-mono text-xs text-muted-foreground tracking-widest uppercase block mb-4">
                 Operational Engineering
               </span>
               <a
-                href="mailto:hello@gallagworks.com"
+                href="mailto:hello@gallag.works"
                 className="text-footer-foreground/70 hover:text-footer-foreground transition-colors text-sm font-mono"
               >
-                hello@gallagworks.com
+                hello@gallag.works
               </a>
             </div>
 

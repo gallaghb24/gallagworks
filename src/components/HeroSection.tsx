@@ -2,19 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const terminalLines = [
-  "> running operational x-ray...",
-  "> scanning data glue: manual re-keying detected",
-  "> mapping spreadsheet handoffs...",
-  "> friction identified: 4 handoff points",
-  "> engineering decision inbox...",
-  "> routing exceptions to human judgement",
-  "> deploying automation pipeline...",
-  "> data glue eliminated: 3 processes",
-  "> decision inbox live: ops team",
-  "> capacity released: 12h/week",
-];
-
 const HeroSection = () => {
   return (
     <section className="min-h-[85vh] flex items-center pt-24 pb-16">
@@ -25,16 +12,15 @@ const HeroSection = () => {
             <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block animate-fade-in">
               [OPERATIONAL ENGINEERING]
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-8 animate-fade-in-up">
-              Operational Engineering{" "}
-              <span className="text-primary">for the AI Era.</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-8 animate-fade-in-up">
+              Operational Engineering for the AI Era.
             </h1>
 
             <p
               className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed animate-fade-in-up"
               style={{ animationDelay: "0.15s" }}
             >
-              We use AI as an Operational X-Ray to expose the Data Glue – the manual re-keying and spreadsheet handoffs – then engineer Decision Inboxes so your team moves from managing tasks to making decisions.
+              We help operations and commercial leaders untangle the 'Data Glue' – the manual re-keying, spreadsheets, and workarounds that kill capacity. We simplify the logic, then build the AI infrastructure to run it.
             </p>
 
             <div
@@ -47,51 +33,57 @@ const HeroSection = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg font-medium group"
               >
                 <Link to="/contact">
-                  Book a discovery call
+                  Request a Consultation
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
             </div>
           </div>
 
-          {/* Right column – Terminal */}
+          {/* Right column – Workflow Node Diagram */}
           <div
-            className="animate-fade-in-up hidden lg:block"
+            className="animate-fade-in-up hidden lg:flex items-center justify-center"
             style={{ animationDelay: "0.4s" }}
           >
-            <div className="border border-border rounded-sm overflow-hidden">
-              {/* Title bar */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/50">
-                <div className="w-3 h-3 rounded-full bg-primary/60" />
-                <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
-                <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
-                <span className="ml-3 font-mono text-xs text-muted-foreground">
-                  operational-x-ray.sh
-                </span>
-              </div>
-              {/* Terminal body */}
-              <div className="bg-background p-6 h-80 overflow-hidden relative">
-                <div className="terminal-scroll">
-                  {[...terminalLines, ...terminalLines].map((line, i) => (
-                    <p
-                      key={i}
-                      className={`font-mono text-sm leading-7 ${
-                        line.includes("live") || line.includes("released")
-                          ? "text-primary"
-                          : line.includes("detected") || line.includes("friction")
-                          ? "text-primary/70"
-                          : "text-muted-foreground"
-                      }`}
-                    >
-                      {line}
-                    </p>
-                  ))}
-                </div>
-                {/* Fade overlays */}
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-                <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-background to-transparent pointer-events-none" />
-              </div>
-            </div>
+            <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-md">
+              {/* Tangled input lines (left side) */}
+              <path d="M 40 40 C 100 80, 60 120, 120 100" stroke="hsl(var(--muted-foreground))" strokeWidth="1" opacity="0.4" />
+              <path d="M 40 80 C 80 40, 140 140, 120 100" stroke="hsl(var(--muted-foreground))" strokeWidth="1" opacity="0.4" />
+              <path d="M 40 120 C 100 160, 80 60, 120 100" stroke="hsl(var(--muted-foreground))" strokeWidth="1" opacity="0.4" />
+              <path d="M 40 160 C 60 100, 110 180, 120 140" stroke="hsl(var(--muted-foreground))" strokeWidth="1" opacity="0.4" />
+              <path d="M 40 200 C 100 240, 70 140, 120 180" stroke="hsl(var(--muted-foreground))" strokeWidth="1" opacity="0.4" />
+              <path d="M 40 240 C 80 200, 130 260, 120 220" stroke="hsl(var(--muted-foreground))" strokeWidth="1" opacity="0.4" />
+              <path d="M 40 280 C 100 240, 60 300, 120 260" stroke="hsl(var(--muted-foreground))" strokeWidth="1" opacity="0.4" />
+
+              {/* Input dots */}
+              {[40, 80, 120, 160, 200, 240, 280].map((y) => (
+                <circle key={`in-${y}`} cx="40" cy={y} r="3" fill="hsl(var(--muted-foreground))" opacity="0.5" />
+              ))}
+
+              {/* Central processing node */}
+              <rect x="150" y="110" width="100" height="100" rx="2" stroke="hsl(var(--foreground))" strokeWidth="1.5" fill="none" />
+              <text x="200" y="155" textAnchor="middle" fill="hsl(var(--foreground))" fontSize="10" fontFamily="Inter, sans-serif" fontWeight="600" letterSpacing="0.05em">PROCESS</text>
+              <text x="200" y="172" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="9" fontFamily="Inter, sans-serif">ARCHITECTURE</text>
+
+              {/* Clean output lines (right side) */}
+              <line x1="250" y1="130" x2="340" y2="100" stroke="hsl(var(--foreground))" strokeWidth="1.5" />
+              <line x1="250" y1="160" x2="340" y2="160" stroke="hsl(var(--foreground))" strokeWidth="1.5" />
+              <line x1="250" y1="190" x2="340" y2="220" stroke="hsl(var(--foreground))" strokeWidth="1.5" />
+
+              {/* Output dots */}
+              <circle cx="340" cy="100" r="4" fill="hsl(var(--primary))" />
+              <circle cx="340" cy="160" r="4" fill="hsl(var(--primary))" />
+              <circle cx="340" cy="220" r="4" fill="hsl(var(--primary))" />
+
+              {/* Output labels */}
+              <text x="352" y="104" fill="hsl(var(--foreground))" fontSize="9" fontFamily="Inter, sans-serif">Decisions</text>
+              <text x="352" y="164" fill="hsl(var(--foreground))" fontSize="9" fontFamily="Inter, sans-serif">Automation</text>
+              <text x="352" y="224" fill="hsl(var(--foreground))" fontSize="9" fontFamily="Inter, sans-serif">Exceptions</text>
+
+              {/* Labels */}
+              <text x="40" y="30" fill="hsl(var(--muted-foreground))" fontSize="8" fontFamily="'JetBrains Mono', monospace" letterSpacing="0.1em">DATA GLUE</text>
+              <text x="340" y="80" fill="hsl(var(--muted-foreground))" fontSize="8" fontFamily="'JetBrains Mono', monospace" letterSpacing="0.1em">STRUCTURED</text>
+            </svg>
           </div>
         </div>
       </div>

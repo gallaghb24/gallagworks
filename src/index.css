@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 0 0% 10%;
+    --background: 0 0% 7%;
     --foreground: 0 0% 96%;
 
-    --card: 0 0% 13%;
+    --card: 210 5% 11%;
     --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 13%;
+    --popover: 210 5% 11%;
     --popover-foreground: 0 0% 96%;
 
     --primary: 20 100% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 16%;
+    --secondary: 210 5% 11%;
     --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 63%;
+    --muted: 210 5% 11%;
+    --muted-foreground: 0 0% 60%;
 
     --accent: 20 100% 56%;
     --accent-foreground: 0 0% 100%;
@@ -30,22 +30,24 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 20%;
+    --border: 210 3% 19%;
+    --input: 210 3% 22%;
     --ring: 20 100% 56%;
 
     --radius: 0.5rem;
 
-    --footer-bg: 0 0% 7%;
+    --footer-bg: 0 0% 5%;
     --footer-fg: 0 0% 80%;
 
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 63%;
+    --slate: 210 5% 11%;
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 60%;
     --sidebar-primary: 0 0% 96%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 0 0% 16%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 210 5% 11%;
     --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 0% 18%;
+    --sidebar-border: 210 3% 19%;
     --sidebar-ring: 20 100% 56%;
   }
 }
@@ -64,7 +66,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    @apply font-sans font-bold;
   }
 }
 
@@ -81,7 +83,6 @@
     animation: fade-in-up 0.6s ease-out forwards;
   }
 
-  /* Scroll-triggered animation base */
   .scroll-fade-in {
     opacity: 0;
     transform: translateY(24px);
@@ -91,6 +92,10 @@
   .scroll-fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .bg-slate {
+    background-color: hsl(var(--slate));
   }
 }
 
@@ -113,20 +118,4 @@
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* Terminal scrolling animation */
-@keyframes terminal-scroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-
-.terminal-scroll {
-  animation: terminal-scroll 20s linear infinite;
-}
-
-/* Blueprint grid-dot background */
-.blueprint-grid {
-  background-image: radial-gradient(circle, hsl(var(--border)) 1px, transparent 1px);
-  background-size: 24px 24px;
 }

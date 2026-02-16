@@ -49,7 +49,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex flex-col">
-            <span className="font-display text-lg font-bold tracking-tight text-foreground">
+            <span className="text-lg font-bold tracking-tight text-foreground">
               GALLAG WORKS
             </span>
             <span className="font-mono text-[10px] text-muted-foreground tracking-widest uppercase">
@@ -75,7 +75,7 @@ const Navigation = () => {
               asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6"
             >
-              <Link to="/contact">Book a discovery call</Link>
+              <Link to="/contact">Request a Consultation</Link>
             </Button>
           </div>
 
@@ -100,7 +100,7 @@ const Navigation = () => {
                   asChild
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full"
                 >
-                  <Link to="/contact">Book a discovery call</Link>
+                  <Link to="/contact">Request a Consultation</Link>
                 </Button>
               </div>
               {navLinks.map((link) => (
