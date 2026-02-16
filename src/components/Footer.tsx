@@ -47,12 +47,9 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
               {/* Column 1: Brand */}
               <div>
                 <div className="text-lg font-bold text-foreground mb-1">GALLAG WORKS</div>
-                <span className="font-mono text-xs text-primary tracking-widest uppercase block mb-4">
+                <span className="font-mono text-xs text-primary tracking-widest uppercase block">
                   Operational Engineering
                 </span>
-                <p className="font-mono text-[10px] text-footer-foreground/40 leading-relaxed">
-                  Registered in England &amp; Wales: 17033965
-                </p>
               </div>
 
               {/* Column 2: Nav */}
