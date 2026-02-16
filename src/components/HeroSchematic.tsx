@@ -320,29 +320,50 @@ const HeroSchematic = () => {
         )}
 
         {/* Output lines */}
-        {OUTPUT_Y.map((y, i) => {
-          const isCenter = i === 1;
+        {/* Grey output lines (always visible after build) */}
+        {[0, 2].map((i) => {
+          const y = OUTPUT_Y[i];
           const len = 620 - (CORE.x + CORE.size);
-          const revealed = outputRevealed;
           return (
             <line
               key={`output-${i}`}
               x1={CORE.x + CORE.size} y1={y}
               x2={620} y2={y}
-              stroke={isCenter ? "#FF5F1F" : "#2F3133"}
-              strokeWidth={isCenter ? 2 : 1}
+              stroke="#2F3133"
+              strokeWidth={1}
               strokeDasharray={len}
-              strokeDashoffset={revealed ? 0 : len}
-              filter={isCenter && revealed ? "url(#glow)" : undefined}
+              strokeDashoffset={outputRevealed ? 0 : len}
               style={{
-                transition: revealed
+                transition: outputRevealed
                   ? "stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
                   : "none",
-                ...(isCenter && revealed ? { animation: "pulse-glow 2s ease-in-out infinite" } : {}),
               }}
             />
           );
         })}
+
+        {/* Center orange laser line */}
+        {(() => {
+          const len = 620 - (CORE.x + CORE.size);
+          return (
+            <line
+              key="output-center"
+              x1={CORE.x + CORE.size} y1={OUTPUT_Y[1]}
+              x2={620} y2={OUTPUT_Y[1]}
+              stroke="#FF5F1F"
+              strokeWidth={2}
+              strokeDasharray={len}
+              strokeDashoffset={outputRevealed ? 0 : len}
+              filter={outputRevealed ? "url(#glow)" : undefined}
+              style={{
+                transition: outputRevealed
+                  ? "stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
+                  : "none",
+                ...(outputRevealed ? { animation: "pulse-glow 2s ease-in-out infinite" } : {}),
+              }}
+            />
+          );
+        })()}
 
         {/* Pulses */}
         {pulses.map((p) =>
