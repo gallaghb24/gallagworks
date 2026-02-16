@@ -178,18 +178,52 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Notification email sent:", notificationEmail);
 
+    // Generate a pseudo-unique reference
+    const refId = `GW-${Date.now().toString(36).toUpperCase().slice(-6)}`;
+
     // Send confirmation email to the person who submitted
     const confirmationEmail = await resend.emails.send({
       from: "Gallag Works <hello@gallag.works>",
       to: [email.trim()],
-      subject: "Thank you for reaching out",
+      subject: "Re: Your Consultation Request | Gallag Works",
       html: `
-        <h2>Thank you for contacting us, ${safeName}!</h2>
-        <p>We've received your message and will be in touch shortly.</p>
-        <p>In the meantime, if you have any urgent questions, please don't hesitate to reach out.</p>
-        <br>
-        <p>Best regards,</p>
-        <p><strong>Gallag Works</strong></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin:0;padding:0;background-color:#121212;color:#F5F5F5;font-family:Arial,Helvetica,sans-serif;line-height:1.6;">
+  <div style="max-width:600px;margin:0 auto;padding:40px 24px;">
+    
+    <hr style="border:none;border-top:1px solid #2F3133;margin:0 0 32px 0;">
+
+    <p style="margin:0 0 24px 0;font-size:15px;color:#F5F5F5;">Hi ${safeName},</p>
+
+    <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">Thanks for reaching out${safeCompany ? ` and sharing some background on <span style="font-family:'Courier New',Courier,monospace;color:#FF5F1F;">${safeCompany}</span>` : ''}.</p>
+
+    <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">I've personally received your request and the details you provided regarding your current operational context. It sounds like there is a significant opportunity to look at the &lsquo;Data Glue&rsquo; and reclaim some capacity within your workflows.</p>
+
+    <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">I am reviewing the information now and will be in touch within the next 24 hours to suggest a time for us to speak.</p>
+
+    <p style="margin:0 0 32px 0;font-size:15px;color:#F5F5F5;">Looking forward to the conversation.</p>
+
+    <p style="margin:0;font-size:15px;color:#F5F5F5;">Best,</p>
+    <p style="margin:4px 0 0 0;font-size:15px;font-weight:700;color:#F5F5F5;">Ben Gallagher</p>
+    <p style="margin:2px 0 0 0;font-size:13px;color:#888;">Principal, Gallag Works</p>
+
+    <hr style="border:none;border-top:1px solid #2F3133;margin:32px 0 16px 0;">
+
+    <div style="font-family:'Courier New',Courier,monospace;font-size:11px;color:#555;line-height:1.5;">
+      <span style="color:#888;">[SUBMISSION LOG]</span> Ref: <span style="color:#FF5F1F;">${refId}</span><br>
+      Context: ${safeMessage.length > 120 ? safeMessage.substring(0, 120) + '…' : safeMessage}
+    </div>
+
+    <hr style="border:none;border-top:1px solid #2F3133;margin:16px 0 0 0;">
+
+  </div>
+</body>
+</html>
       `,
     });
 
