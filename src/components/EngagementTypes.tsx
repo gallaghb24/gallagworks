@@ -4,7 +4,7 @@ const tiers = [
   {
     number: "01",
     title: "Operational Audit & X-Ray",
-    sublabel: "2–4 Weeks | Fixed Scope",
+    sublabel: "2–3 Weeks | Fixed Scope",
     description:
       "A surgical deep dive into the 'as-is' state. We expose the Data Glue — the manual re-keying and spreadsheet handoffs — that silently consumes 30% of your team's capacity. You receive a logic schematic of where your margin is leaking.",
   },
@@ -44,7 +44,7 @@ const EngagementTypes = () => {
           <p
             className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 scroll-fade-in ${isVisible ? "visible" : ""}`}
           >
-            Every engagement is scoped to deliver a measurable outcome — not a slide deck.
+            We don't start with 6-month roadmaps. We start with a 2-week Operational X-Ray. This is a fixed-price, high-impact audit designed to expose the 'Data Glue' and quantify the margin recovery opportunity. From there, we move into implementation sprints – typically 4 to 8 weeks – depending on the complexity of the architecture.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
