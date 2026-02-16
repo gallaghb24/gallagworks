@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.intelligenttransformation.studio/sitemap.xml
+Sitemap: https://gallag.works/sitemap.xml

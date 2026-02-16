@@ -33,7 +33,6 @@ const Navigation = () => {
   const navLinks = [
     { to: "/services", label: "Services" },
     { to: "/about", label: "The Principal" },
-    { to: "/case-studies", label: "Case Studies" },
     { to: "/insights", label: "Insights" },
     { to: "/contact", label: "Contact" },
   ];

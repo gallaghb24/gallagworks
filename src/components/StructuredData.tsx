@@ -103,7 +103,7 @@ const StructuredData = () => {
     name: cs.name,
     description: cs.description,
     identifier: cs.id,
-    url: `https://gallagworks.lovable.app/case-studies/${cs.slug}`,
+    url: `https://gallagworks.lovable.app/insights/${cs.slug}`,
     author: {
       "@type": "Organization",
       name: "Gallag Works",

@@ -12,6 +12,55 @@ const insights = [
     metric: "1,200hrs+ Reclaimed",
     status: "VERIFIED",
     slug: "eradicating-enterprise-data-glue",
+    type: "MANIFESTO",
+  },
+  {
+    ref: "GW-001",
+    topic: "POS Job Workflow Automation",
+    metric: "70% Cycle Reduction",
+    status: "VERIFIED",
+    slug: "pos-job-workflow",
+    type: "SCHEMATIC",
+  },
+  {
+    ref: "GW-002",
+    topic: "Costing Process Re-engineering",
+    metric: "85% Fewer Missed Deadlines",
+    status: "VERIFIED",
+    slug: "costing-process",
+    type: "SCHEMATIC",
+  },
+  {
+    ref: "GW-003",
+    topic: "Validation Pipeline Automation",
+    metric: "60% Manual Checking Removed",
+    status: "VERIFIED",
+    slug: "validation-pipeline",
+    type: "SCHEMATIC",
+  },
+  {
+    ref: "GW-004",
+    topic: "Multichannel Content Orchestration",
+    metric: "1,200hrs Reclaimed Annually",
+    status: "VERIFIED",
+    slug: "multichannel-content-orchestration",
+    type: "SCHEMATIC",
+  },
+  {
+    ref: "GW-005",
+    topic: "Enterprise Reporting Automation",
+    metric: "98% Processing Time Cut",
+    status: "VERIFIED",
+    slug: "enterprise-reporting-automation",
+    type: "SCHEMATIC",
+  },
+  {
+    ref: "GW-006",
+    topic: "High-Volume Allocation Logistics",
+    metric: "97% Workload Reduction",
+    status: "VERIFIED",
+    slug: "high-volume-allocation-logistics",
+    type: "SCHEMATIC",
   },
 ];
 
@@ -23,8 +72,8 @@ const Insights = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Insights"
-        description="Operational engineering insights and manifestos. Technical analysis of enterprise Data Glue, margin recovery, and workflow transformation from Gallag Works."
+        title="Insights & Project Schematics"
+        description="Operational engineering insights, manifestos, and technical project schematics. Proven results: 98% manual effort reduction, 1,200 hours reclaimed annually for Tier-1 retailers."
         path="/insights"
       />
       <Navigation />
@@ -33,16 +82,16 @@ const Insights = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
-                [INSIGHTS]
+                [KNOWLEDGE HUB]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
-                Operational Engineering Insights
+                Insights &amp; Project Schematics
               </h1>
               <p
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Technical analysis and field-tested methodology from the Principal. Each insight is drawn from live enterprise engagements.
+                Technical analysis, field-tested methodology, and verified project outcomes from the Principal. Each entry is drawn from live enterprise engagements.
               </p>
             </div>
           </div>
@@ -54,7 +103,7 @@ const Insights = () => {
               {/* Technical Index Table */}
               <div className="border border-border">
                 {/* Header Row */}
-                <div className="grid grid-cols-12 border-b border-foreground px-6 py-4">
+                <div className="hidden md:grid grid-cols-12 border-b border-foreground px-6 py-4">
                   <span className="col-span-2 font-mono text-xs text-muted-foreground uppercase tracking-widest">
                     [REF]
                   </span>
@@ -74,18 +123,20 @@ const Insights = () => {
                   <Link
                     key={item.ref}
                     to={`/insights/${item.slug}`}
-                    className="grid grid-cols-12 px-6 py-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group"
+                    className="grid grid-cols-1 md:grid-cols-12 px-6 py-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group"
                   >
-                    <span className="col-span-2 font-mono text-sm text-primary font-semibold tracking-wider">
-                      {item.ref}
-                    </span>
-                    <span className="col-span-5 text-foreground font-medium group-hover:text-primary transition-colors">
+                    <div className="md:col-span-2 flex items-center gap-2 mb-2 md:mb-0">
+                      <span className="font-mono text-sm text-primary font-semibold tracking-wider">
+                        {item.ref}
+                      </span>
+                    </div>
+                    <span className="md:col-span-5 text-foreground font-medium group-hover:text-primary transition-colors mb-1 md:mb-0">
                       {item.topic}
                     </span>
-                    <span className="col-span-3 font-mono text-sm text-muted-foreground">
+                    <span className="md:col-span-3 font-mono text-sm text-muted-foreground">
                       {item.metric}
                     </span>
-                    <span className="col-span-2 font-mono text-xs text-primary uppercase tracking-widest text-right">
+                    <span className="md:col-span-2 font-mono text-xs text-primary uppercase tracking-widest md:text-right">
                       [{item.status}]
                     </span>
                   </Link>

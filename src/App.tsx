@@ -8,7 +8,6 @@ import StructuredData from "@/components/StructuredData";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import About from "./pages/About";
-import CaseStudies from "./pages/CaseStudies";
 import Insights from "./pages/Insights";
 import InsightManifesto from "./pages/InsightManifesto";
 import Contact from "./pages/Contact";
@@ -30,8 +29,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/case-studies/:slug" element={<CaseStudies />} />
+            {/* Case studies consolidated into /insights */}
             <Route path="/insights" element={<Insights />} />
             <Route path="/insights/:slug" element={<InsightManifesto />} />
             <Route path="/contact" element={<Contact />} />
