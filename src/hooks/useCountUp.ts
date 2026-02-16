@@ -12,8 +12,8 @@ export function useCountUp({
   target,
   prefix = "",
   suffix = "",
-  duration = 1200,
-  flickerDuration = 800,
+  duration = 1800,
+  flickerDuration = 700,
 }: UseCountUpOptions) {
   const [display, setDisplay] = useState(`${prefix}0${suffix}`);
   const [started, setStarted] = useState(false);
