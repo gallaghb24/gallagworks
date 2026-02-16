@@ -40,11 +40,14 @@ const About = () => {
         {/* Hero */}
         <section className="pt-32 pb-16" ref={hero.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className={`text-4xl md:text-5xl font-semibold text-foreground mb-6 scroll-fade-in ${hero.isVisible ? "visible" : ""}`}>
+            <div>
+              <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${hero.isVisible ? "visible" : ""}`}>
+                [WHO WE ARE]
+              </span>
+              <h1 className={`text-4xl md:text-5xl font-bold text-foreground mb-6 scroll-fade-in ${hero.isVisible ? "visible" : ""}`}>
                 Who we are
               </h1>
-              <p className={`text-lg text-muted-foreground leading-relaxed scroll-fade-in ${hero.isVisible ? "visible" : ""}`} style={{ animationDelay: "0.1s" }}>
+              <p className={`text-lg text-muted-foreground leading-relaxed max-w-[600px] scroll-fade-in ${hero.isVisible ? "visible" : ""}`} style={{ animationDelay: "0.1s" }}>
                 Operator-led workflow transformation. Implementation-first automation that teams actually adopt.
               </p>
             </div>
@@ -52,16 +55,16 @@ const About = () => {
         </section>
 
         {/* Point of view */}
-        <section className="py-16 lg:py-28" ref={approach.ref}>
+        <section className="py-20 lg:py-32" ref={approach.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
-                POINT OF VIEW
+            <div>
+              <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
+                [POINT OF VIEW]
               </span>
               <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-10 scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
                 The approach
               </h2>
-              <div className={`space-y-6 scroll-fade-in ${approach.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+              <div className={`space-y-6 max-w-[650px] scroll-fade-in ${approach.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
                 <p className="text-muted-foreground leading-relaxed text-base">
                   Most organisations don't have an AI problem. They have a Data Glue problem – manual re-keying, spreadsheet handoffs, and copy-paste chains that silently consume capacity.
                 </p>
@@ -80,13 +83,13 @@ const About = () => {
         </section>
 
         {/* What you can expect */}
-        <section className="py-16 lg:py-28" ref={expect.ref}>
+        <section className="py-20 lg:py-32" ref={expect.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto">
-              <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
-                WORKING TOGETHER
+            <div>
+              <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
+                [WORKING TOGETHER]
               </span>
-              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
+              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-12 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
                 What you can expect
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -95,7 +98,7 @@ const About = () => {
                   return (
                     <div
                       key={i}
-                      className={`border border-border border-l-4 border-l-primary rounded-lg p-6 card-hover scroll-fade-in ${expect.isVisible ? "visible" : ""}`}
+                      className={`bg-[#1A1C1E] border border-[#2F3133] p-8 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}
                       style={{ transitionDelay: `${i * 0.1}s` }}
                     >
                       <div className="flex items-start gap-4">
@@ -111,16 +114,16 @@ const About = () => {
         </section>
 
         {/* Where this helps most */}
-        <section className="py-16 lg:py-28" ref={fit.ref}>
+        <section className="py-20 lg:py-32" ref={fit.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto">
-              <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
-                FIT
+            <div>
+              <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
+                [FIT]
               </span>
-              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-6 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
+              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-6 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
                 Where this helps most
               </h2>
-              <p className={`text-muted-foreground leading-relaxed text-base mb-8 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+              <p className={`text-muted-foreground leading-relaxed text-base mb-8 max-w-[600px] scroll-fade-in ${fit.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
                 This approach works best with teams that already know something is broken – they just need a structured way to fix it.
               </p>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -129,7 +132,7 @@ const About = () => {
                   return (
                     <div
                       key={i}
-                      className={`border border-border border-l-4 border-l-primary rounded-lg p-6 card-hover scroll-fade-in ${fit.isVisible ? "visible" : ""}`}
+                      className={`bg-[#1A1C1E] border border-[#2F3133] p-8 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}
                       style={{ transitionDelay: `${(i + 1) * 0.1}s` }}
                     >
                       <div className="flex items-start gap-4">
@@ -144,29 +147,33 @@ const About = () => {
           </div>
         </section>
 
-        {/* Background */}
-        <section className="py-16 lg:py-28" ref={background.ref}>
+        {/* Background — 2-column layout */}
+        <section className="py-20 lg:py-32 bg-[#1A1C1E]" ref={background.ref}>
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
-                BACKGROUND
-              </span>
-              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-10 scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
-                Experience and working style
-              </h2>
-              <div className={`space-y-6 scroll-fade-in ${background.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
-                <p className="text-muted-foreground leading-relaxed text-base">
-                  I've spent close to 20 years working at the intersection of operations, delivery, and technology – building and running efficient teams, and putting in place the systems and ways of working that keep them effective as scale and complexity increase.
-                </p>
-                <p className="text-muted-foreground leading-relaxed text-base">
-                  That experience has covered workflow redesign and implementation across operations, finance, marketing, and client delivery. Most of the time the issues are not dramatic, they are cumulative: the Data Glue – handoffs, spreadsheets, manual checks, unclear ownership, and rework that quietly become "how things work".
-                </p>
-                <p className="text-muted-foreground leading-relaxed text-base">
-                  I focus on making the work explicit, reducing avoidable variation, clarifying responsibility, and building automation that people actually use day to day.
-                </p>
-                <p className="text-muted-foreground leading-relaxed text-base">
-                  I lead engagements directly. When specialist build resource is needed – integrations, data pipelines, or lightweight internal tools – I bring trusted engineers who deliver against the operational design.
-                </p>
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+              <div className="lg:col-span-4">
+                <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
+                  [BACKGROUND]
+                </span>
+                <h2 className={`text-3xl md:text-4xl font-semibold text-foreground scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
+                  Experience and working style
+                </h2>
+              </div>
+              <div className="lg:col-span-8">
+                <div className={`space-y-6 max-w-[650px] scroll-fade-in ${background.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+                  <p className="text-muted-foreground leading-relaxed text-base">
+                    I've spent close to 20 years working at the intersection of operations, delivery, and technology – building and running efficient teams, and putting in place the systems and ways of working that keep them effective as scale and complexity increase.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed text-base">
+                    That experience has covered workflow redesign and implementation across operations, finance, marketing, and client delivery. Most of the time the issues are not dramatic, they are cumulative: the Data Glue – handoffs, spreadsheets, manual checks, unclear ownership, and rework that quietly become "how things work".
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed text-base">
+                    I focus on making the work explicit, reducing avoidable variation, clarifying responsibility, and building automation that people actually use day to day.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed text-base">
+                    I lead engagements directly. When specialist build resource is needed – integrations, data pipelines, or lightweight internal tools – I bring trusted engineers who deliver against the operational design.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
