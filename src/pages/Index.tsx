@@ -12,11 +12,11 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero background image – sits behind nav and hero */}
-      <div className="absolute top-0 -right-[200px] h-[85vh] w-[60%] lg:w-[55%] z-0 hidden lg:block overflow-hidden">
+      <div className="absolute top-0 right-0 h-[85vh] w-[60%] lg:w-[55%] z-0 hidden lg:block overflow-hidden">
         <img
           src={heroBg}
           alt=""
-          className="object-cover object-right h-full w-full"
+          className="object-cover object-left h-full w-full"
         />
         <div className="absolute -left-[150px] top-0 right-0 bottom-0 bg-[linear-gradient(to_right,hsl(var(--background))_0%,hsl(var(--background)/0.85)_15%,hsl(var(--background)/0.5)_35%,hsl(var(--background)/0.2)_55%,transparent_80%)]" />
       </div>
