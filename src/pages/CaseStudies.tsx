@@ -3,7 +3,6 @@ import Navigation from "@/components/Navigation";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const caseStudies = [
   {
@@ -112,7 +111,7 @@ const caseStudies = [
 ];
 
 const CaseStudies = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  
 
   useEffect(() => {
     document.title = "Project Schematics | Gallag Works";
@@ -139,17 +138,11 @@ const CaseStudies = () => {
           </div>
         </section>
 
-        <section className="pb-20" ref={ref}>
+        <section className="pb-20">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl space-y-8">
+            <div className="max-w-4xl space-y-32">
               {caseStudies.map((cs, i) => (
-                <div
-                  key={i}
-                  className={`scroll-fade-in ${isVisible ? "visible" : ""}`}
-                  style={{ transitionDelay: `${i * 0.12}s` }}
-                >
-                  <CaseStudyCard {...cs} />
-                </div>
+                <CaseStudyCard key={i} {...cs} />
               ))}
             </div>
           </div>
