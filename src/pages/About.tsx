@@ -41,7 +41,7 @@ const About = () => {
         <section className="pt-32 pb-16" ref={hero.ref}>
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className={`font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 scroll-fade-in ${hero.isVisible ? "visible" : ""}`}>
+              <h1 className={`text-4xl md:text-5xl font-semibold text-foreground mb-6 scroll-fade-in ${hero.isVisible ? "visible" : ""}`}>
                 Who we are
               </h1>
               <p className={`text-lg text-muted-foreground leading-relaxed scroll-fade-in ${hero.isVisible ? "visible" : ""}`} style={{ animationDelay: "0.1s" }}>
@@ -58,7 +58,7 @@ const About = () => {
               <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
                 POINT OF VIEW
               </span>
-              <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-10 scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
+              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-10 scroll-fade-in ${approach.isVisible ? "visible" : ""}`}>
                 The approach
               </h2>
               <div className={`space-y-6 scroll-fade-in ${approach.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
@@ -86,7 +86,7 @@ const About = () => {
               <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
                 WORKING TOGETHER
               </span>
-              <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
+              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${expect.isVisible ? "visible" : ""}`}>
                 What you can expect
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -117,7 +117,7 @@ const About = () => {
               <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
                 FIT
               </span>
-              <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-6 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
+              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-6 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`}>
                 Where this helps most
               </h2>
               <p className={`text-muted-foreground leading-relaxed text-base mb-8 text-center scroll-fade-in ${fit.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
@@ -151,7 +151,7 @@ const About = () => {
               <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] mb-4 scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
                 BACKGROUND
               </span>
-              <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-10 scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
+              <h2 className={`text-3xl md:text-4xl font-semibold text-foreground mb-10 scroll-fade-in ${background.isVisible ? "visible" : ""}`}>
                 Experience and working style
               </h2>
               <div className={`space-y-6 scroll-fade-in ${background.isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
@@ -178,8 +178,8 @@ const About = () => {
           <div className="container mx-auto px-6 lg:px-12 text-center">
             <p className="text-muted-foreground text-sm">
               Or email{" "}
-              <a href="mailto:hello@gallagworks.com" className="text-primary hover:underline">
-                hello@gallagworks.com
+              <a href="mailto:hello@gallag.works" className="text-primary hover:underline">
+                hello@gallag.works
               </a>
             </p>
           </div>
