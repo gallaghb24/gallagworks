@@ -50,7 +50,7 @@ const ProofPoints = () => {
               <div
                 key={i}
                 className={`clip-reveal-down ${isVisible ? "visible" : ""}`}
-                style={{ transitionDelay: `${0.15 + i * 0.12}s` }}
+                style={{ transitionDelay: `${0.2 + i * 0.3}s` }}
               >
                 <p
                   ref={item.counter.ref}
