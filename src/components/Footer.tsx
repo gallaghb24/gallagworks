@@ -25,19 +25,23 @@ const Footer = () => {
               </a>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <nav className="flex gap-6">
+            <div className="flex flex-col items-start gap-4">
+              <nav className="flex flex-wrap gap-6">
                 <Link to="/services" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Services</Link>
                 <Link to="/about" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">The Principal</Link>
                 <Link to="/case-studies" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Case Studies</Link>
                 <Link to="/contact" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Contact</Link>
+              </nav>
+              <nav className="flex gap-6">
+                <Link to="/privacy" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Privacy</Link>
+                <Link to="/cookies" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Cookies</Link>
               </nav>
             </div>
           </div>
 
           <div className="border-t border-border pt-6">
             <p className="font-mono text-xs text-footer-foreground/50">
-              © {currentYear} Gallag Works. All rights reserved.
+              © 2026 Gallag Works Ltd. Registered in England and Wales: 17033965.
             </p>
           </div>
         </div>

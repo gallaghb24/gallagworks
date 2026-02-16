@@ -32,6 +32,12 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
+            <p className="mt-3 font-mono text-xs text-muted-foreground/50">
+              Data is processed in accordance with our{" "}
+              <Link to="/privacy" className="underline hover:text-muted-foreground transition-colors">
+                Privacy Policy
+              </Link>.
+            </p>
           </div>
         </div>
       </div>

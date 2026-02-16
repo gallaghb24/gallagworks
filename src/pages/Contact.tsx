@@ -182,6 +182,12 @@ const Contact = () => {
                       </>
                     )}
                   </Button>
+                  <p className="mt-3 text-center font-mono text-xs text-muted-foreground/50">
+                    Data is processed in accordance with our{" "}
+                    <a href="/privacy" className="underline hover:text-muted-foreground transition-colors">
+                      Privacy Policy
+                    </a>.
+                  </p>
                 </form>
               </div>
             </div>
