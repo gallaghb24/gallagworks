@@ -49,17 +49,17 @@ const About = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-5xl">
               <span
-                className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block scroll-fade-in ${method.isVisible ? "visible" : ""}`}
+                className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${method.isVisible ? "visible" : ""}`}
               >
                 [THE METHODOLOGY]
               </span>
               <h2
-                className={`text-3xl md:text-4xl font-extrabold text-foreground mb-8 scroll-fade-in ${method.isVisible ? "visible" : ""}`}
+                className={`text-3xl md:text-4xl font-extrabold text-foreground mb-8 clip-reveal ${method.isVisible ? "visible" : ""}`}
               >
                 Engineering the problem, not the symptom.
               </h2>
               <p
-                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] scroll-fade-in ${method.isVisible ? "visible" : ""}`}
+                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${method.isVisible ? "visible" : ""}`}
               >
                 Most organisations don't have an AI problem. They have a Structural Workflow problem. I engineer the 'Data Glue' out of the system so your people go back to making decisions, not managing tasks. I architect every system personally – no junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
               </p>
@@ -72,12 +72,12 @@ const About = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-5xl">
               <span
-                className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block scroll-fade-in ${exp.isVisible ? "visible" : ""}`}
+                className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
                 [EXPERIENCE]
               </span>
               <h2
-                className={`text-3xl md:text-4xl font-extrabold text-foreground mb-12 scroll-fade-in ${exp.isVisible ? "visible" : ""}`}
+                className={`text-3xl md:text-4xl font-extrabold text-foreground mb-12 clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
                 The track record.
               </h2>
@@ -86,7 +86,7 @@ const About = () => {
                 {stats.map((stat, index) => (
                   <div
                     key={stat.label}
-                    className={`bg-[#1A1C1E] border border-[#2F3133] p-6 scroll-fade-in ${exp.isVisible ? "visible" : ""}`}
+                    className={`bg-[#1A1C1E] border border-[#2F3133] p-6 clip-reveal-down ${exp.isVisible ? "visible" : ""}`}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                   >
                     <p className="font-mono text-2xl md:text-3xl font-extrabold text-primary mb-2">
@@ -100,7 +100,7 @@ const About = () => {
               </div>
 
               <p
-                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] scroll-fade-in ${exp.isVisible ? "visible" : ""}`}
+                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
                 Nearly two decades directing enterprise client delivery and managing £15m+ multichannel marketing and retail accounts taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
               </p>

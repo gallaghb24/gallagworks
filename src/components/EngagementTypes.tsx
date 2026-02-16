@@ -28,21 +28,21 @@ const EngagementTypes = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-24 lg:py-36 bg-[#1A1C1E]" ref={ref}>
+    <section className="py-24 lg:py-36 bg-[#1A1C1E] border-draw" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-7xl">
           <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block scroll-fade-in ${isVisible ? "visible" : ""}`}
+            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
           >
             [ENGAGEMENT TIERS]
           </span>
           <h2
-            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-6 scroll-fade-in ${isVisible ? "visible" : ""}`}
+            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-6 clip-reveal ${isVisible ? "visible" : ""}`}
           >
             Three tiers. One methodology.
           </h2>
           <p
-            className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 scroll-fade-in ${isVisible ? "visible" : ""}`}
+            className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
           >
             We de-risk transformation through a phased, results-first approach. By starting with a sharp, fixed-scope diagnostic, we identify high-value targets for automation before committing to long-term builds. This ensures every engineered hour delivers a measurable return on margin.
           </p>
@@ -51,7 +51,7 @@ const EngagementTypes = () => {
             {tiers.map((tier, index) => (
               <div
                 key={tier.number}
-                className={`bg-[#1A1C1E] border border-[#2F3133] p-8 scroll-fade-in ${isVisible ? "visible" : ""}`}
+                className={`bg-[#1A1C1E] border border-[#2F3133] p-8 clip-reveal-down ${isVisible ? "visible" : ""}`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
                 <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
