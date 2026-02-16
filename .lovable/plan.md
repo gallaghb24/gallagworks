@@ -1,108 +1,74 @@
 
 
-# Consolidate Case Studies and Insights into a Unified Knowledge Hub
+# Refine the Knowledge Hub: Manifesto Bridges, Visual Separation, and Deep-Linking
 
 ## Overview
 
-Merge the standalone Case Studies page into the Insights hub, creating a single "Knowledge Hub" at `/insights`. Each case study becomes a unified insight page at `/insights/[slug]` combining manifesto-style narrative with a Technical Schematic section. The existing `/case-studies` routes will be removed, and all navigation, footer, structured data, and SEO assets will be updated accordingly.
+Three targeted refinements to elevate the unified Insight pages from technically correct to Principal-grade authority.
 
 ---
 
-## 1. Navigation and Footer Updates
+## 1. Expand Manifesto Narratives for GW-001 through GW-006
 
-**Navigation (`src/components/Navigation.tsx`)**
-- Remove the "Case Studies" link from `navLinks`
-- Keep "Insights" as the primary anchor to `/insights`
+Each of the six project schematics currently has short, functional manifesto sections (one paragraph each for Friction and Engineering). These will be expanded to include a third section -- a "Strategic Context" bridge -- that frames the operational challenge from a leadership perspective before the reader drops into the Technical Schematic.
 
-**Footer (`src/components/Footer.tsx`)**
-- Replace the "Case Studies" link with "Insights" pointing to `/insights`
+**What changes in the data:**
 
----
+Each case study entry gains an additional manifesto section inserted between "THE FRICTION" and "THE ENGINEERING":
 
-## 2. Expand the Insights Index Page (`src/pages/Insights.tsx`)
+- **GW-001 (POS Workflow):** New section "THE STRATEGIC COST" -- discusses how stale reporting erodes client trust and advisory credibility, turning a professional services team into a data factory.
+- **GW-002 (Costing Process):** New section "THE STRATEGIC COST" -- explores how invisible coordination tax creates the illusion of under-resourcing when the real problem is architectural.
+- **GW-003 (Validation Pipeline):** New section "THE STRATEGIC COST" -- examines the paradox of low error rates masking unsustainable time investment, and how it blocks the improvement work the organisation actually needs.
+- **GW-004 (Multichannel Content):** New section "THE STRATEGIC COST" -- addresses the normalisation of copy-paste culture and how it prevents account teams from scaling client relationships.
+- **GW-005 (Enterprise Reporting):** New section "THE STRATEGIC COST" -- frames the "Opportunity Cost of Blind Leadership" in high-stakes reporting, where last-minute data scrambles undermine decision quality.
+- **GW-006 (Allocation Logistics):** New section "THE STRATEGIC COST" -- discusses how manual consolidation creates operational fragility, making it impossible to respond to client changes with agility.
 
-- Add all six case study entries (GW-001 through GW-006) to the technical index table alongside the existing GW-INS-001 manifesto entry
-- Each row links to `/insights/[slug]` using the existing semantic slugs (e.g., `multichannel-content-orchestration`, `enterprise-reporting-automation`)
-- Group entries: manifestos first, then project schematics (or interleave by relevance)
+Each new section will be 200-300 words written in the Principal-to-Peer tone, connecting the tactical friction to its strategic business impact.
 
----
-
-## 3. Create Unified Insight Pages
-
-**New component or expanded `InsightManifesto.tsx`**
-
-Each `/insights/[slug]` page will have a two-part structure:
-
-**Part 1 -- Manifesto (narrative copy)**
-- Header with Surgical Viewfinder brandmark and monospace datestamp
-- Written in the "Principal-to-Peer" tone with contextual narrative about the operational challenge and engineering approach
-- For the existing Data Glue manifesto, this content already exists
-- For the six case studies, generate brief manifesto-style narratives from the existing friction/engineering/result data
-
-**Part 2 -- Technical Schematic**
-- Separated by a horizontal 1px Graphite rule
-- Section title: `[TECHNICAL SCHEMATIC]` in monospace
-- Displays the structured case study data:
-  - `Ref: GW-XXX`
-  - `Friction:` bullet points
-  - `Engineering:` bullet points
-  - `Human Layer:` paragraph
-  - `Result:` highlighted block (with the existing orange-border treatment)
-- Includes the confidentiality disclaimer box
-
-**Implementation approach:** Create a data structure that maps each slug to both its manifesto content and its technical schematic data. Use a single page component with slug-based routing to render the correct content.
+**File modified:** `src/pages/InsightManifesto.tsx` -- the `insightData` array, expanding the `manifesto` arrays for entries GW-001 through GW-006.
 
 ---
 
-## 4. Routing Updates (`src/App.tsx`)
+## 2. Visual Separation: Blueprint Inset for Technical Schematic
 
-- Remove `/case-studies` and `/case-studies/:slug` routes
-- Remove the `CaseStudies` import
-- Keep `/insights` and `/insights/:slug` routes (already exist)
+The `[TECHNICAL SCHEMATIC]` section will receive a distinct visual treatment to create a "context switch" from boardroom narrative to engineering review.
 
----
+**Changes:**
 
-## 5. Structured Data Updates (`src/components/StructuredData.tsx`)
+- Wrap the entire Technical Schematic section (the `<section>` containing the title, the schematic card, and the confidentiality notice) in a container with a faint Graphite background (`#1A1C1E` or equivalent via `bg-[#1A1C1E]`)
+- Add increased vertical padding (`py-16`) and a subtle top/bottom 1px border to frame it as an inset document
+- The schematic section header gets a slightly larger treatment with a thin horizontal rule above it
 
-- Update all `CreativeWork` URLs from `/case-studies/[slug]` to `/insights/[slug]`
-- Embed FAQPage schema within unified insight pages where applicable
-
----
-
-## 6. Sitemap and Robots.txt
-
-**`public/sitemap.xml`**
-- Remove all `/case-studies/*` URLs
-- Add `/insights/[slug]` entries for all six project schematics
-- Keep existing `/insights/eradicating-enterprise-data-glue` entry
-- Maintain priority levels: Insights Hub at 1.0, individual insights at 0.9
-
-**`public/robots.txt`**
-- No changes needed (already points to correct sitemap URL)
+**File modified:** `src/pages/InsightManifesto.tsx` -- the JSX rendering the Technical Schematic section (around lines 554-575).
 
 ---
 
-## 7. Cleanup
+## 3. Deep-Linking with Anchor IDs for AEO
 
-- The `src/pages/CaseStudies.tsx` file can be deleted (or left unused)
-- The `src/components/CaseStudyCard.tsx` component will be repurposed as the Technical Schematic rendering within the unified insight pages
+Add an `id="schematic"` attribute to the Technical Schematic section so AI answer engines and internal links can point directly to the evidence block at `/insights/[slug]#schematic`.
+
+**Changes:**
+
+- Add `id="schematic"` to the Technical Schematic `<section>` element
+- Update the `StructuredData.tsx` CreativeWork URLs to append `#schematic` in a secondary reference field, so the structured data explicitly signals the evidence location
+
+**Files modified:**
+- `src/pages/InsightManifesto.tsx` -- add `id="schematic"` to the section element
+- `src/components/StructuredData.tsx` -- add a `hasPart` property to each CreativeWork pointing to `#schematic`
 
 ---
 
 ## Technical Details
 
 ### Files to modify:
-1. `src/components/Navigation.tsx` -- remove Case Studies link
-2. `src/components/Footer.tsx` -- replace Case Studies with Insights link
-3. `src/App.tsx` -- remove case-studies routes and import
-4. `src/pages/Insights.tsx` -- expand index with all entries
-5. `src/pages/InsightManifesto.tsx` -- refactor into a unified template that renders both manifesto narrative and technical schematic based on slug
-6. `src/components/StructuredData.tsx` -- update URLs to `/insights/`
-7. `public/sitemap.xml` -- consolidate under `/insights/` paths
 
-### Files to delete:
-- `src/pages/CaseStudies.tsx` (content absorbed into InsightManifesto)
+1. **`src/pages/InsightManifesto.tsx`**
+   - Expand `manifesto` arrays for GW-001 through GW-006 with a new "STRATEGIC COST" section (each 200-300 words)
+   - Wrap the Technical Schematic section in a `bg-[#1A1C1E]` container with `py-16` padding and border framing
+   - Add `id="schematic"` to the schematic section element
 
-### Data architecture:
-A single data map keyed by slug will hold: manifesto copy (title, subtitle, sections), technical schematic data (ref, sector, friction array, engineering array, human layer, result), and FAQPage schema entries where applicable.
+2. **`src/components/StructuredData.tsx`**
+   - Add `hasPart` to each CreativeWork schema pointing to the `#schematic` anchor for direct AEO deep-linking
+
+### No new files or dependencies required.
 
