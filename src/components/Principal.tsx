@@ -15,7 +15,7 @@ const Principal = () => {
             [THE PRINCIPAL]
           </span>
 
-          <div className={`clip-reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.2s" }}>
+          <div className={`clip-reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.08s" }}>
             <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-8 leading-tight">
               Built by an Operator, not an Agency.
             </h2>
