@@ -1,42 +1,55 @@
 
 
-# About Page Copy Refinements
+# Hero Background Image Replacement
 
-Four targeted copy updates in `src/pages/About.tsx`.
-
----
-
-## 1. Hero — "Studio" vs. "Agency" Distinction (line 41)
-
-**Current:**
-> Gallag Works is an independent operational engineering studio, not a high-volume agency. You work directly with the Principal. I bring nearly two decades of experience directing enterprise delivery and managing £15m+ multichannel contracts for major UK retailers to every project.
-
-**New:**
-> Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal — I bring 20 years directing enterprise delivery and managing £15m+ multichannel contracts for major UK retailers to every project.
+Replace the existing SVG diagram with the uploaded workflow automation image, positioned as a full-bleed background element that extends behind the navigation and blends into the dark background.
 
 ---
 
-## 2. Stat Label — Active Adoption Language (line 10)
+## What Changes
 
-**Current:**
-> "User Platform Adoptions"
+**1. Copy image to project assets**
+- Copy `user-uploads://Gemini_Generated_Image_2jfjlt2jfjlt2jfj.png` to `src/assets/hero-bg.png`
 
-**New:**
-> "Users Transitioned to New Systems"
+**2. Restructure `src/pages/Index.tsx`**
+- Move the hero background image out of `HeroSection` and into `Index.tsx` as an absolutely positioned element that sits behind both the Navigation and HeroSection
+- The image will be right-aligned, full height of the viewport, and extend from the top of the page (behind the nav) downward
+- A gradient overlay (left-to-right, from the dark background colour to transparent) ensures all left-side copy remains fully readable
 
----
+**3. Simplify `src/components/HeroSection.tsx`**
+- Remove the entire right column (the SVG diagram, lines 40-70)
+- Keep the left column copy and CTA but constrain it to roughly half the width so the image is visible on the right
+- The section no longer needs the 12-column grid split; the left content simply sits over the background
 
-## 3. Methodology — Sharpen "Directly" and "How things work" (line 64)
+## Layout Structure
 
-**Current:**
-> Most organizations don't have an AI problem. They have a 'How things work' problem. I engineer the 'Data Glue' out of the system so your people go back to making decisions, not managing tasks. I lead engagements directly, ensuring that what we build is technically sound, commercially viable, and actually adopted.
+```text
++---------------------------------------------------------------+
+|  Navigation (z-50, transparent bg)                             |
+|---------------------------------------------------------------|
+|                                                                |
+|  [Hero Copy]              |        [Background Image]          |
+|  H1, subhead, CTA         |   right-aligned, object-right     |
+|  (relative, z-10)         |   with left gradient fade          |
+|                            |   (absolute, top-0, right-0)      |
+|                                                                |
++---------------------------------------------------------------+
+```
 
-**New:**
-> Most organizations don't have an AI problem. They have a Structural Workflow problem. I engineer the 'Data Glue' out of the system so your people go back to making decisions, not managing tasks. I architect every system personally — no junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
+## Technical Details
 
----
+- **Image container**: `absolute top-0 right-0 h-full w-[60%] lg:w-[55%]` on a wrapper div in `Index.tsx`, placed before Navigation so it renders behind everything
+- **Gradient overlay**: A `div` with `absolute inset-0` and a CSS gradient `bg-gradient-to-r from-background via-background/80 to-transparent` layered on top of the image to blend the left edge into the charcoal background
+- **Image element**: `object-cover object-right h-full w-full` to keep it right-aligned and cropped naturally
+- **Z-indexing**: Image wrapper at `z-0`, hero content at `z-10`, nav stays at `z-50`
+- **Mobile**: Image hidden on small screens (`hidden lg:block`) since the copy needs full width on mobile
+- **Hero section**: Remove the grid layout and SVG; the left content becomes `max-w-2xl` positioned with `relative z-10`
 
-## Technical Summary
+## Files Modified
 
-All changes are in a single file: `src/pages/About.tsx` — copy-only updates on lines 10, 41, and 64. No layout or styling changes.
+| File | Change |
+|------|--------|
+| `src/assets/hero-bg.png` | New file (copied from upload) |
+| `src/pages/Index.tsx` | Add absolute-positioned image + gradient wrapper behind nav and hero |
+| `src/components/HeroSection.tsx` | Remove SVG right column; simplify to single-column left-aligned content |
 
