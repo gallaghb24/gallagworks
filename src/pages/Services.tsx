@@ -28,7 +28,7 @@ const Services = () => {
                 [SERVICES]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
-                Operational Engineering Services
+                Engineering Out the Data Glue.
               </h1>
               <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 Most operational friction is invisible. We use a proprietary diagnostic framework to expose the 'Data Glue' consuming your team's capacity – then we engineer the infrastructure to remove it. No 50-page strategy decks; just working systems.

@@ -85,7 +85,7 @@ const Insights = () => {
                 [KNOWLEDGE HUB]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
-                Insights &amp; Project Schematics
+                Insights &amp; Project Schematics.
               </h1>
               <p
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
