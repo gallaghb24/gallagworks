@@ -35,8 +35,8 @@ const Privacy = () => {
                   <p className="mb-2">Data controller: Gallag Works Ltd</p>
                   <p className="mb-2">
                     Email:{" "}
-                    <a href="mailto:privacy@gallag.works" className="text-primary hover:text-primary/80 transition-colors">
-                      privacy@gallag.works
+                    <a href="mailto:hello@gallag.works" className="text-primary hover:text-primary/80 transition-colors">
+                      hello@gallag.works
                     </a>
                   </p>
                   <p className="mb-2">Registered office: 1 Carpenters Arms Lane, Thornwood, Epping CM16 6LR</p>
