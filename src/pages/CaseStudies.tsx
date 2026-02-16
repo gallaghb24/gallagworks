@@ -58,6 +58,57 @@ const caseStudies = [
     humanLayer: "Judgement calls on exceptions, relationship management, and process governance.",
     result: "Manual checking reduced 60%. 20h/week reclaimed. Two process improvement initiatives launched in first quarter.",
   },
+  {
+    projectId: "GW-004",
+    title: "Multichannel Content Orchestration",
+    sector: "Retail & Commerce",
+    friction: [
+      "High-volume client briefs (500+ lines) arriving with inconsistent data and misspellings",
+      "Manual data cleansing forcing 5-hour QC loops per occurrence",
+      "2-day lead times for brief-to-studio handoffs",
+    ],
+    engineering: [
+      "Custom RPA ingestion engine using LLM-based brand correction",
+      "Automated data standardisation and field mapping",
+      "One-click reformatting for instant production-ready outputs",
+    ],
+    humanLayer: "By engineering out the 'Data Glue' at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
+    result: "1,200 hours reclaimed annually. Lead times slashed by 50% from 2 days to <24 hours.",
+  },
+  {
+    projectId: "GW-005",
+    title: "Enterprise Reporting Engine",
+    sector: "Media / Entertainment",
+    friction: [
+      "Fragmented data sources requiring 30 hours of manual Excel manipulation per month",
+      "High risk of human error in manual re-keying for mission-critical pricing reports",
+      "Heavy 'Status Chasing' overhead between account and finance teams",
+    ],
+    engineering: [
+      "Architecture of a custom drag-and-drop web application for automated mapping",
+      "Automated column/order mapping for instant, fixed-format reporting",
+      "Migration from manual Excel work to a 10-minute automated pipeline",
+    ],
+    humanLayer: "The system removed the 'last-minute rush' before reporting deadlines, allowing the team to enter status calls fully prepped with 100% accurate data.",
+    result: "98% reduction in processing time. 360 hours reclaimed annually while removing 100% of data integrity risk.",
+  },
+  {
+    projectId: "GW-006",
+    title: "High-Volume Allocation Logistics",
+    sector: "Retail & Commerce",
+    friction: [
+      "Single campaigns split across 30+ project owners, each with siloed store allocations",
+      "10 hours per month spent manually merging dozens of Excel files into a 'Master List'",
+      "Inability to react to client changes without repeating hours of manual rework",
+    ],
+    engineering: [
+      "Deployment of an Intelligent RPA app for bulk allocation merging",
+      "Instant duplicate removal and automated totals validation",
+      "Auto-formatting for immediate, client-ready approval exports",
+    ],
+    humanLayer: "The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in 'Data Glue' for a full day.",
+    result: "Manual workload reduced by 97%. Task duration cut from 10 hours to 15 minutes.",
+  },
 ];
 
 const CaseStudies = () => {
