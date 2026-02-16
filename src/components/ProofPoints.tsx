@@ -2,16 +2,22 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const metrics = [
   {
-    label: "Reclaimed Capacity",
-    detail: "Hours returned to margin-positive growth.",
+    stat: "£150k+",
+    label: "Quantified Margin Recovery",
+    detail:
+      "Identifying and engineering out £150k+ in annual operational leakage per account by eradicating avoidable rework and manual data friction.",
   },
   {
-    label: "Protected Margins",
-    detail: "Reducing avoidable rework and errors.",
+    stat: "98%",
+    label: "Manual Effort Reduction",
+    detail:
+      "Eradicating the 'Data Glue' from core workflows to cut manual effort by up to 98% on targeted tasks — reallocating thousands of hours toward strategic growth.",
   },
   {
-    label: "High-Volume Adoption",
-    detail: "Building systems humans actually want to use.",
+    stat: "50%",
+    label: "Accelerated Speed-to-Market",
+    detail:
+      "Slashing turnaround times by 50%+ by engineering validation and logic checks upstream, removing late-stage bottlenecks in high-stakes environments.",
   },
 ];
 
@@ -28,7 +34,7 @@ const ProofPoints = () => {
             [OUTCOMES]
           </span>
           <h2
-            className={`text-3xl md:text-4xl font-bold text-foreground mb-16 scroll-fade-in ${isVisible ? "visible" : ""}`}
+            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-16 scroll-fade-in ${isVisible ? "visible" : ""}`}
           >
             What changes
           </h2>
@@ -40,10 +46,13 @@ const ProofPoints = () => {
                 className={`scroll-fade-in ${isVisible ? "visible" : ""}`}
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                <p className="font-mono text-4xl md:text-5xl font-extrabold text-primary mb-3">
+                  {item.stat}
+                </p>
+                <h3 className="text-lg font-extrabold text-foreground mb-3">
                   {item.label}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground font-light leading-relaxed">
                   {item.detail}
                 </p>
               </div>
