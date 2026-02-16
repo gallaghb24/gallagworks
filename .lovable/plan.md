@@ -1,69 +1,43 @@
+# Services Page Copy Refinements
 
-# Copy Refinement: Sharpen the Messaging Across Key Sections
-
-This plan applies the suggested copy refinements across four homepage sections, plus adds a new "Anti-Hero" callout. Each change is designed to increase credibility, specificity, and emotional resonance.
-
----
-
-## 1. Hero Section (HeroSection.tsx)
-
-**What changes:**
-- Sub-headline gets a stronger "So What?" ending
-- Second sentence reframed around "Decision Inboxes" as a proprietary system
-
-**Current copy:**
-> We help operations and commercial leaders untangle the 'Data Glue' -- the manual re-keying, spreadsheets, and workarounds that kill capacity. We simplify the logic, then build the AI infrastructure to run it.
-
-**New copy:**
-> We help operations and commercial leaders untangle the 'Data Glue' -- the manual re-keying, spreadsheets, and workarounds that erode margin and burn out your best people. We move your team from Data Processors to Decision Makers via engineered Decision Inboxes.
+Three targeted copy updates to the engagement tiers in `src/components/EngagementTypes.tsx`.
 
 ---
 
-## 2. The Principal Section (Principal.tsx)
+## Changes
 
-**What changes:**
-- Replace the existing bio paragraph with a sharper, first-person-feel statement that foregrounds the £15m+ experience and reframes the value as "recovering hours, not billing them"
+### Tier 01: Operational Audit & X-Ray
 
-**Current copy:**
-> Gallag Works is an independent operational engineering studio founded by Ben Gallagher. With nearly two decades of experience directing enterprise client delivery and managing £15m+ multichannel contracts for major UK retailers, Ben learned a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. He founded Gallag Works to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
+**Current:**
 
-**New copy:**
-> Gallag Works is an independent operational engineering studio founded by Ben Gallagher. After 20 years managing £15m+ multichannel contracts and 30+ person teams for major UK retailers, Ben learned a hard truth: efficiency protects the P&L. He's not here to bill hours -- he's here to recover them. Gallag Works exists to bring that exact 'efficiency-first' methodology to leaders who are drowning in manual workarounds and ready to build scalable systems.
+> ...We expose the Data Glue — the manual re-keying and spreadsheet handoffs — that silently consumes 30% of your team's capacity. You receive a logic schematic of where your margin is leaking.
 
----
+**New:**
 
-## 3. Outcomes Section (ProofPoints.tsx)
+> ...We expose the Data Glue — the manual re-keying and spreadsheet handoffs — hiding in plain sight. We identify the 20% of 'Data Glue' causing 80% of your operational friction. You receive a logic schematic of where your margin is leaking.
 
-**What changes:**
-- Add specificity to the 98% metric to increase believability
+### Tier 02: Structural Prototype
 
-**Current detail copy for Metric 2:**
-> Eradicating the 'Data Glue' from core workflows to cut manual effort by up to 98% on targeted tasks -- reallocating thousands of hours toward strategic growth.
+**Current:**
 
-**New detail copy:**
-> Up to 98% reduction in repetitive data entry across core workflows -- eradicating the 'Data Glue' and reallocating thousands of hours toward strategic growth.
+> We re-engineer one high-friction workflow end-to-end. We don't just 'test' AI; we build working infrastructure that proves the ROI and protects the P&L before you commit to scaling.
 
----
+**New:**
 
-## 4. New "Anti-Hero" Callout (Philosophy.tsx)
+> We re-engineer one high-friction workflow end-to-end via engineered Decision Inboxes — AI aggregates the context, but your experts retain the final sign-off. We don't just 'test' AI; we build working infrastructure that proves the ROI and protects the P&L before you commit to scaling.
 
-**What changes:**
-- Add a bold callout line after the existing Philosophy paragraph to address the "AI Gold Rush"
+### Tier 03: Enterprise Integration
 
-**New line appended:**
-> Everyone is buying AI tools. No one is engineering the logic to make them work. We do the latter.
+**Current:**
 
-This will be styled as a separate paragraph with the same muted styling, appearing after the existing philosophy copy.
+> Transformation at scale. We focus on the human-in-the-loop governance and champion-led adoption that ensures the system actually sticks across teams and geographies.
+
+**New:**
+
+> Transformation at scale. We focus on Governance and Exception Engineering — human-in-the-loop safety rails that ensure your team stays in control. Combined with champion-led adoption, the system actually sticks across teams and geographies.
 
 ---
 
-## Technical Summary
+## Technical Detail
 
-| File | Change |
-|---|---|
-| `src/components/HeroSection.tsx` | Update sub-headline copy (line 20) |
-| `src/components/Principal.tsx` | Update bio paragraph copy (line 23-24) |
-| `src/components/ProofPoints.tsx` | Update Metric 2 detail copy (line 14) |
-| `src/components/Philosophy.tsx` | Add "Anti-Hero" callout paragraph after existing copy (after line 24) |
-
-All changes are copy-only -- no layout, styling, or structural modifications required.
+All changes are in a single file: `src/components/EngagementTypes.tsx`, updating the `description` strings in the `tiers` array (lines 8, 14, and 20). No layout or styling changes.
