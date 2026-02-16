@@ -18,7 +18,7 @@ const Index = () => {
           alt=""
           className="object-cover object-right h-full w-full"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--background))_5%,hsl(var(--background)/0.7)_25%,hsl(var(--background)/0.3)_50%,transparent_75%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--background))_0%,hsl(var(--background)/0.85)_15%,hsl(var(--background)/0.5)_35%,hsl(var(--background)/0.2)_55%,transparent_80%)]" />
       </div>
 
       <Navigation />
