@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import CaseStudies from "./pages/CaseStudies";
+import Insights from "./pages/Insights";
+import InsightManifesto from "./pages/InsightManifesto";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
@@ -30,6 +32,8 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-studies/:slug" element={<CaseStudies />} />
+            <Route path="/insights" element={<Insights />} />
+            <Route path="/insights/:slug" element={<InsightManifesto />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/cookies" element={<Cookies />} />
