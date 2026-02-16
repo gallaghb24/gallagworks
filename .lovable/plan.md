@@ -1,30 +1,35 @@
 
-# Delay Orange Output Line Until Dots Reach the Core
+
+# Restore Dynamic Energy to the Orange Output Line
 
 ## Problem
 
-The orange "laser" output line (and its grey siblings) draw immediately when the core box finishes building (`coreProgress >= 4`), well before any input dots have reached the white box.
+The orange output line now appears static after the timing fix. It draws in via a single CSS transition and then just sits there. The only movement is output dots on the center line, but the line itself lacks the "alive" pulsating quality it had before.
 
 ## Solution
 
-Track how many input pulses have arrived at the core. Only reveal the output lines and start spawning output pulses once at least 3 input dots have reached the box.
+Add two visual enhancements to restore dynamic energy, without changing the delay logic:
+
+1. **Pulsating glow on the orange center line** -- once revealed, apply a subtle CSS animation that pulses the orange line's opacity and glow filter, making it look like a live "laser."
+
+2. **Spread output dots across all 3 output lines** -- currently output pulses only spawn on `OUTPUT_Y[1]` (center). Cycle through all 3 output Y positions so dots stream out on the grey lines too, adding movement across the full output zone.
 
 ## Technical Details (single file: `src/components/HeroSchematic.tsx`)
 
-**1. Add an arrival counter ref**
+**1. Add a pulsating CSS animation to the orange output line**
 
-Add a new ref `arrivalsRef = useRef(0)` and a state `outputRevealed` (boolean, starts `false`).
+After the `stroke-dashoffset` transition completes (the line is fully drawn), apply an inline animation on the center output line:
+- `animation: "pulse-glow 2s ease-in-out infinite"` 
+- This will cycle the line's opacity between ~0.7 and 1.0
+- Add a matching `@keyframes` via a `<style>` tag inside the SVG `<defs>`, or use inline `style` with the animation
 
-**2. Count arrivals in the animation loop**
+**2. Apply the glow filter to the orange line once revealed**
 
-When an input pulse's `done` flips to `true` for the first time (it just reached the core), increment `arrivalsRef.current`. Once it hits 3, set `outputRevealed` to `true`.
+Add `filter="url(#glow)"` to the center output line when `outputRevealed` is true, giving it the same soft bloom as the core flash.
 
-**3. Gate output line visibility on `outputRevealed`**
+**3. Cycle output pulse spawning across all 3 output lines**
 
-Change the output lines' `revealed` condition from `coreProgress >= 4` to `outputRevealed`. This delays the orange line draw-in until 3 dots have arrived.
+Change the output pulse spawn logic from always using `OUTPUT_Y[1]` to cycling through `OUTPUT_Y[0]`, `OUTPUT_Y[1]`, `OUTPUT_Y[2]` using a modulo counter. This spreads dots across all three output lines for more visual movement.
 
-**4. Gate output pulse spawning on `outputRevealed`**
+No changes to the delay/arrival logic or any other component.
 
-Wrap the existing output pulse spawn block (`frameCountRef.current % 18 === 0`) inside an `if (outputRevealed)` check so output dots don't appear before the line.
-
-No other logic, layout, or styling changes.
