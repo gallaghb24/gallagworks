@@ -38,7 +38,7 @@ const About = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Gallag Works is an independent studio, not a high-volume agency. You work directly with the Principal. I bring nearly two decades of experience directing enterprise delivery and managing £15m+ multichannel contracts for major UK retailers to every project.
+                Gallag Works is an independent operational engineering studio, not a high-volume agency. You work directly with the Principal. I bring nearly two decades of experience directing enterprise delivery and managing £15m+ multichannel contracts for major UK retailers to every project.
               </p>
             </div>
           </div>
