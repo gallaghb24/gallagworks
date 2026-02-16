@@ -21,39 +21,48 @@ const Cookies = () => {
               <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-8">
                 Cookie Policy
               </h1>
+              <p className="font-mono text-xs text-muted-foreground/50 mb-8">
+                Effective date: 16 February 2026
+              </p>
 
               <div className="space-y-8 text-muted-foreground font-light leading-relaxed">
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">We don't use cookies</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">1. Our Approach</h2>
                   <p>
-                    This website does not set any cookies – first-party or third-party. There is nothing to accept, reject, or manage.
+                    At Gallag Works, we believe in operational integrity. This website is engineered to function efficiently without the use of non-essential cookies.
                   </p>
                 </div>
 
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">Analytics</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">2. Why you don't see a consent banner</h2>
                   <p>
-                    We use PostHog configured in strict cookieless mode. All analytics data is held in-memory only for the duration of your visit and is fully anonymous. No identifiers persist between sessions or across sites.
+                    Under the UK GDPR and PECR, consent banners are required for "non-essential" cookies (such as those used for invasive tracking or advertising). Because we respect your privacy and have configured our site to avoid these technologies, a disruptive consent banner is not required.
                   </p>
                 </div>
 
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">Why no consent banner?</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">3. Analytics (PostHog Cookieless)</h2>
+                  <p className="mb-4">
+                    We use PostHog to understand how visitors interact with our content. We have configured PostHog in a cookieless mode, meaning:
+                  </p>
+                  <ul className="space-y-3 list-disc list-inside">
+                    <li>No persistent tracking cookies are placed on your device.</li>
+                    <li>No personal data is stored in your browser's local storage for analytics purposes.</li>
+                    <li>We see what pages are being read, but we do not know who is reading them.</li>
+                  </ul>
+                </div>
+
+                <div className="border-t border-border pt-8">
+                  <h2 className="text-lg font-bold text-foreground mb-4">4. Essential Cookies</h2>
                   <p>
-                    Because we don't use cookies or equivalent tracking technologies, no consent banner is required under UK GDPR or the Privacy and Electronic Communications Regulations (PECR).
+                    We may occasionally use strictly necessary cookies for security (such as CSRF protection) or to ensure our consultation form functions correctly. These cookies do not track your behaviour and are deleted when you close your browser.
                   </p>
                 </div>
 
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">Questions</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">5. Managing your preferences</h2>
                   <p>
-                    If you have any questions about this policy, contact us at{" "}
-                    <a href="mailto:hello@gallag.works" className="text-primary hover:text-primary/80 transition-colors">
-                      hello@gallag.works
-                    </a>.
-                  </p>
-                  <p className="mt-4 font-mono text-xs text-muted-foreground/50">
-                    Last updated: February 2026
+                    While we do not use tracking cookies, you can choose to block all cookies via your browser settings. Please note that doing so may prevent certain technical features of the website (like form submissions) from working correctly.
                   </p>
                 </div>
               </div>
