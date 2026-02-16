@@ -200,9 +200,10 @@ const HeroSchematic = () => {
 
       // Spawn output pulses (only after dots reach core)
       if (outputRevealed && frameCountRef.current % 18 === 0) {
+        const outIdx = Math.floor(frameCountRef.current / 18) % 3;
         const wp: [number, number][] = [
-          [CORE.x + CORE.size, OUTPUT_Y[1]],
-          [620, OUTPUT_Y[1]],
+          [CORE.x + CORE.size, OUTPUT_Y[outIdx]],
+          [620, OUTPUT_Y[outIdx]],
         ];
         pulses.push({
           id: pulseIdRef.current++,
@@ -258,6 +259,12 @@ const HeroSchematic = () => {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+          <style>{`
+            @keyframes pulse-glow {
+              0%, 100% { opacity: 1; }
+              50% { opacity: 0.7; }
+            }
+          `}</style>
         </defs>
 
         {/* Maze lines */}
@@ -327,10 +334,12 @@ const HeroSchematic = () => {
               strokeWidth={isCenter ? 2 : 1}
               strokeDasharray={len}
               strokeDashoffset={revealed ? 0 : len}
+              filter={isCenter && revealed ? "url(#glow)" : undefined}
               style={{
                 transition: revealed
                   ? "stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1)"
                   : "none",
+                ...(isCenter && revealed ? { animation: "pulse-glow 2s ease-in-out infinite" } : {}),
               }}
             />
           );
