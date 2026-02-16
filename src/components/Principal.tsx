@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Principal = () => {
@@ -21,6 +23,12 @@ const Principal = () => {
               <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]">
                 Gallag Works is an independent studio founded by Ben Gallagher. With nearly two decades of experience directing enterprise client delivery and managing £15m+ multichannel contracts for major UK retailers, Ben learned a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. He founded Gallag Works to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
               </p>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors mt-8"
+              >
+                Meet the Principal <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             <div
