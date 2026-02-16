@@ -52,7 +52,7 @@ const Navigation = () => {
             <span className="text-lg font-bold tracking-tight text-foreground">
               GALLAG WORKS
             </span>
-            <span className="font-mono text-[10px] text-muted-foreground tracking-widest uppercase">
+            <span className="font-mono text-[10px] text-primary tracking-widest uppercase">
               Operational Engineering
             </span>
           </Link>
