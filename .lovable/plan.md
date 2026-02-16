@@ -1,66 +1,30 @@
 
-
-# Fix Input Paths: 3 Grey Lines to Core, Dots Stay on Lines
+# Delay Orange Output Line Until Dots Reach the Core
 
 ## Problem
 
-1. Orange dots travel through black space (off grey lines) because waypoints don't match maze line segments
-2. Only some paths visually connect to the white core box
-3. Need exactly 3 grey connector lines arriving at 3 different sides of the core
+The orange "laser" output line (and its grey siblings) draw immediately when the core box finishes building (`coreProgress >= 4`), well before any input dots have reached the white box.
 
 ## Solution
 
-Redesign the maze connector lines and all 3 input waypoint paths so every dot strictly follows a visible grey line. Three connector lines will visibly enter the core from the top, left, and bottom.
+Track how many input pulses have arrived at the core. Only reveal the output lines and start spawning output pulses once at least 3 input dots have reached the box.
 
----
+## Technical Details (single file: `src/components/HeroSchematic.tsx`)
 
-## Core Entry Points
+**1. Add an arrival counter ref**
 
-The core box spans x:290-350, y:200-260.
+Add a new ref `arrivalsRef = useRef(0)` and a state `outputRevealed` (boolean, starts `false`).
 
-- **Top entry:** (320, 200) -- dot arrives from above into the top edge
-- **Left entry:** (290, 230) -- dot arrives from the left into the left edge  
-- **Bottom entry:** (290, 260) -- dot arrives from below into the bottom edge
+**2. Count arrivals in the animation loop**
 
----
+When an input pulse's `done` flips to `true` for the first time (it just reached the core), increment `arrivalsRef.current`. Once it hits 3, set `outputRevealed` to `true`.
 
-## Maze Line Changes
+**3. Gate output line visibility on `outputRevealed`**
 
-### Extend existing segments
-- `[40, 40, 140, 40]` becomes `[40, 40, 160, 40]` -- closes gap to meet vertical at x=160
-- `[140, 120, 240, 120]` becomes `[140, 120, 320, 120]` -- extends to align with core top
-- `[0, 380, 120, 380]` becomes `[0, 380, 180, 380]` -- extends to meet vertical at x=180
+Change the output lines' `revealed` condition from `coreProgress >= 4` to `outputRevealed`. This delays the orange line draw-in until 3 dots have arrived.
 
-### Remove old connectors (no longer needed)
-- `[180, 380, 290, 380]`
-- `[260, 200, 290, 200]`
-- `[40, 300, 40, 260]`
-- `[40, 260, 60, 260]`
+**4. Gate output pulse spawning on `outputRevealed`**
 
-### Add new connector segments (3 lines into the core)
-- `[320, 120, 320, 200]` -- vertical drop into core top
-- `[160, 180, 160, 200]` -- short vertical bridge for Path B
-- `[260, 230, 290, 230]` -- horizontal into core left side
-- `[180, 260, 290, 260]` -- horizontal into core bottom
+Wrap the existing output pulse spawn block (`frameCountRef.current % 18 === 0`) inside an `if (outputRevealed)` check so output dots don't appear before the line.
 
----
-
-## 3 Input Paths (all waypoints on grey lines)
-
-**Path A (top):**
-`[40,40] -> [160,40] -> [160,120] -> [320,120] -> [320,200]`
-
-**Path B (left):**
-`[20,100] -> [120,100] -> [120,180] -> [160,180] -> [160,200] -> [260,200] -> [260,230] -> [290,230]`
-
-**Path C (bottom):**
-`[0,380] -> [180,380] -> [180,260] -> [290,260]`
-
-Each path enters the core from a different side (top, left, bottom). Every segment between consecutive waypoints lies on a visible grey maze line.
-
----
-
-## File Changed
-
-`src/components/HeroSchematic.tsx` -- update `MAZE_LINES` array and `INPUT_PATHS` array. No other files change.
-
+No other logic, layout, or styling changes.
