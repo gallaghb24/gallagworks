@@ -34,10 +34,10 @@ const FAQSection = () => {
     <section className="py-24 lg:py-36 bg-[#1A1C1E]" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
-          <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${isVisible ? "visible" : ""}`}>
+          <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block clip-reveal ${isVisible ? "visible" : ""}`}>
             [FAQ]
           </span>
-          <h2 className={`font-display text-3xl md:text-4xl font-extrabold text-foreground mb-12 scroll-fade-in ${isVisible ? "visible" : ""}`}>
+          <h2 className={`font-display text-3xl md:text-4xl font-extrabold text-foreground mb-12 clip-reveal ${isVisible ? "visible" : ""}`}>
             Common questions
           </h2>
 
@@ -45,7 +45,7 @@ const FAQSection = () => {
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`border-b border-[#2F3133] py-6 scroll-fade-in ${isVisible ? "visible" : ""}`}
+                className={`border-b border-[#2F3133] py-6 clip-reveal ${isVisible ? "visible" : ""}`}
                 style={{ transitionDelay: `${(i + 1) * 0.06}s` }}
               >
                 <h3 className="text-lg font-extrabold text-foreground mb-3">

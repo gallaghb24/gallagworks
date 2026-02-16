@@ -11,9 +11,9 @@ const CTABand = ({ headline = "Ready to build scalable operations?" }: CTABandPr
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-28 lg:py-40 border-t border-border" ref={ref}>
+    <section className="py-28 lg:py-40 border-t border-border border-draw" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className={`max-w-2xl scroll-fade-in ${isVisible ? "visible" : ""}`}>
+        <div className={`max-w-2xl clip-reveal ${isVisible ? "visible" : ""}`}>
           <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-8">
             {headline}
           </h2>
