@@ -1,40 +1,128 @@
 
-# Hero Schematic Redesign: Abstract Geometric Art
+
+# Comprehensive UI and Copy Overhaul
 
 ## Overview
-Replace the literal software architecture diagram (icons, labels, funnels, diamonds) with a pure geometric abstraction representing "untangling the mess." No text, no icons -- just lines and geometry.
+Update navigation labels, font weights, copy, max-width constraints, and spacing across the site -- focusing on the Services page (new tiered copy) and the About/Principal page (manifesto-style rewrite).
 
 ---
 
-## Visual Composition
+## 1. Navigation (src/components/Navigation.tsx)
 
-The SVG will have three zones flowing left to right:
-
-**Left -- The Tangle:**
-A dense web of 12-15 thin, curved bezier paths in dark grey (`#2F3133` at varying opacities 0.2-0.5). These lines originate from scattered points on the far left and weave, cross, and loop over each other chaotically, converging toward the centre. Think of it like a ball of tangled wire viewed from above.
-
-**Centre -- The Filter:**
-A single sharp-edged geometric shape -- a perfect square (rotated 0 degrees, axis-aligned) rendered with a crisp white stroke (`#F5F5F5`, strokeWidth 1.5) and no fill. Slightly larger than the tangle's convergence point to feel like a gateway/filter. The tangled lines feed into the left edge of this square and disappear.
-
-**Right -- The Order:**
-Three perfectly straight, horizontal, parallel lines emerge from the right edge of the square and extend cleanly off the right side of the SVG viewport. Two lines in white (`#F5F5F5`, strokeWidth 0.75), and the middle line in Safety Orange (`#FF5F1F`, strokeWidth 1) -- the single touch of colour.
+- Rename "Who we are" to "The Principal" in `navLinks` array (line 34)
+- CTA buttons already say "Request a Consultation" -- no change needed
 
 ---
 
-## Technical Details
+## 2. Global Typography: Font Weight Contrast
 
-- **SVG viewport**: `680 x 400` (same width as current, slightly shorter since no labels)
-- **Background**: Transparent (no fill on the SVG)
-- **All text and labels removed**: Zero `<text>` elements
-- **All icons removed**: No rectangles acting as email/spreadsheet/database icons
-- **Line style**: Razor-thin -- 0.5px for tangle lines, 0.75px for output lines, 1.5px for the central square
-- **Central square**: Approximately 80x80 units, positioned at centre of viewport
-- **Tangle lines**: ~14 bezier curves using `<path>` with cubic beziers, varying opacity (0.15-0.45) to create depth
-- **Output lines**: 3 horizontal lines spaced ~30px apart vertically, extending from square's right edge to beyond the viewport (x=700+)
-- **Animation**: Keep existing `animate-fade-in-up` on the container; no additional animation needed
+All H1/H2 elements across all modified files will use `font-extrabold` (800 weight). All body paragraphs will use `font-light` (300 weight). This applies to every file touched below.
+
+Max-width on body text blocks: increase from `max-w-[600px]`/`max-w-[650px]` to `max-w-[720px]`.
 
 ---
 
-## File Modified
+## 3. Services Page (src/pages/Services.tsx)
 
-1. **src/components/HeroSection.tsx** -- Replace the entire SVG block (lines 48-144) with the new abstract geometric composition. Everything outside the SVG (headline, paragraph, button, grid layout) remains untouched.
+- Update page title to "Services | Gallag Works" (already correct)
+- Replace intro copy with: "Every engagement starts with the Operational X-Ray. We don't bring pre-built solutions; we engineer around how your organization actually operates."
+- H1 font weight to `font-extrabold`
+- Body paragraph to `font-light`, `max-w-[720px]`
+- Increase bottom padding from `pb-16` to `pb-24`
+
+---
+
+## 4. Engagement Types -- New Tiered Copy (src/components/EngagementTypes.tsx)
+
+Replace the current 5-card engagement list with the 3 exact tiers from the brief:
+
+**Tier 1:** Title: "Operational Audit and X-Ray" | Sub-label: "2-4 Weeks | Fixed Scope" | New copy as specified
+
+**Tier 2:** Title: "Structural Prototype" | Sub-label: "4-8 Weeks | Proof of Value" | New copy as specified
+
+**Tier 3:** Title: "Enterprise Integration" | Sub-label: "Retainer or Phase-Based" | New copy as specified
+
+- H2 to `font-extrabold`, descriptions to `font-light`
+- Sub-label paragraph to `font-light`, `max-w-[720px]`
+- Card h3 titles to `font-extrabold`
+- Section padding increase: `py-20 lg:py-32`
+
+---
+
+## 5. How We Work (src/components/HowWeWork.tsx)
+
+- H2 to `font-extrabold`
+- Step descriptions to `font-light`
+- Section padding increase: `py-20 lg:py-32`
+
+---
+
+## 6. FAQ Section (src/components/FAQSection.tsx)
+
+- H2 to `font-extrabold`
+- Answer text to `font-light`
+- Section padding increase: `py-20 lg:py-32`
+
+---
+
+## 7. The Principal Page (src/pages/About.tsx) -- Full Manifesto Rewrite
+
+**Hero:**
+- Change kicker to `[THE PRINCIPAL]`
+- H1: "Principal-Led Transformation." with `font-extrabold`
+- Intro paragraph: "Gallag Works is an independent studio, not a high-volume agency. You work directly with the Principal."
+- Body to `font-light`, `max-w-[720px]`
+- Update page title to "The Principal | Gallag Works"
+
+**The Approach / Methodology section:**
+- Replace the current multi-paragraph block with the methodology copy: "Most organizations don't have an AI problem. They have a 'How things work' problem. I engineer the 'Data Glue' out of the system so your people go back to making decisions, not managing tasks. I lead engagements directly, ensuring that what we build is technically sound, commercially viable, and actually adopted."
+- H2 to `font-extrabold`, body to `font-light`
+- Max-width to `max-w-[720px]`
+
+**Experience Block (Background section):**
+- Replace the current long narrative with the concise stats block and the full narrative paragraph
+- Add a stats row: "20 Years in Operations. GBP15m+ Contract Oversight. 4,000+ User Platform Adoptions. 30+ Person Team Leadership." -- styled as monospace stats
+- Then the full narrative paragraph from the brief underneath
+- H2 to `font-extrabold`, body to `font-light`
+
+**All other sections** (What you can expect, Where this helps most):
+- H2 to `font-extrabold`
+- Card text to `font-light`
+- Increase section padding to `py-24 lg:py-36` (adding 4rem extra)
+
+---
+
+## 8. Principal Component on Homepage (src/components/Principal.tsx)
+
+- Fix the duplicated text (there is a copy-paste duplication in the paragraph)
+- Update copy to match the new manifesto narrative
+- H2 to `font-extrabold`, body to `font-light`
+- Max-width constraint to `max-w-[720px]` on the paragraph
+
+---
+
+## 9. CTA Band (src/components/CTABand.tsx)
+
+- H2 to `font-extrabold` (already bold, change to extrabold)
+
+---
+
+## 10. HeroSection (src/components/HeroSection.tsx)
+
+- H1 to `font-extrabold`
+- Body to `font-light`
+
+---
+
+## Files Modified
+
+1. **src/components/Navigation.tsx** -- rename nav link
+2. **src/pages/Services.tsx** -- updated intro copy, font weights, max-width
+3. **src/components/EngagementTypes.tsx** -- 3-tier card content, font weights, spacing
+4. **src/components/HowWeWork.tsx** -- font weights, spacing
+5. **src/components/FAQSection.tsx** -- font weights, spacing
+6. **src/pages/About.tsx** -- full manifesto rewrite, font weights, stats block, spacing
+7. **src/components/Principal.tsx** -- fix duplicated text, update copy, font weights
+8. **src/components/CTABand.tsx** -- font weight update
+9. **src/components/HeroSection.tsx** -- font weights
+
