@@ -44,7 +44,7 @@ const EngagementTypes = () => {
           <p
             className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 scroll-fade-in ${isVisible ? "visible" : ""}`}
           >
-            We don't start with 6-month roadmaps. We start with a 2-week Operational X-Ray. This is a fixed-price, high-impact audit designed to expose the 'Data Glue' and quantify the margin recovery opportunity. From there, we move into implementation sprints – typically 4 to 8 weeks – depending on the complexity of the architecture.
+            We de-risk transformation through a phased, results-first approach. By starting with a sharp, fixed-scope diagnostic, we identify high-value targets for automation before committing to long-term builds. This ensures every engineered hour delivers a measurable return on margin.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
