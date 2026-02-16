@@ -89,7 +89,7 @@ const About = () => {
                     className={`bg-[#1A1C1E] border border-[#2F3133] p-6 scroll-fade-in ${exp.isVisible ? "visible" : ""}`}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                   >
-                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-foreground mb-2">
+                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-primary mb-2">
                       {stat.value}
                     </p>
                     <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
