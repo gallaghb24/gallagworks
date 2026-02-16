@@ -36,14 +36,14 @@ const About = () => {
         <section className="pt-32 pb-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
-              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block animate-fade-in">
+              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
                 [THE PRINCIPAL]
               </span>
-              <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 animate-fade-in-up">
+              <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
                 Operator-Led Transformation.
               </h1>
               <p
-                className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] animate-fade-in-up"
+                className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
                 Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I bring 20 years directing enterprise delivery and managing £15m+ multichannel contracts for major UK retailers to every project.

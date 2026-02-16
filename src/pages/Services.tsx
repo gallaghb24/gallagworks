@@ -19,13 +19,13 @@ const Services = () => {
         <section className="pt-32 pb-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
-              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block animate-fade-in">
+              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
                 [SERVICES]
               </span>
-              <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 animate-fade-in-up">
+              <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
                 Our services
               </h1>
-              <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 Most operational friction is invisible. We use a proprietary diagnostic framework to expose the 'Data Glue' consuming your team's capacity – then we engineer the infrastructure to remove it. No 50-page strategy decks; just working systems.
               </p>
             </div>
