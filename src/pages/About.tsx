@@ -38,7 +38,7 @@ const About = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal — I bring 20 years directing enterprise delivery and managing £15m+ multichannel contracts for major UK retailers to every project.
+                Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I bring 20 years directing enterprise delivery and managing £15m+ multichannel contracts for major UK retailers to every project.
               </p>
             </div>
           </div>
@@ -61,7 +61,7 @@ const About = () => {
               <p
                 className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] scroll-fade-in ${method.isVisible ? "visible" : ""}`}
               >
-                Most organizations don't have an AI problem. They have a Structural Workflow problem. I engineer the 'Data Glue' out of the system so your people go back to making decisions, not managing tasks. I architect every system personally — no junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
+                Most organizations don't have an AI problem. They have a Structural Workflow problem. I engineer the 'Data Glue' out of the system so your people go back to making decisions, not managing tasks. I architect every system personally – no junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
               </p>
             </div>
           </div>
