@@ -27,16 +27,17 @@ const ServicesSummary = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-32 border-t border-border" ref={ref}>
+    <section className="py-20 lg:py-32 border-draw" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block scroll-fade-in ${isVisible ? "visible" : ""}`}
+            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
           >
             [METHODOLOGY]
           </span>
           <h2
-            className={`text-3xl md:text-4xl font-bold text-foreground mb-16 scroll-fade-in ${isVisible ? "visible" : ""}`}
+            className={`text-3xl md:text-4xl font-bold text-foreground mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
+            style={{ transitionDelay: "0.08s" }}
           >
             The Methodology
           </h2>
@@ -45,21 +46,29 @@ const ServicesSummary = () => {
             {services.map((s, i) => (
               <div
                 key={i}
-                className={`py-12 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 scroll-fade-in ${isVisible ? "visible" : ""}`}
-                style={{ transitionDelay: `${(i + 1) * 0.1}s` }}
+                className="py-12 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8"
               >
                 <div className="md:col-span-1">
-                  <span className="font-mono text-sm text-primary font-semibold">
+                  <span
+                    className={`font-mono text-sm text-primary font-semibold clip-reveal ${isVisible ? "visible" : ""}`}
+                    style={{ transitionDelay: `${0.12 + i * 0.15}s` }}
+                  >
                     {s.label}
                   </span>
                 </div>
                 <div className="md:col-span-3">
-                  <h3 className="text-lg font-bold text-foreground">
+                  <h3
+                    className={`text-lg font-bold text-foreground clip-reveal ${isVisible ? "visible" : ""}`}
+                    style={{ transitionDelay: `${0.14 + i * 0.15}s` }}
+                  >
                     {s.title}
                   </h3>
                 </div>
                 <div className="md:col-span-8">
-                  <p className="text-muted-foreground leading-relaxed text-base">
+                  <p
+                    className={`text-muted-foreground leading-relaxed text-base clip-reveal ${isVisible ? "visible" : ""}`}
+                    style={{ transitionDelay: `${0.16 + i * 0.15}s` }}
+                  >
                     {s.description}
                   </p>
                 </div>
@@ -68,8 +77,8 @@ const ServicesSummary = () => {
           </div>
 
           <div
-            className={`mt-12 scroll-fade-in ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.5s" }}
+            className={`mt-12 clip-reveal ${isVisible ? "visible" : ""}`}
+            style={{ transitionDelay: "0.6s" }}
           >
             <Link
               to="/services"
