@@ -44,24 +44,24 @@ const HowWeWork = () => {
           </h2>
 
           {/* Horizontal flow on desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
             {steps.map((step, i) => (
               <div
                 key={i}
-                className={`relative scroll-fade-in ${isVisible ? "visible" : ""}`}
+                className={`relative scroll-fade-in ${isVisible ? "visible" : ""} ${i < steps.length - 1 ? "md:pr-8" : ""}`}
                 style={{ transitionDelay: `${(i + 1) * 0.12}s` }}
               >
-                {/* Connecting line (between boxes) */}
+                {/* Connecting dots (between boxes) */}
                 {i < steps.length - 1 && (
                   <>
-                    {/* Desktop horizontal solid line */}
-                    <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 items-center z-10" style={{ right: "-16px", width: "32px" }}>
+                    {/* Desktop horizontal connector — anchored to right edge of padding gap */}
+                    <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 right-0 items-center z-10 w-8">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                       <div className="flex-1 border-t border-[#2F3133]" />
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                     </div>
-                    {/* Mobile vertical solid line */}
-                    <div className="md:hidden flex flex-col items-center absolute bottom-0 left-8 translate-y-full z-10" style={{ height: "32px" }}>
+                    {/* Mobile vertical connector */}
+                    <div className="md:hidden flex flex-col items-center absolute -bottom-8 left-8 z-10 h-8">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                       <div className="flex-1 border-l border-[#2F3133]" />
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
@@ -69,11 +69,7 @@ const HowWeWork = () => {
                   </>
                 )}
 
-                <div
-                  className={`border border-[#2F3133] p-8 ${
-                    i < steps.length - 1 ? "mb-8 md:mb-0 md:mr-8" : ""
-                  }`}
-                >
+                <div className="border border-[#2F3133] p-8 h-full flex flex-col">
                   <span className="font-mono text-2xl font-bold text-primary block mb-3">
                     {step.number}
                   </span>
