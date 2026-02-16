@@ -226,7 +226,7 @@ const HeroSchematic = () => {
 
     rafRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [buildPhase, advancePulse]);
+  }, [buildPhase, advancePulse, outputRevealed]);
 
   const lineLen = (i: number) => {
     const [x1, y1, x2, y2] = MAZE_LINES[i];
