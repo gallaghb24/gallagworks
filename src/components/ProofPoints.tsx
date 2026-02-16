@@ -4,7 +4,7 @@ import { useCountUp } from "@/hooks/useCountUp";
 const ProofPoints = () => {
   const { ref, isVisible } = useScrollAnimation();
 
-  const counter1 = useCountUp({ target: 150, prefix: "£", suffix: "k+" });
+  const counter1 = useCountUp({ target: 15, prefix: "£", suffix: "M+", formatValue: (n) => (n / 10).toFixed(1) });
   const counter2 = useCountUp({ target: 98, suffix: "%" });
   const counter3 = useCountUp({ target: 50, suffix: "%" });
 
@@ -13,7 +13,7 @@ const ProofPoints = () => {
       counter: counter1,
       label: "Quantified Margin Recovery",
       detail:
-        "Identifying and engineering out £150k+ in annual operational leakage per account by eradicating avoidable rework and manual data friction.",
+        "Identifying and engineering out over £1.5M in cumulative operational leakage for major UK retailers by eradicating \u201CData Glue\u201D and manual friction.",
     },
     {
       counter: counter2,
