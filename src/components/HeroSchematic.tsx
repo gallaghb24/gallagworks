@@ -11,10 +11,10 @@ const MAZE_LINES: [number, number, number, number][] = [
   [60, 260, 180, 260],
   [20, 300, 140, 300],
   [80, 340, 200, 340],
-  [0, 380, 120, 380],
-  [40, 40, 140, 40],
+  [0, 380, 180, 380],        // extended to x=180
+  [40, 40, 160, 40],         // extended to x=160
   [100, 80, 200, 80],
-  [140, 120, 240, 120],
+  [140, 120, 320, 120],      // extended to x=320 (core top alignment)
   [100, 160, 220, 160],
   [160, 200, 260, 200],
   [120, 240, 260, 240],
@@ -35,11 +35,11 @@ const MAZE_LINES: [number, number, number, number][] = [
   [0, 320, 40, 320],
   [200, 340, 200, 400],
   [260, 320, 300, 320],
-  // New connecting segments to core
-  [180, 380, 290, 380],   // Path A connects bottom to core bottom-left
-  [260, 200, 290, 200],   // Path B connects to core left side (already close)
-  [40, 300, 40, 260],     // Path C vertical connector
-  [40, 260, 60, 260],     // Path C merges into existing line
+  // Connector segments into core
+  [320, 120, 320, 200],      // vertical drop into core top
+  [160, 180, 160, 200],      // short bridge for Path B
+  [260, 230, 290, 230],      // horizontal into core left
+  [180, 260, 290, 260],      // horizontal into core bottom
 ];
 
 // Core square
@@ -47,23 +47,18 @@ const CORE = { x: 290, y: 200, size: 60 };
 
 // 3 input paths that all reach the core
 const INPUT_PATHS: [number, number][][] = [
-  // Path A (top entry → winds down → enters core bottom-left)
+  // Path A (top entry → drops into core top)
   [
-    [0, 60], [80, 60], [80, 140], [60, 140], [60, 260],
-    [180, 260], [180, 380], [290, 380], [290, 260],
+    [40, 40], [160, 40], [160, 120], [320, 120], [320, 200],
   ],
-  // Path B (middle entry → threads through middle → enters core left)
+  // Path B (left entry → threads through middle → enters core left)
   [
-    [0, 220], [100, 220], [100, 340], [200, 340],
-    [220, 340], [220, 200], [260, 200], [290, 230],
+    [20, 100], [120, 100], [120, 180], [160, 180],
+    [160, 200], [260, 200], [260, 230], [290, 230],
   ],
-  // Path C (upper-mid entry → drops down → routes to core top)
+  // Path C (bottom entry → rises into core bottom)
   [
-    [20, 100], [120, 100], [120, 180], [140, 180],
-    [140, 300], [40, 300], [40, 320], [0, 320],
-    [40, 320], [40, 300], [140, 300], [140, 180],
-    [160, 180], [160, 120], [240, 120], [240, 240],
-    [260, 240], [260, 200], [290, 200],
+    [0, 380], [180, 380], [180, 260], [290, 260],
   ],
 ];
 
