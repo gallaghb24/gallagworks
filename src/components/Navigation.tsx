@@ -34,7 +34,6 @@ const Navigation = () => {
     { to: "/services", label: "Services" },
     { to: "/about", label: "The Principal" },
     { to: "/insights", label: "Insights" },
-    { to: "/contact", label: "Contact" },
   ];
 
   return (
