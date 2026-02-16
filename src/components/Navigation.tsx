@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import GallagGlyph from "@/components/GallagGlyph";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,13 +49,16 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              GALLAG WORKS
-            </span>
-            <span className="font-mono text-[10px] text-primary tracking-widest uppercase">
-              Operational Engineering
-            </span>
+          <Link to="/" className="flex items-center gap-3">
+            <GallagGlyph size={24} />
+            <div className="flex flex-col">
+              <span className="text-lg font-bold tracking-tight text-foreground">
+                GALLAG WORKS
+              </span>
+              <span className="font-mono text-[10px] text-primary tracking-widest uppercase">
+                Operational Engineering
+              </span>
+            </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
