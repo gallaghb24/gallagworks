@@ -27,7 +27,7 @@ const ServicesSummary = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-32 border-draw" ref={ref}>
+    <section className={`py-20 lg:py-32 border-draw ${isVisible ? "visible" : ""}`} ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
@@ -37,7 +37,7 @@ const ServicesSummary = () => {
           </span>
           <h2
             className={`text-3xl md:text-4xl font-bold text-foreground mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.08s" }}
+            style={{ transitionDelay: "0.3s" }}
           >
             The Methodology
           </h2>
@@ -51,7 +51,7 @@ const ServicesSummary = () => {
                 <div className="md:col-span-1">
                   <span
                     className={`font-mono text-sm text-primary font-semibold clip-reveal ${isVisible ? "visible" : ""}`}
-                    style={{ transitionDelay: `${0.12 + i * 0.15}s` }}
+                    style={{ transitionDelay: `${0.5 + i * 0.3}s` }}
                   >
                     {s.label}
                   </span>
@@ -59,7 +59,7 @@ const ServicesSummary = () => {
                 <div className="md:col-span-3">
                   <h3
                     className={`text-lg font-bold text-foreground clip-reveal ${isVisible ? "visible" : ""}`}
-                    style={{ transitionDelay: `${0.14 + i * 0.15}s` }}
+                    style={{ transitionDelay: `${0.52 + i * 0.3}s` }}
                   >
                     {s.title}
                   </h3>
@@ -67,7 +67,7 @@ const ServicesSummary = () => {
                 <div className="md:col-span-8">
                   <p
                     className={`text-muted-foreground leading-relaxed text-base clip-reveal ${isVisible ? "visible" : ""}`}
-                    style={{ transitionDelay: `${0.16 + i * 0.15}s` }}
+                    style={{ transitionDelay: `${0.54 + i * 0.3}s` }}
                   >
                     {s.description}
                   </p>
@@ -78,7 +78,7 @@ const ServicesSummary = () => {
 
           <div
             className={`mt-12 clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.6s" }}
+            style={{ transitionDelay: "1.5s" }}
           >
             <Link
               to="/services"
