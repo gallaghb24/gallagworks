@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <rect x="0.5" y="0.5" width="31" height="31" stroke="#2F3133" stroke-width="1" fill="none"/>
-  <rect x="16" y="16" width="16" height="16" fill="#FF5F1F"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+  <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="#2F3133" stroke-width="1"/>
+  <line x1="0.5" y1="0" x2="0.5" y2="10" stroke="#2F3133" stroke-width="1"/>
+  <line x1="26" y1="0.5" x2="36" y2="0.5" stroke="#2F3133" stroke-width="1"/>
+  <line x1="35.5" y1="0" x2="35.5" y2="10" stroke="#2F3133" stroke-width="1"/>
+  <line x1="0" y1="35.5" x2="10" y2="35.5" stroke="#2F3133" stroke-width="1"/>
+  <line x1="0.5" y1="26" x2="0.5" y2="36" stroke="#2F3133" stroke-width="1"/>
+  <line x1="26" y1="35.5" x2="36" y2="35.5" stroke="#2F3133" stroke-width="1"/>
+  <line x1="35.5" y1="26" x2="35.5" y2="36" stroke="#2F3133" stroke-width="1"/>
+  <rect x="12" y="12" width="12" height="12" fill="#FF5F1F"/>
 </svg>

@@ -49,7 +49,7 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="group flex items-center gap-3">
             <GallagGlyph size={24} />
             <div className="flex flex-col">
               <span className="text-lg font-bold tracking-tight text-foreground">
