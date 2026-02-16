@@ -125,13 +125,13 @@ const CaseStudies = () => {
         <section className="pt-32 pb-16">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
-              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block animate-fade-in">
+              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
                 [PROJECT SCHEMATICS]
               </span>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in-up">
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 opacity-0 animate-fade-in-up">
                 Project Schematics
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              <p className="text-lg text-muted-foreground leading-relaxed opacity-0 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 Technical summaries from recent engagements. Different sectors, same engineering approach.
               </p>
             </div>
