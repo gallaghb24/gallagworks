@@ -2,15 +2,14 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const Contact = () => {
-  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<"idle" | "success" | "error">("idle");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,6 +29,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitState("idle");
 
     try {
       const { error: dbError } = await supabase
@@ -46,19 +46,11 @@ const Contact = () => {
         console.error("Email notification failed:", emailError);
       }
 
-      toast({
-        title: "Message sent",
-        description: "Thank you for reaching out. I'll be in touch soon.",
-      });
-
+      setSubmitState("success");
       setFormData({ name: "", email: "", company: "", message: "" });
     } catch (error) {
       console.error("Submission error:", error);
-      toast({
-        title: "Something went wrong",
-        description: "Please try again or email directly.",
-        variant: "destructive",
-      });
+      setSubmitState("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -84,113 +76,131 @@ const Contact = () => {
                 Every engagement starts with the Operational X-Ray. Whether you are ready to engineer out the 'Data Glue' or are still quantifying the margin recovery opportunity, start here to discuss a structured engagement.
               </p>
 
-              {/* Form — 4rem gap from header */}
-              <form onSubmit={handleSubmit} className="mt-16 space-y-8">
-                {/* [01] NAME */}
-                <div className="space-y-2">
-                  <label
-                    htmlFor="name"
-                    className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
-                  >
-                    [01] Name
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className={fieldStyle}
-                    placeholder="Your name"
-                  />
-                </div>
-
-                {/* [02] EMAIL */}
-                <div className="space-y-2">
-                  <label
-                    htmlFor="email"
-                    className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
-                  >
-                    [02] Email
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className={fieldStyle}
-                    placeholder="you@company.com"
-                  />
-                </div>
-
-                {/* [03] COMPANY */}
-                <div className="space-y-2">
-                  <label
-                    htmlFor="company"
-                    className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
-                  >
-                    [03] Company
-                  </label>
-                  <Input
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className={fieldStyle}
-                    placeholder="Your organisation"
-                  />
-                </div>
-
-                {/* [04] OPERATIONAL CONTEXT */}
-                <div className="space-y-2">
-                  <label
-                    htmlFor="message"
-                    className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
-                  >
-                    [04] Operational Context
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className={`${fieldStyle} resize-none`}
-                    placeholder="Tell us about the workflow or problem you're looking at..."
-                  />
-                </div>
-
-                {/* CTA */}
-                <div>
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-3 text-base font-medium"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      "Request a Consultation"
-                    )}
-                  </Button>
-                  <p className="mt-3 font-mono text-xs text-muted-foreground/50">
-                    Data is processed in accordance with our{" "}
-                    <a
-                      href="/privacy"
-                      className="underline hover:text-muted-foreground transition-colors"
-                    >
-                      Privacy Policy
-                    </a>
-                    .
+              {submitState === "success" ? (
+                <div className="mt-16">
+                  <p className="font-mono text-sm tracking-widest uppercase text-foreground/70">
+                    Form Received. Architectural review in progress.
                   </p>
                 </div>
-              </form>
+              ) : (
+                <form
+                  onSubmit={handleSubmit}
+                  className={`mt-16 space-y-8 ${submitState === "error" ? "border border-red-600 p-8" : ""}`}
+                >
+                  {submitState === "error" && (
+                    <p className="font-mono text-xs text-red-500">
+                      Transmission error. Please contact{" "}
+                      <a href="mailto:hello@gallag.works" className="underline">hello@gallag.works</a>{" "}
+                      directly.
+                    </p>
+                  )}
+
+                  {/* [01] NAME */}
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="name"
+                      className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
+                    >
+                      [01] Name
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className={fieldStyle}
+                      placeholder="Your name"
+                    />
+                  </div>
+
+                  {/* [02] EMAIL */}
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
+                    >
+                      [02] Email
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className={fieldStyle}
+                      placeholder="you@company.com"
+                    />
+                  </div>
+
+                  {/* [03] COMPANY */}
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="company"
+                      className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
+                    >
+                      [03] Company
+                    </label>
+                    <Input
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className={fieldStyle}
+                      placeholder="Your organisation"
+                    />
+                  </div>
+
+                  {/* [04] OPERATIONAL CONTEXT */}
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="message"
+                      className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
+                    >
+                      [04] Operational Context
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={5}
+                      className={`${fieldStyle} resize-none`}
+                      placeholder="Tell us about the workflow or problem you're looking at..."
+                    />
+                  </div>
+
+                  {/* CTA */}
+                  <div>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-3 text-base font-medium"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        "Request a Consultation"
+                      )}
+                    </Button>
+                    <p className="mt-3 font-mono text-xs text-muted-foreground/50">
+                      Data is processed in accordance with our{" "}
+                      <a
+                        href="/privacy"
+                        className="underline hover:text-muted-foreground transition-colors"
+                      >
+                        Privacy Policy
+                      </a>
+                      .
+                    </p>
+                  </div>
+                </form>
+              )}
             </div>
           </div>
         </section>

@@ -6,7 +6,7 @@ const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
+    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
 interface ContactFormData {
@@ -163,7 +163,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email to Ben
     const notificationEmail = await resend.emails.send({
-      from: "Intelligent Transformation Studio <hello@intelligenttransformation.studio>",
+      from: "Gallag Works <hello@gallag.works>",
       to: ["ben@gallag.co.uk"],
       subject: `New contact from ${safeName}`,
       html: `
@@ -180,7 +180,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to the person who submitted
     const confirmationEmail = await resend.emails.send({
-      from: "Intelligent Transformation Studio <hello@intelligenttransformation.studio>",
+      from: "Gallag Works <hello@gallag.works>",
       to: [email.trim()],
       subject: "Thank you for reaching out",
       html: `
@@ -189,7 +189,7 @@ const handler = async (req: Request): Promise<Response> => {
         <p>In the meantime, if you have any urgent questions, please don't hesitate to reach out.</p>
         <br>
         <p>Best regards,</p>
-        <p><strong>Intelligent Transformation Studio</strong></p>
+        <p><strong>Gallag Works</strong></p>
       `,
     });
 
