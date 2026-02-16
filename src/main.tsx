@@ -12,7 +12,7 @@ if (typeof window !== "undefined") {
     disable_cookie: true,
     capture_pageview: false,
     capture_pageleave: true,
-    debug: true,
+    debug: false,
     loaded: (ph) => {
       ph.capture("$pageview");
     },
