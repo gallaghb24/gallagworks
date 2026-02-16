@@ -1,74 +1,88 @@
 
-
-# Refine the Knowledge Hub: Manifesto Bridges, Visual Separation, and Deep-Linking
+# Final Refinements: Ref System, Shadow Glossary, Recursive Linking, and Sitemap Refresh
 
 ## Overview
 
-Three targeted refinements to elevate the unified Insight pages from technically correct to Principal-grade authority.
+Four coordinated changes: migrate all display refs to GW-LOG-XXX, create a stealth Glossary page with DefinedTerm schema, add inline cross-references within the primary manifesto, and refresh the sitemap.
 
 ---
 
-## 1. Expand Manifesto Narratives for GW-001 through GW-006
+## 1. Unified Ref System (GW-LOG-XXX)
 
-Each of the six project schematics currently has short, functional manifesto sections (one paragraph each for Friction and Engineering). These will be expanded to include a third section -- a "Strategic Context" bridge -- that frames the operational challenge from a leadership perspective before the reader drops into the Technical Schematic.
+Update all `ref` fields across three files. URL slugs remain unchanged -- only the display reference codes change.
 
-**What changes in the data:**
+**Mapping:**
+- `GW-INS-001` becomes `GW-LOG-101`
+- `GW-001` becomes `GW-LOG-201`
+- `GW-002` becomes `GW-LOG-202`
+- `GW-003` becomes `GW-LOG-203`
+- `GW-004` becomes `GW-LOG-204`
+- `GW-005` becomes `GW-LOG-205`
+- `GW-006` becomes `GW-LOG-206`
 
-Each case study entry gains an additional manifesto section inserted between "THE FRICTION" and "THE ENGINEERING":
-
-- **GW-001 (POS Workflow):** New section "THE STRATEGIC COST" -- discusses how stale reporting erodes client trust and advisory credibility, turning a professional services team into a data factory.
-- **GW-002 (Costing Process):** New section "THE STRATEGIC COST" -- explores how invisible coordination tax creates the illusion of under-resourcing when the real problem is architectural.
-- **GW-003 (Validation Pipeline):** New section "THE STRATEGIC COST" -- examines the paradox of low error rates masking unsustainable time investment, and how it blocks the improvement work the organisation actually needs.
-- **GW-004 (Multichannel Content):** New section "THE STRATEGIC COST" -- addresses the normalisation of copy-paste culture and how it prevents account teams from scaling client relationships.
-- **GW-005 (Enterprise Reporting):** New section "THE STRATEGIC COST" -- frames the "Opportunity Cost of Blind Leadership" in high-stakes reporting, where last-minute data scrambles undermine decision quality.
-- **GW-006 (Allocation Logistics):** New section "THE STRATEGIC COST" -- discusses how manual consolidation creates operational fragility, making it impossible to respond to client changes with agility.
-
-Each new section will be 200-300 words written in the Principal-to-Peer tone, connecting the tactical friction to its strategic business impact.
-
-**File modified:** `src/pages/InsightManifesto.tsx` -- the `insightData` array, expanding the `manifesto` arrays for entries GW-001 through GW-006.
-
----
-
-## 2. Visual Separation: Blueprint Inset for Technical Schematic
-
-The `[TECHNICAL SCHEMATIC]` section will receive a distinct visual treatment to create a "context switch" from boardroom narrative to engineering review.
-
-**Changes:**
-
-- Wrap the entire Technical Schematic section (the `<section>` containing the title, the schematic card, and the confidentiality notice) in a container with a faint Graphite background (`#1A1C1E` or equivalent via `bg-[#1A1C1E]`)
-- Add increased vertical padding (`py-16`) and a subtle top/bottom 1px border to frame it as an inset document
-- The schematic section header gets a slightly larger treatment with a thin horizontal rule above it
-
-**File modified:** `src/pages/InsightManifesto.tsx` -- the JSX rendering the Technical Schematic section (around lines 554-575).
+**Files affected:**
+- `src/pages/InsightManifesto.tsx` -- update `ref` on each entry and `schematic.ref` fields
+- `src/pages/Insights.tsx` -- update `ref` in the index table array
+- `src/components/StructuredData.tsx` -- update `id` fields in `caseStudySchemas` and the `identifier` in the generated JSON-LD
 
 ---
 
-## 3. Deep-Linking with Anchor IDs for AEO
+## 2. The 'Shadow' Glossary
 
-Add an `id="schematic"` attribute to the Technical Schematic section so AI answer engines and internal links can point directly to the evidence block at `/insights/[slug]#schematic`.
+**New file: `src/pages/Glossary.tsx`**
 
-**Changes:**
+A stealth page at `/glossary` with no header navigation link.
 
-- Add `id="schematic"` to the Technical Schematic `<section>` element
-- Update the `StructuredData.tsx` CreativeWork URLs to append `#schematic` in a secondary reference field, so the structured data explicitly signals the evidence location
+**Terms (each with an anchor ID and `scroll-mt-24` for sticky header clearance):**
+- `#data-glue` -- Data Glue
+- `#operational-x-ray` -- Operational X-Ray
+- `#operational-engineering` -- Operational Engineering
+- `#decision-inbox` -- Decision Inbox
+- `#margin-recovery` -- Margin Recovery
+- `#human-middleware` -- Human Middleware
 
-**Files modified:**
-- `src/pages/InsightManifesto.tsx` -- add `id="schematic"` to the section element
-- `src/components/StructuredData.tsx` -- add a `hasPart` property to each CreativeWork pointing to `#schematic`
+Each term gets a 2-3 sentence definition in the Principal-to-Peer tone. The page includes JSON-LD `DefinedTerm` schema for each entry to maximise Featured Snippet and AI answer capture.
+
+**Layout:** Technical index aesthetic matching the existing site -- monospace labels, 1px graphite borders, 0px border-radius.
+
+**Route:** Add to `src/App.tsx` above the catch-all.
+
+**Footer:** Add a monospace `[GLOSSARY]` link in the Legal column of `src/components/Footer.tsx`.
+
+---
+
+## 3. Recursive Linking
+
+**Update `src/pages/InsightManifesto.tsx`:**
+
+1. Change the `ManifestoSection` interface so `paragraphs` accepts `React.ReactNode[]` instead of `string[]`.
+
+2. In the GW-LOG-101 (Data Glue manifesto) entry:
+   - First mention of "Data Glue" in section 01 becomes a link to `/glossary#data-glue`
+   - Section 02 ("THE EVIDENCE") paragraph mentioning "98% reduction in processing time" gets an inline `[LOG-205]` cross-reference linking to `/insights/enterprise-reporting-automation#schematic`
+   - Section 02 paragraph mentioning "multichannel content orchestration pipeline" gets an inline `[LOG-204]` linking to `/insights/multichannel-content-orchestration#schematic`
+
+3. **Link styling:** Safety Orange (`text-primary`) with no underline, wrapped in brackets: `[LOG-205]`. On hover, slight brightness increase. This gives the appearance of a citation in a technical paper.
+
+---
+
+## 4. Sitemap Refresh
+
+**`public/sitemap.xml`:**
+- Add `/glossary` entry with `priority: 0.5` and `changefreq: monthly`
+- No slug changes needed (URL paths are unchanged)
 
 ---
 
 ## Technical Details
 
+### Files to create:
+1. `src/pages/Glossary.tsx` -- Glossary page with DefinedTerm JSON-LD, anchor IDs with `scroll-mt-24`, and the schematic visual language
+
 ### Files to modify:
-
-1. **`src/pages/InsightManifesto.tsx`**
-   - Expand `manifesto` arrays for GW-001 through GW-006 with a new "STRATEGIC COST" section (each 200-300 words)
-   - Wrap the Technical Schematic section in a `bg-[#1A1C1E]` container with `py-16` padding and border framing
-   - Add `id="schematic"` to the schematic section element
-
-2. **`src/components/StructuredData.tsx`**
-   - Add `hasPart` to each CreativeWork schema pointing to the `#schematic` anchor for direct AEO deep-linking
-
-### No new files or dependencies required.
-
+1. `src/pages/InsightManifesto.tsx` -- Update refs to GW-LOG-XXX, change `paragraphs` type to `ReactNode[]`, add inline cross-links in GW-LOG-101 manifesto with Safety Orange bracket styling
+2. `src/pages/Insights.tsx` -- Update refs in index table
+3. `src/components/StructuredData.tsx` -- Update identifier fields to GW-LOG-XXX
+4. `src/App.tsx` -- Add `/glossary` route
+5. `src/components/Footer.tsx` -- Add `[GLOSSARY]` monospace link in Legal column
+6. `public/sitemap.xml` -- Add glossary entry
