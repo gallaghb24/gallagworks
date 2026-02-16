@@ -37,7 +37,7 @@ const Services = () => {
         <FAQSection />
         <CTABand headline="Have a workflow in mind? Let's look at it together." />
       </main>
-      <Footer />
+      <Footer hideCTA />
     </div>
   );
 };

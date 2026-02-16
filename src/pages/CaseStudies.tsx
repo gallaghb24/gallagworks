@@ -150,7 +150,7 @@ const CaseStudies = () => {
 
         <CTABand headline="See something similar to your situation?" />
       </main>
-      <Footer />
+      <Footer hideCTA />
     </div>
   );
 };
