@@ -17,7 +17,7 @@ const HeroSection = () => {
               className="text-lg md:text-xl text-muted-foreground font-light max-w-[720px] mb-10 leading-relaxed animate-fade-in-up"
               style={{ animationDelay: "0.15s" }}
             >
-              We help operations and commercial leaders untangle the 'Data Glue' – the manual re-keying, spreadsheets, and workarounds that erode margin and burn out your best people. We move your team from Data Processors to Decision Makers via engineered Decision Inboxes.
+              We help operations and commercial leaders untangle the 'Data Glue' – the manual re-keying, spreadsheets, and workarounds that erode margin and burn out your best people. We transform your operations from a manual cost center into a scalable engine—using AI to automate the routine so your experts can focus on growth.
             </p>
 
             <div
