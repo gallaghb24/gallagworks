@@ -18,7 +18,7 @@ const Philosophy = () => {
             Automating a broken process just creates a faster mess.
           </h2>
           <p
-            className={`text-lg text-muted-foreground leading-relaxed scroll-fade-in ${isVisible ? "visible" : ""}`}
+            className={`text-lg text-muted-foreground leading-relaxed max-w-[600px] scroll-fade-in ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.15s" }}
           >
             You cannot scale a business on brute-force human effort, but you also can't fix bad logic with shiny technology. At Gallag Works, we start with the operational reality. We understand margin, SLAs, and adoption. We simplify the workflow first, kill the redundant steps, and build the automation second.
