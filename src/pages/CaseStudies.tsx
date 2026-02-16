@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 const caseStudies = [
   {
@@ -114,12 +115,16 @@ const CaseStudies = () => {
 
 
   useEffect(() => {
-    document.title = "Project Schematics | Gallag Works";
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Project Schematics"
+        description="Technical case studies in operational engineering. Proven results: 98% manual effort reduction, 1,200 hours reclaimed annually, £1.5M+ leakage recovery for enterprise clients."
+        path="/case-studies"
+      />
       <Navigation />
       <main>
         <section className="pt-32 pb-16">

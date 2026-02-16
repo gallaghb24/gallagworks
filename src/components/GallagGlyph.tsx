@@ -9,7 +9,7 @@ const GallagGlyph = ({ size = 24 }: { size?: number }) => (
     viewBox="0 0 36 36"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
+    aria-label="Gallag Works Operational Engineering Glyph - Finding logic in enterprise data glue"
   >
     {/* Top-left bracket */}
     <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="#2F3133" strokeWidth="1" className="group-hover:stroke-[#F5F5F5]" style={bracketStyle} />

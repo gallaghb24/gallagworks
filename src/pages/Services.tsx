@@ -5,15 +5,20 @@ import HowWeWork from "@/components/HowWeWork";
 import FAQSection from "@/components/FAQSection";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 const Services = () => {
   useEffect(() => {
-    document.title = "Services | Gallag Works";
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Services"
+        description="Operational X-Ray diagnostics, structural prototypes, and enterprise integration. Engineering out the Data Glue consuming your team's capacity."
+        path="/services"
+      />
       <Navigation />
       <main>
         <section className="pt-32 pb-24">
@@ -23,7 +28,7 @@ const Services = () => {
                 [SERVICES]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
-                Our services
+                Operational Engineering Services
               </h1>
               <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 Most operational friction is invisible. We use a proprietary diagnostic framework to expose the 'Data Glue' consuming your team's capacity – then we engineer the infrastructure to remove it. No 50-page strategy decks; just working systems.
