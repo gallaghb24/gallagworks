@@ -1,35 +1,33 @@
 
 
-# Restore Dynamic Energy to the Orange Output Line
+# Fix: Restore the Orange Output Laser Line
 
 ## Problem
 
-The orange output line now appears static after the timing fix. It draws in via a single CSS transition and then just sits there. The only movement is output dots on the center line, but the line itself lacks the "alive" pulsating quality it had before.
+The animation loop captures `outputRevealed` in a stale closure. The `useEffect` running the animation has dependencies `[buildPhase, advancePulse]` but never re-runs when `outputRevealed` changes. This means:
+- Output pulse dots never spawn (the spawn check on line 202 always reads `false`)
+- The output lines may render via JSX but without the dynamic dot movement
 
 ## Solution
 
-Add two visual enhancements to restore dynamic energy, without changing the delay logic:
+Add `outputRevealed` to the `useEffect` dependency array so the animation loop restarts with the current value when it flips to `true`. This is a one-line fix.
 
-1. **Pulsating glow on the orange center line** -- once revealed, apply a subtle CSS animation that pulses the orange line's opacity and glow filter, making it look like a live "laser."
+## Technical Detail
 
-2. **Spread output dots across all 3 output lines** -- currently output pulses only spawn on `OUTPUT_Y[1]` (center). Cycle through all 3 output Y positions so dots stream out on the grey lines too, adding movement across the full output zone.
+**File: `src/components/HeroSchematic.tsx`**
 
-## Technical Details (single file: `src/components/HeroSchematic.tsx`)
+Change line 229 from:
+```
+}, [buildPhase, advancePulse]);
+```
+to:
+```
+}, [buildPhase, advancePulse, outputRevealed]);
+```
 
-**1. Add a pulsating CSS animation to the orange output line**
+This ensures the animation loop closure captures the updated `outputRevealed = true` value, allowing:
+1. The output pulse spawning logic (`if (outputRevealed && ...)`) to actually fire
+2. Orange dots to stream along the center line
+3. The orange line with its pulsating glow and filter to render correctly
 
-After the `stroke-dashoffset` transition completes (the line is fully drawn), apply an inline animation on the center output line:
-- `animation: "pulse-glow 2s ease-in-out infinite"` 
-- This will cycle the line's opacity between ~0.7 and 1.0
-- Add a matching `@keyframes` via a `<style>` tag inside the SVG `<defs>`, or use inline `style` with the animation
-
-**2. Apply the glow filter to the orange line once revealed**
-
-Add `filter="url(#glow)"` to the center output line when `outputRevealed` is true, giving it the same soft bloom as the core flash.
-
-**3. Cycle output pulse spawning across all 3 output lines**
-
-Change the output pulse spawn logic from always using `OUTPUT_Y[1]` to cycling through `OUTPUT_Y[0]`, `OUTPUT_Y[1]`, `OUTPUT_Y[2]` using a modulo counter. This spreads dots across all three output lines for more visual movement.
-
-No changes to the delay/arrival logic or any other component.
-
+No other changes needed.
