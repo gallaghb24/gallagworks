@@ -92,6 +92,8 @@ const HeroSchematic = () => {
   const frameCountRef = useRef(0);
   const hasFlashedRef = useRef(false);
   const [showFlash, setShowFlash] = useState(false);
+  const arrivalsRef = useRef(0);
+  const [outputRevealed, setOutputRevealed] = useState(false);
 
   // ── Phase 1: Build ──
   useEffect(() => {
@@ -150,7 +152,15 @@ const HeroSchematic = () => {
       let pulses = pulsesRef.current.map((p) => {
         if (p.done && p.opacity <= 0) return p;
         if (p.done) return { ...p, opacity: Math.max(0, p.opacity - 0.06) };
-        return advancePulse(p);
+        const advanced = advancePulse(p);
+        // Count first-time arrivals for input pulses
+        if (!p.done && advanced.done && advanced.phase === "input") {
+          arrivalsRef.current++;
+          if (arrivalsRef.current >= 3) {
+            setOutputRevealed(true);
+          }
+        }
+        return advanced;
       });
 
       // Flash on first arrival
@@ -188,8 +198,8 @@ const HeroSchematic = () => {
         }
       }
 
-      // Spawn output pulses
-      if (frameCountRef.current % 18 === 0) {
+      // Spawn output pulses (only after dots reach core)
+      if (outputRevealed && frameCountRef.current % 18 === 0) {
         const wp: [number, number][] = [
           [CORE.x + CORE.size, OUTPUT_Y[1]],
           [620, OUTPUT_Y[1]],
@@ -307,7 +317,7 @@ const HeroSchematic = () => {
         {OUTPUT_Y.map((y, i) => {
           const isCenter = i === 1;
           const len = 620 - (CORE.x + CORE.size);
-          const revealed = coreProgress >= 4;
+          const revealed = outputRevealed;
           return (
             <line
               key={`output-${i}`}
