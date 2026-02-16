@@ -25,7 +25,7 @@ const HowWeWork = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 lg:py-28 border-t border-border blueprint-grid" ref={ref}>
+    <section className="py-16 lg:py-28 border-t border-[#2F3133] blueprint-grid" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
@@ -54,23 +54,23 @@ const HowWeWork = () => {
                 {/* Connecting line (between boxes) */}
                 {i < steps.length - 1 && (
                   <>
-                    {/* Desktop horizontal dashed line */}
+                    {/* Desktop horizontal solid line */}
                     <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 items-center z-10" style={{ right: "-16px", width: "32px" }}>
-                      <div className="w-2 h-2 rounded-full border-2 border-primary bg-background flex-shrink-0" />
-                      <div className="flex-1 border-t-2 border-dashed border-primary/50" />
-                      <div className="w-2 h-2 rounded-full border-2 border-primary bg-background flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                      <div className="flex-1 border-t border-[#2F3133]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                     </div>
-                    {/* Mobile vertical dashed line */}
+                    {/* Mobile vertical solid line */}
                     <div className="md:hidden flex flex-col items-center absolute bottom-0 left-8 translate-y-full z-10" style={{ height: "32px" }}>
-                      <div className="w-2 h-2 rounded-full border-2 border-primary bg-background flex-shrink-0" />
-                      <div className="flex-1 border-l-2 border-dashed border-primary/50" />
-                      <div className="w-2 h-2 rounded-full border-2 border-primary bg-background flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                      <div className="flex-1 border-l border-[#2F3133]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                     </div>
                   </>
                 )}
 
                 <div
-                  className={`border border-dashed border-border p-8 ${
+                  className={`border border-[#2F3133] p-8 ${
                     i < steps.length - 1 ? "mb-8 md:mb-0 md:mr-8" : ""
                   }`}
                 >

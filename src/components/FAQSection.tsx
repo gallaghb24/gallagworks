@@ -39,22 +39,22 @@ const FAQSection = () => {
   return (
     <section className="py-16 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl mx-auto">
-          <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${isVisible ? "visible" : ""}`}>
-            FAQ
+        <div className="max-w-3xl">
+          <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${isVisible ? "visible" : ""}`}>
+            [FAQ]
           </span>
-          <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-12 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
+          <h2 className={`font-display text-3xl md:text-4xl font-bold text-foreground mb-12 scroll-fade-in ${isVisible ? "visible" : ""}`}>
             Common questions
           </h2>
 
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible>
             {faqs.map((faq, i) => (
               <div
                 key={i}
                 className={`scroll-fade-in ${isVisible ? "visible" : ""}`}
                 style={{ transitionDelay: `${(i + 1) * 0.06}s` }}
               >
-                <AccordionItem value={`faq-${i}`} className="border border-border border-l-4 border-l-primary rounded-lg px-6 bg-card">
+                <AccordionItem value={`faq-${i}`} className="border-b border-[#2F3133] border-t-0 border-l-0 border-r-0 bg-transparent rounded-none px-0">
                   <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-5">
                     {faq.q}
                   </AccordionTrigger>
