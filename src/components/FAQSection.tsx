@@ -1,35 +1,29 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const faqs = [
   {
     q: "How do you handle data security?",
-    a: "We align to your InfoSec requirements. We follow least-privilege access, work under NDA as standard, and agree data handling and access upfront.",
+    a: "Data integrity and security are foundational to operational engineering. I bring enterprise-level governance experience to every project. We work within your existing InfoSec frameworks, follow least-privilege access protocols, and execute under NDA as standard. We don't 'move' your data; we engineer the systems that handle it safely.",
   },
   {
     q: "What tools do you use?",
-    a: "It depends on the problem. We work with your existing stack, workflow automation platforms, and modern build tools when needed (for example Lovable, Supabase, and web frameworks). We're tool-agnostic.",
+    a: "We are tool-agnostic. My goal is to maximise your existing stack (M365, Google Workspace, specialised ERPs/CRMs) before suggesting new infrastructure. When we do build, we use enterprise-grade AI and orchestration tools that your team can actually own and maintain. We don't build black boxes.",
   },
   {
     q: "Do you build software?",
-    a: "When it's the right solution, yes. But we start with the workflow, not the technology. Sometimes the answer is a better process, not a new app.",
+    a: "We build Operational Infrastructure. Sometimes that looks like a custom dashboard or a lightweight internal tool; other times it's a series of automated 'Decision Inboxes' connecting your existing apps. We start with the workflow architecture – software is simply the delivery mechanism for that logic.",
   },
   {
     q: "What do you need from us?",
-    a: "Access to the people who do the work, not just the people who manage it. A clear owner for decisions. And willingness to look honestly at current processes.",
+    a: "Executive sponsorship and operational transparency. I need access to the people in the trenches – the ones currently acting as the 'Data Glue' – and a clear owner for commercial decisions. Transformation fails in a vacuum; it succeeds when the leaders are ready to kill redundant processes.",
   },
   {
     q: "How long does an engagement take?",
-    a: "A diagnostic is typically 2 – 4 weeks. A pilot runs 4 – 8 weeks. Scale and advisory engagements are ongoing. We'll scope it properly before anything starts.",
+    a: "A Diagnostic (The X-Ray) is a sharp, 2-week engagement. A Build phase typically runs between 6 and 12 weeks. While I only lead 3–4 full-scale transformations per year to ensure direct Principal involvement, the initial X-Ray is the fastest way to determine if we are a fit.",
   },
   {
     q: "What industries do you work with?",
-    a: "I've worked across agency, media, professional services, and operational teams. The common thread is knowledge-intensive work where handoffs, variation, and data friction create avoidable cost.",
+    a: "I specialise in knowledge-intensive environments where high-volume handoffs and data friction create avoidable costs. My background is rooted in the high-velocity worlds of multichannel retail, marketing operations, and commercial delivery. If your team spends more time 'managing the process' than 'doing the work,' the methodology applies.",
   },
 ];
 
@@ -47,24 +41,22 @@ const FAQSection = () => {
             Common questions
           </h2>
 
-          <Accordion type="single" collapsible>
+          <div>
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`scroll-fade-in ${isVisible ? "visible" : ""}`}
+                className={`border-b border-[#2F3133] py-6 scroll-fade-in ${isVisible ? "visible" : ""}`}
                 style={{ transitionDelay: `${(i + 1) * 0.06}s` }}
               >
-                <AccordionItem value={`faq-${i}`} className="border-b border-[#2F3133] border-t-0 border-l-0 border-r-0 bg-transparent rounded-none px-0">
-                  <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-5">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground font-light leading-relaxed pb-5">
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
+                <h3 className="text-lg font-extrabold text-foreground mb-3">
+                  {faq.q}
+                </h3>
+                <p className="text-muted-foreground font-light leading-relaxed max-w-[720px]">
+                  {faq.a}
+                </p>
               </div>
             ))}
-          </Accordion>
+          </div>
         </div>
       </div>
     </section>
