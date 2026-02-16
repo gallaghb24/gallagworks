@@ -1,128 +1,49 @@
 
-
-# Comprehensive UI and Copy Overhaul
+# Principal-Level Polish: FAQ & Engagement Tightening
 
 ## Overview
-Update navigation labels, font weights, copy, max-width constraints, and spacing across the site -- focusing on the Services page (new tiered copy) and the About/Principal page (manifesto-style rewrite).
+Replace FAQ copy with enterprise-governance language, strip the accordion UI for a clean separator-based list, update Engagement copy and timeline, and remove all "techy" tool mentions.
 
 ---
 
-## 1. Navigation (src/components/Navigation.tsx)
+## 1. FAQ Section (src/components/FAQSection.tsx)
 
-- Rename "Who we are" to "The Principal" in `navLinks` array (line 34)
-- CTA buttons already say "Request a Consultation" -- no change needed
+**UI Change:** Remove the Accordion component entirely. Replace with a simple list of question/answer pairs separated by `1px` Graphite (`#2F3133`) horizontal lines. Each question is a `font-extrabold` left-aligned heading; each answer sits directly below as `font-light` body text. No expand/collapse, no chevrons, no rounded corners -- just clean vertical flow.
 
----
+**Copy Replacement (all 6 FAQs):**
 
-## 2. Global Typography: Font Weight Contrast
+1. **How do you handle data security?**
+"Data integrity and security are foundational to operational engineering. I bring enterprise-level governance experience to every project. We work within your existing InfoSec frameworks, follow least-privilege access protocols, and execute under NDA as standard. We don't 'move' your data; we engineer the systems that handle it safely."
 
-All H1/H2 elements across all modified files will use `font-extrabold` (800 weight). All body paragraphs will use `font-light` (300 weight). This applies to every file touched below.
+2. **What tools do you use?**
+"We are tool-agnostic. My goal is to maximise your existing stack (M365, Google Workspace, specialised ERPs/CRMs) before suggesting new infrastructure. When we do build, we use enterprise-grade AI and orchestration tools that your team can actually own and maintain. We don't build black boxes."
 
-Max-width on body text blocks: increase from `max-w-[600px]`/`max-w-[650px]` to `max-w-[720px]`.
+3. **Do you build software?**
+"We build Operational Infrastructure. Sometimes that looks like a custom dashboard or a lightweight internal tool; other times it's a series of automated 'Decision Inboxes' connecting your existing apps. We start with the workflow architecture -- software is simply the delivery mechanism for that logic."
 
----
+4. **What do you need from us?**
+"Executive sponsorship and operational transparency. I need access to the people in the trenches -- the ones currently acting as the 'Data Glue' -- and a clear owner for commercial decisions. Transformation fails in a vacuum; it succeeds when the leaders are ready to kill redundant processes."
 
-## 3. Services Page (src/pages/Services.tsx)
+5. **How long does an engagement take?**
+"A Diagnostic (The X-Ray) is a sharp, 2-week engagement. A Build phase typically runs between 6 and 12 weeks. While I only lead 3-4 full-scale transformations per year to ensure direct Principal involvement, the initial X-Ray is the fastest way to determine if we are a fit."
 
-- Update page title to "Services | Gallag Works" (already correct)
-- Replace intro copy with: "Every engagement starts with the Operational X-Ray. We don't bring pre-built solutions; we engineer around how your organization actually operates."
-- H1 font weight to `font-extrabold`
-- Body paragraph to `font-light`, `max-w-[720px]`
-- Increase bottom padding from `pb-16` to `pb-24`
+6. **What industries do you work with?**
+"I specialise in knowledge-intensive environments where high-volume handoffs and data friction create avoidable costs. My background is rooted in the high-velocity worlds of multichannel retail, marketing operations, and commercial delivery. If your team spends more time 'managing the process' than 'doing the work,' the methodology applies."
 
----
-
-## 4. Engagement Types -- New Tiered Copy (src/components/EngagementTypes.tsx)
-
-Replace the current 5-card engagement list with the 3 exact tiers from the brief:
-
-**Tier 1:** Title: "Operational Audit and X-Ray" | Sub-label: "2-4 Weeks | Fixed Scope" | New copy as specified
-
-**Tier 2:** Title: "Structural Prototype" | Sub-label: "4-8 Weeks | Proof of Value" | New copy as specified
-
-**Tier 3:** Title: "Enterprise Integration" | Sub-label: "Retainer or Phase-Based" | New copy as specified
-
-- H2 to `font-extrabold`, descriptions to `font-light`
-- Sub-label paragraph to `font-light`, `max-w-[720px]`
-- Card h3 titles to `font-extrabold`
-- Section padding increase: `py-20 lg:py-32`
+**Technical:** Remove Accordion imports entirely. Render as a simple `div` list with `border-b border-[#2F3133]` separators and `py-6` padding per item.
 
 ---
 
-## 5. How We Work (src/components/HowWeWork.tsx)
+## 2. Engagement Types (src/components/EngagementTypes.tsx)
 
-- H2 to `font-extrabold`
-- Step descriptions to `font-light`
-- Section padding increase: `py-20 lg:py-32`
+**Timeline Update:** Change Tier 1 sublabel from "2-4 Weeks | Fixed Scope" to "2-3 Weeks | Fixed Scope" to encourage low-risk entry.
 
----
-
-## 6. FAQ Section (src/components/FAQSection.tsx)
-
-- H2 to `font-extrabold`
-- Answer text to `font-light`
-- Section padding increase: `py-20 lg:py-32`
-
----
-
-## 7. The Principal Page (src/pages/About.tsx) -- Full Manifesto Rewrite
-
-**Hero:**
-- Change kicker to `[THE PRINCIPAL]`
-- H1: "Principal-Led Transformation." with `font-extrabold`
-- Intro paragraph: "Gallag Works is an independent studio, not a high-volume agency. You work directly with the Principal."
-- Body to `font-light`, `max-w-[720px]`
-- Update page title to "The Principal | Gallag Works"
-
-**The Approach / Methodology section:**
-- Replace the current multi-paragraph block with the methodology copy: "Most organizations don't have an AI problem. They have a 'How things work' problem. I engineer the 'Data Glue' out of the system so your people go back to making decisions, not managing tasks. I lead engagements directly, ensuring that what we build is technically sound, commercially viable, and actually adopted."
-- H2 to `font-extrabold`, body to `font-light`
-- Max-width to `max-w-[720px]`
-
-**Experience Block (Background section):**
-- Replace the current long narrative with the concise stats block and the full narrative paragraph
-- Add a stats row: "20 Years in Operations. GBP15m+ Contract Oversight. 4,000+ User Platform Adoptions. 30+ Person Team Leadership." -- styled as monospace stats
-- Then the full narrative paragraph from the brief underneath
-- H2 to `font-extrabold`, body to `font-light`
-
-**All other sections** (What you can expect, Where this helps most):
-- H2 to `font-extrabold`
-- Card text to `font-light`
-- Increase section padding to `py-24 lg:py-36` (adding 4rem extra)
-
----
-
-## 8. Principal Component on Homepage (src/components/Principal.tsx)
-
-- Fix the duplicated text (there is a copy-paste duplication in the paragraph)
-- Update copy to match the new manifesto narrative
-- H2 to `font-extrabold`, body to `font-light`
-- Max-width constraint to `max-w-[720px]` on the paragraph
-
----
-
-## 9. CTA Band (src/components/CTABand.tsx)
-
-- H2 to `font-extrabold` (already bold, change to extrabold)
-
----
-
-## 10. HeroSection (src/components/HeroSection.tsx)
-
-- H1 to `font-extrabold`
-- Body to `font-light`
+**Intro Copy Update:** Replace the current sub-paragraph with:
+"We don't start with 6-month roadmaps. We start with a 2-week Operational X-Ray. This is a fixed-price, high-impact audit designed to expose the 'Data Glue' and quantify the margin recovery opportunity. From there, we move into implementation sprints -- typically 4 to 8 weeks -- depending on the complexity of the architecture."
 
 ---
 
 ## Files Modified
 
-1. **src/components/Navigation.tsx** -- rename nav link
-2. **src/pages/Services.tsx** -- updated intro copy, font weights, max-width
-3. **src/components/EngagementTypes.tsx** -- 3-tier card content, font weights, spacing
-4. **src/components/HowWeWork.tsx** -- font weights, spacing
-5. **src/components/FAQSection.tsx** -- font weights, spacing
-6. **src/pages/About.tsx** -- full manifesto rewrite, font weights, stats block, spacing
-7. **src/components/Principal.tsx** -- fix duplicated text, update copy, font weights
-8. **src/components/CTABand.tsx** -- font weight update
-9. **src/components/HeroSection.tsx** -- font weights
-
+1. **src/components/FAQSection.tsx** -- Remove accordion, replace with separator-based list, swap all 6 FAQ answers
+2. **src/components/EngagementTypes.tsx** -- Update Tier 1 timeline to "2-3 Weeks", replace intro paragraph copy
