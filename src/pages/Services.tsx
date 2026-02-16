@@ -25,7 +25,7 @@ const Services = () => {
               <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in-up">
                 Our services
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-[600px] animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 Every engagement starts with the Operational X-Ray – understanding where the Data Glue sits before we design anything. We don't bring pre-built solutions; we engineer around how your organisation actually operates.
               </p>
             </div>

@@ -34,14 +34,14 @@ const EngagementTypes = () => {
   return (
     <section className="py-16 lg:py-28" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto">
-          <span className={`block text-primary text-xs font-semibold uppercase tracking-[0.15em] text-center mb-4 scroll-fade-in ${isVisible ? "visible" : ""}`}>
-            ENGAGEMENTS
+        <div className="max-w-5xl">
+          <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block scroll-fade-in ${isVisible ? "visible" : ""}`}>
+            [ENGAGEMENTS]
           </span>
-          <h2 className={`font-display text-3xl md:text-4xl font-semibold text-foreground mb-4 text-center scroll-fade-in ${isVisible ? "visible" : ""}`}>
+          <h2 className={`font-display text-3xl md:text-4xl font-bold text-foreground mb-4 scroll-fade-in ${isVisible ? "visible" : ""}`}>
             Engagement types
           </h2>
-          <p className={`text-muted-foreground text-center mb-12 max-w-2xl mx-auto scroll-fade-in ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
+          <p className={`text-muted-foreground mb-12 max-w-[600px] scroll-fade-in ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.1s" }}>
             We structure work to match where you are – from initial assessment through to long-term advisory.
           </p>
 
@@ -49,7 +49,7 @@ const EngagementTypes = () => {
             {engagements.map((e, i) => (
               <div
                 key={i}
-                className={`bg-card border border-border border-l-4 border-l-primary rounded-lg p-8 card-hover scroll-fade-in ${isVisible ? "visible" : ""} ${
+                className={`bg-[#1A1C1E] border border-[#2F3133] p-10 scroll-fade-in ${isVisible ? "visible" : ""} ${
                   i === engagements.length - 1 && engagements.length % 2 !== 0 ? "md:col-span-2 md:max-w-[calc(50%-0.75rem)]" : ""
                 }`}
                 style={{ transitionDelay: `${(i + 1) * 0.08}s` }}
@@ -57,7 +57,7 @@ const EngagementTypes = () => {
                 <div className="flex items-baseline gap-3 mb-3">
                   <h3 className="font-display text-lg font-semibold text-foreground">{e.title}</h3>
                   {e.scope && (
-                    <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">{e.scope}</span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-primary border border-primary px-2 py-0.5">{e.scope}</span>
                   )}
                 </div>
                 <p className="text-muted-foreground leading-relaxed text-base md:text-sm">{e.description}</p>
