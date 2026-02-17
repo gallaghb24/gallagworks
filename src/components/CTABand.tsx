@@ -5,7 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface CTABandProps {
   headline?: React.ReactNode;
-  subcopy?: string;
+  subcopy?: React.ReactNode;
 }
 
 const CTABand = ({ headline = "Ready to build scalable operations?", subcopy }: CTABandProps) => {
