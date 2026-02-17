@@ -40,7 +40,7 @@ const Services = () => {
         <EngagementTypes />
         <HowWeWork />
         <FAQSection />
-        <CTABand headline="Have a workflow in mind? Let's look at it together." />
+        <CTABand headline={<>Stop managing the process. <span className="text-primary">Build the system.</span></>} subcopy="Eradicate the 'Data Glue' consuming your team's capacity with production-ready infrastructure." />
       </main>
       <Footer hideCTA />
     </div>
