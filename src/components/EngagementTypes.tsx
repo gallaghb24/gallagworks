@@ -28,7 +28,7 @@ const EngagementTypes = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-24 lg:py-36 bg-[#1A1C1E] border-draw" ref={ref}>
+    <section className="py-16 lg:py-36 bg-[#1A1C1E] border-draw" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-7xl">
           <span
@@ -51,7 +51,7 @@ const EngagementTypes = () => {
             {tiers.map((tier, index) => (
               <div
                 key={tier.number}
-                className={`bg-[#1A1C1E] border border-[#2F3133] p-8 clip-reveal-down ${isVisible ? "visible" : ""}`}
+                className={`bg-[#1A1C1E] border border-[#2F3133] p-6 md:p-8 clip-reveal-down ${isVisible ? "visible" : ""}`}
                 style={{ transitionDelay: `${index * 0.1}s` }}
               >
                 <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
