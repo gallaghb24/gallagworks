@@ -45,7 +45,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
           <div className={`scroll-fade-in ${gridVisible ? "visible" : ""}`}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
               {/* Column 1: Brand */}
-              <div>
+              <div className="flex flex-col">
                 <div className="text-lg font-bold text-foreground mb-1">GALLAG WORKS</div>
                 <span className="font-mono text-xs text-primary tracking-widest uppercase block">
                   Operational Engineering
