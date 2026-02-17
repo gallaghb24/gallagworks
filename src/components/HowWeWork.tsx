@@ -25,7 +25,7 @@ const HowWeWork = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-24 lg:py-36 border-draw blueprint-grid" ref={ref}>
+    <section className="py-16 lg:py-36 border-draw blueprint-grid" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span

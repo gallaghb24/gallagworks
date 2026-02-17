@@ -78,7 +78,7 @@ const Insights = () => {
       />
       <Navigation />
       <main>
-        <section className="pt-32 pb-16">
+        <section className="pt-24 pb-12 md:pt-32 md:pb-16">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
@@ -123,19 +123,19 @@ const Insights = () => {
                   <Link
                     key={item.ref}
                     to={`/insights/${item.slug}`}
-                    className="grid grid-cols-1 md:grid-cols-none px-6 pt-6 pb-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group items-start"
+                    className="block md:grid px-5 pt-5 pb-4 md:px-6 md:pt-6 md:pb-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group"
                     style={{ gridTemplateColumns: '15% 45% 28% 12%' }}
                   >
-                    <span className="font-mono text-sm text-primary font-semibold tracking-wider leading-relaxed m-0 mb-2 md:mb-0">
+                    <span className="font-mono text-sm text-primary font-semibold tracking-wider leading-relaxed block mb-1 md:mb-0">
                       {item.ref}
                     </span>
-                    <span className="text-sm text-foreground font-medium group-hover:text-primary transition-colors leading-relaxed m-0 mb-1 md:mb-0">
+                    <span className="text-sm text-foreground font-medium group-hover:text-primary transition-colors leading-relaxed block mb-1 md:mb-0">
                       {item.topic}
                     </span>
-                    <span className="font-mono text-sm text-muted-foreground leading-relaxed m-0">
+                    <span className="font-mono text-sm text-muted-foreground leading-relaxed block mb-1 md:mb-0">
                       {item.metric}
                     </span>
-                    <span className="font-mono text-xs text-primary uppercase tracking-widest leading-relaxed m-0 md:text-right">
+                    <span className="font-mono text-xs text-primary uppercase tracking-widest leading-relaxed block md:text-right">
                       [{item.status}]
                     </span>
                   </Link>
@@ -145,7 +145,7 @@ const Insights = () => {
           </div>
         </section>
 
-        <CTABand headline={<><span className="whitespace-nowrap">Turn field-tested logic into <span className="text-primary">measurable throughput.</span></span></>} subcopy="Apply these operational schematics to your environment with a targeted diagnostic." wrapperClassName="max-w-3xl" />
+        <CTABand headline={<><span className="md:whitespace-nowrap">Turn field-tested logic into <span className="text-primary">measurable throughput.</span></span></>} subcopy="Apply these operational schematics to your environment with a targeted diagnostic." wrapperClassName="max-w-3xl" />
       </main>
       <Footer hideCTA />
     </div>

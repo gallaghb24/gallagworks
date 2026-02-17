@@ -21,7 +21,7 @@ const Services = () => {
       />
       <Navigation />
       <main>
-        <section className="pt-32 pb-24">
+        <section className="pt-24 pb-16 md:pt-32 md:pb-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
@@ -40,7 +40,7 @@ const Services = () => {
         <EngagementTypes />
         <HowWeWork />
         <FAQSection />
-        <CTABand headline={<><span className="whitespace-nowrap">Stop managing the process. <span className="text-primary">Build the system.</span></span></>} subcopy="Eradicate the 'Data Glue' consuming your team's capacity with production-ready infrastructure." />
+        <CTABand headline={<><span className="md:whitespace-nowrap">Stop managing the process. <span className="text-primary">Build the system.</span></span></>} subcopy="Eradicate the 'Data Glue' consuming your team's capacity with production-ready infrastructure." />
       </main>
       <Footer hideCTA />
     </div>
