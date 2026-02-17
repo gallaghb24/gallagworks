@@ -38,7 +38,7 @@ const About = () => {
       <Navigation />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-24">
+        <section className="pt-24 pb-16 md:pt-32 md:pb-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
@@ -58,7 +58,7 @@ const About = () => {
         </section>
 
         {/* The Methodology */}
-        <section className="py-24 lg:py-36 bg-slate" ref={method.ref}>
+        <section className="py-16 lg:py-36 bg-slate" ref={method.ref}>
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-5xl">
               <span
@@ -81,7 +81,7 @@ const About = () => {
         </section>
 
         {/* Experience Block */}
-        <section className="py-24 lg:py-36" ref={exp.ref}>
+        <section className="py-16 lg:py-36" ref={exp.ref}>
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-5xl">
               <span
@@ -95,7 +95,7 @@ const About = () => {
                 The track record.
               </h2>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-10 md:mb-16">
                 {stats.map((stat, index) => (
                   <div
                     key={stat.label}

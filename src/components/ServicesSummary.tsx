@@ -27,7 +27,7 @@ const ServicesSummary = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-32 border-draw" ref={ref}>
+    <section className="py-16 lg:py-32 border-draw" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
@@ -36,7 +36,7 @@ const ServicesSummary = () => {
             [METHODOLOGY]
           </span>
           <h2
-            className={`text-3xl md:text-4xl font-bold text-foreground mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
+            className={`text-3xl md:text-4xl font-bold text-foreground mb-10 md:mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.08s" }}
           >
             The Methodology
@@ -46,7 +46,7 @@ const ServicesSummary = () => {
             {services.map((s, i) => (
               <div
                 key={i}
-                className="py-12 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8"
+                className="py-8 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8"
               >
                 <div className="md:col-span-1">
                   <span
