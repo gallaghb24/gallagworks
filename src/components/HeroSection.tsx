@@ -5,7 +5,7 @@ import HeroSchematic from "@/components/HeroSchematic";
 
 const HeroSection = () => {
   return (
-    <section className="relative z-10 min-h-[60vh] md:min-h-[85vh] flex items-center pt-20 pb-10 md:pt-24 md:pb-16">
+    <section className="relative z-10 min-h-[60vh] md:min-h-[85vh] flex items-center pt-24 pb-10 md:pb-16">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl">
