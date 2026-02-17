@@ -1,51 +1,59 @@
 
-# Mobile Optimisation: /services and /insights
+# Mobile Optimisation: `/` (Home) and `/about`
 
-## Issues Identified
+## Changes
 
-### /services page
-1. **CTA headline overflow**: The `whitespace-nowrap` on "Stop managing the process. Build the system." forces the text onto one line, which overflows the 390px mobile viewport and likely causes horizontal scroll or content clipping.
-2. **Hero section spacing**: The `pt-32 pb-24` on the hero section creates excessive vertical spacing on mobile before the Engagement Tiers section.
-3. **Engagement Tiers cards**: The `p-8` padding on each tier card is generous for mobile; could be tightened.
+### Home Page (`/`)
 
-### /insights page
-1. **CTA headline overflow**: Same `whitespace-nowrap` issue on "Turn field-tested logic into measurable throughput." -- forces horizontal overflow on mobile.
-2. **Table layout on mobile**: The inline `gridTemplateColumns: '15% 45% 28% 12%'` style applies at ALL breakpoints (even mobile), overriding the `grid-cols-1` class. This causes the 4-column layout to render on mobile screens, cramming text into tiny columns.
-3. **Hero section spacing**: Same `pt-32 pb-16` creates excess top padding on mobile.
+**1. HeroSection -- reduce excessive mobile height and spacing**
+- Change `min-h-[85vh]` to `min-h-[60vh] md:min-h-[85vh]` so the hero doesn't consume nearly the entire mobile screen before content appears.
+- Reduce `pt-24 pb-16` to `pt-20 pb-10 md:pt-24 md:pb-16` for tighter mobile vertical rhythm.
+- Reduce `mb-8` on the H1 to `mb-6 md:mb-8`.
+- Reduce `mb-10` on the body copy to `mb-8 md:mb-10`.
+
+**2. Philosophy -- tighten mobile padding**
+- Change `py-20 lg:py-32` to `py-16 lg:py-32`.
+
+**3. ServicesSummary -- tighten mobile row spacing**
+- Change `py-20 lg:py-32` to `py-16 lg:py-32` on the section.
+- Reduce `mb-16` on the heading to `mb-10 md:mb-16`.
+- Reduce inner row `py-12` to `py-8 md:py-12`.
+
+**4. Principal -- tighten mobile padding**
+- Change `py-24 lg:py-36` to `py-16 lg:py-36`.
+
+**5. ProofPoints -- tighten mobile spacing**
+- Change `py-20 lg:py-32` to `py-16 lg:py-32`.
+- Reduce `mb-16` on the heading to `mb-10 md:mb-16`.
+- Reduce `gap-16` on the metrics grid to `gap-10 md:gap-16`.
+
+**6. Footer CTA -- tighten mobile padding**
+- Change `py-28 lg:py-40` to `py-20 lg:py-40` (consistent with CTABand changes already made).
 
 ---
 
-## Plan
+### About Page (`/about`)
 
-### 1. Fix CTA headlines for mobile (Services + Insights)
-- Remove `whitespace-nowrap` from both CTA headlines on mobile by making it responsive: apply `whitespace-nowrap` only at `md:` breakpoint and above.
-- **Services**: Change `<span className="whitespace-nowrap">` to `<span className="md:whitespace-nowrap">`.
-- **Insights**: Same treatment -- `<span className="md:whitespace-nowrap">`.
+**1. Hero section -- reduce mobile top padding**
+- Change `pt-32 pb-24` to `pt-24 pb-16 md:pt-32 md:pb-24`.
 
-### 2. Fix Insights table mobile layout
-- The inline `style={{ gridTemplateColumns: '15% 45% 28% 12%' }}` on each row overrides Tailwind's `grid-cols-1` on mobile. Move the grid template to only apply at `md:` using a conditional approach or by removing the inline style and using Tailwind classes.
-- On mobile, each row should stack vertically with the ref, topic, metric, and status on separate lines with proper spacing.
-- Add a `[TYPE]` badge (MANIFESTO/SCHEMATIC) to the mobile card view for better context.
+**2. Methodology section -- tighten mobile padding**
+- Change `py-24 lg:py-36` to `py-16 lg:py-36`.
 
-### 3. Reduce mobile vertical spacing
-- **Services hero**: Change `pt-32 pb-24` to `pt-24 pb-16 md:pt-32 md:pb-24` for tighter mobile spacing.
-- **Insights hero**: Change `pt-32 pb-16` to `pt-24 pb-12 md:pt-32 md:pb-16`.
-- **Engagement Tiers**: Reduce `py-24 lg:py-36` to `py-16 lg:py-36` on mobile.
-- **Engagement tier cards**: Reduce padding from `p-8` to `p-6 md:p-8`.
-
-### 4. Tighten FAQ and Blueprint mobile spacing
-- **HowWeWork (Blueprint)**: Reduce `py-24 lg:py-36` to `py-16 lg:py-36`.
-- **FAQSection**: Reduce `py-24 lg:py-36` to `py-16 lg:py-36`.
-- **CTABand**: Reduce `py-28 lg:py-40` to `py-20 lg:py-40` for mobile.
+**3. Experience section -- tighten mobile padding and stat grid**
+- Change `py-24 lg:py-36` to `py-16 lg:py-36`.
+- Reduce stat card `gap-8` to `gap-4 md:gap-8` for tighter mobile grid.
+- Reduce `mb-16` after stats to `mb-10 md:mb-16`.
 
 ---
 
 ## Technical Details
 
 ### Files to modify:
-- `src/pages/Services.tsx` -- responsive `whitespace-nowrap`, tighter hero padding
-- `src/pages/Insights.tsx` -- responsive `whitespace-nowrap`, tighter hero padding, fix table grid
-- `src/components/EngagementTypes.tsx` -- mobile padding reductions
-- `src/components/HowWeWork.tsx` -- mobile padding reductions
-- `src/components/FAQSection.tsx` -- mobile padding reductions
-- `src/components/CTABand.tsx` -- mobile padding reductions
+- `src/components/HeroSection.tsx` -- mobile height, padding, and margin reductions
+- `src/components/Philosophy.tsx` -- mobile padding reduction
+- `src/components/ServicesSummary.tsx` -- mobile padding and gap reductions
+- `src/components/Principal.tsx` -- mobile padding reduction
+- `src/components/ProofPoints.tsx` -- mobile padding and gap reductions
+- `src/components/Footer.tsx` -- mobile CTA padding reduction
+- `src/pages/About.tsx` -- mobile padding reductions on hero, methodology, experience sections
