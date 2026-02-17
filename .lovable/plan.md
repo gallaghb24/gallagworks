@@ -1,61 +1,51 @@
 
+# Mobile Optimisation: /services and /insights
 
-# Security Hardening and RLS Logic Correction
+## Issues Identified
 
-## Overview
-Three targeted fixes to harden the backend security posture: correcting database access policies, securing environment files, and sanitizing error responses in the contact email function.
+### /services page
+1. **CTA headline overflow**: The `whitespace-nowrap` on "Stop managing the process. Build the system." forces the text onto one line, which overflows the 390px mobile viewport and likely causes horizontal scroll or content clipping.
+2. **Hero section spacing**: The `pt-32 pb-24` on the hero section creates excessive vertical spacing on mobile before the Engagement Tiers section.
+3. **Engagement Tiers cards**: The `p-8` padding on each tier card is generous for mobile; could be tightened.
 
----
-
-## 1. Fix Contact Submissions RLS Policy
-
-**Current state:** The SELECT policy uses `USING (false)`, which blocks all reads -- including from the service role when querying via the standard client.
-
-**Fix:** Replace the SELECT policy so that only authenticated users can read submissions. The service role already bypasses RLS by default, so no explicit policy is needed for it. For an admin-only pattern without a roles table, the simplest safe approach is to keep `USING (false)` for the anon/public role (since there are no authenticated users on this site), and rely on the service role's inherent RLS bypass for backend reads.
-
-**Decision:** Since this site has no user authentication system, the current `USING (false)` SELECT policy is actually correct -- it blocks public reads while the service role (used in edge functions) bypasses RLS automatically. No change needed here.
+### /insights page
+1. **CTA headline overflow**: Same `whitespace-nowrap` issue on "Turn field-tested logic into measurable throughput." -- forces horizontal overflow on mobile.
+2. **Table layout on mobile**: The inline `gridTemplateColumns: '15% 45% 28% 12%'` style applies at ALL breakpoints (even mobile), overriding the `grid-cols-1` class. This causes the 4-column layout to render on mobile screens, cramming text into tiny columns.
+3. **Hero section spacing**: Same `pt-32 pb-16` creates excess top padding on mobile.
 
 ---
 
-## 2. Secure Environment Configuration
+## Plan
 
-**Current state:** `.gitignore` does not list `.env` or `.env.*` files.
+### 1. Fix CTA headlines for mobile (Services + Insights)
+- Remove `whitespace-nowrap` from both CTA headlines on mobile by making it responsive: apply `whitespace-nowrap` only at `md:` breakpoint and above.
+- **Services**: Change `<span className="whitespace-nowrap">` to `<span className="md:whitespace-nowrap">`.
+- **Insights**: Same treatment -- `<span className="md:whitespace-nowrap">`.
 
-**Fix:** Add the following entries to `.gitignore`:
-```
-# Environment variables
-.env
-.env.*
-```
+### 2. Fix Insights table mobile layout
+- The inline `style={{ gridTemplateColumns: '15% 45% 28% 12%' }}` on each row overrides Tailwind's `grid-cols-1` on mobile. Move the grid template to only apply at `md:` using a conditional approach or by removing the inline style and using Tailwind classes.
+- On mobile, each row should stack vertically with the ref, topic, metric, and status on separate lines with proper spacing.
+- Add a `[TYPE]` badge (MANIFESTO/SCHEMATIC) to the mobile card view for better context.
 
-Note: The `.env` file in this project is auto-managed by Lovable Cloud, but adding it to `.gitignore` is still best practice to prevent accidental commits.
+### 3. Reduce mobile vertical spacing
+- **Services hero**: Change `pt-32 pb-24` to `pt-24 pb-16 md:pt-32 md:pb-24` for tighter mobile spacing.
+- **Insights hero**: Change `pt-32 pb-16` to `pt-24 pb-12 md:pt-32 md:pb-16`.
+- **Engagement Tiers**: Reduce `py-24 lg:py-36` to `py-16 lg:py-36` on mobile.
+- **Engagement tier cards**: Reduce padding from `p-8` to `p-6 md:p-8`.
 
----
-
-## 3. Sanitize Edge Function Error Responses
-
-**Current state:** The `catch` block in `send-contact-email/index.ts` returns `error.message` directly to the client, potentially leaking internal details (API keys, stack traces, service names).
-
-**Fix in `supabase/functions/send-contact-email/index.ts`:**
-- Keep the `console.error` for internal logging (the Principal can review these in the backend logs)
-- Replace the client-facing response with a generic message: `"Request Briefing Failed. Technical logs recorded."`
-
-```typescript
-// BEFORE (line ~185)
-JSON.stringify({ error: error.message })
-
-// AFTER
-JSON.stringify({ error: "Request Briefing Failed. Technical logs recorded." })
-```
+### 4. Tighten FAQ and Blueprint mobile spacing
+- **HowWeWork (Blueprint)**: Reduce `py-24 lg:py-36` to `py-16 lg:py-36`.
+- **FAQSection**: Reduce `py-24 lg:py-36` to `py-16 lg:py-36`.
+- **CTABand**: Reduce `py-28 lg:py-40` to `py-20 lg:py-40` for mobile.
 
 ---
 
-## Summary of Changes
+## Technical Details
 
-| File | Change |
-|------|--------|
-| `.gitignore` | Add `.env` and `.env.*` entries |
-| `supabase/functions/send-contact-email/index.ts` | Replace `error.message` with generic client-facing message |
-
-The RLS policies require no changes -- the current configuration is correct for a site without user authentication.
-
+### Files to modify:
+- `src/pages/Services.tsx` -- responsive `whitespace-nowrap`, tighter hero padding
+- `src/pages/Insights.tsx` -- responsive `whitespace-nowrap`, tighter hero padding, fix table grid
+- `src/components/EngagementTypes.tsx` -- mobile padding reductions
+- `src/components/HowWeWork.tsx` -- mobile padding reductions
+- `src/components/FAQSection.tsx` -- mobile padding reductions
+- `src/components/CTABand.tsx` -- mobile padding reductions
