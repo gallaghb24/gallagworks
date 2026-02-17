@@ -1,88 +1,61 @@
 
-# Final Refinements: Ref System, Shadow Glossary, Recursive Linking, and Sitemap Refresh
+
+# Security Hardening and RLS Logic Correction
 
 ## Overview
-
-Four coordinated changes: migrate all display refs to GW-LOG-XXX, create a stealth Glossary page with DefinedTerm schema, add inline cross-references within the primary manifesto, and refresh the sitemap.
-
----
-
-## 1. Unified Ref System (GW-LOG-XXX)
-
-Update all `ref` fields across three files. URL slugs remain unchanged -- only the display reference codes change.
-
-**Mapping:**
-- `GW-INS-001` becomes `GW-LOG-101`
-- `GW-001` becomes `GW-LOG-201`
-- `GW-002` becomes `GW-LOG-202`
-- `GW-003` becomes `GW-LOG-203`
-- `GW-004` becomes `GW-LOG-204`
-- `GW-005` becomes `GW-LOG-205`
-- `GW-006` becomes `GW-LOG-206`
-
-**Files affected:**
-- `src/pages/InsightManifesto.tsx` -- update `ref` on each entry and `schematic.ref` fields
-- `src/pages/Insights.tsx` -- update `ref` in the index table array
-- `src/components/StructuredData.tsx` -- update `id` fields in `caseStudySchemas` and the `identifier` in the generated JSON-LD
+Three targeted fixes to harden the backend security posture: correcting database access policies, securing environment files, and sanitizing error responses in the contact email function.
 
 ---
 
-## 2. The 'Shadow' Glossary
+## 1. Fix Contact Submissions RLS Policy
 
-**New file: `src/pages/Glossary.tsx`**
+**Current state:** The SELECT policy uses `USING (false)`, which blocks all reads -- including from the service role when querying via the standard client.
 
-A stealth page at `/glossary` with no header navigation link.
+**Fix:** Replace the SELECT policy so that only authenticated users can read submissions. The service role already bypasses RLS by default, so no explicit policy is needed for it. For an admin-only pattern without a roles table, the simplest safe approach is to keep `USING (false)` for the anon/public role (since there are no authenticated users on this site), and rely on the service role's inherent RLS bypass for backend reads.
 
-**Terms (each with an anchor ID and `scroll-mt-24` for sticky header clearance):**
-- `#data-glue` -- Data Glue
-- `#operational-x-ray` -- Operational X-Ray
-- `#operational-engineering` -- Operational Engineering
-- `#decision-inbox` -- Decision Inbox
-- `#margin-recovery` -- Margin Recovery
-- `#human-middleware` -- Human Middleware
-
-Each term gets a 2-3 sentence definition in the Principal-to-Peer tone. The page includes JSON-LD `DefinedTerm` schema for each entry to maximise Featured Snippet and AI answer capture.
-
-**Layout:** Technical index aesthetic matching the existing site -- monospace labels, 1px graphite borders, 0px border-radius.
-
-**Route:** Add to `src/App.tsx` above the catch-all.
-
-**Footer:** Add a monospace `[GLOSSARY]` link in the Legal column of `src/components/Footer.tsx`.
+**Decision:** Since this site has no user authentication system, the current `USING (false)` SELECT policy is actually correct -- it blocks public reads while the service role (used in edge functions) bypasses RLS automatically. No change needed here.
 
 ---
 
-## 3. Recursive Linking
+## 2. Secure Environment Configuration
 
-**Update `src/pages/InsightManifesto.tsx`:**
+**Current state:** `.gitignore` does not list `.env` or `.env.*` files.
 
-1. Change the `ManifestoSection` interface so `paragraphs` accepts `React.ReactNode[]` instead of `string[]`.
+**Fix:** Add the following entries to `.gitignore`:
+```
+# Environment variables
+.env
+.env.*
+```
 
-2. In the GW-LOG-101 (Data Glue manifesto) entry:
-   - First mention of "Data Glue" in section 01 becomes a link to `/glossary#data-glue`
-   - Section 02 ("THE EVIDENCE") paragraph mentioning "98% reduction in processing time" gets an inline `[LOG-205]` cross-reference linking to `/insights/enterprise-reporting-automation#schematic`
-   - Section 02 paragraph mentioning "multichannel content orchestration pipeline" gets an inline `[LOG-204]` linking to `/insights/multichannel-content-orchestration#schematic`
-
-3. **Link styling:** Safety Orange (`text-primary`) with no underline, wrapped in brackets: `[LOG-205]`. On hover, slight brightness increase. This gives the appearance of a citation in a technical paper.
-
----
-
-## 4. Sitemap Refresh
-
-**`public/sitemap.xml`:**
-- Add `/glossary` entry with `priority: 0.5` and `changefreq: monthly`
-- No slug changes needed (URL paths are unchanged)
+Note: The `.env` file in this project is auto-managed by Lovable Cloud, but adding it to `.gitignore` is still best practice to prevent accidental commits.
 
 ---
 
-## Technical Details
+## 3. Sanitize Edge Function Error Responses
 
-### Files to create:
-1. `src/pages/Glossary.tsx` -- Glossary page with DefinedTerm JSON-LD, anchor IDs with `scroll-mt-24`, and the schematic visual language
+**Current state:** The `catch` block in `send-contact-email/index.ts` returns `error.message` directly to the client, potentially leaking internal details (API keys, stack traces, service names).
 
-### Files to modify:
-1. `src/pages/InsightManifesto.tsx` -- Update refs to GW-LOG-XXX, change `paragraphs` type to `ReactNode[]`, add inline cross-links in GW-LOG-101 manifesto with Safety Orange bracket styling
-2. `src/pages/Insights.tsx` -- Update refs in index table
-3. `src/components/StructuredData.tsx` -- Update identifier fields to GW-LOG-XXX
-4. `src/App.tsx` -- Add `/glossary` route
-5. `src/components/Footer.tsx` -- Add `[GLOSSARY]` monospace link in Legal column
-6. `public/sitemap.xml` -- Add glossary entry
+**Fix in `supabase/functions/send-contact-email/index.ts`:**
+- Keep the `console.error` for internal logging (the Principal can review these in the backend logs)
+- Replace the client-facing response with a generic message: `"Request Briefing Failed. Technical logs recorded."`
+
+```typescript
+// BEFORE (line ~185)
+JSON.stringify({ error: error.message })
+
+// AFTER
+JSON.stringify({ error: "Request Briefing Failed. Technical logs recorded." })
+```
+
+---
+
+## Summary of Changes
+
+| File | Change |
+|------|--------|
+| `.gitignore` | Add `.env` and `.env.*` entries |
+| `supabase/functions/send-contact-email/index.ts` | Replace `error.message` with generic client-facing message |
+
+The RLS policies require no changes -- the current configuration is correct for a site without user authentication.
+
