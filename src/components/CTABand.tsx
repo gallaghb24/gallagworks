@@ -6,15 +6,16 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 interface CTABandProps {
   headline?: React.ReactNode;
   subcopy?: React.ReactNode;
+  wrapperClassName?: string;
 }
 
-const CTABand = ({ headline = "Ready to build scalable operations?", subcopy }: CTABandProps) => {
+const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wrapperClassName }: CTABandProps) => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
     <section className="py-28 lg:py-40 border-t border-border border-draw" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className={`max-w-2xl clip-reveal ${isVisible ? "visible" : ""}`}>
+        <div className={`max-w-2xl clip-reveal ${isVisible ? "visible" : ""} ${wrapperClassName || ""}`}>
           <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-4">
             {headline}
           </h2>
