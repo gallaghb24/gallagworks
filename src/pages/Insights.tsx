@@ -145,7 +145,7 @@ const Insights = () => {
           </div>
         </section>
 
-        <CTABand headline={<>Turn field-tested logic into <span className="text-primary">measurable throughput.</span></>} subcopy="Apply these operational schematics to your environment with a targeted diagnostic." />
+        <CTABand headline={<><span className="whitespace-nowrap">Turn field-tested logic into <span className="text-primary">measurable throughput.</span></span></>} subcopy="Apply these operational schematics to your environment with a targeted diagnostic." wrapperClassName="max-w-3xl" />
       </main>
       <Footer hideCTA />
     </div>
