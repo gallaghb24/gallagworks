@@ -242,7 +242,7 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "Request Briefing Failed. Technical logs recorded." }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
