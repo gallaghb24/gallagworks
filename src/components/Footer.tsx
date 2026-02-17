@@ -16,7 +16,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
       {/* CTA Section */}
       {!hideCTA && (
         <div className="border-t border-border" ref={ctaRef}>
-          <div className="container mx-auto px-6 lg:px-12 py-28 lg:py-40">
+          <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-40">
             <div className={`max-w-2xl clip-reveal ${ctaVisible ? "visible" : ""}`}>
               <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-4">
                 Stop the leakage. <span className="text-primary">Start the Engineering.</span>

@@ -6,7 +6,7 @@ const Principal = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-24 lg:py-36 bg-slate" ref={ref}>
+    <section className="py-16 lg:py-36 bg-slate" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span

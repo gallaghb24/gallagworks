@@ -4,7 +4,7 @@ const Philosophy = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-32 bg-slate" ref={ref}>
+    <section className="py-16 lg:py-32 bg-slate" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
           <span

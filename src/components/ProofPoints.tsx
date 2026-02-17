@@ -30,7 +30,7 @@ const ProofPoints = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 border-draw" ref={ref}>
+    <section className="py-16 lg:py-32 border-draw" ref={ref}>
       <div className={`container mx-auto px-6 lg:px-12 ${isVisible ? "" : ""}`}>
         <div className="max-w-5xl">
           <span
@@ -39,13 +39,13 @@ const ProofPoints = () => {
             [OUTCOMES]
           </span>
           <h2
-            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
+            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-10 md:mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.08s" }}
           >
             What changes
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
             {metrics.map((item, i) => (
               <div
                 key={i}
