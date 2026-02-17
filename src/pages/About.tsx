@@ -124,7 +124,7 @@ const About = () => {
           </div>
         </section>
 
-        <CTABand headline={<>High-conviction engineering.<br /><span className="text-primary">Zero-leakage operations.</span></>} subcopy={<>Work directly with the Principal to transform your manual<br className="hidden md:inline" /> cost centres into scalable engines.</>} />
+        <CTABand headline={<>High-conviction engineering. <span className="text-primary">Zero-leakage operations.</span></>} subcopy="Work directly with the Principal to transform your manual cost centres into scalable engines." />
       </main>
       <Footer hideCTA />
     </div>
