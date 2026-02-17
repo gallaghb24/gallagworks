@@ -145,7 +145,7 @@ const Insights = () => {
           </div>
         </section>
 
-        <CTABand headline="Ready to quantify the friction in your operation?" />
+        <CTABand headline={<>Turn field-tested logic into <span className="text-primary">measurable throughput.</span></>} subcopy="Apply these operational schematics to your environment with a targeted diagnostic." />
       </main>
       <Footer hideCTA />
     </div>
