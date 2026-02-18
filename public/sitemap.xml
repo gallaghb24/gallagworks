@@ -2,105 +2,105 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://gallag.works/</loc>
+    <loc>https://www.gallag.works/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Insights Hub -->
   <url>
-    <loc>https://gallag.works/insights</loc>
+    <loc>https://www.gallag.works/insights</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Services -->
   <url>
-    <loc>https://gallag.works/services</loc>
+    <loc>https://www.gallag.works/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- The Principal -->
   <url>
-    <loc>https://gallag.works/about</loc>
+    <loc>https://www.gallag.works/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Insight: Eradicating Enterprise Data Glue -->
   <url>
-    <loc>https://gallag.works/insights/eradicating-enterprise-data-glue</loc>
+    <loc>https://www.gallag.works/insights/eradicating-enterprise-data-glue</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Insight: POS Job Workflow -->
   <url>
-    <loc>https://gallag.works/insights/pos-job-workflow</loc>
+    <loc>https://www.gallag.works/insights/pos-job-workflow</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Insight: Costing Process -->
   <url>
-    <loc>https://gallag.works/insights/costing-process</loc>
+    <loc>https://www.gallag.works/insights/costing-process</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Insight: Validation Pipeline -->
   <url>
-    <loc>https://gallag.works/insights/validation-pipeline</loc>
+    <loc>https://www.gallag.works/insights/validation-pipeline</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Insight: Multichannel Content Orchestration -->
   <url>
-    <loc>https://gallag.works/insights/multichannel-content-orchestration</loc>
+    <loc>https://www.gallag.works/insights/multichannel-content-orchestration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Insight: Enterprise Reporting Automation -->
   <url>
-    <loc>https://gallag.works/insights/enterprise-reporting-automation</loc>
+    <loc>https://www.gallag.works/insights/enterprise-reporting-automation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Insight: High-Volume Allocation Logistics -->
   <url>
-    <loc>https://gallag.works/insights/high-volume-allocation-logistics</loc>
+    <loc>https://www.gallag.works/insights/high-volume-allocation-logistics</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Glossary -->
   <url>
-    <loc>https://gallag.works/glossary</loc>
+    <loc>https://www.gallag.works/glossary</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Contact -->
   <url>
-    <loc>https://gallag.works/contact</loc>
+    <loc>https://www.gallag.works/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Privacy -->
   <url>
-    <loc>https://gallag.works/privacy</loc>
+    <loc>https://www.gallag.works/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- Cookies -->
   <url>
-    <loc>https://gallag.works/cookies</loc>
+    <loc>https://www.gallag.works/cookies</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

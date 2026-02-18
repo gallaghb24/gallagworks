@@ -11,7 +11,7 @@ const SEOHead = ({
   path: string;
   type?: string;
 }) => {
-  const siteUrl = "https://gallagworks.lovable.app";
+  const siteUrl = "https://www.gallag.works";
   const fullTitle = title
     ? `${title} | Gallag Works | Operational Engineering`
     : "Gallag Works | Operational Engineering";

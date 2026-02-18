@@ -46,9 +46,9 @@ const StructuredData = () => {
     name: "Gallag Works",
     description:
       "Principal-led operational engineering for Tier-1 multichannel retail. Eradicating 'Data Glue' and manual friction to recover enterprise margins.",
-    url: "https://gallagworks.lovable.app",
-    logo: "https://gallagworks.lovable.app/favicon.svg",
-    image: "https://gallagworks.lovable.app/og-image.png",
+    url: "https://www.gallag.works",
+    logo: "https://www.gallag.works/favicon.svg",
+    image: "https://www.gallag.works/og-image.png",
     priceRange: "££££",
     areaServed: "GB",
     serviceType: [
@@ -93,7 +93,7 @@ const StructuredData = () => {
     worksFor: {
       "@type": "Organization",
       name: "Gallag Works",
-      url: "https://gallagworks.lovable.app",
+      url: "https://www.gallag.works",
     },
   };
 
@@ -103,11 +103,11 @@ const StructuredData = () => {
     name: cs.name,
     description: cs.description,
     identifier: cs.id,
-    url: `https://gallagworks.lovable.app/insights/${cs.slug}`,
+    url: `https://www.gallag.works/insights/${cs.slug}`,
     hasPart: {
       "@type": "WebPageElement",
       name: "Technical Schematic",
-      url: `https://gallagworks.lovable.app/insights/${cs.slug}#schematic`,
+      url: `https://www.gallag.works/insights/${cs.slug}#schematic`,
     },
     author: {
       "@type": "Organization",
