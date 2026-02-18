@@ -45,10 +45,11 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
       <div className="border-t border-border" ref={gridRef}>
         <div className="container mx-auto px-6 lg:px-12 py-16">
           <div className={`scroll-fade-in ${gridVisible ? "visible" : ""}`}>
-            <div className="mb-12">
-              <img src={gallagWordmarkFooter} alt="Gallag Works – Operational Engineering" className="h-8 object-contain" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+              {/* Column 1: Brand */}
+              <div className="flex flex-col">
+                <img src={gallagWordmarkFooter} alt="Gallag Works – Operational Engineering" className="h-8 object-contain" />
+              </div>
 
               {/* Column 2: Nav */}
               <div>
