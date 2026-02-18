@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import gallagWordmark from "@/assets/gallag-wordmark.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface FooterProps {
@@ -46,10 +47,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
               {/* Column 1: Brand */}
               <div className="flex flex-col">
-                <div className="text-lg font-bold text-foreground mb-1">GALLAG WORKS</div>
-                <span className="font-mono text-xs text-primary tracking-widest uppercase block">
-                  Operational Engineering
-                </span>
+                <img src={gallagWordmark} alt="Gallag Works – Operational Engineering" className="h-8" />
               </div>
 
               {/* Column 2: Nav */}
