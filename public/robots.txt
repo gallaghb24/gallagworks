@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://gallag.works/sitemap.xml
+Sitemap: https://www.gallag.works/sitemap.xml
