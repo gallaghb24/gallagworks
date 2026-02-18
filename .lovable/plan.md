@@ -1,59 +1,42 @@
 
-# Mobile Optimisation: `/` (Home) and `/about`
 
-## Changes
+# Canonicalize All URLs to `https://www.gallag.works`
 
-### Home Page (`/`)
+## Problem
 
-**1. HeroSection -- reduce excessive mobile height and spacing**
-- Change `min-h-[85vh]` to `min-h-[60vh] md:min-h-[85vh]` so the hero doesn't consume nearly the entire mobile screen before content appears.
-- Reduce `pt-24 pb-16` to `pt-20 pb-10 md:pt-24 md:pb-16` for tighter mobile vertical rhythm.
-- Reduce `mb-8` on the H1 to `mb-6 md:mb-8`.
-- Reduce `mb-10` on the body copy to `mb-8 md:mb-10`.
+Google Search Console is flagging "Page with redirect" errors because:
+- **Sitemap** uses `https://gallag.works/` (no `www.`) -- GSC crawls these, gets redirected to the `www.` version, and flags them.
+- **Canonical tags** (SEOHead) point to `https://gallagworks.lovable.app` -- completely wrong domain.
+- **Structured data** (JSON-LD) also references `https://gallagworks.lovable.app`.
 
-**2. Philosophy -- tighten mobile padding**
-- Change `py-20 lg:py-32` to `py-16 lg:py-32`.
-
-**3. ServicesSummary -- tighten mobile row spacing**
-- Change `py-20 lg:py-32` to `py-16 lg:py-32` on the section.
-- Reduce `mb-16` on the heading to `mb-10 md:mb-16`.
-- Reduce inner row `py-12` to `py-8 md:py-12`.
-
-**4. Principal -- tighten mobile padding**
-- Change `py-24 lg:py-36` to `py-16 lg:py-36`.
-
-**5. ProofPoints -- tighten mobile spacing**
-- Change `py-20 lg:py-32` to `py-16 lg:py-32`.
-- Reduce `mb-16` on the heading to `mb-10 md:mb-16`.
-- Reduce `gap-16` on the metrics grid to `gap-10 md:gap-16`.
-
-**6. Footer CTA -- tighten mobile padding**
-- Change `py-28 lg:py-40` to `py-20 lg:py-40` (consistent with CTABand changes already made).
+All three must consistently use `https://www.gallag.works`.
 
 ---
 
-### About Page (`/about`)
+## Changes
 
-**1. Hero section -- reduce mobile top padding**
-- Change `pt-32 pb-24` to `pt-24 pb-16 md:pt-32 md:pb-24`.
+### 1. `public/sitemap.xml` -- Prefix all URLs with `www.`
+Replace every `https://gallag.works/` with `https://www.gallag.works/` across all 15 URL entries.
 
-**2. Methodology section -- tighten mobile padding**
-- Change `py-24 lg:py-36` to `py-16 lg:py-36`.
+### 2. `src/components/SEOHead.tsx` -- Fix canonical domain
+Change `siteUrl` from `"https://gallagworks.lovable.app"` to `"https://www.gallag.works"`. This fixes canonical tags, OG URLs, and Twitter image URLs on every page.
 
-**3. Experience section -- tighten mobile padding and stat grid**
-- Change `py-24 lg:py-36` to `py-16 lg:py-36`.
-- Reduce stat card `gap-8` to `gap-4 md:gap-8` for tighter mobile grid.
-- Reduce `mb-16` after stats to `mb-10 md:mb-16`.
+### 3. `src/components/StructuredData.tsx` -- Fix JSON-LD URLs
+Replace all 6 occurrences of `https://gallagworks.lovable.app` with `https://www.gallag.works` (in ProfessionalService url/logo/image, Person worksFor url, and CreativeWork URLs).
+
+### 4. `public/robots.txt` -- Fix sitemap reference
+Change `Sitemap: https://gallag.works/sitemap.xml` to `Sitemap: https://www.gallag.works/sitemap.xml`.
 
 ---
 
 ## Technical Details
 
 ### Files to modify:
-- `src/components/HeroSection.tsx` -- mobile height, padding, and margin reductions
-- `src/components/Philosophy.tsx` -- mobile padding reduction
-- `src/components/ServicesSummary.tsx` -- mobile padding and gap reductions
-- `src/components/Principal.tsx` -- mobile padding reduction
-- `src/components/ProofPoints.tsx` -- mobile padding and gap reductions
-- `src/components/Footer.tsx` -- mobile CTA padding reduction
-- `src/pages/About.tsx` -- mobile padding reductions on hero, methodology, experience sections
+- `public/sitemap.xml` -- find/replace `https://gallag.works/` with `https://www.gallag.works/` (15 URLs)
+- `src/components/SEOHead.tsx` -- line 14: change `siteUrl` constant
+- `src/components/StructuredData.tsx` -- lines 49-51, 97, 106, 110: replace lovable.app domain
+- `public/robots.txt` -- line 16: update sitemap URL
+
+### Not changing (email-only references):
+- `hello@gallag.works` email addresses in Footer, Contact, Privacy, and edge function remain as-is (email addresses don't use `www.`)
+
