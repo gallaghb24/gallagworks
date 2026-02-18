@@ -75,7 +75,6 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
                     className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors"
                   >
                     Email
-                    hello@gallag.works
                   </a>
                   <a
                     href="https://www.linkedin.com/in/bengallagher/"
