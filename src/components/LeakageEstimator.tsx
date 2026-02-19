@@ -3,12 +3,6 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Input } from "@/components/ui/input";
 
 
-const SALARY_BANDS = [
-  { label: "Junior ~£25/hr", value: "25" },
-  { label: "Mid ~£40/hr", value: "40" },
-  { label: "Senior ~£55/hr", value: "55" },
-  { label: "Lead ~£75/hr", value: "75" },
-];
 
 const RECOVERY_OPTIONS = [50, 70, 90] as const;
 
@@ -103,29 +97,13 @@ const LeakageEstimator = () => {
                 <label className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2 block">
                   Fully loaded hourly cost (£)
                 </label>
-                <div className="flex gap-3">
-                  <Input
-                    type="number"
-                    min="0"
-                    placeholder="e.g. 40"
-                    value={hourlyRate}
-                    onChange={(e) => setHourlyRate(e.target.value)}
-                    className="flex-1"
-                  />
-                  <select
-                    className="h-10 rounded-md border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    value=""
-                    onChange={(e) => {
-                      if (e.target.value) setHourlyRate(e.target.value);
-                    }}
-                  >
-                    {SALARY_BANDS.map((band) => (
-                      <option key={band.label} value={band.value}>
-                        {band.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                <Input
+                  type="number"
+                  min="0"
+                  placeholder="e.g. 40"
+                  value={hourlyRate}
+                  onChange={(e) => setHourlyRate(e.target.value)}
+                />
               </div>
 
               <div>
