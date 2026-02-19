@@ -131,7 +131,7 @@ const LeakageEstimator = () => {
                     <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
                       Annual Leaked Hours
                     </p>
-                    <p className="font-mono text-4xl md:text-5xl font-extrabold text-primary">
+                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-muted-foreground">
                       {formatHours(annualHours)}
                     </p>
                   </div>
@@ -140,7 +140,7 @@ const LeakageEstimator = () => {
                     <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
                       Annual Cost
                     </p>
-                    <p className="font-mono text-4xl md:text-5xl font-extrabold text-primary">
+                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-muted-foreground">
                       {formatGBP(annualCost)}
                     </p>
                   </div>
@@ -170,7 +170,7 @@ const LeakageEstimator = () => {
                     <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
                       Recovered Capacity
                     </p>
-                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-foreground">
+                    <p className="font-mono text-4xl md:text-5xl font-extrabold text-primary">
                       {formatHours(recoveredHours)} hrs · {formatGBP(recoveredCost)}
                     </p>
                   </div>
