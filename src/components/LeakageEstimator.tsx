@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
+
 
 const SALARY_BANDS = [
   { label: "Manual entry", value: "" },
@@ -198,12 +198,6 @@ const LeakageEstimator = () => {
                     </p>
                   </div>
 
-                  <Link
-                    to="/contact"
-                    className="inline-block font-mono text-sm text-primary hover:text-primary/80 transition-colors mt-4 underline underline-offset-4"
-                  >
-                    Request a Consultation →
-                  </Link>
                 </div>
               ) : (
                 <div className="flex items-center justify-center h-full min-h-[300px]">
