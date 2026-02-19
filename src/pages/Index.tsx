@@ -4,6 +4,7 @@ import Philosophy from "@/components/Philosophy";
 import ServicesSummary from "@/components/ServicesSummary";
 import Principal from "@/components/Principal";
 import ProofPoints from "@/components/ProofPoints";
+import LeakageEstimator from "@/components/LeakageEstimator";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
@@ -22,6 +23,7 @@ const Index = () => {
         <ServicesSummary />
         <Principal />
         <ProofPoints />
+        <LeakageEstimator />
       </main>
       <Footer />
     </div>
