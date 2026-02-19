@@ -1,42 +1,53 @@
 
+# Leakage Estimator -- Interactive Calculator
 
-# Canonicalize All URLs to `https://www.gallag.works`
+## Placement
 
-## Problem
+The estimator will sit between **ProofPoints** (outcomes) and the **Footer**, as a new standalone section. This is the natural conversion point: the user has just seen your proven outcomes and is now invited to quantify their own pain before the final CTA. The page flow becomes:
 
-Google Search Console is flagging "Page with redirect" errors because:
-- **Sitemap** uses `https://gallag.works/` (no `www.`) -- GSC crawls these, gets redirected to the `www.` version, and flags them.
-- **Canonical tags** (SEOHead) point to `https://gallagworks.lovable.app` -- completely wrong domain.
-- **Structured data** (JSON-LD) also references `https://gallagworks.lovable.app`.
+1. Hero
+2. Philosophy
+3. Methodology (ServicesSummary)
+4. Principal
+5. ProofPoints (outcomes)
+6. **Leakage Estimator (new)**
+7. Footer
 
-All three must consistently use `https://www.gallag.works`.
+## What Gets Built
 
----
+A new `LeakageEstimator.tsx` component with:
 
-## Changes
+**Inputs (left/top column)**
+- Number of people in workflow (numeric input, default empty, placeholder "e.g. 12")
+- Avg hours/week lost to re-keying, checking, chasing (numeric input, placeholder "e.g. 6")
+- Fully loaded hourly cost in GBP (numeric input with a salary band helper -- dropdown selector that auto-fills common bands like "Junior ~£25/hr", "Mid ~£40/hr", "Senior ~£55/hr", or manual entry)
+- Weeks/year (numeric input, default 46)
 
-### 1. `public/sitemap.xml` -- Prefix all URLs with `www.`
-Replace every `https://gallag.works/` with `https://www.gallag.works/` across all 15 URL entries.
+**Outputs (right/bottom column)**
+- Annual hours leaked (people x hours/week x weeks)
+- Annual cost leaked (hours x hourly rate), formatted as GBP
+- Three toggle buttons: "Remove 50%", "Remove 70%", "Remove 90%" showing the recovered hours and cost at each level
+- A subtle CTA link at the bottom: "Request a Consultation" linking to /contact
 
-### 2. `src/components/SEOHead.tsx` -- Fix canonical domain
-Change `siteUrl` from `"https://gallagworks.lovable.app"` to `"https://www.gallag.works"`. This fixes canonical tags, OG URLs, and Twitter image URLs on every page.
-
-### 3. `src/components/StructuredData.tsx` -- Fix JSON-LD URLs
-Replace all 6 occurrences of `https://gallagworks.lovable.app` with `https://www.gallag.works` (in ProfessionalService url/logo/image, Person worksFor url, and CreativeWork URLs).
-
-### 4. `public/robots.txt` -- Fix sitemap reference
-Change `Sitemap: https://gallag.works/sitemap.xml` to `Sitemap: https://www.gallag.works/sitemap.xml`.
-
----
+**Design Approach**
+- Matches the existing dark theme and design language (font-mono labels, `[SECTION TAG]`, clip-reveal scroll animation, `bg-slate` background to alternate with ProofPoints)
+- Toggle buttons use the Safety Orange primary colour when active
+- Numbers animate/update in real-time as inputs change
+- Responsive: stacked on mobile, side-by-side on desktop
+- All calculation is client-side, no backend needed
 
 ## Technical Details
 
-### Files to modify:
-- `public/sitemap.xml` -- find/replace `https://gallag.works/` with `https://www.gallag.works/` (15 URLs)
-- `src/components/SEOHead.tsx` -- line 14: change `siteUrl` constant
-- `src/components/StructuredData.tsx` -- lines 49-51, 97, 106, 110: replace lovable.app domain
-- `public/robots.txt` -- line 16: update sitemap URL
+### New file: `src/components/LeakageEstimator.tsx`
+- Uses React `useState` for all four inputs and the selected recovery percentage
+- Uses `useScrollAnimation` hook for entry animation (consistent with all other sections)
+- Formats currency with `Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' })`
+- Toggle group for 50/70/90% uses three styled buttons with active state highlighting
+- Inputs use the existing `Input` component from `src/components/ui/input.tsx`
+- Salary band selector uses a small dropdown/select that pre-fills the hourly cost field
 
-### Not changing (email-only references):
-- `hello@gallag.works` email addresses in Footer, Contact, Privacy, and edge function remain as-is (email addresses don't use `www.`)
+### Modified file: `src/pages/Index.tsx`
+- Import and render `LeakageEstimator` after `ProofPoints` and before `Footer`
 
+### No database, edge functions, or new dependencies required
+- Pure client-side React component using existing UI primitives and styling patterns
