@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input";
 
 
 const SALARY_BANDS = [
-  { label: "Manual entry", value: "" },
   { label: "Junior ~£25/hr", value: "25" },
   { label: "Mid ~£40/hr", value: "40" },
   { label: "Senior ~£55/hr", value: "55" },
