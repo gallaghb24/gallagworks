@@ -26,9 +26,9 @@ const formatHours = (value: number) =>
 const LeakageEstimator = () => {
   const { ref, isVisible } = useScrollAnimation();
 
-  const [people, setPeople] = useState("");
-  const [hoursPerWeek, setHoursPerWeek] = useState("");
-  const [hourlyRate, setHourlyRate] = useState("");
+  const [people, setPeople] = useState("8");
+  const [hoursPerWeek, setHoursPerWeek] = useState("6");
+  const [hourlyRate, setHourlyRate] = useState("45");
   const [weeksPerYear, setWeeksPerYear] = useState("46");
   const [recoveryPct, setRecoveryPct] = useState<50 | 70 | 90>(70);
 
@@ -149,63 +149,53 @@ const LeakageEstimator = () => {
               style={{ transitionDelay: "0.4s" }}
             >
               {hasInput ? (
-                <div className="space-y-8">
-                  <div>
-                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                      Annual hours leaked
+                <div className="space-y-4">
+                  <div className="border border-border p-6">
+                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
+                      Annual Leaked Hours
                     </p>
-                    <p className="font-mono text-4xl md:text-5xl font-extrabold text-foreground">
+                    <p className="font-mono text-4xl md:text-5xl font-extrabold text-primary">
                       {formatHours(annualHours)}
                     </p>
                   </div>
 
-                  <div>
-                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                      Annual cost leaked
+                  <div className="border border-border p-6">
+                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
+                      Annual Cost
                     </p>
                     <p className="font-mono text-4xl md:text-5xl font-extrabold text-primary">
                       {formatGBP(annualCost)}
                     </p>
                   </div>
 
-                  <div className="border-t border-border pt-8">
+                  <div className="pt-4">
                     <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
-                      If we remove…
+                      Recovery Scenario
                     </p>
-                    <div className="flex gap-3 mb-6">
+                    <div className="flex gap-3 mb-4">
                       {RECOVERY_OPTIONS.map((pct) => (
                         <button
                           key={pct}
                           onClick={() => setRecoveryPct(pct)}
-                          className={`px-5 py-2.5 rounded-md font-mono text-sm font-semibold transition-all ${
+                          className={`px-5 py-2.5 font-mono text-sm font-semibold transition-all ${
                             recoveryPct === pct
                               ? "bg-primary text-primary-foreground"
                               : "border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
                           }`}
                         >
-                          {pct}%
+                          Remove {pct}%
                         </button>
                       ))}
                     </div>
+                  </div>
 
-                    <div className="grid grid-cols-2 gap-6">
-                      <div>
-                        <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                          Hours recovered
-                        </p>
-                        <p className="font-mono text-2xl md:text-3xl font-extrabold text-foreground">
-                          {formatHours(recoveredHours)}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2">
-                          Cost recovered
-                        </p>
-                        <p className="font-mono text-2xl md:text-3xl font-extrabold text-primary">
-                          {formatGBP(recoveredCost)}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="border border-border p-6">
+                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
+                      Recovered Capacity
+                    </p>
+                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-foreground">
+                      {formatHours(recoveredHours)} hrs · {formatGBP(recoveredCost)}
+                    </p>
                   </div>
 
                   <Link
