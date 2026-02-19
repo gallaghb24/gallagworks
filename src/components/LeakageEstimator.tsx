@@ -63,7 +63,7 @@ const LeakageEstimator = () => {
             style={{ transitionDelay: "0.16s" }}
           >
             Input your team's numbers below. See how much capacity and margin
-            you're losing to manual friction — and what recovery looks like.
+            you're losing to manual friction – and what recovery looks like.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
