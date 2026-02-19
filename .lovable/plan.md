@@ -1,53 +1,42 @@
 
-# Leakage Estimator -- Interactive Calculator
 
-## Placement
+# Leakage Estimator -- Prefill + Redesigned Output Layout
 
-The estimator will sit between **ProofPoints** (outcomes) and the **Footer**, as a new standalone section. This is the natural conversion point: the user has just seen your proven outcomes and is now invited to quantify their own pain before the final CTA. The page flow becomes:
+## Changes
 
-1. Hero
-2. Philosophy
-3. Methodology (ServicesSummary)
-4. Principal
-5. ProofPoints (outcomes)
-6. **Leakage Estimator (new)**
-7. Footer
+### 1. Prefill default values
+- People: `8`
+- Hours/week: `6`
+- Hourly rate: `45`
+- Weeks/year: `46` (already set)
 
-## What Gets Built
+This means results display immediately on load without user interaction.
 
-A new `LeakageEstimator.tsx` component with:
+### 2. Redesigned output section (matching the screenshot reference)
 
-**Inputs (left/top column)**
-- Number of people in workflow (numeric input, default empty, placeholder "e.g. 12")
-- Avg hours/week lost to re-keying, checking, chasing (numeric input, placeholder "e.g. 6")
-- Fully loaded hourly cost in GBP (numeric input with a salary band helper -- dropdown selector that auto-fills common bands like "Junior ~£25/hr", "Mid ~£40/hr", "Senior ~£55/hr", or manual entry)
-- Weeks/year (numeric input, default 46)
+The current output shows "Annual hours leaked" and "Annual cost leaked" as plain text, then recovery toggles with a 2-column grid for recovered values. The new layout uses **card-style containers** with clear visual hierarchy:
 
-**Outputs (right/bottom column)**
-- Annual hours leaked (people x hours/week x weeks)
-- Annual cost leaked (hours x hourly rate), formatted as GBP
-- Three toggle buttons: "Remove 50%", "Remove 70%", "Remove 90%" showing the recovered hours and cost at each level
-- A subtle CTA link at the bottom: "Request a Consultation" linking to /contact
+- **Annual Leaked Hours** -- inside a bordered card, large orange number
+- **Annual Cost** -- inside a bordered card, large orange number
+- **Recovery Scenario** label with three toggle buttons ("Remove 50%", "Remove 70%", "Remove 90%") -- 70% active by default, orange fill on active button
+- **Recovered Capacity** -- single bordered card showing combined "X,XXX hrs . £XXX,XXX" on one line, bold white text
 
-**Design Approach**
-- Matches the existing dark theme and design language (font-mono labels, `[SECTION TAG]`, clip-reveal scroll animation, `bg-slate` background to alternate with ProofPoints)
-- Toggle buttons use the Safety Orange primary colour when active
-- Numbers animate/update in real-time as inputs change
-- Responsive: stacked on mobile, side-by-side on desktop
-- All calculation is client-side, no backend needed
+The "Request a Consultation" CTA link remains below.
 
-## Technical Details
+### 3. Desktop adaptation
+On desktop (lg:grid-cols-2), the inputs stay on the left and outputs on the right as they are now. The card-style output blocks simply stack vertically in the right column. On mobile they stack below the inputs.
 
-### New file: `src/components/LeakageEstimator.tsx`
-- Uses React `useState` for all four inputs and the selected recovery percentage
-- Uses `useScrollAnimation` hook for entry animation (consistent with all other sections)
-- Formats currency with `Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' })`
-- Toggle group for 50/70/90% uses three styled buttons with active state highlighting
-- Inputs use the existing `Input` component from `src/components/ui/input.tsx`
-- Salary band selector uses a small dropdown/select that pre-fills the hourly cost field
+## Technical Detail
 
-### Modified file: `src/pages/Index.tsx`
-- Import and render `LeakageEstimator` after `ProofPoints` and before `Footer`
+### Modified file: `src/components/LeakageEstimator.tsx`
+- Change `useState` defaults: `people="8"`, `hoursPerWeek="6"`, `hourlyRate="45"`
+- Restructure the output JSX:
+  - Each metric in a `div` with `border border-border rounded-lg p-6` styling
+  - "Annual Leaked Hours" card with orange number
+  - "Annual Cost" card with orange number
+  - "Recovery Scenario" label + 3 buttons (styled as currently but with "Remove" prefix text)
+  - "Recovered Capacity" card combining hours and cost in one line: `{hours} hrs . {cost}`
+- Remove the `border-t` divider approach and the separate 2-column recovered grid
 
-### No database, edge functions, or new dependencies required
-- Pure client-side React component using existing UI primitives and styling patterns
+No new files or dependencies needed.
+
