@@ -41,7 +41,7 @@ const HowWeWork = () => {
             }`}
             style={{ transitionDelay: "0.08s" }}
           >
-            How we work
+            How we work.
           </h2>
 
           {/* Horizontal flow on desktop */}

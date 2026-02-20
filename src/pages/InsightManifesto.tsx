@@ -52,14 +52,14 @@ const insightData: InsightEntry[] = [
   {
     slug: "eradicating-enterprise-data-glue",
     ref: "GW-LOG-101",
-    title: "Eradicating the Enterprise Data Glue",
+    title: "Eradicating the Enterprise Data Glue.",
     subtitle: "A field manifesto on identifying and engineering out the manual friction that silently erodes enterprise margins.",
     date: "FEB 2026",
     seoDescription: "How Operational Engineering identifies and removes the manual friction costing Tier-1 retailers £1.5M+ annually. 1,200 hours reclaimed through systematic Data Glue eradication.",
     manifesto: [
       {
         label: "01: THE PROBLEM",
-        title: "Your Most Expensive Employees Are Being Used as Human Middleware",
+        title: "Your Most Expensive Employees Are Being Used as Human Middleware.",
         paragraphs: [
           <>In every enterprise we've diagnosed, the same structural failure appears: skilled, expensive talent operating as human middleware between disconnected systems. This is <Link to="/glossary#data-glue" className="text-primary no-underline hover:brightness-125 transition-all">Data Glue</Link> – the manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity.</>,
           "Data Glue is not a technology problem. It's an architectural one. It emerges when organisations grow faster than their operational infrastructure, leaving teams to bridge the gaps with manual workarounds. These workarounds become normalised. They survive restructures. They outlast the people who created them. And they silently erode margin every single day.",
@@ -68,7 +68,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE EVIDENCE",
-        title: "Reclaiming 1,200 Hours of Annual Capacity",
+        title: "Reclaiming 1,200 Hours of Annual Capacity.",
         paragraphs: [
           <>During an Operational X-Ray for a Tier-1 Health & Beauty Retailer, we mapped every manual touchpoint in their multichannel content orchestration pipeline <LogRef code="LOG-204" slug="multichannel-content-orchestration" />. The diagnostic revealed a 25% capacity loss – over a quarter of the team's working hours consumed by Data Glue activities with zero strategic value.</>,
           "High-volume client briefs – 500+ lines of product data – were arriving with inconsistent formatting and misspellings. Each occurrence triggered a 5-hour manual QC loop. Brief-to-studio handoffs carried 2-day lead times. The team had normalised the friction.",
@@ -82,7 +82,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "03: THE ECONOMIC RESULT",
-        title: "Engineering Out £1.5M+ in Annual Operational Leakage",
+        title: "Engineering Out £1.5M+ in Annual Operational Leakage.",
         paragraphs: [
           "Across engagements with Tier-1 retailers and FTSE 100 entities, we have identified and engineered out over £1.5M in cumulative annual operational leakage. This figure represents the fully-loaded cost of Data Glue: the salaries consumed by manual re-keying, the margin lost to delayed turnaround times, and the opportunity cost of strategic talent trapped in procedural work.",
           <>In one engagement with a national leisure group, an enterprise reporting pipeline that consumed 30 hours of manual Excel manipulation per month was reduced to a 10-minute automated workflow – a 98% reduction in processing time <LogRef code="LOG-205" slug="enterprise-reporting-automation" />. 360 hours were reclaimed annually while removing 100% of data integrity risk.</>,
@@ -91,7 +91,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "04: THE METHODOLOGY",
-        title: "The Operational X-Ray: Diagnosing Before Engineering",
+        title: "The Operational X-Ray: Diagnosing Before Engineering.",
         paragraphs: [
           "Every engagement begins with the Operational X-Ray – a 2–3 week fixed-scope diagnostic that uses Pareto-driven analysis to identify the 20% of Data Glue causing 80% of operational friction. This is not a strategy document. It is a technical map of every manual touchpoint, with each one quantified by time cost, error rate, and margin impact.",
           "The X-Ray produces a prioritised engineering roadmap. Each item has a projected ROI. Each solution is designed with human-in-the-loop safety rails – we automate the routine so your experts retain governance over the exceptions. This is not about replacing people. It is about returning them to the work that justifies their salary.",
@@ -133,21 +133,21 @@ const insightData: InsightEntry[] = [
   {
     slug: "pos-job-workflow",
     ref: "GW-LOG-201",
-    title: "POS Job Workflow Automation",
+    title: "POS Job Workflow Automation.",
     subtitle: "How replacing fragmented data pulls with a single automated pipeline reclaimed 15 hours per week for strategic advisory.",
     date: "FEB 2026",
     seoDescription: "POS Job Workflow Automation: Reporting cycle cut 70%. 15h/week reclaimed for analysis and client advisory by replacing manual data pulls with a single automated pipeline.",
     manifesto: [
       {
         label: "01: THE FRICTION",
-        title: "Reporting as a Manual Assembly Line",
+        title: "Reporting as a Manual Assembly Line.",
         paragraphs: [
           "The team was pulling data from multiple disconnected systems, manually reformatting between tools, and re-keying outputs into client-facing reports. By the time reports reached clients, the underlying data was already stale. The entire reporting function had become a manual assembly line – expensive talent trapped in procedural data wrangling rather than delivering the advisory value that justified their rates.",
         ],
       },
       {
         label: "THE STRATEGIC COST",
-        title: "When Reporting Becomes the Product",
+        title: "When Reporting Becomes the Product.",
         paragraphs: [
           "There is a quiet corrosion that happens when a professional services team spends more time assembling reports than interpreting them. The advisory function – the reason clients pay premium rates – atrophies. The team becomes a data factory, and the client relationship shifts from strategic partnership to transactional delivery.",
           "Stale data compounds the problem. When the numbers in a client-facing report are already 48 hours old by the time they're presented, the advisory layer built on top of them is performative. The client senses it. Trust erodes not through a single failure, but through a pattern of diminishing relevance. The team knows the data is stale. The client suspects it. Neither party addresses it because the manual process is so entrenched that questioning it feels like questioning the team's competence.",
@@ -156,7 +156,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE ENGINEERING",
-        title: "A Single Pipeline Replacing Manual Pulls",
+        title: "A Single Pipeline Replacing Manual Pulls.",
         paragraphs: [
           "We engineered a unified data pipeline that replaced the fragmented manual pulls with a single automated feed. Report generation was automated with pre-formatted outputs, and live data feeds replaced the static snapshots that were obsolete before they were delivered. The architecture was designed to be tool-agnostic – the pipeline connects to whatever systems the client uses, not the other way around.",
         ],
@@ -182,21 +182,21 @@ const insightData: InsightEntry[] = [
   {
     slug: "costing-process",
     ref: "GW-LOG-202",
-    title: "Costing Process Re-engineering",
+    title: "Costing Process Re-engineering.",
     subtitle: "Eliminating spreadsheet handoffs and email-based coordination to remove 10 hours of weekly overhead and cut missed deadlines by 85%.",
     date: "FEB 2026",
     seoDescription: "Costing Process Re-engineering: Missed deadlines down 85%. 10h/week coordination overhead removed by consolidating spreadsheet handoffs into an automated production system.",
     manifesto: [
       {
         label: "01: THE FRICTION",
-        title: "Spreadsheets as the Operating System",
+        title: "Spreadsheets as the Operating System.",
         paragraphs: [
           "Multiple teams were coordinating complex costing workflows through a patchwork of spreadsheets, email chains, and duplicated tracking files. Ownership was unclear. Status chasing consumed hours weekly. Deadlines were missed not because of competence failures, but because the system itself was built on manual handoffs that couldn't scale.",
         ],
       },
       {
         label: "THE STRATEGIC COST",
-        title: "The Illusion of Under-Resourcing",
+        title: "The Illusion of Under-Resourcing.",
         paragraphs: [
           "When deadlines are consistently missed, the instinctive organisational response is to add headcount. More coordinators. More project managers. More people to chase the status updates that the existing people are already chasing. This is the illusion of under-resourcing – the belief that the problem is capacity when the actual problem is architectural.",
           "Spreadsheet-based coordination creates an invisible tax on every participant. Each handoff requires someone to update their version, notify the next person, and confirm receipt. Multiply this across four teams and a dozen costing submissions per week, and you have built an informal bureaucracy that consumes hours but produces no trackable output. It does not appear on any timesheet. It does not show up in any utilisation report. It is pure friction, and it is indistinguishable from productive work.",
@@ -205,7 +205,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE ENGINEERING",
-        title: "Consolidated Production Logic",
+        title: "Consolidated Production Logic.",
         paragraphs: [
           "We replaced the spreadsheet-and-email workflow with a consolidated production system featuring automated status updates, assignment routing, and deadline escalation workflows. The system provided a single source of truth, eliminating the duplicated tracking that had been consuming coordination overhead.",
         ],
@@ -232,21 +232,21 @@ const insightData: InsightEntry[] = [
   {
     slug: "validation-pipeline",
     ref: "GW-LOG-203",
-    title: "Validation Pipeline Automation",
+    title: "Validation Pipeline Automation.",
     subtitle: "Building validation rules into the data pipeline to eliminate unsustainable manual checking and free capacity for process improvement.",
     date: "FEB 2026",
     seoDescription: "Validation Pipeline Automation: Manual checking reduced 60%. 20h/week reclaimed by building validation rules into the data pipeline with exception-only routing.",
     manifesto: [
       {
         label: "01: THE FRICTION",
-        title: "Low Error Rates, Unsustainable Time Cost",
+        title: "Low Error Rates, Unsustainable Time Cost.",
         paragraphs: [
           "The team was performing high-volume manual checks on structured data. Error rates were low, but the time cost was unsustainable – 20 hours per week consumed by routine verification that left zero capacity for the process improvement initiatives the organisation needed.",
         ],
       },
       {
         label: "THE STRATEGIC COST",
-        title: "The Paradox of Perfect Compliance",
+        title: "The Paradox of Perfect Compliance.",
         paragraphs: [
           "Low error rates are often celebrated as evidence of a well-functioning team. In this case, they masked a deeper problem: the error rates were low precisely because the team was spending 20 hours per week on manual verification. The process was accurate because it was unsustainably labour-intensive. Remove the labour, and the accuracy collapses. This is not quality – it is dependency.",
           "The paradox creates a strategic trap. Leadership sees low error rates and concludes the process is working. The team knows it is working only because they are absorbing the cost personally – through overtime, through deferred improvement work, through the slow accumulation of operational debt that never gets addressed because there is simply no capacity to address it.",
@@ -255,7 +255,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE ENGINEERING",
-        title: "Exception-Only Routing",
+        title: "Exception-Only Routing.",
         paragraphs: [
           "We embedded validation rules directly into the data pipeline with automated routine checks and exception-only routing. A Decision Inbox surfaced only the genuine anomalies requiring human judgement, filtering out the noise that had been consuming the team's capacity.",
         ],
@@ -281,21 +281,21 @@ const insightData: InsightEntry[] = [
   {
     slug: "multichannel-content-orchestration",
     ref: "GW-LOG-204",
-    title: "Multichannel Content Orchestration",
+    title: "Multichannel Content Orchestration.",
     subtitle: "Engineering out the Data Glue at the briefing stage to reclaim 1,200 hours annually and slash lead times by 50%.",
     date: "FEB 2026",
     seoDescription: "Multichannel Content Orchestration: 1,200 hours reclaimed annually. Lead times slashed by 50% through LLM-based ingestion and automated data standardisation.",
     manifesto: [
       {
         label: "01: THE FRICTION",
-        title: "500+ Line Briefs and 5-Hour QC Loops",
+        title: "500+ Line Briefs and 5-Hour QC Loops.",
         paragraphs: [
           "High-volume client briefs containing 500+ lines of product data were arriving with inconsistent formatting and misspellings. Each occurrence triggered a 5-hour manual QC loop. Brief-to-studio handoffs carried 2-day lead times. The account team had normalised the friction – copy-pasting had become the default operating mode rather than the exception.",
         ],
       },
       {
         label: "THE STRATEGIC COST",
-        title: "The Normalisation of Copy-Paste Culture",
+        title: "The Normalisation of Copy-Paste Culture.",
         paragraphs: [
           "When an account team spends the majority of its week reformatting client data, something fundamental shifts in the team's identity. They stop thinking of themselves as strategic partners and start thinking of themselves as production operatives. The copy-paste becomes the job. Client calls become data collection exercises rather than relationship-building opportunities. The team's capacity for proactive thinking – for spotting upsell opportunities, for anticipating seasonal challenges, for deepening the client partnership – is consumed by the mechanics of data handling.",
           "This normalisation is insidious because it is gradual. No one decides to become a data entry team. It happens one brief at a time, one QC loop at a time, one 'quick fix' at a time. Each individual task feels manageable. But aggregated across 500-line briefs arriving weekly, the cumulative effect is a team that has been architecturally prevented from scaling client relationships.",
@@ -304,7 +304,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE ENGINEERING",
-        title: "LLM-Based Ingestion and Automated Standardisation",
+        title: "LLM-Based Ingestion and Automated Standardisation.",
         paragraphs: [
           "We deployed a custom RPA ingestion engine using LLM-based brand correction, automated data standardisation, and field mapping. One-click reformatting delivered instant production-ready outputs. By engineering out the Data Glue at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
         ],
@@ -330,21 +330,21 @@ const insightData: InsightEntry[] = [
   {
     slug: "enterprise-reporting-automation",
     ref: "GW-LOG-205",
-    title: "Enterprise Reporting Automation",
+    title: "Enterprise Reporting Automation.",
     subtitle: "Replacing 30 hours of monthly Excel manipulation with a 10-minute automated pipeline – a 98% reduction in processing time.",
     date: "FEB 2026",
     seoDescription: "Enterprise Reporting Automation: 98% reduction in processing time. 360 hours reclaimed annually while removing 100% of data integrity risk via automated drag-and-drop mapping.",
     manifesto: [
       {
         label: "01: THE FRICTION",
-        title: "30 Hours of Monthly Excel Manipulation",
+        title: "30 Hours of Monthly Excel Manipulation.",
         paragraphs: [
           "Fragmented data sources required 30 hours of manual Excel manipulation every month for mission-critical pricing reports. Human error risk was compounded by manual re-keying. Heavy 'Status Chasing' overhead between account and finance teams consumed additional capacity in the days before every reporting deadline.",
         ],
       },
       {
         label: "THE STRATEGIC COST",
-        title: "The Opportunity Cost of Blind Leadership",
+        title: "The Opportunity Cost of Blind Leadership.",
         paragraphs: [
           "In high-stakes enterprise reporting, the quality of leadership decisions is directly constrained by the quality of the data that informs them. When pricing reports require 30 hours of manual assembly, the data that reaches decision-makers is not just late – it is shaped by the limitations of whoever assembled it. Manual processes introduce silent editorial choices: which columns get included, how outliers are handled, whether discrepancies are flagged or quietly smoothed over. The report becomes an interpretation, not a reflection.",
           "The 'last-minute rush' that precedes every reporting deadline creates a secondary cost that rarely appears in post-mortems. When account and finance teams spend the final 48 hours before a status call scrambling to reconcile numbers, they arrive at the meeting exhausted and defensive rather than prepared and strategic. The conversation shifts from 'what should we do with this data' to 'is this data correct'. Leadership is flying blind – not because the data does not exist, but because the process of assembling it has consumed all the capacity that should have been spent analysing it.",
@@ -353,7 +353,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE ENGINEERING",
-        title: "Drag-and-Drop Automated Mapping",
+        title: "Drag-and-Drop Automated Mapping.",
         paragraphs: [
           "We architected a custom drag-and-drop web application for automated column and order mapping, enabling instant fixed-format reporting. The migration from manual Excel work to a 10-minute automated pipeline removed the 'last-minute rush' before reporting deadlines, allowing the team to enter status calls fully prepped with 100% accurate data.",
         ],
@@ -379,21 +379,21 @@ const insightData: InsightEntry[] = [
   {
     slug: "high-volume-allocation-logistics",
     ref: "GW-LOG-206",
-    title: "High-Volume Allocation Logistics",
+    title: "High-Volume Allocation Logistics.",
     subtitle: "Cutting a 10-hour manual merging task to 15 minutes through intelligent RPA-based allocation consolidation.",
     date: "FEB 2026",
     seoDescription: "High-Volume Allocation Logistics: Manual workload reduced by 97%. Task duration cut from 10 hours to 15 minutes through intelligent RPA-based allocation merging.",
     manifesto: [
       {
         label: "01: THE FRICTION",
-        title: "30+ Project Owners, One Master List",
+        title: "30+ Project Owners, One Master List.",
         paragraphs: [
           "Single campaigns were split across 30+ project owners, each with siloed store allocations. Every month, someone spent 10 hours manually merging dozens of Excel files into a 'Master List'. Any client change required repeating hours of manual rework. The team was trapped in a cycle of Data Glue that made reactive agility impossible.",
         ],
       },
       {
         label: "THE STRATEGIC COST",
-        title: "Operational Fragility at Scale",
+        title: "Operational Fragility at Scale.",
         paragraphs: [
           "When a single client change – a revised store list, an updated allocation split – requires hours of manual rework, the organisation has built operational fragility into its delivery model. The team cannot respond with agility because the consolidation process is entirely manual. Every change cascades through dozens of spreadsheets, each requiring individual updates, re-validation, and re-export. The process that should take minutes takes half a day, and the client experiences this as sluggishness.",
           "This fragility creates a perverse incentive structure. Teams begin to resist client changes – not explicitly, but through delay and complexity signalling. 'We can do that, but it will take until Thursday.' The client learns to stop asking. The relationship becomes rigid where it should be responsive, and the organisation loses the competitive advantage that comes from being operationally nimble.",
@@ -402,7 +402,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE ENGINEERING",
-        title: "Intelligent RPA-Based Consolidation",
+        title: "Intelligent RPA-Based Consolidation.",
         paragraphs: [
           "We deployed an Intelligent RPA application for bulk allocation merging with instant duplicate removal and automated totals validation. Auto-formatting delivered immediate, client-ready approval exports. The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in Data Glue for a full day.",
         ],

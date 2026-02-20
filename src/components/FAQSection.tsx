@@ -38,7 +38,7 @@ const FAQSection = () => {
             [FAQ]
           </span>
           <h2 className={`font-display text-3xl md:text-4xl font-extrabold text-foreground mb-12 clip-reveal ${isVisible ? "visible" : ""}`}>
-            Common questions
+            Common questions.
           </h2>
 
           <div>
