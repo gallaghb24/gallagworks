@@ -90,7 +90,7 @@ const LeakageEstimator = () => {
             fontWeight: 300,
             color: "hsl(var(--muted-foreground))",
             lineHeight: 1.6,
-            maxWidth: "44ch",
+            maxWidth: "68ch",
           }}
         >
           Input your team's numbers below. See how much capacity and margin
