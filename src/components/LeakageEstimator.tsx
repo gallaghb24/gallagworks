@@ -19,13 +19,13 @@ const LeakageEstimator = () => {
   const [people, setPeople] = useState("8");
   const [hoursPerWeek, setHoursPerWeek] = useState("6");
   const [hourlyRate, setHourlyRate] = useState("45");
-  const [weeksPerYear, setWeeksPerYear] = useState("46");
   const [recoveryPct, setRecoveryPct] = useState<50 | 70 | 90>(70);
+  const weeksPerYear = 46;
 
   const p = parseFloat(people) || 0;
   const h = parseFloat(hoursPerWeek) || 0;
   const r = parseFloat(hourlyRate) || 0;
-  const w = parseFloat(weeksPerYear) || 0;
+  const w = weeksPerYear;
 
   const annualHours = p * h * w;
   const annualCost = annualHours * r;
@@ -128,12 +128,6 @@ const LeakageEstimator = () => {
                 value: hourlyRate,
                 setter: setHourlyRate,
                 placeholder: "e.g. 45",
-              },
-              {
-                label: "WORKING WEEKS / YEAR",
-                value: weeksPerYear,
-                setter: setWeeksPerYear,
-                placeholder: "e.g. 46",
               },
             ].map(({ label, value, setter, placeholder }) => (
               <div key={label}>
