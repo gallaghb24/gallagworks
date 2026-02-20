@@ -1,36 +1,60 @@
+# Add Full Stops to All Headings Site-Wide
 
-## Root Cause
+Every `h1`, and`h2` across the site will receive a trailing full stop, except where one already exists or where the text ends in another punctuation mark (e.g. `?`).
 
-Every other section on the page (Philosophy, ServicesSummary, ProofPoints) wraps its content in `container mx-auto px-6 lg:px-12`. This Tailwind pattern centres content within a max-width container and applies consistent horizontal padding — this is the "page grid".
+---
 
-The LeakageEstimator currently uses bare `px-6 lg:px-12` with no `container mx-auto`. On large screens, `container mx-auto` constrains width and centres; without it, the section stretches edge-to-edge and the left edge sits further left than all other sections. This is the misalignment.
+## Files to Change
 
-The 2-column grid also uses raw `px-6 lg:px-12` on the left cell and a hardcoded `padding: "2rem 4rem"` on the right — both outside any container — compounding the problem.
+### 1. `src/components/ServicesSummary.tsx`
 
-## Fix
+- `h2`: "The Methodology" → "The Methodology."
 
-Restructure `LeakageEstimator.tsx` so the entire component lives inside `container mx-auto px-6 lg:px-12`, matching every other section exactly.
+### 2. `src/components/ProofPoints.tsx`
 
-The internal full-bleed border rules (the horizontal `borderTop` divider and the vertical `borderRight` between the two columns) need to be handled carefully — they currently span edge-to-edge. The fix is to keep the section `<section>` tag full-width for the background/border-draw, but wrap all content in a `container mx-auto px-6 lg:px-12` div, then let the 2-column grid sit inside that container.
+- `h2`: "What changes" → "What changes."
 
-## Technical Detail — Modified file: `src/components/LeakageEstimator.tsx`
+### 3. `src/components/HowWeWork.tsx`
 
-### Header block (lines 66–103)
-Change:
-```
-className={`px-6 lg:px-12 pt-16 pb-10 clip-reveal ...`}
-```
-To:
-```
-className={`container mx-auto px-6 lg:px-12 pt-16 pb-10 clip-reveal ...`}
-```
+- `h2`: "How we work" → "How we work."
 
-### 2-column grid (lines 106–316)
-Wrap the entire grid in a `container mx-auto px-6 lg:px-12` div. Remove the individual `px-6 lg:px-12` class from the left grid cell (it was compensating for the missing container). The right column's hardcoded `padding: "2rem 4rem"` becomes `paddingTop: "2rem"` only (horizontal padding comes from the container).
+### 5. `src/components/FAQSection.tsx`
 
-The internal `borderRight` between columns and `borderTop` above the grid remain as border decorations on the grid cells — they do not need to be full-bleed, since no other section has full-bleed borders either.
+- `h2`: "Common questions" → "Common questions."
 
-### Right column label row (line 114)
-Change the hardcoded `padding: "1.5rem 4rem"` to `paddingTop: "1.5rem" paddingBottom: "1.5rem"` — horizontal padding comes from the container.
+### 6. `src/pages/InsightManifesto.tsx`
 
-This single structural change — adding `container mx-auto` to both the header and the grid wrapper — will snap the entire Leakage Estimator into the same grid as the rest of the page with no other visual changes.
+- `h1`: rendered from `entry.title` — titles need full stops added to the data strings in the `insightData` array:
+  - "Eradicating the Enterprise Data Glue" → "Eradicating the Enterprise Data Glue."
+  - "POS Job Workflow Automation" → "POS Job Workflow Automation."
+  - "Costing Process Re-engineering" → "Costing Process Re-engineering."
+  - "Validation Pipeline Automation" → "Validation Pipeline Automation."
+  - "Multichannel Content Orchestration" → "Multichannel Content Orchestration."
+  - "Enterprise Reporting Automation" → "Enterprise Reporting Automation."
+  - "High-Volume Allocation Logistics" → "High-Volume Allocation Logistics."
+- `h2` section titles rendered from `section.title` — full stops added to the data strings for all manifesto section titles across all insight entries (e.g. "Your Most Expensive Employees Are Being Used as Human Middleware." etc.)
+- `CTABand` headline props (lines 643): "See something similar to your situation?" (already has `?`) and "Ready to run the Operational X-Ray on your workflows?" (already has `?`) — no change needed
+
+### 7. `src/pages/Glossary.tsx`
+
+- `h1`: "Operational Engineering Glossary" → "Operational Engineering Glossary."
+- `h2` term headings rendered from `t.term` (e.g. "Data Glue", "Operational X-Ray" …): full stops added to each term string in the `glossaryTerms` array
+
+### 8. `src/pages/Privacy.tsx`
+
+- `h1`: "Privacy Policy" → "Privacy Policy."
+- `h2` section headings: "1. Who we are" → "1. Who we are." etc. (all 6 sub-headings)
+
+### 9. `src/pages/Cookies.tsx`
+
+- `h1`: "Cookie Policy" → "Cookie Policy."
+- `h2` section headings: "1. Our Approach" → "1. Our Approach." etc. (all 5 sub-headings)
+
+---
+
+## Technical Notes
+
+- All `h1` and `h2` tags already ending in `.`, `?`, or `!` are left untouched.
+- For components where heading text comes from a data array (InsightManifesto, ServicesSummary, ProofPoints, HowWeWork, EngagementTypes, FAQSection, Glossary), the full stop is added to the string in the data array, not to the JSX tag — this keeps the code clean.
+- No visual layout changes are made; this is a pure copy edit.
+- InsightManifesto contains a large data array spread over ~400 lines — every manifesto section `title` field across all 7 insight entries will be updated.
