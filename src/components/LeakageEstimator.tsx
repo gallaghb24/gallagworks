@@ -20,8 +20,6 @@ const MONO: React.CSSProperties = {
   textTransform: "uppercase",
 };
 
-const LEFT_PAD = "2rem 3rem 2rem 5rem";   // top right bottom left — matches container indent
-const RIGHT_PAD = "2rem 4rem 2rem 4rem";
 const BORDER = "1px solid #1A1C1E";
 
 const LeakageEstimator = () => {
@@ -46,6 +44,7 @@ const LeakageEstimator = () => {
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
+    maxWidth: "400px",
     background: "hsl(210, 3%, 16%)",
     border: BORDER,
     borderRadius: 0,
@@ -54,6 +53,7 @@ const LeakageEstimator = () => {
     fontSize: "1rem",
     color: "#FFFFFF",
     outline: "none",
+    display: "block",
   };
 
   return (
@@ -64,15 +64,18 @@ const LeakageEstimator = () => {
     >
       {/* Header */}
       <div
-        className={`px-6 lg:px-12 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
-        style={{ paddingLeft: "5rem" }}
+        className={`pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
+        style={{ paddingLeft: "5rem", paddingRight: "5rem" }}
       >
+        {/* Tag — top-left anchor, no indent */}
         <span
           className="block mb-5"
           style={{ ...MONO, letterSpacing: "0.12em", color: "#FF5F1F" }}
         >
           [LEAKAGE ESTIMATOR]
         </span>
+
+        {/* H2 — stepped in by 40px */}
         <h2
           className="font-bold mb-3"
           style={{
@@ -81,10 +84,13 @@ const LeakageEstimator = () => {
             color: "#FFFFFF",
             letterSpacing: "-0.02em",
             lineHeight: 1.1,
+            paddingLeft: "40px",
           }}
         >
           Quantify your operational drag.
         </h2>
+
+        {/* Subtitle — stepped in by 40px, max-width constrains to ~2 lines */}
         <p
           style={{
             fontFamily: "'Inter', sans-serif",
@@ -92,7 +98,8 @@ const LeakageEstimator = () => {
             fontWeight: 300,
             color: "hsl(var(--muted-foreground))",
             lineHeight: 1.6,
-            maxWidth: "68ch",
+            maxWidth: "52ch",
+            paddingLeft: "40px",
           }}
         >
           Input your team's numbers below. See how much capacity and margin
@@ -113,126 +120,204 @@ const LeakageEstimator = () => {
           <p style={{ ...MONO, color: "#FF5F1F" }}>[RECOVERY OUTCOME]</p>
         </div>
 
-        {/* ── Row 1: People | Annual Leaked Hours ── */}
-        <div style={{ padding: LEFT_PAD, borderRight: BORDER }}>
-          <label style={{ ...MONO, color: "hsl(var(--muted-foreground))", display: "block", marginBottom: "0.6rem" }}>
-            PEOPLE IN WORKFLOW
-          </label>
-          <input
-            type="number"
-            min="0"
-            placeholder="e.g. 12"
-            value={people}
-            onChange={(e) => setPeople(e.target.value)}
-            style={inputStyle}
-            onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
-            onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
-          />
-        </div>
-        <div style={{ padding: RIGHT_PAD, display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
-            [ANNUAL LEAKED HOURS]
-          </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#FFFFFF", letterSpacing: "-0.02em" }}>
-            {hasInput ? formatHours(annualHours) : "—"}
-          </p>
+        {/* ── Left column: 720px-constrained form ── */}
+        <div
+          style={{
+            borderRight: BORDER,
+            paddingLeft: "5rem",
+            paddingRight: "3rem",
+            paddingBottom: "2rem",
+          }}
+        >
+          {/* Max-width container for inputs */}
+          <div style={{ maxWidth: "720px" }}>
+
+            {/* Row 1: People */}
+            <div style={{ paddingTop: "2rem", paddingLeft: "2rem" }}>
+              <label
+                style={{
+                  ...MONO,
+                  color: "hsl(var(--muted-foreground))",
+                  display: "block",
+                  marginBottom: "0.6rem",
+                }}
+              >
+                PEOPLE IN WORKFLOW
+              </label>
+              <input
+                type="number"
+                min="0"
+                placeholder="e.g. 12"
+                value={people}
+                onChange={(e) => setPeople(e.target.value)}
+                style={inputStyle}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
+                onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
+              />
+            </div>
+
+            {/* Row 2: Hours/week */}
+            <div style={{ paddingTop: "2rem", paddingLeft: "2rem" }}>
+              <label
+                style={{
+                  ...MONO,
+                  color: "hsl(var(--muted-foreground))",
+                  display: "block",
+                  marginBottom: "0.6rem",
+                }}
+              >
+                AVG HOURS / WEEK LOST PER PERSON
+              </label>
+              <input
+                type="number"
+                min="0"
+                placeholder="e.g. 6"
+                value={hoursPerWeek}
+                onChange={(e) => setHoursPerWeek(e.target.value)}
+                style={inputStyle}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
+                onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
+              />
+            </div>
+
+            {/* Row 3: Hourly rate */}
+            <div style={{ paddingTop: "2rem", paddingLeft: "2rem" }}>
+              <label
+                style={{
+                  ...MONO,
+                  color: "hsl(var(--muted-foreground))",
+                  display: "block",
+                  marginBottom: "0.6rem",
+                }}
+              >
+                FULLY LOADED HOURLY COST (£)
+              </label>
+              <input
+                type="number"
+                min="0"
+                placeholder="e.g. 45"
+                value={hourlyRate}
+                onChange={(e) => setHourlyRate(e.target.value)}
+                style={inputStyle}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
+                onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
+              />
+            </div>
+
+          </div>
         </div>
 
-        {/* ── Row 2: Avg hrs/week | Annual Cost ── */}
-        <div style={{ padding: LEFT_PAD, borderRight: BORDER }}>
-          <label style={{ ...MONO, color: "hsl(var(--muted-foreground))", display: "block", marginBottom: "0.6rem" }}>
-            AVG HOURS / WEEK LOST PER PERSON
-          </label>
-          <input
-            type="number"
-            min="0"
-            placeholder="e.g. 6"
-            value={hoursPerWeek}
-            onChange={(e) => setHoursPerWeek(e.target.value)}
-            style={inputStyle}
-            onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
-            onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
-          />
-        </div>
-        <div style={{ padding: RIGHT_PAD, display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
-            [ANNUAL COST]
-          </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "#FFFFFF", letterSpacing: "-0.02em" }}>
-            {hasInput ? formatGBP(annualCost) : "—"}
-          </p>
-        </div>
-
-        {/* ── Row 3: Hourly Rate | Recovery Scenario + Hero ── */}
-        <div style={{ padding: LEFT_PAD, borderRight: BORDER }}>
-          <label style={{ ...MONO, color: "hsl(var(--muted-foreground))", display: "block", marginBottom: "0.6rem" }}>
-            FULLY LOADED HOURLY COST (£)
-          </label>
-          <input
-            type="number"
-            min="0"
-            placeholder="e.g. 45"
-            value={hourlyRate}
-            onChange={(e) => setHourlyRate(e.target.value)}
-            style={inputStyle}
-            onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
-            onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
-          />
-        </div>
-        <div style={{ padding: RIGHT_PAD, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-          {/* Recovery scenario toggles */}
-          <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.75rem" }}>
-            [RECOVERY SCENARIO]
-          </p>
-          <div style={{ display: "flex", gap: "0.5rem", marginBottom: "2rem" }}>
-            {RECOVERY_OPTIONS.map((pct) => {
-              const isActive = recoveryPct === pct;
-              return (
-                <button
-                  key={pct}
-                  onClick={() => setRecoveryPct(pct)}
-                  style={{
-                    padding: "0.5rem 2rem",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "0.75rem",
-                    fontWeight: 600,
-                    borderRadius: 0,
-                    border: isActive ? "1px solid #FF5F1F" : BORDER,
-                    background: isActive ? "#FF5F1F" : "hsl(210, 3%, 16%)",
-                    color: isActive ? "#FFFFFF" : "hsl(var(--muted-foreground))",
-                    cursor: "pointer",
-                    transition: "all 0ms",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.background = "#FFFFFF";
-                      e.currentTarget.style.color = "#000000";
-                      e.currentTarget.style.borderColor = "#FFFFFF";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.background = "hsl(210, 3%, 16%)";
-                      e.currentTarget.style.color = "hsl(var(--muted-foreground))";
-                      e.currentTarget.style.borderColor = "#1A1C1E";
-                    }
-                  }}
-                >
-                  {pct}%
-                </button>
-              );
-            })}
+        {/* ── Right column: Recovery outcomes ── */}
+        <div
+          style={{
+            padding: "2rem 4rem",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* Annual Leaked Hours */}
+          <div style={{ marginBottom: "2rem" }}>
+            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
+              [ANNUAL LEAKED HOURS]
+            </p>
+            <p
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                color: "#FFFFFF",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {hasInput ? formatHours(annualHours) : "—"}
+            </p>
           </div>
 
-          {/* Hero metric */}
-          <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.5rem" }}>
-            [RECOVERED CAPACITY]
-          </p>
-          <p style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 800, fontSize: "clamp(2rem, 4vw, 3.25rem)", color: "#FF5F1F", letterSpacing: "-0.02em", lineHeight: 1.05, whiteSpace: "nowrap" }}>
-            {hasInput ? formatHours(recoveredHours) : "—"} hrs
-            <span style={{ color: "#FF5F1F", margin: "0 0.4em" }}>·</span>
-            {hasInput ? formatGBP(recoveredCost) : "—"}
-          </p>
+          {/* Annual Cost */}
+          <div style={{ marginBottom: "2rem" }}>
+            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
+              [ANNUAL COST]
+            </p>
+            <p
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                color: "#FFFFFF",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {hasInput ? formatGBP(annualCost) : "—"}
+            </p>
+          </div>
+
+          {/* Recovery scenario toggles */}
+          <div style={{ marginBottom: "2rem" }}>
+            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.75rem" }}>
+              [RECOVERY SCENARIO]
+            </p>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              {RECOVERY_OPTIONS.map((pct) => {
+                const isActive = recoveryPct === pct;
+                return (
+                  <button
+                    key={pct}
+                    onClick={() => setRecoveryPct(pct)}
+                    style={{
+                      padding: "0.5rem 2rem",
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      borderRadius: 0,
+                      border: isActive ? "1px solid #FF5F1F" : BORDER,
+                      background: isActive ? "#FF5F1F" : "hsl(210, 3%, 16%)",
+                      color: isActive ? "#FFFFFF" : "hsl(var(--muted-foreground))",
+                      cursor: "pointer",
+                      transition: "all 0ms",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.background = "#FFFFFF";
+                        e.currentTarget.style.color = "#000000";
+                        e.currentTarget.style.borderColor = "#FFFFFF";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.background = "hsl(210, 3%, 16%)";
+                        e.currentTarget.style.color = "hsl(var(--muted-foreground))";
+                        e.currentTarget.style.borderColor = "#1A1C1E";
+                      }
+                    }}
+                  >
+                    {pct}%
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Hero metric — Recovered Capacity */}
+          <div>
+            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.5rem" }}>
+              [RECOVERED CAPACITY]
+            </p>
+            <p
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontWeight: 800,
+                fontSize: "clamp(2rem, 4vw, 3.25rem)",
+                color: "#FF5F1F",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {hasInput ? formatHours(recoveredHours) : "—"} hrs
+              <span style={{ color: "#FF5F1F", margin: "0 0.4em" }}>·</span>
+              {hasInput ? formatGBP(recoveredCost) : "—"}
+            </p>
+          </div>
         </div>
       </div>
     </section>
