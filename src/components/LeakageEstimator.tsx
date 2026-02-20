@@ -177,12 +177,12 @@ const LeakageEstimator = () => {
             onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
           />
         </div>
-        <div style={{ padding: CELL_PAD, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div style={{ padding: CELL_PAD, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
           {/* Recovery scenario toggles */}
           <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.75rem" }}>
             [RECOVERY SCENARIO]
           </p>
-          <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1.5rem" }}>
+          <div style={{ display: "flex", gap: "0.5rem", marginBottom: "2rem" }}>
             {RECOVERY_OPTIONS.map((pct) => {
               const isActive = recoveryPct === pct;
               return (
@@ -226,10 +226,9 @@ const LeakageEstimator = () => {
           <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.5rem" }}>
             [RECOVERED CAPACITY]
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.25rem)", color: "#FF5F1F", letterSpacing: "-0.02em", lineHeight: 1.05 }}>
+          <p style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 800, fontSize: "clamp(2rem, 4vw, 3.25rem)", color: "#FF5F1F", letterSpacing: "-0.02em", lineHeight: 1.05, whiteSpace: "nowrap" }}>
             {hasInput ? formatHours(recoveredHours) : "—"} hrs
-          </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: "clamp(2rem, 4vw, 3.25rem)", color: "#FF5F1F", letterSpacing: "-0.02em", lineHeight: 1.05, marginTop: "0.2rem" }}>
+            <span style={{ color: "#FF5F1F", margin: "0 0.4em" }}>·</span>
             {hasInput ? formatGBP(recoveredCost) : "—"}
           </p>
         </div>
