@@ -56,6 +56,18 @@ const LeakageEstimator = () => {
     display: "block",
   };
 
+  // Shared cell styles
+  const leftCell: React.CSSProperties = {
+    borderRight: BORDER,
+    paddingTop: "2rem",
+    paddingBottom: "2rem",
+  };
+  const rightCell: React.CSSProperties = {
+    paddingTop: "2rem",
+    paddingBottom: "2rem",
+    paddingLeft: "2rem",
+  };
+
   return (
     <section
       ref={ref}
@@ -101,220 +113,197 @@ const LeakageEstimator = () => {
         </p>
       </div>
 
-      {/* 2-column grid — wrapped in same container as header */}
+      {/* Grid — container aligns with header and rest of page */}
       <div
         className={`container mx-auto px-6 lg:px-12 clip-reveal-down ${isVisible ? "visible" : ""}`}
         style={{ transitionDelay: "0.2s" }}
       >
+        {/*
+          4-row × 2-column grid.
+          Each row contains one left input and its matching right metric,
+          so their tops are automatically on the same horizontal line.
+        */}
         <div
           className="grid grid-cols-1 lg:grid-cols-2"
           style={{ borderTop: BORDER }}
         >
-          {/* ── Label row ── */}
-          <div style={{ paddingTop: "1.5rem", paddingBottom: "1.5rem", borderRight: BORDER }}>
+          {/* ── Row 0: Column labels ── */}
+          <div style={{ ...leftCell, paddingTop: "1.5rem", paddingBottom: "1.5rem" }}>
             <p style={{ ...MONO, color: "#FF5F1F" }}>[INPUT TERMINAL]</p>
           </div>
-          <div style={{ paddingTop: "1.5rem", paddingBottom: "1.5rem", paddingLeft: "2rem" }}>
+          <div style={{ ...rightCell, paddingTop: "1.5rem", paddingBottom: "1.5rem" }}>
             <p style={{ ...MONO, color: "#FF5F1F" }}>[RECOVERY OUTCOME]</p>
           </div>
 
-          {/* ── Left column: inputs ── */}
-          <div
-            style={{
-              borderRight: BORDER,
-              paddingBottom: "2rem",
-            }}
-          >
-            <div style={{ maxWidth: "720px" }}>
+          {/* ── Row 1: People ↔ Annual Leaked Hours ── */}
+          <div style={leftCell}>
+            <label
+              style={{
+                ...MONO,
+                color: "hsl(var(--muted-foreground))",
+                display: "block",
+                marginBottom: "0.6rem",
+              }}
+            >
+              PEOPLE IN WORKFLOW
+            </label>
+            <input
+              type="number"
+              min="0"
+              placeholder="e.g. 12"
+              value={people}
+              onChange={(e) => setPeople(e.target.value)}
+              style={inputStyle}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
+            />
+          </div>
+          <div style={rightCell}>
+            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
+              ANNUAL LEAKED HOURS
+            </p>
+            <p
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                color: "#FFFFFF",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {hasInput ? formatHours(annualHours) : "—"}
+            </p>
+          </div>
 
-              {/* Row 1: People */}
-              <div style={{ paddingTop: "2rem" }}>
-                <label
-                  style={{
-                    ...MONO,
-                    color: "hsl(var(--muted-foreground))",
-                    display: "block",
-                    marginBottom: "0.6rem",
-                  }}
-                >
-                  PEOPLE IN WORKFLOW
-                </label>
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="e.g. 12"
-                  value={people}
-                  onChange={(e) => setPeople(e.target.value)}
-                  style={inputStyle}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
-                />
-              </div>
+          {/* ── Row 2: Hours/week ↔ Annual Cost ── */}
+          <div style={leftCell}>
+            <label
+              style={{
+                ...MONO,
+                color: "hsl(var(--muted-foreground))",
+                display: "block",
+                marginBottom: "0.6rem",
+              }}
+            >
+              AVG HOURS / WEEK LOST PER PERSON
+            </label>
+            <input
+              type="number"
+              min="0"
+              placeholder="e.g. 6"
+              value={hoursPerWeek}
+              onChange={(e) => setHoursPerWeek(e.target.value)}
+              style={inputStyle}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
+            />
+          </div>
+          <div style={rightCell}>
+            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
+              ANNUAL COST
+            </p>
+            <p
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                color: "#FFFFFF",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {hasInput ? formatGBP(annualCost) : "—"}
+            </p>
+          </div>
 
-              {/* Row 2: Hours/week */}
-              <div style={{ paddingTop: "2rem" }}>
-                <label
-                  style={{
-                    ...MONO,
-                    color: "hsl(var(--muted-foreground))",
-                    display: "block",
-                    marginBottom: "0.6rem",
-                  }}
-                >
-                  AVG HOURS / WEEK LOST PER PERSON
-                </label>
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="e.g. 6"
-                  value={hoursPerWeek}
-                  onChange={(e) => setHoursPerWeek(e.target.value)}
-                  style={inputStyle}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
-                />
-              </div>
-
-              {/* Row 3: Hourly rate */}
-              <div style={{ paddingTop: "2rem" }}>
-                <label
-                  style={{
-                    ...MONO,
-                    color: "hsl(var(--muted-foreground))",
-                    display: "block",
-                    marginBottom: "0.6rem",
-                  }}
-                >
-                  FULLY LOADED HOURLY COST (£)
-                </label>
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="e.g. 45"
-                  value={hourlyRate}
-                  onChange={(e) => setHourlyRate(e.target.value)}
-                  style={inputStyle}
-                  onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
-                  onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
-                />
-              </div>
-
+          {/* ── Row 3: Hourly rate ↔ Recovery Scenario ── */}
+          <div style={leftCell}>
+            <label
+              style={{
+                ...MONO,
+                color: "hsl(var(--muted-foreground))",
+                display: "block",
+                marginBottom: "0.6rem",
+              }}
+            >
+              FULLY LOADED HOURLY COST (£)
+            </label>
+            <input
+              type="number"
+              min="0"
+              placeholder="e.g. 45"
+              value={hourlyRate}
+              onChange={(e) => setHourlyRate(e.target.value)}
+              style={inputStyle}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
+            />
+          </div>
+          <div style={rightCell}>
+            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.75rem" }}>
+              [RECOVERY SCENARIO]
+            </p>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              {RECOVERY_OPTIONS.map((pct) => {
+                const isActive = recoveryPct === pct;
+                return (
+                  <button
+                    key={pct}
+                    onClick={() => setRecoveryPct(pct)}
+                    style={{
+                      padding: "0.5rem 2rem",
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      borderRadius: 0,
+                      border: isActive ? "1px solid #FF5F1F" : BORDER,
+                      background: isActive ? "#FF5F1F" : "hsl(210, 3%, 16%)",
+                      color: isActive ? "#FFFFFF" : "hsl(var(--muted-foreground))",
+                      cursor: "pointer",
+                      transition: "all 0ms",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.background = "#FFFFFF";
+                        e.currentTarget.style.color = "#000000";
+                        e.currentTarget.style.borderColor = "#FFFFFF";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.background = "hsl(210, 3%, 16%)";
+                        e.currentTarget.style.color = "hsl(var(--muted-foreground))";
+                        e.currentTarget.style.borderColor = "#1A1C1E";
+                      }
+                    }}
+                  >
+                    {pct}%
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* ── Right column: Recovery outcomes ── */}
-          <div
-            style={{
-              paddingTop: "2rem",
-              paddingLeft: "2rem",
-              paddingBottom: "2rem",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            {/* Annual Leaked Hours */}
-            <div style={{ marginBottom: "2rem" }}>
-              <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
-                ANNUAL LEAKED HOURS
-              </p>
-              <p
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                  color: "#FFFFFF",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                {hasInput ? formatHours(annualHours) : "—"}
-              </p>
-            </div>
-
-            {/* Annual Cost */}
-            <div style={{ marginBottom: "2rem" }}>
-              <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
-                ANNUAL COST
-              </p>
-              <p
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                  color: "#FFFFFF",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                {hasInput ? formatGBP(annualCost) : "—"}
-              </p>
-            </div>
-
-            {/* Recovery scenario toggles */}
-            <div style={{ marginBottom: "2rem" }}>
-              <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.75rem" }}>
-                [RECOVERY SCENARIO]
-              </p>
-              <div style={{ display: "flex", gap: "0.5rem" }}>
-                {RECOVERY_OPTIONS.map((pct) => {
-                  const isActive = recoveryPct === pct;
-                  return (
-                    <button
-                      key={pct}
-                      onClick={() => setRecoveryPct(pct)}
-                      style={{
-                        padding: "0.5rem 2rem",
-                        fontFamily: "'JetBrains Mono', monospace",
-                        fontSize: "0.75rem",
-                        fontWeight: 600,
-                        borderRadius: 0,
-                        border: isActive ? "1px solid #FF5F1F" : BORDER,
-                        background: isActive ? "#FF5F1F" : "hsl(210, 3%, 16%)",
-                        color: isActive ? "#FFFFFF" : "hsl(var(--muted-foreground))",
-                        cursor: "pointer",
-                        transition: "all 0ms",
-                      }}
-                      onMouseEnter={(e) => {
-                        if (!isActive) {
-                          e.currentTarget.style.background = "#FFFFFF";
-                          e.currentTarget.style.color = "#000000";
-                          e.currentTarget.style.borderColor = "#FFFFFF";
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (!isActive) {
-                          e.currentTarget.style.background = "hsl(210, 3%, 16%)";
-                          e.currentTarget.style.color = "hsl(var(--muted-foreground))";
-                          e.currentTarget.style.borderColor = "#1A1C1E";
-                        }
-                      }}
-                    >
-                      {pct}%
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Hero metric — Recovered Capacity */}
-            <div>
-              <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.5rem" }}>
-                [RECOVERED CAPACITY]
-              </p>
-              <p
-                style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontWeight: 800,
-                  fontSize: "clamp(2rem, 4vw, 3.25rem)",
-                  color: "#FF5F1F",
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1.05,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {hasInput ? formatHours(recoveredHours) : "—"} hrs
-                <span style={{ color: "#FF5F1F", margin: "0 0.4em" }}>·</span>
-                {hasInput ? formatGBP(recoveredCost) : "—"}
-              </p>
-            </div>
+          {/* ── Row 4: empty ↔ Recovered Capacity ── */}
+          <div style={{ ...leftCell, borderTop: BORDER }} />
+          <div style={{ ...rightCell, borderTop: BORDER }}>
+            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.5rem" }}>
+              [RECOVERED CAPACITY]
+            </p>
+            <p
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontWeight: 800,
+                fontSize: "clamp(2rem, 4vw, 3.25rem)",
+                color: "#FF5F1F",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {hasInput ? formatHours(recoveredHours) : "—"} hrs
+              <span style={{ color: "#FF5F1F", margin: "0 0.4em" }}>·</span>
+              {hasInput ? formatGBP(recoveredCost) : "—"}
+            </p>
           </div>
         </div>
       </div>
