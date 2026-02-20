@@ -48,9 +48,9 @@ const LeakageEstimator = () => {
           className="block mb-5"
           style={{
             fontFamily: "'JetBrains Mono', monospace",
-            fontSize: "0.65rem",
+            fontSize: "0.75rem",
             letterSpacing: "0.12em",
-            color: "hsl(var(--muted-foreground))",
+            color: "#FF5F1F",
             textTransform: "uppercase",
           }}
         >
@@ -98,16 +98,16 @@ const LeakageEstimator = () => {
         >
           <p
             className="mb-8"
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: "0.6rem",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "hsl(var(--muted-foreground))",
-            }}
-          >
-            [INPUT TERMINAL]
-          </p>
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: "0.75rem",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "#FF5F1F",
+          }}
+        >
+          [INPUT TERMINAL]
+        </p>
 
           <div className="space-y-7">
             {[
@@ -141,7 +141,7 @@ const LeakageEstimator = () => {
                   style={{
                     display: "block",
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "0.6rem",
+                    fontSize: "0.75rem",
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
                     color: "hsl(var(--muted-foreground))",
@@ -187,16 +187,16 @@ const LeakageEstimator = () => {
         >
           <p
             className="mb-8"
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: "0.6rem",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "hsl(var(--muted-foreground))",
-            }}
-          >
-            [RECOVERY OUTCOME]
-          </p>
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: "0.75rem",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "#FF5F1F",
+          }}
+        >
+          [RECOVERY OUTCOME]
+        </p>
 
           {hasInput ? (
             <div className="space-y-0">
@@ -205,7 +205,7 @@ const LeakageEstimator = () => {
                 <p
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "0.6rem",
+                    fontSize: "0.75rem",
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
                     color: "hsl(var(--muted-foreground))",
@@ -232,7 +232,7 @@ const LeakageEstimator = () => {
                 <p
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "0.6rem",
+                    fontSize: "0.75rem",
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
                     color: "hsl(var(--muted-foreground))",
@@ -259,7 +259,7 @@ const LeakageEstimator = () => {
                 <p
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "0.6rem",
+                    fontSize: "0.75rem",
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
                     color: "hsl(var(--muted-foreground))",
@@ -314,7 +314,7 @@ const LeakageEstimator = () => {
                 <p
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "0.6rem",
+                    fontSize: "0.75rem",
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
                     color: "#FF5F1F",
