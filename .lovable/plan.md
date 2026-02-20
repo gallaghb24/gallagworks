@@ -1,42 +1,36 @@
 
+## Root Cause
 
-# Leakage Estimator -- Prefill + Redesigned Output Layout
+Every other section on the page (Philosophy, ServicesSummary, ProofPoints) wraps its content in `container mx-auto px-6 lg:px-12`. This Tailwind pattern centres content within a max-width container and applies consistent horizontal padding — this is the "page grid".
 
-## Changes
+The LeakageEstimator currently uses bare `px-6 lg:px-12` with no `container mx-auto`. On large screens, `container mx-auto` constrains width and centres; without it, the section stretches edge-to-edge and the left edge sits further left than all other sections. This is the misalignment.
 
-### 1. Prefill default values
-- People: `8`
-- Hours/week: `6`
-- Hourly rate: `45`
-- Weeks/year: `46` (already set)
+The 2-column grid also uses raw `px-6 lg:px-12` on the left cell and a hardcoded `padding: "2rem 4rem"` on the right — both outside any container — compounding the problem.
 
-This means results display immediately on load without user interaction.
+## Fix
 
-### 2. Redesigned output section (matching the screenshot reference)
+Restructure `LeakageEstimator.tsx` so the entire component lives inside `container mx-auto px-6 lg:px-12`, matching every other section exactly.
 
-The current output shows "Annual hours leaked" and "Annual cost leaked" as plain text, then recovery toggles with a 2-column grid for recovered values. The new layout uses **card-style containers** with clear visual hierarchy:
+The internal full-bleed border rules (the horizontal `borderTop` divider and the vertical `borderRight` between the two columns) need to be handled carefully — they currently span edge-to-edge. The fix is to keep the section `<section>` tag full-width for the background/border-draw, but wrap all content in a `container mx-auto px-6 lg:px-12` div, then let the 2-column grid sit inside that container.
 
-- **Annual Leaked Hours** -- inside a bordered card, large orange number
-- **Annual Cost** -- inside a bordered card, large orange number
-- **Recovery Scenario** label with three toggle buttons ("Remove 50%", "Remove 70%", "Remove 90%") -- 70% active by default, orange fill on active button
-- **Recovered Capacity** -- single bordered card showing combined "X,XXX hrs . £XXX,XXX" on one line, bold white text
+## Technical Detail — Modified file: `src/components/LeakageEstimator.tsx`
 
-The "Request a Consultation" CTA link remains below.
+### Header block (lines 66–103)
+Change:
+```
+className={`px-6 lg:px-12 pt-16 pb-10 clip-reveal ...`}
+```
+To:
+```
+className={`container mx-auto px-6 lg:px-12 pt-16 pb-10 clip-reveal ...`}
+```
 
-### 3. Desktop adaptation
-On desktop (lg:grid-cols-2), the inputs stay on the left and outputs on the right as they are now. The card-style output blocks simply stack vertically in the right column. On mobile they stack below the inputs.
+### 2-column grid (lines 106–316)
+Wrap the entire grid in a `container mx-auto px-6 lg:px-12` div. Remove the individual `px-6 lg:px-12` class from the left grid cell (it was compensating for the missing container). The right column's hardcoded `padding: "2rem 4rem"` becomes `paddingTop: "2rem"` only (horizontal padding comes from the container).
 
-## Technical Detail
+The internal `borderRight` between columns and `borderTop` above the grid remain as border decorations on the grid cells — they do not need to be full-bleed, since no other section has full-bleed borders either.
 
-### Modified file: `src/components/LeakageEstimator.tsx`
-- Change `useState` defaults: `people="8"`, `hoursPerWeek="6"`, `hourlyRate="45"`
-- Restructure the output JSX:
-  - Each metric in a `div` with `border border-border rounded-lg p-6` styling
-  - "Annual Leaked Hours" card with orange number
-  - "Annual Cost" card with orange number
-  - "Recovery Scenario" label + 3 buttons (styled as currently but with "Remove" prefix text)
-  - "Recovered Capacity" card combining hours and cost in one line: `{hours} hrs . {cost}`
-- Remove the `border-t` divider approach and the separate 2-column recovered grid
+### Right column label row (line 114)
+Change the hardcoded `padding: "1.5rem 4rem"` to `paddingTop: "1.5rem" paddingBottom: "1.5rem"` — horizontal padding comes from the container.
 
-No new files or dependencies needed.
-
+This single structural change — adding `container mx-auto` to both the header and the grid wrapper — will snap the entire Leakage Estimator into the same grid as the rest of the page with no other visual changes.
