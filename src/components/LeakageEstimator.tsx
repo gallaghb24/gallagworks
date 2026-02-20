@@ -218,7 +218,7 @@ const LeakageEstimator = () => {
           {/* Annual Leaked Hours */}
           <div style={{ marginBottom: "2rem" }}>
             <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
-              [ANNUAL LEAKED HOURS]
+              ANNUAL LEAKED HOURS
             </p>
             <p
               style={{
@@ -236,7 +236,7 @@ const LeakageEstimator = () => {
           {/* Annual Cost */}
           <div style={{ marginBottom: "2rem" }}>
             <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
-              [ANNUAL COST]
+              ANNUAL COST
             </p>
             <p
               style={{
@@ -253,7 +253,7 @@ const LeakageEstimator = () => {
 
           {/* Recovery scenario toggles */}
           <div style={{ marginBottom: "2rem" }}>
-            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.75rem" }}>
+            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.75rem" }}>
               [RECOVERY SCENARIO]
             </p>
             <div style={{ display: "flex", gap: "0.5rem" }}>
