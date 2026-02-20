@@ -74,7 +74,6 @@ const LeakageEstimator = () => {
           [LEAKAGE ESTIMATOR]
         </span>
 
-        {/* H2 — stepped in by 40px */}
         <h2
           className="font-bold mb-3"
           style={{
@@ -83,13 +82,11 @@ const LeakageEstimator = () => {
             color: "#FFFFFF",
             letterSpacing: "-0.02em",
             lineHeight: 1.1,
-            paddingLeft: "40px",
           }}
         >
           Quantify your operational drag.
         </h2>
 
-        {/* Subtitle — stepped in by 40px, max-width constrains to ~2 lines */}
         <p
           style={{
             fontFamily: "'Inter', sans-serif",
@@ -98,7 +95,6 @@ const LeakageEstimator = () => {
             color: "hsl(var(--muted-foreground))",
             lineHeight: 1.6,
             maxWidth: "52ch",
-            paddingLeft: "40px",
           }}
         >
           Input your team's numbers below. See how much capacity and margin
