@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Input } from "@/components/ui/input";
-
-
 
 const RECOVERY_OPTIONS = [50, 70, 90] as const;
 
@@ -38,153 +35,344 @@ const LeakageEstimator = () => {
   const hasInput = p > 0 && h > 0 && r > 0 && w > 0;
 
   return (
-    <section className="py-16 lg:py-32 bg-slate border-draw" ref={ref}>
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-5xl">
-          <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
-          >
-            [LEAKAGE ESTIMATOR]
-          </span>
-          <h2
-            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-4 clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.08s" }}
-          >
-            Quantify your operational drag
-          </h2>
+    <section
+      ref={ref}
+      className="border-draw"
+      style={{ background: "#000000" }}
+    >
+      {/* Header band */}
+      <div
+        className={`px-16 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
+      >
+        <span
+          className="block mb-5"
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: "0.65rem",
+            letterSpacing: "0.12em",
+            color: "hsl(var(--muted-foreground))",
+            textTransform: "uppercase",
+          }}
+        >
+          [LEAKAGE ESTIMATOR]
+        </span>
+        <h2
+          className="font-bold mb-3"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+            color: "#FFFFFF",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.1,
+          }}
+        >
+          Quantify your operational drag.
+        </h2>
+        <p
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "0.9rem",
+            fontWeight: 300,
+            color: "hsl(var(--muted-foreground))",
+            lineHeight: 1.6,
+            maxWidth: "44ch",
+          }}
+        >
+          Input your team's numbers below. See how much capacity and margin you're losing to manual friction – and what recovery looks like.
+        </p>
+      </div>
+
+      {/* Main 2-col grid with dividing border */}
+      <div
+        className="grid grid-cols-1 lg:grid-cols-2"
+        style={{ borderTop: "1px solid #1A1C1E" }}
+      >
+        {/* LEFT — Input Terminal */}
+        <div
+          className={`clip-reveal-down ${isVisible ? "visible" : ""}`}
+          style={{
+            padding: "4rem",
+            borderRight: "1px solid #1A1C1E",
+            transitionDelay: "0.2s",
+          }}
+        >
           <p
-            className={`text-muted-foreground font-light leading-relaxed mb-10 md:mb-16 max-w-2xl clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.16s" }}
+            className="mb-8"
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: "0.6rem",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "hsl(var(--muted-foreground))",
+            }}
           >
-            Input your team's numbers below. See how much capacity and margin
-            you're losing to manual friction – and what recovery looks like.
+            [INPUT TERMINAL]
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-            {/* Inputs */}
-            <div
-              className={`space-y-6 clip-reveal-down ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: "0.24s" }}
-            >
-              <div>
-                <label className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2 block">
-                  People in workflow
+          <div className="space-y-7">
+            {[
+              {
+                label: "PEOPLE IN WORKFLOW",
+                value: people,
+                setter: setPeople,
+                placeholder: "e.g. 12",
+              },
+              {
+                label: "AVG HOURS / WEEK LOST PER PERSON",
+                value: hoursPerWeek,
+                setter: setHoursPerWeek,
+                placeholder: "e.g. 6",
+              },
+              {
+                label: "FULLY LOADED HOURLY COST (£)",
+                value: hourlyRate,
+                setter: setHourlyRate,
+                placeholder: "e.g. 45",
+              },
+              {
+                label: "WORKING WEEKS / YEAR",
+                value: weeksPerYear,
+                setter: setWeeksPerYear,
+                placeholder: "e.g. 46",
+              },
+            ].map(({ label, value, setter, placeholder }) => (
+              <div key={label}>
+                <label
+                  style={{
+                    display: "block",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "0.6rem",
+                    letterSpacing: "0.05em",
+                    textTransform: "uppercase",
+                    color: "hsl(var(--muted-foreground))",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  {label}
                 </label>
-                <Input
+                <input
                   type="number"
                   min="0"
-                  placeholder="e.g. 12"
-                  value={people}
-                  onChange={(e) => setPeople(e.target.value)}
-                  className="bg-background border-border text-foreground"
+                  placeholder={placeholder}
+                  value={value}
+                  onChange={(e) => setter(e.target.value)}
+                  style={{
+                    width: "100%",
+                    background: "transparent",
+                    border: "1px solid #1A1C1E",
+                    borderRadius: 0,
+                    padding: "0.75rem 1rem",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "1rem",
+                    color: "#FFFFFF",
+                    outline: "none",
+                    transition: "border-color 0ms",
+                  }}
+                  onFocus={(e) =>
+                    (e.currentTarget.style.borderColor = "#FFFFFF")
+                  }
+                  onBlur={(e) =>
+                    (e.currentTarget.style.borderColor = "#1A1C1E")
+                  }
                 />
               </div>
-
-              <div>
-                <label className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2 block">
-                  Avg hours/week lost per person
-                </label>
-                <Input
-                  type="number"
-                  min="0"
-                  placeholder="e.g. 6"
-                  value={hoursPerWeek}
-                  onChange={(e) => setHoursPerWeek(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2 block">
-                  Fully loaded hourly cost (£)
-                </label>
-                <Input
-                  type="number"
-                  min="0"
-                  placeholder="e.g. 40"
-                  value={hourlyRate}
-                  onChange={(e) => setHourlyRate(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2 block">
-                  Working weeks/year
-                </label>
-                <Input
-                  type="number"
-                  min="0"
-                  max="52"
-                  value={weeksPerYear}
-                  onChange={(e) => setWeeksPerYear(e.target.value)}
-                />
-              </div>
-            </div>
-
-            {/* Outputs */}
-            <div
-              className={`clip-reveal-down ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: "0.4s" }}
-            >
-              {hasInput ? (
-                <div className="space-y-4">
-                  <div className="border border-border p-6">
-                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
-                      Annual Leaked Hours
-                    </p>
-                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-muted-foreground">
-                      {formatHours(annualHours)}
-                    </p>
-                  </div>
-
-                  <div className="border border-border p-6">
-                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
-                      Annual Cost
-                    </p>
-                    <p className="font-mono text-2xl md:text-3xl font-extrabold text-muted-foreground">
-                      {formatGBP(annualCost)}
-                    </p>
-                  </div>
-
-                  <div className="pt-4">
-                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
-                      Recovery Scenario
-                    </p>
-                    <div className="flex gap-3 mb-4">
-                      {RECOVERY_OPTIONS.map((pct) => (
-                        <button
-                          key={pct}
-                          onClick={() => setRecoveryPct(pct)}
-                          className={`px-5 py-2.5 font-mono text-sm font-semibold transition-all ${
-                            recoveryPct === pct
-                              ? "bg-primary text-primary-foreground"
-                              : "border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
-                          }`}
-                        >
-                          Remove {pct}%
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="border border-border p-6">
-                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
-                      Recovered Capacity
-                    </p>
-                    <p className="font-mono text-4xl md:text-5xl font-extrabold text-primary">
-                      {formatHours(recoveredHours)} hrs · {formatGBP(recoveredCost)}
-                    </p>
-                  </div>
-
-                </div>
-              ) : (
-                <div className="flex items-center justify-center h-full min-h-[300px]">
-                  <p className="font-mono text-sm text-muted-foreground text-center">
-                    Enter your numbers to see<br />the leakage calculation.
-                  </p>
-                </div>
-              )}
-            </div>
+            ))}
           </div>
+        </div>
+
+        {/* RIGHT — Recovery Outcome */}
+        <div
+          className={`clip-reveal-down ${isVisible ? "visible" : ""}`}
+          style={{ padding: "4rem", transitionDelay: "0.35s" }}
+        >
+          <p
+            className="mb-8"
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: "0.6rem",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "hsl(var(--muted-foreground))",
+            }}
+          >
+            [RECOVERY OUTCOME]
+          </p>
+
+          {hasInput ? (
+            <div className="space-y-0">
+              {/* Leaked Hours */}
+              <div style={{ borderBottom: "1px solid #1A1C1E", paddingBottom: "1.75rem", marginBottom: "1.75rem" }}>
+                <p
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "0.6rem",
+                    letterSpacing: "0.05em",
+                    textTransform: "uppercase",
+                    color: "hsl(var(--muted-foreground))",
+                    marginBottom: "0.6rem",
+                  }}
+                >
+                  [ANNUAL LEAKED HOURS]
+                </p>
+                <p
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                    color: "#FFFFFF",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {formatHours(annualHours)}
+                </p>
+              </div>
+
+              {/* Annual Cost */}
+              <div style={{ borderBottom: "1px solid #1A1C1E", paddingBottom: "1.75rem", marginBottom: "1.75rem" }}>
+                <p
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "0.6rem",
+                    letterSpacing: "0.05em",
+                    textTransform: "uppercase",
+                    color: "hsl(var(--muted-foreground))",
+                    marginBottom: "0.6rem",
+                  }}
+                >
+                  [ANNUAL COST]
+                </p>
+                <p
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                    color: "#FFFFFF",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {formatGBP(annualCost)}
+                </p>
+              </div>
+
+              {/* Recovery Scenario toggles */}
+              <div style={{ borderBottom: "1px solid #1A1C1E", paddingBottom: "1.75rem", marginBottom: "1.75rem" }}>
+                <p
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "0.6rem",
+                    letterSpacing: "0.05em",
+                    textTransform: "uppercase",
+                    color: "hsl(var(--muted-foreground))",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  [RECOVERY SCENARIO]
+                </p>
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  {RECOVERY_OPTIONS.map((pct) => {
+                    const isActive = recoveryPct === pct;
+                    return (
+                      <button
+                        key={pct}
+                        onClick={() => setRecoveryPct(pct)}
+                        style={{
+                          padding: "0.5rem 1rem",
+                          fontFamily: "'JetBrains Mono', monospace",
+                          fontSize: "0.75rem",
+                          fontWeight: 600,
+                          borderRadius: 0,
+                          border: isActive ? "1px solid #FF5F1F" : "1px solid #1A1C1E",
+                          background: isActive ? "#FF5F1F" : "transparent",
+                          color: isActive ? "#FFFFFF" : "hsl(var(--muted-foreground))",
+                          cursor: "pointer",
+                          transition: "all 0ms",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.background = "#FFFFFF";
+                            e.currentTarget.style.color = "#000000";
+                            e.currentTarget.style.borderColor = "#FFFFFF";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.background = "transparent";
+                            e.currentTarget.style.color = "hsl(var(--muted-foreground))";
+                            e.currentTarget.style.borderColor = "#1A1C1E";
+                          }
+                        }}
+                      >
+                        {pct}%
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Hero: Recovered Capacity */}
+              <div>
+                <p
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "0.6rem",
+                    letterSpacing: "0.05em",
+                    textTransform: "uppercase",
+                    color: "#FF5F1F",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  [RECOVERED CAPACITY]
+                </p>
+                <p
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(2rem, 4vw, 3.25rem)",
+                    color: "#FF5F1F",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.05,
+                  }}
+                >
+                  {formatHours(recoveredHours)} hrs
+                </p>
+                <p
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(2rem, 4vw, 3.25rem)",
+                    color: "#FF5F1F",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.05,
+                    marginTop: "0.25rem",
+                  }}
+                >
+                  {formatGBP(recoveredCost)}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+                minHeight: "320px",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: "0.75rem",
+                  color: "hsl(var(--muted-foreground))",
+                  textAlign: "center",
+                  lineHeight: 1.8,
+                }}
+              >
+                Enter your numbers to see<br />the leakage calculation.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>
