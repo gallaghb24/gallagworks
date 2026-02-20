@@ -112,7 +112,7 @@ const LeakageEstimator = () => {
         </div>
 
         {/* ── Row 1: People | Annual Leaked Hours ── */}
-        <div style={{ padding: CELL_PAD, borderTop: BORDER, borderRight: BORDER }}>
+        <div style={{ padding: CELL_PAD, borderRight: BORDER }}>
           <label style={{ ...MONO, color: "hsl(var(--muted-foreground))", display: "block", marginBottom: "0.6rem" }}>
             PEOPLE IN WORKFLOW
           </label>
@@ -127,7 +127,7 @@ const LeakageEstimator = () => {
             onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
           />
         </div>
-        <div style={{ padding: CELL_PAD, borderTop: BORDER, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div style={{ padding: CELL_PAD, display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
             [ANNUAL LEAKED HOURS]
           </p>
@@ -137,7 +137,7 @@ const LeakageEstimator = () => {
         </div>
 
         {/* ── Row 2: Avg hrs/week | Annual Cost ── */}
-        <div style={{ padding: CELL_PAD, borderTop: BORDER, borderRight: BORDER }}>
+        <div style={{ padding: CELL_PAD, borderRight: BORDER }}>
           <label style={{ ...MONO, color: "hsl(var(--muted-foreground))", display: "block", marginBottom: "0.6rem" }}>
             AVG HOURS / WEEK LOST PER PERSON
           </label>
@@ -152,7 +152,7 @@ const LeakageEstimator = () => {
             onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
           />
         </div>
-        <div style={{ padding: CELL_PAD, borderTop: BORDER, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div style={{ padding: CELL_PAD, display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
             [ANNUAL COST]
           </p>
@@ -162,7 +162,7 @@ const LeakageEstimator = () => {
         </div>
 
         {/* ── Row 3: Hourly Rate | Recovery Scenario + Hero ── */}
-        <div style={{ padding: CELL_PAD, borderTop: BORDER, borderRight: BORDER }}>
+        <div style={{ padding: CELL_PAD, borderRight: BORDER }}>
           <label style={{ ...MONO, color: "hsl(var(--muted-foreground))", display: "block", marginBottom: "0.6rem" }}>
             FULLY LOADED HOURLY COST (£)
           </label>
@@ -177,7 +177,7 @@ const LeakageEstimator = () => {
             onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
           />
         </div>
-        <div style={{ padding: CELL_PAD, borderTop: BORDER, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div style={{ padding: CELL_PAD, display: "flex", flexDirection: "column", justifyContent: "center" }}>
           {/* Recovery scenario toggles */}
           <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.75rem" }}>
             [RECOVERY SCENARIO]
