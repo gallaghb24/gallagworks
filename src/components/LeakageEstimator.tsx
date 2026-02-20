@@ -45,7 +45,7 @@ const LeakageEstimator = () => {
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
-    background: "transparent",
+    background: "hsl(210, 3%, 16%)",
     border: BORDER,
     borderRadius: 0,
     padding: "0.75rem 1rem",
@@ -190,13 +190,13 @@ const LeakageEstimator = () => {
                   key={pct}
                   onClick={() => setRecoveryPct(pct)}
                   style={{
-                    padding: "0.5rem 1rem",
+                    padding: "0.5rem 2rem",
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: "0.75rem",
                     fontWeight: 600,
                     borderRadius: 0,
                     border: isActive ? "1px solid #FF5F1F" : BORDER,
-                    background: isActive ? "#FF5F1F" : "transparent",
+                    background: isActive ? "#FF5F1F" : "hsl(210, 3%, 16%)",
                     color: isActive ? "#FFFFFF" : "hsl(var(--muted-foreground))",
                     cursor: "pointer",
                     transition: "all 0ms",
@@ -210,7 +210,7 @@ const LeakageEstimator = () => {
                   }}
                   onMouseLeave={(e) => {
                     if (!isActive) {
-                      e.currentTarget.style.background = "transparent";
+                      e.currentTarget.style.background = "hsl(210, 3%, 16%)";
                       e.currentTarget.style.color = "hsl(var(--muted-foreground))";
                       e.currentTarget.style.borderColor = "#1A1C1E";
                     }
