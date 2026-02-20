@@ -62,12 +62,11 @@ const LeakageEstimator = () => {
       className="border-draw"
       style={{ background: "#000000" }}
     >
-      {/* Header */}
+      {/* Header — aligned to container mx-auto px-6 lg:px-12 to match ProofPoints */}
       <div
-        className={`pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
-        style={{ paddingLeft: "5rem", paddingRight: "5rem" }}
+        className={`container mx-auto px-6 lg:px-12 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
       >
-        {/* Tag — top-left anchor, no indent */}
+        {/* Tag — top-left anchor */}
         <span
           className="block mb-5"
           style={{ ...MONO, letterSpacing: "0.12em", color: "#FF5F1F" }}
@@ -113,7 +112,7 @@ const LeakageEstimator = () => {
         style={{ borderTop: BORDER, transitionDelay: "0.2s" }}
       >
         {/* ── Label row ── */}
-        <div style={{ padding: "1.5rem 3rem 1.5rem 5rem", borderRight: BORDER }}>
+        <div className="px-6 lg:px-12" style={{ paddingTop: "1.5rem", paddingBottom: "1.5rem", borderRight: BORDER }}>
           <p style={{ ...MONO, color: "#FF5F1F" }}>[INPUT TERMINAL]</p>
         </div>
         <div style={{ padding: "1.5rem 4rem" }}>
@@ -122,10 +121,9 @@ const LeakageEstimator = () => {
 
         {/* ── Left column: 720px-constrained form ── */}
         <div
+          className="px-6 lg:px-12"
           style={{
             borderRight: BORDER,
-            paddingLeft: "5rem",
-            paddingRight: "3rem",
             paddingBottom: "2rem",
           }}
         >
