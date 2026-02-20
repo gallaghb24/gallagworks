@@ -179,8 +179,9 @@ const LeakageEstimator = () => {
             onBlur={(e) => (e.currentTarget.style.borderColor = "#1A1C1E")}
           />
         </div>
-        <div style={{ padding: RIGHT_PAD, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-          {/* Recovery scenario toggles */}
+        <div style={{ padding: "3.5rem 4rem 2rem 4rem", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+          {/* Recovery scenario toggles — centred with hourly cost input */}
+          <div>
           <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.75rem" }}>
             [RECOVERY SCENARIO]
           </p>
@@ -224,7 +225,10 @@ const LeakageEstimator = () => {
             })}
           </div>
 
+          </div>{/* end recovery group */}
+
           {/* Hero metric */}
+          <div>
           <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.5rem" }}>
             [RECOVERED CAPACITY]
           </p>
@@ -233,6 +237,7 @@ const LeakageEstimator = () => {
             <span style={{ color: "#FF5F1F", margin: "0 0.4em" }}>·</span>
             {hasInput ? formatGBP(recoveredCost) : "—"}
           </p>
+          </div>
         </div>
       </div>
     </section>
