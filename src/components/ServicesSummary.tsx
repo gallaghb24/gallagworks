@@ -39,7 +39,7 @@ const ServicesSummary = () => {
             className={`text-3xl md:text-4xl font-bold text-foreground mb-10 md:mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.08s" }}
           >
-            The Methodology
+            The Methodology.
           </h2>
 
           <div className="divide-y divide-border">

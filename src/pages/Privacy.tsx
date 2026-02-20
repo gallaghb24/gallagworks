@@ -19,7 +19,7 @@ const Privacy = () => {
                 LEGAL
               </span>
               <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-8">
-                Privacy Policy
+                Privacy Policy.
               </h1>
               <p className="font-mono text-xs text-muted-foreground/50 mb-8">
                 Effective date: 16 February 2026
@@ -31,7 +31,7 @@ const Privacy = () => {
 
               <div className="space-y-8 text-muted-foreground font-light leading-relaxed">
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">1. Who we are</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">1. Who we are.</h2>
                   <p className="mb-2">Data controller: Gallag Works Ltd</p>
                   <p className="mb-2">
                     Email:{" "}
@@ -44,7 +44,7 @@ const Privacy = () => {
                 </div>
 
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">2. Personal data we collect</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">2. Personal data we collect.</h2>
                   <p className="mb-4">
                     <span className="font-bold text-foreground">A. Enquiries:</span> Identity and contact details (name, email, company, job title) and project requirements provided via our consultation form.
                   </p>
@@ -57,7 +57,7 @@ const Privacy = () => {
                 </div>
 
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">3. Why we use your data</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">3. Why we use your data.</h2>
                   <ul className="space-y-3 list-disc list-inside">
                     <li>To respond to enquiries and take steps at your request before entering a contract (Lawful basis: Legitimate interests).</li>
                     <li>To provide and manage our services (Lawful basis: Contract).</li>
@@ -66,14 +66,14 @@ const Privacy = () => {
                 </div>
 
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">4. International transfers &amp; Security</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">4. International transfers &amp; Security.</h2>
                   <p>
                     We use trusted infrastructure providers (e.g., website hosting, email, and PostHog analytics). Where data is processed outside the UK, we ensure appropriate safeguards (such as UK-approved contractual protections) are in place. We maintain suitable technical measures to protect all personal data against unauthorized access.
                   </p>
                 </div>
 
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">5. Data retention</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">5. Data retention.</h2>
                   <ul className="space-y-3 list-disc list-inside">
                     <li><span className="font-bold text-foreground">Enquiries:</span> Typically 18 months from last contact.</li>
                     <li><span className="font-bold text-foreground">Client Records:</span> Typically 6 years after the end of the engagement for tax and legal reasons.</li>
@@ -82,7 +82,7 @@ const Privacy = () => {
                 </div>
 
                 <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">6. Your rights</h2>
+                  <h2 className="text-lg font-bold text-foreground mb-4">6. Your rights.</h2>
                   <p>
                     You have the right to access, correct, or delete your personal data, and to object to processing based on legitimate interests. To exercise these rights, please contact us at the email address above. You also have the right to lodge a complaint with the Information Commissioner's Office (ICO).
                   </p>

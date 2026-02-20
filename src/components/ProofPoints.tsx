@@ -42,7 +42,7 @@ const ProofPoints = () => {
             className={`text-3xl md:text-4xl font-extrabold text-foreground mb-10 md:mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.08s" }}
           >
-            What changes
+            What changes.
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
