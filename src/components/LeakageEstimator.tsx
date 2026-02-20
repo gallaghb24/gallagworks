@@ -127,7 +127,7 @@ const LeakageEstimator = () => {
           <div style={{ maxWidth: "720px" }}>
 
             {/* Row 1: People */}
-            <div style={{ paddingTop: "2rem", paddingLeft: "2rem" }}>
+            <div style={{ paddingTop: "2rem" }}>
               <label
                 style={{
                   ...MONO,
@@ -151,7 +151,7 @@ const LeakageEstimator = () => {
             </div>
 
             {/* Row 2: Hours/week */}
-            <div style={{ paddingTop: "2rem", paddingLeft: "2rem" }}>
+            <div style={{ paddingTop: "2rem" }}>
               <label
                 style={{
                   ...MONO,
@@ -175,7 +175,7 @@ const LeakageEstimator = () => {
             </div>
 
             {/* Row 3: Hourly rate */}
-            <div style={{ paddingTop: "2rem", paddingLeft: "2rem" }}>
+            <div style={{ paddingTop: "2rem" }}>
               <label
                 style={{
                   ...MONO,
