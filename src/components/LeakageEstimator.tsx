@@ -242,7 +242,7 @@ const LeakageEstimator = () => {
             <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.75rem" }}>
               [RECOVERY SCENARIO]
             </p>
-            <div style={{ display: "flex", gap: "0.5rem" }}>
+            <div style={{ display: "flex", gap: "0.5rem", marginTop: "2px" }}>
               {RECOVERY_OPTIONS.map((pct) => {
                 const isActive = recoveryPct === pct;
                 return (
