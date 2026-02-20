@@ -62,9 +62,9 @@ const LeakageEstimator = () => {
       className="border-draw"
       style={{ background: "#000000" }}
     >
-      {/* Header — aligned to container mx-auto px-6 lg:px-12 to match ProofPoints */}
+      {/* Header — px-6 lg:px-12 matches grid cell padding exactly */}
       <div
-        className={`container mx-auto px-6 lg:px-12 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
+        className={`px-6 lg:px-12 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
       >
         {/* Tag — top-left anchor */}
         <span
