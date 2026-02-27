@@ -10,8 +10,7 @@ const formatGBP = (value: number) =>
     maximumFractionDigits: 0,
   }).format(value);
 
-const formatHours = (value: number) =>
-  new Intl.NumberFormat("en-GB", { maximumFractionDigits: 0 }).format(value);
+const formatHours = (value: number) => new Intl.NumberFormat("en-GB", { maximumFractionDigits: 0 }).format(value);
 
 const MONO: React.CSSProperties = {
   fontFamily: "'JetBrains Mono', monospace",
@@ -69,19 +68,10 @@ const LeakageEstimator = () => {
   };
 
   return (
-    <section
-      ref={ref}
-      className="border-draw"
-      style={{ background: "#000000" }}
-    >
+    <section ref={ref} className="border-draw" style={{ background: "#000000" }}>
       {/* Header */}
-      <div
-        className={`container mx-auto px-6 lg:px-12 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
-      >
-        <span
-          className="block mb-5"
-          style={{ ...MONO, letterSpacing: "0.12em", color: "#FF5F1F" }}
-        >
+      <div className={`container mx-auto px-6 lg:px-12 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}>
+        <span className="block mb-5" style={{ ...MONO, letterSpacing: "0.12em", color: "#FF5F1F" }}>
           [LEAKAGE ESTIMATOR]
         </span>
 
@@ -108,8 +98,8 @@ const LeakageEstimator = () => {
             maxWidth: "70ch",
           }}
         >
-          Input your team's numbers below. See how much capacity and margin
-          you're losing to manual friction – and what recovery looks like.
+          Input your team's numbers below. See how much capacity and margin you're losing to manual friction – and what
+          recovery looks like.
         </p>
       </div>
 
@@ -123,10 +113,7 @@ const LeakageEstimator = () => {
           Each row contains one left input and its matching right metric,
           so their tops are automatically on the same horizontal line.
         */}
-        <div
-          className="grid grid-cols-1 lg:grid-cols-2"
-          style={{ borderTop: BORDER }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2" style={{ borderTop: BORDER }}>
           {/* ── Row 0: Column labels ── */}
           <div style={{ ...leftCell, paddingTop: "1.5rem", paddingBottom: "1.5rem" }}>
             <p style={{ ...MONO, color: "#FF5F1F" }}>[INPUT TERMINAL]</p>
@@ -199,9 +186,7 @@ const LeakageEstimator = () => {
             />
           </div>
           <div style={rightCell}>
-            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
-              ANNUAL COST
-            </p>
+            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>ANNUAL COST</p>
             <p
               style={{
                 fontFamily: "'Inter', sans-serif",
@@ -239,9 +224,7 @@ const LeakageEstimator = () => {
             />
           </div>
           <div style={rightCell}>
-            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.75rem" }}>
-              [RECOVERY SCENARIO]
-            </p>
+            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.75rem" }}>[RECOVERY SCENARIO]</p>
             <div style={{ display: "flex", gap: "0.5rem", marginTop: "5px" }}>
               {RECOVERY_OPTIONS.map((pct) => {
                 const isActive = recoveryPct === pct;
@@ -286,9 +269,7 @@ const LeakageEstimator = () => {
           {/* ── Row 4: empty ↔ Recovered Capacity ── */}
           <div style={{ ...leftCell, borderTop: BORDER }} />
           <div style={{ ...rightCell, borderTop: BORDER }}>
-            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.5rem" }}>
-              [RECOVERED CAPACITY]
-            </p>
+            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.5rem" }}>[RECOVERED CAPACITY]</p>
             <p
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
