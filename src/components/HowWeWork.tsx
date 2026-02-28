@@ -58,19 +58,19 @@ const HowWeWork = () => {
                     {/* Desktop horizontal connector */}
                     <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 right-0 items-center z-10 w-8">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                      <div className="flex-1 border-t border-[#2F3133]" />
+                      <div className="flex-1 border-t border-border" />
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                     </div>
                     {/* Mobile vertical connector */}
                     <div className="md:hidden flex flex-col items-center absolute -bottom-8 left-8 z-10 h-8">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                      <div className="flex-1 border-l border-[#2F3133]" />
+                      <div className="flex-1 border-l border-border" />
                       <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                     </div>
                   </>
                 )}
 
-                <div className="border border-[#2F3133] p-8 h-full flex flex-col">
+                <div className="border border-border p-8 h-full flex flex-col">
                   <span className="font-mono text-2xl font-bold text-primary block mb-3">
                     {step.number}
                   </span>

@@ -99,7 +99,7 @@ const About = () => {
                 {stats.map((stat, index) => (
                   <div
                     key={stat.label}
-                    className={`bg-[#1A1C1E] border border-[#2F3133] p-6 clip-reveal-down ${exp.isVisible ? "visible" : ""}`}
+                    className={`bg-slate border border-border p-6 clip-reveal-down ${exp.isVisible ? "visible" : ""}`}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                   >
                     <p
