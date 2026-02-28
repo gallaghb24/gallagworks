@@ -268,7 +268,7 @@ const HeroSchematic = () => {
             <line
               key={`maze-${i}`}
               x1={x1} y1={y1} x2={x2} y2={y2}
-              stroke="#2F3133"
+              stroke="hsl(var(--border))"
               strokeWidth={1}
               strokeDasharray={len}
               strokeDashoffset={revealed ? 0 : len}
@@ -290,7 +290,7 @@ const HeroSchematic = () => {
               key={`core-${i}`}
               d={d}
               fill="none"
-              stroke="#F5F5F5"
+              stroke="hsl(var(--foreground))"
               strokeWidth={1}
               strokeDasharray={edgeLen}
               strokeDashoffset={revealed ? 0 : edgeLen}
@@ -308,7 +308,7 @@ const HeroSchematic = () => {
           <rect
             x={CORE.x} y={CORE.y}
             width={CORE.size} height={CORE.size}
-            fill="none" stroke="#F5F5F5" strokeWidth={2}
+            fill="none" stroke="hsl(var(--foreground))" strokeWidth={2}
             filter="url(#glow)"
           />
         )}
@@ -323,7 +323,7 @@ const HeroSchematic = () => {
               key={`output-${i}`}
               x1={CORE.x + CORE.size} y1={y}
               x2={620} y2={y}
-              stroke="#2F3133"
+              stroke="hsl(var(--border))"
               strokeWidth={1}
               strokeDasharray={len}
               strokeDashoffset={outputRevealed ? 0 : len}
@@ -344,7 +344,7 @@ const HeroSchematic = () => {
               key="output-center"
               x1={CORE.x + CORE.size} y1={OUTPUT_Y[1]}
               x2={620} y2={OUTPUT_Y[1]}
-              stroke="#FF5F1F"
+              stroke="hsl(var(--primary))"
               strokeWidth={2}
               strokeDasharray={len}
               strokeDashoffset={outputRevealed ? 0 : len}
@@ -366,7 +366,7 @@ const HeroSchematic = () => {
               key={p.id}
               cx={p.x} cy={p.y}
               r={p.phase === "output" ? 2.5 : 2}
-              fill="#FF5F1F"
+              fill="hsl(var(--primary))"
               opacity={p.opacity}
             />
           ) : null

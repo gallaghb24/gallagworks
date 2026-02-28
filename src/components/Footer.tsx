@@ -48,7 +48,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
               {/* Column 1: Brand */}
               <div className="flex flex-col">
-                <img src={gallagWordmarkFooter} alt="Gallag Works – Operational Engineering" className="h-8 object-contain object-left" />
+                <img src={gallagWordmarkFooter} alt="Gallag Works – Operational Engineering" className="h-8 object-contain object-left dark:brightness-100 brightness-0" />
               </div>
 
               {/* Column 2: Nav */}

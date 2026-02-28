@@ -20,8 +20,6 @@ const MONO: React.CSSProperties = {
   textTransform: "uppercase",
 };
 
-const BORDER_COLOR = "#1A1C1E";
-
 const LeakageEstimator = () => {
   const { ref, isVisible } = useScrollAnimation();
 
@@ -44,13 +42,13 @@ const LeakageEstimator = () => {
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
-    background: "hsl(210, 3%, 16%)",
-    border: `1px solid ${BORDER_COLOR}`,
+    background: "hsl(var(--input))",
+    border: "1px solid hsl(var(--border))",
     borderRadius: 0,
     padding: "0.75rem 1rem",
     fontFamily: "'JetBrains Mono', monospace",
     fontSize: "1rem",
-    color: "#FFFFFF",
+    color: "hsl(var(--foreground))",
     outline: "none",
     display: "block",
   };
@@ -58,26 +56,24 @@ const LeakageEstimator = () => {
   return (
     <section
       ref={ref}
-      className="border-draw"
-      style={{ background: "#000000" }}
+      className="border-draw bg-background"
     >
       {/* Header */}
       <div
         className={`container mx-auto px-6 lg:px-12 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
       >
         <span
-          className="block mb-5"
-          style={{ ...MONO, letterSpacing: "0.12em", color: "#FF5F1F" }}
+          className="block mb-5 text-primary"
+          style={{ ...MONO, letterSpacing: "0.12em" }}
         >
           [LEAKAGE ESTIMATOR]
         </span>
 
         <h2
-          className="font-bold mb-3"
+          className="font-bold mb-3 text-foreground"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-            color: "#FFFFFF",
             letterSpacing: "-0.02em",
             lineHeight: 1.1,
           }}
@@ -106,19 +102,18 @@ const LeakageEstimator = () => {
         style={{ transitionDelay: "0.2s" }}
       >
         <div
-          className="grid grid-cols-1 lg:grid-cols-2"
-          style={{ borderTop: `1px solid ${BORDER_COLOR}` }}
+          className="grid grid-cols-1 lg:grid-cols-2 border-t border-border"
         >
           {/* ── Row 0: Column labels ── */}
-          <div className="py-6 lg:border-r" style={{ borderColor: BORDER_COLOR }}>
-            <p style={{ ...MONO, color: "#FF5F1F" }}>[INPUT TERMINAL]</p>
+          <div className="py-6 lg:border-r border-border">
+            <p className="text-primary" style={MONO}>[INPUT TERMINAL]</p>
           </div>
           <div className="hidden lg:block py-6 pl-0 lg:pl-8">
-            <p style={{ ...MONO, color: "#FF5F1F" }}>[RECOVERY OUTCOME]</p>
+            <p className="text-primary" style={MONO}>[RECOVERY OUTCOME]</p>
           </div>
 
           {/* ── Row 1: People ↔ Annual Leaked Hours ── */}
-          <div className="py-8 lg:border-r" style={{ borderColor: BORDER_COLOR }}>
+          <div className="py-8 lg:border-r border-border">
             <label
               style={{
                 ...MONO,
@@ -136,23 +131,22 @@ const LeakageEstimator = () => {
               value={people}
               onChange={(e) => setPeople(e.target.value)}
               style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = BORDER_COLOR)}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--foreground))")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "hsl(var(--border))")}
             />
           </div>
           <div
-            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0"
-            style={{ borderColor: BORDER_COLOR }}
+            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0 border-border"
           >
             <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
               ANNUAL LEAKED HOURS
             </p>
             <p
+              className="text-foreground"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 700,
                 fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                color: "#FFFFFF",
                 letterSpacing: "-0.02em",
               }}
             >
@@ -161,7 +155,7 @@ const LeakageEstimator = () => {
           </div>
 
           {/* ── Row 2: Hours/week ↔ Annual Cost ── */}
-          <div className="py-8 lg:border-r" style={{ borderColor: BORDER_COLOR }}>
+          <div className="py-8 lg:border-r border-border">
             <label
               style={{
                 ...MONO,
@@ -179,23 +173,22 @@ const LeakageEstimator = () => {
               value={hoursPerWeek}
               onChange={(e) => setHoursPerWeek(e.target.value)}
               style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = BORDER_COLOR)}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--foreground))")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "hsl(var(--border))")}
             />
           </div>
           <div
-            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0"
-            style={{ borderColor: BORDER_COLOR }}
+            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0 border-border"
           >
             <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
               ANNUAL COST
             </p>
             <p
+              className="text-foreground"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 700,
                 fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                color: "#FFFFFF",
                 letterSpacing: "-0.02em",
               }}
             >
@@ -204,7 +197,7 @@ const LeakageEstimator = () => {
           </div>
 
           {/* ── Row 3: Hourly rate ↔ Recovery Scenario ── */}
-          <div className="py-8 lg:border-r" style={{ borderColor: BORDER_COLOR }}>
+          <div className="py-8 lg:border-r border-border">
             <label
               style={{
                 ...MONO,
@@ -222,15 +215,14 @@ const LeakageEstimator = () => {
               value={hourlyRate}
               onChange={(e) => setHourlyRate(e.target.value)}
               style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "#FFFFFF")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = BORDER_COLOR)}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--foreground))")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "hsl(var(--border))")}
             />
           </div>
           <div
-            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0"
-            style={{ borderColor: BORDER_COLOR }}
+            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0 border-border"
           >
-            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.75rem" }}>
+            <p className="text-primary" style={{ ...MONO, marginBottom: "0.75rem" }}>
               [RECOVERY SCENARIO]
             </p>
             <div className="flex gap-2 mt-[5px]">
@@ -248,24 +240,24 @@ const LeakageEstimator = () => {
                       fontSize: "0.75rem",
                       fontWeight: 600,
                       borderRadius: 0,
-                      border: isActive ? "1px solid #FF5F1F" : `1px solid ${BORDER_COLOR}`,
-                      background: isActive ? "#FF5F1F" : "hsl(210, 3%, 16%)",
-                      color: isActive ? "#FFFFFF" : "hsl(var(--muted-foreground))",
+                      border: isActive ? "1px solid hsl(var(--primary))" : "1px solid hsl(var(--border))",
+                      background: isActive ? "hsl(var(--primary))" : "hsl(var(--input))",
+                      color: isActive ? "hsl(var(--primary-foreground))" : "hsl(var(--muted-foreground))",
                       cursor: "pointer",
                       transition: "all 0ms",
                     }}
                     onMouseEnter={(e) => {
                       if (!isActive) {
-                        e.currentTarget.style.background = "#FFFFFF";
-                        e.currentTarget.style.color = "#000000";
-                        e.currentTarget.style.borderColor = "#FFFFFF";
+                        e.currentTarget.style.background = "hsl(var(--foreground))";
+                        e.currentTarget.style.color = "hsl(var(--background))";
+                        e.currentTarget.style.borderColor = "hsl(var(--foreground))";
                       }
                     }}
                     onMouseLeave={(e) => {
                       if (!isActive) {
-                        e.currentTarget.style.background = "hsl(210, 3%, 16%)";
+                        e.currentTarget.style.background = "hsl(var(--input))";
                         e.currentTarget.style.color = "hsl(var(--muted-foreground))";
-                        e.currentTarget.style.borderColor = BORDER_COLOR;
+                        e.currentTarget.style.borderColor = "hsl(var(--border))";
                       }
                     }}
                   >
@@ -278,29 +270,26 @@ const LeakageEstimator = () => {
 
           {/* ── Row 4: empty ↔ Recovered Capacity ── */}
           <div
-            className="hidden lg:block py-8 lg:border-r"
-            style={{ borderColor: BORDER_COLOR, borderTop: `1px solid ${BORDER_COLOR}` }}
+            className="hidden lg:block py-8 lg:border-r border-t border-border"
           />
           <div
-            className="py-8 pl-0 lg:pl-8 border-t"
-            style={{ borderColor: BORDER_COLOR }}
+            className="py-8 pl-0 lg:pl-8 border-t border-border"
           >
-            <p style={{ ...MONO, color: "#FF5F1F", marginBottom: "0.5rem" }}>
+            <p className="text-primary" style={{ ...MONO, marginBottom: "0.5rem" }}>
               [RECOVERED CAPACITY]
             </p>
             <p
-              className="flex flex-col lg:flex-row lg:items-baseline"
+              className="flex flex-col lg:flex-row lg:items-baseline text-primary"
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 fontWeight: 800,
                 fontSize: "clamp(1.5rem, 4vw, 3.25rem)",
-                color: "#FF5F1F",
                 letterSpacing: "-0.02em",
                 lineHeight: 1.15,
               }}
             >
               <span>{hasInput ? formatHours(recoveredHours) : "—"} hrs</span>
-              <span className="hidden lg:inline" style={{ color: "#FF5F1F", margin: "0 0.4em" }}>·</span>
+              <span className="hidden lg:inline text-primary" style={{ margin: "0 0.4em" }}>·</span>
               <span>{hasInput ? formatGBP(recoveredCost) : "—"}</span>
             </p>
           </div>

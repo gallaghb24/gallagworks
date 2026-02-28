@@ -31,7 +31,7 @@ const FAQSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 lg:py-36 bg-[#1A1C1E]" ref={ref}>
+    <section className="py-16 lg:py-36 bg-slate" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
           <span className={`font-mono text-xs text-primary uppercase tracking-widest mb-4 block clip-reveal ${isVisible ? "visible" : ""}`}>
@@ -45,7 +45,7 @@ const FAQSection = () => {
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`border-b border-[#2F3133] py-6 clip-reveal ${isVisible ? "visible" : ""}`}
+                className={`border-b border-border py-6 clip-reveal ${isVisible ? "visible" : ""}`}
                 style={{ transitionDelay: `${(i + 1) * 0.06}s` }}
               >
                 <h3 className="text-lg font-extrabold text-foreground mb-3">
