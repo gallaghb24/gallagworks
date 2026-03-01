@@ -17,7 +17,7 @@ export function useCountUp({
   flickerDuration = 700,
   formatValue,
 }: UseCountUpOptions) {
-  const [display, setDisplay] = useState(`${prefix}0${suffix}`);
+  const [display, setDisplay] = useState(`${prefix}${formatValue ? formatValue(target) : String(target)}${suffix}`);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const hasRun = useRef(false);
@@ -27,6 +27,7 @@ export function useCountUp({
   const animate = useCallback(() => {
     if (hasRun.current) return;
     hasRun.current = true;
+    setDisplay(`${prefix}${fmt(0)}${suffix}`);
 
     const startTime = performance.now();
     const totalDuration = flickerDuration + duration;
