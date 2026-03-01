@@ -104,4 +104,11 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- LLM Summary -->
+  <url>
+    <loc>https://www.gallag.works/llm.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
