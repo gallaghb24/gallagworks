@@ -4,6 +4,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
 import gallagWordmark from "@/assets/gallag-wordmark.png";
+import gallagWordmarkLight from "@/assets/gallag-wordmark-light.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,7 +62,12 @@ const Navigation = () => {
             <img
               src={gallagWordmark}
               alt="Gallag Works – Operational Engineering"
-              className="h-8 dark:brightness-100 brightness-0"
+              className="h-8 hidden dark:block"
+            />
+            <img
+              src={gallagWordmarkLight}
+              alt="Gallag Works – Operational Engineering"
+              className="h-8 block dark:hidden"
             />
           </Link>
 
