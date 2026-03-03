@@ -4,7 +4,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
 import gallagWordmark from "@/assets/gallag-wordmark.png";
-import gallagWordmarkLight from "@/assets/gallag-wordmark-light.png";
+import gallagWordmarkLight from "@/assets/gallag-wordmark-light.svg";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
