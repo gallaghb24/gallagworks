@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import gallagWordmark from "@/assets/gallag-wordmark.png";
 import gallagWordmarkFooter from "@/assets/gallag-wordmark-footer.png";
-import gallagWordmarkLight from "@/assets/gallag-wordmark-light.png";
+import gallagWordmarkLight from "@/assets/gallag-wordmark-light.svg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface FooterProps {
