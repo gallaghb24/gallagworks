@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { dimensions } from "@/data/questions";
 import { useDiagnostic } from "@/contexts/DiagnosticContext";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 const DiagnosticAssess = () => {
   const [currentDimension, setCurrentDimension] = useState(0);
@@ -18,12 +19,38 @@ const DiagnosticAssess = () => {
   const allAnswered = dimension.questions.every((q) => answers[q.id] !== undefined);
   const isLastDimension = currentDimension === totalDimensions - 1;
 
+  const completedRef = useRef(false);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentDimension]);
 
+  // Abandonment tracking
+  const handleBeforeUnload = useCallback(() => {
+    trackEvent("assessment_abandoned", {
+      last_dimension_completed: currentDimension > 0 ? dimensions[currentDimension - 1].id : null,
+      current_dimension: dimensions[currentDimension].id,
+    });
+  }, [currentDimension]);
+
+  useEffect(() => {
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [handleBeforeUnload]);
+
   const handleNext = () => {
+    // Track dimension completion
+    const dim = dimensions[currentDimension];
+    const dimScore = dim.questions.reduce((sum, q) => sum + (answers[q.id] ?? 0), 0);
+    trackEvent("dimension_completed", {
+      dimension_name: dim.id,
+      dimension_score: dimScore,
+      dimension_index: currentDimension,
+    });
+
     if (isLastDimension) {
+      completedRef.current = true;
+      window.removeEventListener("beforeunload", handleBeforeUnload);
       navigate("/diagnostic/capture");
     } else {
       setCurrentDimension((prev) => prev + 1);

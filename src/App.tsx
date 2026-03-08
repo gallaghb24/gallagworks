@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -34,6 +35,7 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+    trackEvent("page_view", { path: pathname });
   }, [pathname]);
   return null;
 };

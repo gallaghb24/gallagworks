@@ -18,6 +18,7 @@ import { useDiagnostic } from "@/contexts/DiagnosticContext";
 import { calculateFullScoring } from "@/lib/scoring";
 import { toast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { trackEvent } from "@/lib/analytics";
 
 const leadSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -116,6 +117,17 @@ const DiagnosticCapture = () => {
         .single();
 
       if (assessError) throw assessError;
+
+      // Track analytics
+      trackEvent("assessment_started", {
+        industry: result.data.industry || null,
+        company_size: result.data.company_size || null,
+      });
+      trackEvent("assessment_completed", {
+        total_score: scoring.totalScore,
+        maturity_level: scoring.maturityLevel.label,
+        assessment_id: assessment.id,
+      });
 
       // Fire-and-forget: send confirmation + admin notification emails
       supabase.functions.invoke("send-assessment-email", {

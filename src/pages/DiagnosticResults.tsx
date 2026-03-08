@@ -20,6 +20,7 @@ import { getMaturityLevel, getDimensionRating, getPriorityOrder } from "@/lib/sc
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { trackEvent } from "@/lib/analytics";
 
 // ── Maturity summaries ─────────────────────────────────────────────────
 
@@ -322,6 +323,18 @@ const DiagnosticResults = () => {
     assessmentDate: new Date().toISOString(),
   } : null);
 
+  // Track results_viewed when data is ready
+  useEffect(() => {
+    if (finalData) {
+      trackEvent("results_viewed", {
+        assessment_id: finalData.assessmentId,
+        total_score: finalData.scoring.totalScore,
+        maturity_level: finalData.scoring.maturityLevel.label,
+      });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [finalData?.assessmentId]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
@@ -381,10 +394,12 @@ const DiagnosticResults = () => {
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareUrl);
+    trackEvent("results_link_copied", { assessment_id: currentAssessmentId });
     toast({ title: "Link copied", description: "Share URL copied to clipboard." });
   };
 
   const handleLinkedInShare = () => {
+    trackEvent("linkedin_share_clicked", { assessment_id: currentAssessmentId });
     const text = encodeURIComponent(
       `I just completed the AI Readiness Diagnostic from Gallag Works. Our organisation scored ${totalScore}/150 — ${maturityLevel.label}. Interesting framework for thinking about where you actually stand on AI readiness. Take the assessment:`
     );
@@ -757,7 +772,7 @@ const DiagnosticResults = () => {
                 <Button
                   className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-none bg-primary text-primary-foreground hover:bg-primary/90"
                   onClick={() => {
-                    // PDF generation placeholder — will be implemented later
+                    trackEvent("pdf_downloaded", { assessment_id: currentAssessmentId });
                     console.log("PDF download triggered");
                   }}
                 >
@@ -772,6 +787,7 @@ const DiagnosticResults = () => {
                     href="https://calendly.com/bengallagher"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent("calendly_clicked", { assessment_id: currentAssessmentId })}
                   >
                     Book a Strategy Call
                   </a>
