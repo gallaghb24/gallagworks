@@ -575,7 +575,6 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
             <Text style={{ position: "absolute", top: 235, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Tooling</Text>
             <Text style={{ position: "absolute", top: 85, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Strategy</Text>
           </View>
-          </View>
         </View>
 
         <PageFooter pageNum={2} />
