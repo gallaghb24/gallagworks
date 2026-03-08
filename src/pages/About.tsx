@@ -16,7 +16,7 @@ const About = () => {
   const method = useScrollAnimation();
   const exp = useScrollAnimation();
 
-  const c1 = useCountUp({ target: 20, suffix: " Years" });
+  const c1 = useCountUp({ target: 15, suffix: "+ Years" });
   const c2 = useCountUp({ target: 15, prefix: "£", suffix: "m+" });
   const c3 = useCountUp({ target: 4000, suffix: "+", formatValue: commaFormat });
   const c4 = useCountUp({ target: 30, suffix: "+" });
@@ -32,7 +32,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="The Principal"
-        description="20 years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. Principal-led operational transformation managing £15M+ multichannel contracts."
+        description="15+ years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. Principal-led operational transformation managing £15M+ multichannel contracts."
         path="/about"
       />
       <Navigation />
@@ -118,7 +118,7 @@ const About = () => {
               <p
                 className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
-                Nearly two decades directing enterprise client delivery and managing £15M+ multichannel contracts for Tier-1 retailers and FTSE 100 entities taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
+                15 years directing enterprise client delivery and managing £15M+ multichannel contracts for Tier-1 retailers and FTSE 100 entities taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
               </p>
             </div>
           </div>

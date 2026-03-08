@@ -20,7 +20,7 @@ const Principal = () => {
               Built by an Operator, not an Agency.
             </h2>
             <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]">
-              Gallag Works is an independent operational engineering studio founded by Ben Gallagher. After 20 years managing £15m+ multichannel contracts and 30+ person teams for major UK retailers, Ben learned a hard truth: efficiency protects the P&L. He's not here to bill hours – he's here to recover them. Gallag Works exists to bring that exact 'efficiency-first' methodology to leaders who are drowning in manual workarounds and ready to build scalable systems.
+              Gallag Works is an independent operational engineering studio founded by Ben Gallagher. After 15 years managing £15m+ multichannel contracts as operational lead within a 2,100-person content production agency, Ben learned a hard truth: efficiency protects the P&L. He's not here to bill hours – he's here to recover them. Gallag Works exists to bring that exact 'efficiency-first' methodology to leaders who are drowning in manual workarounds and ready to build scalable systems.
             </p>
             <Link
               to="/about"
