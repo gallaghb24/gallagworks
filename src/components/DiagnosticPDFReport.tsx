@@ -699,7 +699,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           © {new Date().getFullYear()} Gallag Works Ltd. Registered in England & Wales: 17033965.
         </Text>
 
-        <PageFooter pageNum={10} />
+        <PageFooter pageNum={7} />
       </Page>
     </Document>
   );
