@@ -499,67 +499,68 @@ const DiagnosticResults = () => {
           </div>
         </section>
 
-        {/* ── Overall Score Card ────────────────────────────────────── */}
+        {/* ── Score Card + Dimension Map ─────────────────────────── */}
         <section className="pb-16 md:pb-24">
-          <div className="container mx-auto px-6 lg:px-12 flex justify-center">
-            <div className="w-full max-w-[600px] border border-border p-8 md:p-10 rounded-none">
-              <p
-                className="text-3xl md:text-4xl font-extrabold mb-4"
-                style={{ color: maturityLevel.color }}
-              >
-                {maturityLevel.label}
-              </p>
-              <p className="font-mono text-5xl md:text-6xl font-bold text-foreground mb-1">
-                {totalScore}{" "}
-                <span className="text-muted-foreground text-2xl md:text-3xl font-normal">/ 150</span>
-              </p>
-              <p className="font-mono text-lg text-primary font-semibold mb-6">
-                Level {maturityLevel.level}
-              </p>
-              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                {MATURITY_SUMMARIES[maturityLevel.level]}
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Radar Chart ──────────────────────────────────────────── */}
-        <section className="pb-16 md:pb-24">
-          <div className="container mx-auto px-6 lg:px-12 flex justify-center">
-            <div className="w-full max-w-[500px] border border-border rounded-none p-6">
-              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
-                [DIMENSION MAP]
-              </span>
-              <ResponsiveContainer width="100%" height={280}>
-                <RadarChart
-                  data={DIMENSION_KEYS.map((key) => ({
-                    dimension: SHORT_NAMES[key],
-                    score: dimensionScores[key],
-                  }))}
-                  cx="50%"
-                  cy="50%"
-                  outerRadius="75%"
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {/* Overall Score Card */}
+              <div className="border border-border p-8 md:p-10 rounded-none">
+                <p
+                  className="text-3xl md:text-4xl font-extrabold mb-4"
+                  style={{ color: maturityLevel.color }}
                 >
-                  <PolarGrid stroke="#1A1C1E" />
-                  <PolarAngleAxis
-                    dataKey="dimension"
-                    tick={{ fill: "hsl(var(--foreground))", fontSize: 12, fontFamily: "Inter" }}
-                  />
-                  <PolarRadiusAxis
-                    domain={[0, 25]}
-                    tick={false}
-                    axisLine={false}
-                  />
-                  <Radar
-                    dataKey="score"
-                    stroke="#FF5F1F"
-                    strokeWidth={2}
-                    fill="#FF5F1F"
-                    fillOpacity={0.3}
-                    dot={{ r: 4, fill: "#FF5F1F", stroke: "#FF5F1F" }}
-                  />
-                </RadarChart>
-              </ResponsiveContainer>
+                  {maturityLevel.label}
+                </p>
+                <p className="font-mono text-5xl md:text-6xl font-bold text-foreground mb-1">
+                  {totalScore}{" "}
+                  <span className="text-muted-foreground text-2xl md:text-3xl font-normal">/ 150</span>
+                </p>
+                <p className="font-mono text-lg text-primary font-semibold mb-6">
+                  Level {maturityLevel.level}
+                </p>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                  {MATURITY_SUMMARIES[maturityLevel.level]}
+                </p>
+              </div>
+
+              {/* Radar Chart */}
+              <div className="border border-border rounded-none p-6 flex flex-col">
+                <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
+                  [DIMENSION MAP]
+                </span>
+                <div className="flex-1 min-h-[280px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <RadarChart
+                      data={DIMENSION_KEYS.map((key) => ({
+                        dimension: SHORT_NAMES[key],
+                        score: dimensionScores[key],
+                      }))}
+                      cx="50%"
+                      cy="50%"
+                      outerRadius="75%"
+                    >
+                      <PolarGrid stroke="#1A1C1E" />
+                      <PolarAngleAxis
+                        dataKey="dimension"
+                        tick={{ fill: "hsl(var(--foreground))", fontSize: 12, fontFamily: "Inter" }}
+                      />
+                      <PolarRadiusAxis
+                        domain={[0, 25]}
+                        tick={false}
+                        axisLine={false}
+                      />
+                      <Radar
+                        dataKey="score"
+                        stroke="#FF5F1F"
+                        strokeWidth={2}
+                        fill="#FF5F1F"
+                        fillOpacity={0.3}
+                        dot={{ r: 4, fill: "#FF5F1F", stroke: "#FF5F1F" }}
+                      />
+                    </RadarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
             </div>
           </div>
         </section>
