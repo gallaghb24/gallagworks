@@ -6,6 +6,11 @@ import {
   Image,
   StyleSheet,
   pdf,
+  Svg,
+  Polygon,
+  Circle,
+  Line,
+  G,
 } from "@react-pdf/renderer";
 import logoSrc from "@/assets/gallag-wordmark.png";
 
