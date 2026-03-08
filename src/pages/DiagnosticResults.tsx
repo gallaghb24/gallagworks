@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/analytics";
+import { downloadDiagnosticPDF } from "@/components/DiagnosticPDFReport";
 
 // ── Maturity summaries ─────────────────────────────────────────────────
 
