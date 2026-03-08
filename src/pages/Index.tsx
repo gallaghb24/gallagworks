@@ -14,7 +14,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title=""
-        description="Principal-led operational engineering for Tier-1 multichannel retail. Eradicating 'Data Glue' and manual friction to recover enterprise margins. Proven results in 1,200-hour capacity reclamation and £1M+ operational leakage recovery."
+        description="Principal-led operational engineering for high-volume, handoff-heavy operations. Eradicating 'Data Glue' and manual friction to recover enterprise margins. Proven results: 1,200+ hours reclaimed, up to 98% manual effort reduction."
         path="/"
       />
       <Navigation />

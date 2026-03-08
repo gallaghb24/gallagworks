@@ -88,7 +88,7 @@ const StructuredData = () => {
       "Enterprise Transformation",
       "Data Glue Eradication",
       "Workflow Automation",
-      "Multichannel Retail Operations",
+      "Enterprise Operations",
     ],
     worksFor: {
       "@type": "Organization",

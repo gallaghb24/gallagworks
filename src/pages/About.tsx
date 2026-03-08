@@ -127,7 +127,7 @@ const About = () => {
               <p
                 className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
-                15 years directing enterprise client delivery and managing £15M+ multichannel contracts for Tier-1 retailers and FTSE 100 entities taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
+                15 years directing enterprise client delivery and managing £15M+ contracts as operational lead within a 2,100-person content production agency taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact efficiency-first methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
               </p>
             </div>
           </div>
