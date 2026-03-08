@@ -59,6 +59,48 @@ const glossaryTerms = [
     definition:
       "Automated validation checkpoints within an operational pipeline that programmatically determine if data is 'clean' enough to proceed or requires routing to a Decision Inbox. Logic Gates replace manual 'quality checking' loops with instant, error-free verification.",
   },
+  {
+    id: "process-automation",
+    term: "Process Automation",
+    definition:
+      "The use of technology to execute recurring tasks or workflows that previously required manual intervention. Effective process automation requires clean, structured inputs and well-understood decision logic. Automating a process that relies on tacit knowledge or inconsistent data will produce unreliable outputs at speed. The Operational X-Ray identifies which processes are genuinely automatable and which need structural work first.",
+  },
+  {
+    id: "workflow-optimisation",
+    term: "Workflow Optimisation",
+    definition:
+      "The systematic analysis and redesign of how work moves through an organisation. True optimisation is not about making people faster at the same tasks. It is about eliminating tasks that should not exist, clarifying handoffs, and removing the manual coordination overhead that accumulates as organisations grow. Most operational friction is invisible until it is mapped.",
+  },
+  {
+    id: "operational-efficiency",
+    term: "Operational Efficiency",
+    definition:
+      "The ratio of useful output to total input in a business process. In practice, most organisations measure efficiency at the task level while ignoring the systemic friction between tasks. The gap between departmental efficiency metrics and actual end-to-end throughput is where Data Glue hides. Genuine operational efficiency requires measuring the whole workflow, not just the parts that are easy to measure.",
+  },
+  {
+    id: "ai-readiness",
+    term: "AI Readiness",
+    definition:
+      "The degree to which an organisation's data, processes, governance, skills, tooling, and strategic clarity can support the adoption of AI technologies. Most organisations overestimate their readiness because they assess it against the AI tool's requirements rather than the operational reality of their data and workflows. The AI Readiness Diagnostic provides a structured assessment across six dimensions.",
+  },
+  {
+    id: "digital-transformation",
+    term: "Digital Transformation",
+    definition:
+      "A term that has been stretched to mean everything and therefore means nothing. At Gallag Works, transformation means one thing: changing how work actually gets done, not how it gets reported. If the spreadsheet is still being emailed around after the transformation, nothing has transformed. Real transformation is structural, measurable, and usually less glamorous than the vendor pitch suggests.",
+  },
+  {
+    id: "rpa",
+    term: "Robotic Process Automation (RPA)",
+    definition:
+      "Software that mimics human actions within digital systems to automate repetitive tasks. RPA is effective for high-volume, rule-based processes with structured inputs. It is not effective when the underlying process depends on human interpretation, inconsistent data formats, or tacit knowledge. Many RPA implementations fail not because the technology is wrong but because the process was not engineered before the automation was applied.",
+  },
+  {
+    id: "human-in-the-loop",
+    term: "Human-in-the-Loop",
+    definition:
+      "A design pattern where automated systems handle routine processing but route exceptions, ambiguities, and high-stakes decisions to a human for review. The Decision Inbox is Gallag Works' implementation of this pattern. The key design challenge is not building the automation but defining the threshold: what genuinely needs human judgement versus what is being routed to a human out of organisational anxiety.",
+  },
 ];
 
 const Glossary = () => {
