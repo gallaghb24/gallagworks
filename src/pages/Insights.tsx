@@ -130,7 +130,7 @@ const Insights = () => {
                 {insights.map((item) => (
                   <Link
                     key={item.ref}
-                    to={`/insights/${item.slug}`}
+                    to={item.type === "TOOL" ? `/${item.slug}` : `/insights/${item.slug}`}
                     className="block md:grid px-5 pt-5 pb-4 md:px-6 md:pt-6 md:pb-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group"
                     style={{ gridTemplateColumns: '15% 45% 28% 12%' }}
                   >
@@ -143,7 +143,7 @@ const Insights = () => {
                     <span className="font-mono text-sm text-muted-foreground leading-relaxed block mb-1 md:mb-0">
                       {item.metric}
                     </span>
-                    <span className="font-mono text-xs text-primary uppercase tracking-widest leading-relaxed block md:text-right">
+                    <span className={`font-mono text-xs uppercase tracking-widest leading-relaxed block md:text-right ${item.type === "TOOL" ? "text-green-500" : "text-primary"}`}>
                       [{item.status}]
                     </span>
                   </Link>
