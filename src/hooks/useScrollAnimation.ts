@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface UseScrollAnimationOptions {
   threshold?: number;
@@ -9,11 +9,15 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
   options: UseScrollAnimationOptions = {}
 ) {
   const { threshold = 0.3, once = true } = options;
-  const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [element, setElement] = useState<T | null>(null);
+
+  // Callback ref so we detect when the element mounts/unmounts
+  const ref = useCallback((node: T | null) => {
+    setElement(node);
+  }, []);
 
   useEffect(() => {
-    const element = ref.current;
     if (!element) return;
 
     const observer = new IntersectionObserver(
@@ -30,7 +34,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [threshold, once]);
+  }, [element, threshold, once]);
 
   return { ref, isVisible };
 }
