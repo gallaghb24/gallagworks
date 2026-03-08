@@ -25,6 +25,8 @@ interface FlatQuestion {
 const DiagnosticAssess = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAdvancing, setIsAdvancing] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [direction, setDirection] = useState<"forward" | "back">("forward");
   const { answers, updateAnswer } = useDiagnostic();
   const navigate = useNavigate();
   const completedRef = useRef(false);
