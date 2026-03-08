@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { dimensions } from "@/data/questions";
 import { useDiagnostic } from "@/contexts/DiagnosticContext";
 import SEOHead from "@/components/SEOHead";
+import CTABand from "@/components/CTABand";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
@@ -228,6 +230,11 @@ const DiagnosticAssess = () => {
           </div>
         </div>
       </main>
+      <CTABand
+        headline={<>Stop the leakage. <span className="text-primary">Start the Engineering.</span></>}
+        subcopy="Start with the free AI Readiness Diagnostic or request a consultation to discuss your operational challenges."
+      />
+      <Footer hideCTA />
     </div>
   );
 };
