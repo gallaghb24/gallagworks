@@ -755,7 +755,7 @@ const DiagnosticResults = () => {
             <div className="max-w-2xl mx-auto text-center">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Button
-                  className="h-12 px-8 text-base font-semibold rounded-none bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-none bg-primary text-primary-foreground hover:bg-primary/90"
                   onClick={() => {
                     // PDF generation placeholder — will be implemented later
                     console.log("PDF download triggered");
