@@ -234,7 +234,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-203",
     title: "Validation Pipeline Automation.",
     subtitle: "Building validation rules into the data pipeline to eliminate unsustainable manual checking and free capacity for process improvement.",
-    date: "FEB 2026",
+    date: "SEP 2025",
     seoDescription: "Validation Pipeline Automation: Manual checking reduced 60%. 20h/week reclaimed by building validation rules into the data pipeline with exception-only routing.",
     manifesto: [
       {
