@@ -6,6 +6,11 @@ import {
   Image,
   StyleSheet,
   pdf,
+  Svg,
+  Polygon,
+  Circle,
+  Line,
+  G,
 } from "@react-pdf/renderer";
 import logoSrc from "@/assets/gallag-wordmark.png";
 
@@ -370,6 +375,109 @@ function generateActionPlan(
   return { quickWins, mediumTerm, strategic };
 }
 
+// ── Radar Chart SVG Component ──────────────────────────────────────────
+
+const SHORT_LABELS: Record<DimensionKey, string> = {
+  data_foundation: "Data",
+  process_maturity: "Process",
+  governance_risk: "Governance",
+  skills_culture: "Skills",
+  tooling_infrastructure: "Tooling",
+  strategic_clarity: "Strategy",
+};
+
+function hexPoint(cx: number, cy: number, r: number, i: number): [number, number] {
+  // Start from top (270°), go clockwise
+  const angle = (Math.PI * 2 * i) / 6 - Math.PI / 2;
+  return [cx + r * Math.cos(angle), cy + r * Math.sin(angle)];
+}
+
+function hexPoints(cx: number, cy: number, r: number): string {
+  return Array.from({ length: 6 }, (_, i) => hexPoint(cx, cy, r, i).join(",")).join(" ");
+}
+
+const RadarChartSVG = ({
+  dimKeys,
+  dimensionScores,
+}: {
+  dimKeys: DimensionKey[];
+  dimensionScores: Record<DimensionKey, number>;
+}) => {
+  const w = 380;
+  const h = 340;
+  const cx = w / 2;
+  const cy = h / 2;
+  const maxR = 110;
+  const gridLevels = [0.33, 0.66, 1.0];
+
+  // Score polygon
+  const scorePoints = dimKeys
+    .map((key, i) => {
+      const score = dimensionScores[key];
+      const r = (score / 25) * maxR;
+      return hexPoint(cx, cy, r, i).join(",");
+    })
+    .join(" ");
+
+  // Label positions
+  const labelR = maxR + 24;
+  const labels = dimKeys.map((key, i) => {
+    const [x, y] = hexPoint(cx, cy, labelR, i);
+    const label = SHORT_LABELS[key];
+    // Adjust text-anchor based on position
+    let textAnchor: "middle" | "start" | "end" = "middle";
+    if (i === 1 || i === 2) textAnchor = "start";
+    if (i === 4 || i === 5) textAnchor = "end";
+    // Nudge top/bottom labels vertically
+    let dy = 0;
+    if (i === 0) dy = -6;
+    if (i === 3) dy = 10;
+    return { key, x, y: y + dy, label, textAnchor };
+  });
+
+  return (
+    <Svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}>
+      {/* Grid hexagons */}
+      {gridLevels.map((level) => (
+        <Polygon
+          key={level}
+          points={hexPoints(cx, cy, maxR * level)}
+          stroke="#1A1C1E"
+          strokeWidth={1}
+          fill="none"
+        />
+      ))}
+      {/* Axis lines */}
+      {dimKeys.map((_, i) => {
+        const [x, y] = hexPoint(cx, cy, maxR, i);
+        return (
+          <Line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke="#1A1C1E" strokeWidth={0.5} />
+        );
+      })}
+      {/* Score polygon */}
+      <Polygon
+        points={scorePoints}
+        stroke={ORANGE}
+        strokeWidth={2}
+        fill={ORANGE}
+        fillOpacity={0.3}
+      />
+      {/* Score dots */}
+      {dimKeys.map((key, i) => {
+        const score = dimensionScores[key];
+        const r = (score / 25) * maxR;
+        const [x, y] = hexPoint(cx, cy, r, i);
+        return (
+          <G key={key}>
+            <Circle cx={x} cy={y} r={4} fill={ORANGE} stroke={ORANGE} strokeWidth={1} />
+            <Circle cx={x} cy={y} r={2} fill={PAGE_BG} />
+          </G>
+        );
+      })}
+    </Svg>
+  );
+};
+
 // ── PDF Document ───────────────────────────────────────────────────────
 
 interface PDFProps {
@@ -454,26 +562,19 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           </View>
         </View>
 
-        {/* Dimension Map - Visual bars */}
-        <View style={{ marginTop: 24 }}>
-          <Text style={s.sectionLabel}>[DIMENSION MAP]</Text>
-          {dimKeys.map((key) => {
-            const score = dimensionScores[key];
-            const rating = dimensionRatings[key];
-            const pct = (score / 25) * 100;
-            return (
-              <View key={key} style={{ marginBottom: 10 }}>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 3 }}>
-                  <Text style={{ fontSize: 9, color: LIGHT_TEXT, fontFamily: "Helvetica" }}>{DIMENSION_LABELS[key]}</Text>
-                  <Text style={{ fontSize: 9, color: getRatingColor(rating.rating), fontFamily: "Helvetica-Bold" }}>{score}/25</Text>
-                </View>
-                <View style={s.barContainer}>
-                  <View style={[s.barFill, { width: `${pct}%`, backgroundColor: getRatingColor(rating.rating) }]} />
-                </View>
-                <Text style={{ fontSize: 7, color: getRatingColor(rating.rating), fontFamily: "Courier", marginTop: 2 }}>{rating.rating}</Text>
-              </View>
-            );
-          })}
+        {/* Dimension Map - Radar Chart */}
+        <View style={{ marginTop: 24, alignItems: "center" }}>
+          <Text style={[s.sectionLabel, { alignSelf: "flex-start" }]}>[DIMENSION MAP]</Text>
+          <View style={{ width: 380, height: 340, marginTop: 8, position: "relative" }}>
+            <RadarChartSVG dimKeys={dimKeys} dimensionScores={dimensionScores} />
+            {/* Labels positioned around the chart */}
+            <Text style={{ position: "absolute", top: 8, left: 0, right: 0, textAlign: "center", fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Data</Text>
+            <Text style={{ position: "absolute", top: 85, right: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Process</Text>
+            <Text style={{ position: "absolute", top: 235, right: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Governance</Text>
+            <Text style={{ position: "absolute", bottom: 8, left: 0, right: 0, textAlign: "center", fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Skills</Text>
+            <Text style={{ position: "absolute", top: 235, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Tooling</Text>
+            <Text style={{ position: "absolute", top: 85, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Strategy</Text>
+          </View>
         </View>
 
         <PageFooter pageNum={2} />
