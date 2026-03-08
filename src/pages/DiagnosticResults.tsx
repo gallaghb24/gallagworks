@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/analytics";
+import { downloadDiagnosticPDF } from "@/components/DiagnosticPDFReport";
 
 // ── Maturity summaries ─────────────────────────────────────────────────
 
@@ -838,9 +839,18 @@ const DiagnosticResults = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Button
                   className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-none bg-primary text-primary-foreground hover:bg-primary/90"
-                  onClick={() => {
+                  onClick={async () => {
                     trackEvent("pdf_downloaded", { assessment_id: currentAssessmentId });
-                    console.log("PDF download triggered");
+                    try {
+                      await downloadDiagnosticPDF({
+                        scoring,
+                        organisation,
+                        assessmentDate: finalData!.assessmentDate,
+                      });
+                    } catch (err) {
+                      console.error("PDF generation failed:", err);
+                      toast({ title: "PDF generation failed", description: "Please try again.", variant: "destructive" });
+                    }
                   }}
                 >
                   Download PDF Report
