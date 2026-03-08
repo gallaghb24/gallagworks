@@ -45,7 +45,7 @@ const StructuredData = () => {
     "@type": "ProfessionalService",
     name: "Gallag Works",
     description:
-      "Principal-led operational engineering for Tier-1 multichannel retail. Eradicating 'Data Glue' and manual friction to recover enterprise margins.",
+      "Principal-led operational engineering for high-volume, handoff-heavy operations. Eradicating 'Data Glue' and manual friction to recover enterprise margins.",
     url: "https://www.gallag.works",
     logo: "https://www.gallag.works/favicon.svg",
     image: "https://www.gallag.works/og-image.png",
@@ -61,13 +61,13 @@ const StructuredData = () => {
       "@type": "Person",
       name: "Ben Gallagher",
       jobTitle: "Principal",
-      description:
-        "Operational engineering expert with 15+ years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. Specialises in eradicating manual friction and engineering scalable operational systems.",
+        description:
+        "Operational engineering expert with 15+ years directing enterprise delivery for enterprise clients across retail, financial services, and professional services. Specialises in eradicating manual friction and engineering scalable operational systems.",
       knowsAbout: [
         "Operational Engineering",
         "Enterprise Transformation",
         "Workflow Automation",
-        "Multichannel Retail Operations",
+        "Enterprise Operations",
       ],
     },
     address: {
@@ -82,13 +82,13 @@ const StructuredData = () => {
     name: "Ben Gallagher",
     jobTitle: "Principal, Gallag Works",
     description:
-      "Operational engineering specialist with 15+ years of enterprise delivery experience managing £15M+ multichannel contracts for Tier-1 retailers and FTSE 100 entities.",
+      "Operational engineering specialist with 15+ years of enterprise delivery experience managing £15M+ contracts across retail, financial services, and professional services.",
     knowsAbout: [
       "Operational Engineering",
       "Enterprise Transformation",
       "Data Glue Eradication",
       "Workflow Automation",
-      "Multichannel Retail Operations",
+      "Enterprise Operations",
     ],
     worksFor: {
       "@type": "Organization",

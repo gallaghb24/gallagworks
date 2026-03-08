@@ -32,7 +32,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="The Principal"
-        description="15+ years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. Principal-led operational transformation managing £15M+ multichannel contracts."
+        description="15+ years directing enterprise delivery across retail, financial services, and professional services. Principal-led operational transformation as operational lead within a 2,100-person agency."
         path="/about"
       />
       <Navigation />
@@ -51,7 +51,7 @@ const About = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I led operational transformation for Tier-1 retailers and FTSE 100 entities, managing £15M+ annual multichannel contracts.
+                Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I led operational transformation across retail, financial services, and professional services as operational lead within a 2,100-person content production agency, managing £15M+ annual contracts.
               </p>
               <a
                 href="https://www.linkedin.com/in/bengallagher/"
@@ -127,7 +127,7 @@ const About = () => {
               <p
                 className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
-                15 years directing enterprise client delivery and managing £15M+ multichannel contracts for Tier-1 retailers and FTSE 100 entities taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact 'efficiency-first' methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
+                15 years directing enterprise client delivery and managing £15M+ contracts as operational lead within a 2,100-person content production agency taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact efficiency-first methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
               </p>
             </div>
           </div>
