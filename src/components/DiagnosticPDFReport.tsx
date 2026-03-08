@@ -404,7 +404,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
       {/* Page 1: Cover */}
       <Page size="A4" style={s.coverPage}>
         <View>
-          <Image src={logoSrc} style={{ width: 180, height: 36, marginBottom: 4 }} />
+          <Image src={logoSrc} style={{ width: 160, marginBottom: 4 }} />
         </View>
         <View>
           <Text style={s.coverTitle}>AI Readiness{"\n"}Diagnostic Report</Text>
@@ -452,6 +452,28 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
             <Text style={[s.scoreValue, { fontFamily: "Helvetica-Bold", fontSize: 12 }]}>{totalScore}/150</Text>
             <Text style={s.scoreRating} />
           </View>
+        </View>
+
+        {/* Dimension Map - Visual bars */}
+        <View style={{ marginTop: 24 }}>
+          <Text style={s.sectionLabel}>[DIMENSION MAP]</Text>
+          {dimKeys.map((key) => {
+            const score = dimensionScores[key];
+            const rating = dimensionRatings[key];
+            const pct = (score / 25) * 100;
+            return (
+              <View key={key} style={{ marginBottom: 10 }}>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 3 }}>
+                  <Text style={{ fontSize: 9, color: LIGHT_TEXT, fontFamily: "Helvetica" }}>{DIMENSION_LABELS[key]}</Text>
+                  <Text style={{ fontSize: 9, color: getRatingColor(rating.rating), fontFamily: "Helvetica-Bold" }}>{score}/25</Text>
+                </View>
+                <View style={s.barContainer}>
+                  <View style={[s.barFill, { width: `${pct}%`, backgroundColor: getRatingColor(rating.rating) }]} />
+                </View>
+                <Text style={{ fontSize: 7, color: getRatingColor(rating.rating), fontFamily: "Courier", marginTop: 2 }}>{rating.rating}</Text>
+              </View>
+            );
+          })}
         </View>
 
         <PageFooter pageNum={2} />
