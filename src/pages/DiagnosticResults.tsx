@@ -447,12 +447,14 @@ const DiagnosticResults = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finalData?.assessmentId]);
 
-  // Animate total score count-up when score section is visible
+  // Animate total score count-up — synced so it finishes when the last dimension card does
+  // Last card: stagger 5*120=600ms + 500ms delay + 1800ms count = 2900ms total
+  // Overall score: 500ms delay + 2400ms duration = 2900ms total (matches)
   useEffect(() => {
     if (!scoreSection.isVisible || totalScoreAnimated || !finalData) return;
     const target = finalData.scoring.totalScore;
     const delay = 500;
-    const duration = 1200;
+    const duration = 2400;
     setTotalScoreAnimated(true);
     let rafId: number;
     const timer = setTimeout(() => {
