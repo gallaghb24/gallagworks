@@ -450,10 +450,11 @@ const DiagnosticResults = () => {
   // Animate total score count-up when score section is visible
   useEffect(() => {
     if (!scoreSection.isVisible || totalScoreAnimated || !finalData) return;
-    setTotalScoreAnimated(true);
     const target = finalData.scoring.totalScore;
-    const delay = 500; // wait for section fade-in
+    const delay = 500;
     const duration = 1200;
+    setTotalScoreAnimated(true);
+    let rafId: number;
     const timer = setTimeout(() => {
       const startTime = performance.now();
       const step = (now: number) => {
@@ -461,11 +462,11 @@ const DiagnosticResults = () => {
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         setAnimatedTotalScore(Math.round(eased * target));
-        if (progress < 1) requestAnimationFrame(step);
+        if (progress < 1) { rafId = requestAnimationFrame(step); }
       };
-      requestAnimationFrame(step);
+      rafId = requestAnimationFrame(step);
     }, delay);
-    return () => clearTimeout(timer);
+    return () => { clearTimeout(timer); cancelAnimationFrame(rafId); };
   }, [scoreSection.isVisible, totalScoreAnimated, finalData]);
 
   // Custom radar chart tick renderer
