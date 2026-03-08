@@ -16,6 +16,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { useDiagnostic } from "@/contexts/DiagnosticContext";
 import { calculateScores } from "@/lib/diagnosticScoring";
+import { dimensions } from "@/data/questions";
 import { toast } from "@/hooks/use-toast";
 import { z } from "zod";
 
