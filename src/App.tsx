@@ -54,6 +54,12 @@ const App = () => (
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/cookies" element={<Cookies />} />
                 <Route path="/glossary" element={<Glossary />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin" element={<AdminLayout />}>
+                  <Route index element={<AdminOverview />} />
+                  <Route path="leads" element={<AdminLeads />} />
+                  <Route path="assessments" element={<AdminAssessments />} />
+                </Route>
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </DiagnosticProvider>
