@@ -117,6 +117,22 @@ const DiagnosticCapture = () => {
 
       if (assessError) throw assessError;
 
+      // Fire-and-forget: send confirmation + admin notification emails
+      supabase.functions.invoke("send-assessment-email", {
+        body: {
+          name: result.data.name,
+          email: result.data.email,
+          organisation: result.data.organisation,
+          role: result.data.role || null,
+          industry: result.data.industry || null,
+          company_size: result.data.company_size || null,
+          total_score: scoring.totalScore,
+          maturity_level: scoring.maturityLevel.label,
+          dimension_scores: scoring.dimensionScores,
+          assessment_id: assessment.id,
+        },
+      }).catch((err) => console.error("Email send failed (non-blocking):", err));
+
       navigate(`/diagnostic/results/${assessment.id}`, {
         state: { scoring, assessmentId: assessment.id, organisation: result.data.organisation },
       });
