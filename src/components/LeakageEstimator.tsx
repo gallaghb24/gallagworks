@@ -230,43 +230,47 @@ const LeakageEstimator = () => {
               [RECOVERY SCENARIO]
             </p>
             <div className="flex gap-2 mt-[5px]">
-              {RECOVERY_OPTIONS.map((pct) => {
+              {RECOVERY_OPTIONS.map(({ pct, label }) => {
                 const isActive = recoveryPct === pct;
                 return (
-                  <button
-                    key={pct}
-                    onClick={() => setRecoveryPct(pct)}
-                    className="px-5 lg:px-8"
-                    style={{
-                      paddingTop: "0.5rem",
-                      paddingBottom: "0.5rem",
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      borderRadius: 0,
-                      border: isActive ? "1px solid hsl(var(--primary))" : "1px solid hsl(var(--border))",
-                      background: isActive ? "hsl(var(--primary))" : "hsl(var(--input))",
-                      color: isActive ? "hsl(var(--primary-foreground))" : "hsl(var(--muted-foreground))",
-                      cursor: "pointer",
-                      transition: "all 0ms",
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.background = "hsl(var(--foreground))";
-                        e.currentTarget.style.color = "hsl(var(--background))";
-                        e.currentTarget.style.borderColor = "hsl(var(--foreground))";
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.background = "hsl(var(--input))";
-                        e.currentTarget.style.color = "hsl(var(--muted-foreground))";
-                        e.currentTarget.style.borderColor = "hsl(var(--border))";
-                      }
-                    }}
-                  >
-                    {pct}%
-                  </button>
+                  <div key={pct} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                    <button
+                      onClick={() => setRecoveryPct(pct)}
+                      className="px-5 lg:px-8"
+                      style={{
+                        paddingTop: "0.5rem",
+                        paddingBottom: "0.5rem",
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
+                        borderRadius: 0,
+                        border: isActive ? "1px solid hsl(var(--primary))" : "1px solid hsl(var(--border))",
+                        background: isActive ? "hsl(var(--primary))" : "hsl(var(--input))",
+                        color: isActive ? "hsl(var(--primary-foreground))" : "hsl(var(--muted-foreground))",
+                        cursor: "pointer",
+                        transition: "all 0ms",
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.background = "hsl(var(--foreground))";
+                          e.currentTarget.style.color = "hsl(var(--background))";
+                          e.currentTarget.style.borderColor = "hsl(var(--foreground))";
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.background = "hsl(var(--input))";
+                          e.currentTarget.style.color = "hsl(var(--muted-foreground))";
+                          e.currentTarget.style.borderColor = "hsl(var(--border))";
+                        }
+                      }}
+                    >
+                      {pct}%
+                    </button>
+                    <span style={{ ...MONO, fontSize: "0.6rem", color: "hsl(var(--muted-foreground))", marginTop: "0.35rem", display: "block", textAlign: "center" }}>
+                      {label}
+                    </span>
+                  </div>
                 );
               })}
             </div>
