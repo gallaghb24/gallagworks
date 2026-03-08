@@ -154,6 +154,47 @@ const DiagnosticResults = () => {
           </div>
         </section>
 
+        {/* ── Radar Chart ──────────────────────────────────────────── */}
+        <section className="pb-16 md:pb-24">
+          <div className="container mx-auto px-6 lg:px-12 flex justify-center">
+            <div className="w-full max-w-[500px] border border-border rounded-none p-6">
+              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
+                [DIMENSION MAP]
+              </span>
+              <ResponsiveContainer width="100%" height={320}>
+                <RadarChart
+                  data={DIMENSION_KEYS.map((key) => ({
+                    dimension: SHORT_NAMES[key],
+                    score: dimensionScores[key],
+                  }))}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius="75%"
+                >
+                  <PolarGrid stroke="#1A1C1E" />
+                  <PolarAngleAxis
+                    dataKey="dimension"
+                    tick={{ fill: "hsl(var(--foreground))", fontSize: 12, fontFamily: "Inter" }}
+                  />
+                  <PolarRadiusAxis
+                    domain={[0, 25]}
+                    tick={false}
+                    axisLine={false}
+                  />
+                  <Radar
+                    dataKey="score"
+                    stroke="#FF5F1F"
+                    strokeWidth={2}
+                    fill="#FF5F1F"
+                    fillOpacity={0.3}
+                    dot={{ r: 4, fill: "#FF5F1F", stroke: "#FF5F1F" }}
+                  />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </section>
+
         {/* ── Dimension Breakdown Grid ─────────────────────────────── */}
         <section className="pb-12 md:pb-16">
           <div className="container mx-auto px-6 lg:px-12">
