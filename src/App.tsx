@@ -16,6 +16,10 @@ import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
 import Glossary from "./pages/Glossary";
 import NotFound from "./pages/NotFound";
+import Diagnostic from "./pages/Diagnostic";
+import DiagnosticAssess from "./pages/DiagnosticAssess";
+import DiagnosticCapture from "./pages/DiagnosticCapture";
+import DiagnosticResults from "./pages/DiagnosticResults";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +39,11 @@ const App = () => (
               {/* Case studies consolidated into /insights */}
               <Route path="/insights" element={<Insights />} />
               <Route path="/insights/:slug" element={<InsightManifesto />} />
+              <Route path="/diagnostic" element={<Diagnostic />} />
+              <Route path="/diagnostic/assess" element={<DiagnosticAssess />} />
+              <Route path="/diagnostic/capture" element={<DiagnosticCapture />} />
+              <Route path="/diagnostic/results" element={<DiagnosticResults />} />
+              <Route path="/diagnostic/results/:assessmentId" element={<DiagnosticResults />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/cookies" element={<Cookies />} />
