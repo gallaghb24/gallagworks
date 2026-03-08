@@ -99,15 +99,21 @@ const DiagnosticAssess = () => {
     }
 
     advanceTimerRef.current = setTimeout(() => {
-      if (isLast) {
-        completedRef.current = true;
-        window.removeEventListener("beforeunload", handleBeforeUnload);
-        navigate("/diagnostic/capture");
-      } else {
-        setCurrentIndex((prev) => prev + 1);
-      }
-      setIsAdvancing(false);
-    }, 600);
+      setIsTransitioning(true);
+      setDirection("forward");
+      // Wait for fade-out, then change index
+      setTimeout(() => {
+        if (isLast) {
+          completedRef.current = true;
+          window.removeEventListener("beforeunload", handleBeforeUnload);
+          navigate("/diagnostic/capture");
+        } else {
+          setCurrentIndex((prev) => prev + 1);
+        }
+        setIsAdvancing(false);
+        setIsTransitioning(false);
+      }, 250);
+    }, 350);
   };
 
   const handleBack = () => {
