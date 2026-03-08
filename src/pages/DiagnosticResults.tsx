@@ -1,6 +1,14 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
+import {
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+  ResponsiveContainer,
+} from "recharts";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
