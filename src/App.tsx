@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -9,27 +9,36 @@ import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import StructuredData from "@/components/StructuredData";
 import { DiagnosticProvider } from "@/contexts/DiagnosticContext";
+import { Loader2 } from "lucide-react";
 import Index from "./pages/Index";
-import Services from "./pages/Services";
-import About from "./pages/About";
-import Insights from "./pages/Insights";
-import InsightManifesto from "./pages/InsightManifesto";
-import Contact from "./pages/Contact";
-import Privacy from "./pages/Privacy";
-import Cookies from "./pages/Cookies";
-import Glossary from "./pages/Glossary";
-import NotFound from "./pages/NotFound";
-import Diagnostic from "./pages/Diagnostic";
-import DiagnosticAssess from "./pages/DiagnosticAssess";
-import DiagnosticCapture from "./pages/DiagnosticCapture";
-import DiagnosticResults from "./pages/DiagnosticResults";
-import AdminLogin from "./pages/AdminLogin";
-import AdminLayout from "./components/admin/AdminLayout";
-import AdminOverview from "./pages/admin/AdminOverview";
-import AdminLeads from "./pages/admin/AdminLeads";
-import AdminAssessments from "./pages/admin/AdminAssessments";
+
+// Lazy-loaded routes
+const Services = lazy(() => import("./pages/Services"));
+const About = lazy(() => import("./pages/About"));
+const Insights = lazy(() => import("./pages/Insights"));
+const InsightManifesto = lazy(() => import("./pages/InsightManifesto"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Cookies = lazy(() => import("./pages/Cookies"));
+const Glossary = lazy(() => import("./pages/Glossary"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Diagnostic = lazy(() => import("./pages/Diagnostic"));
+const DiagnosticAssess = lazy(() => import("./pages/DiagnosticAssess"));
+const DiagnosticCapture = lazy(() => import("./pages/DiagnosticCapture"));
+const DiagnosticResults = lazy(() => import("./pages/DiagnosticResults"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const AdminLayout = lazy(() => import("./components/admin/AdminLayout"));
+const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
+const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
+const AdminAssessments = lazy(() => import("./pages/admin/AdminAssessments"));
 
 const queryClient = new QueryClient();
+
+const LoadingFallback = () => (
+  <div className="flex min-h-screen items-center justify-center bg-background">
+    <Loader2 className="h-6 w-6 animate-spin text-primary" />
+  </div>
+);
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -55,29 +64,31 @@ const App = () => (
           <BrowserRouter>
             <ScrollToTop />
             <DiagnosticProvider>
-              <Routes>
-                <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-                <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
-                <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-                <Route path="/insights" element={<PageWrapper><Insights /></PageWrapper>} />
-                <Route path="/insights/:slug" element={<PageWrapper><InsightManifesto /></PageWrapper>} />
-                <Route path="/diagnostic" element={<PageWrapper><Diagnostic /></PageWrapper>} />
-                <Route path="/diagnostic/assess" element={<PageWrapper><DiagnosticAssess /></PageWrapper>} />
-                <Route path="/diagnostic/capture" element={<PageWrapper><DiagnosticCapture /></PageWrapper>} />
-                <Route path="/diagnostic/results" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
-                <Route path="/diagnostic/results/:assessmentId" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
-                <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-                <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
-                <Route path="/cookies" element={<PageWrapper><Cookies /></PageWrapper>} />
-                <Route path="/glossary" element={<PageWrapper><Glossary /></PageWrapper>} />
-                <Route path="/admin/login" element={<PageWrapper><AdminLogin /></PageWrapper>} />
-                <Route path="/admin" element={<AdminLayout />}>
-                  <Route index element={<AdminOverview />} />
-                  <Route path="leads" element={<AdminLeads />} />
-                  <Route path="assessments" element={<AdminAssessments />} />
-                </Route>
-                <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
-              </Routes>
+              <Suspense fallback={<LoadingFallback />}>
+                <Routes>
+                  <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
+                  <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+                  <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+                  <Route path="/insights" element={<PageWrapper><Insights /></PageWrapper>} />
+                  <Route path="/insights/:slug" element={<PageWrapper><InsightManifesto /></PageWrapper>} />
+                  <Route path="/diagnostic" element={<PageWrapper><Diagnostic /></PageWrapper>} />
+                  <Route path="/diagnostic/assess" element={<PageWrapper><DiagnosticAssess /></PageWrapper>} />
+                  <Route path="/diagnostic/capture" element={<PageWrapper><DiagnosticCapture /></PageWrapper>} />
+                  <Route path="/diagnostic/results" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
+                  <Route path="/diagnostic/results/:assessmentId" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
+                  <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+                  <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
+                  <Route path="/cookies" element={<PageWrapper><Cookies /></PageWrapper>} />
+                  <Route path="/glossary" element={<PageWrapper><Glossary /></PageWrapper>} />
+                  <Route path="/admin/login" element={<PageWrapper><AdminLogin /></PageWrapper>} />
+                  <Route path="/admin" element={<AdminLayout />}>
+                    <Route index element={<AdminOverview />} />
+                    <Route path="leads" element={<AdminLeads />} />
+                    <Route path="assessments" element={<AdminAssessments />} />
+                  </Route>
+                  <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+                </Routes>
+              </Suspense>
             </DiagnosticProvider>
           </BrowserRouter>
         </TooltipProvider>

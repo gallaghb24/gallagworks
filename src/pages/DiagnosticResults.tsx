@@ -542,7 +542,7 @@ const DiagnosticResults = () => {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {priorityOrder.map((key) => {
+              {priorityOrder.map((key, idx) => {
                 const score = dimensionScores[key];
                 const rating = dimensionRatings[key];
                 const name = DIMENSION_NAMES[key];
@@ -551,7 +551,8 @@ const DiagnosticResults = () => {
                 return (
                   <div
                     key={key}
-                    className="border border-border p-5 rounded-none"
+                    className="border border-border p-5 rounded-none opacity-0 animate-fade-in-up"
+                    style={{ animationDelay: `${idx * 100}ms`, animationFillMode: "forwards" }}
                   >
                     <p className="font-display text-sm font-bold text-foreground mb-3">
                       {name}
@@ -566,12 +567,20 @@ const DiagnosticResults = () => {
                     >
                       {rating.rating}
                     </p>
-                    <div className="w-full h-1.5 bg-secondary rounded-none overflow-hidden">
+                    <div
+                      className="w-full h-1.5 bg-secondary rounded-none overflow-hidden"
+                      role="meter"
+                      aria-label={`${name} score`}
+                      aria-valuenow={score}
+                      aria-valuemin={0}
+                      aria-valuemax={25}
+                    >
                       <div
                         className="h-full rounded-none transition-all duration-500"
                         style={{ width: `${pct}%`, backgroundColor: rating.color }}
                       />
                     </div>
+                    <span className="sr-only">{name}: {score} out of 25, rated {rating.rating}</span>
                   </div>
                 );
               })}
