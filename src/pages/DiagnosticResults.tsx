@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 import { format } from "date-fns";
 import {
@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { Link as LinkIcon, Linkedin, Loader2 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -253,12 +254,21 @@ const DiagnosticResults = () => {
   const [error, setError] = useState<string | null>(null);
   const [consultationLoading, setConsultationLoading] = useState(false);
   const [consultationRequested, setConsultationRequested] = useState(false);
+  const [hoveredDimension, setHoveredDimension] = useState<DimensionKey | null>(null);
   const [resolvedData, setResolvedData] = useState<{
     scoring: ScoringResult;
     organisation: string;
     assessmentId: string;
     assessmentDate: string;
   } | null>(null);
+
+  // Scroll animation refs
+  const scoreSection = useScrollAnimation({ threshold: 0.2 });
+  const dimensionSection = useScrollAnimation({ threshold: 0.1 });
+  const recommendationsSection = useScrollAnimation({ threshold: 0.1 });
+  const actionPlanSection = useScrollAnimation({ threshold: 0.1 });
+  const shareSection = useScrollAnimation({ threshold: 0.2 });
+  const ctaSection = useScrollAnimation({ threshold: 0.2 });
 
   // Whether this page was loaded via a shared URL (not from completing the assessment)
   const isSharedView = !!paramAssessmentId && !state?.scoring;
@@ -338,6 +348,51 @@ const DiagnosticResults = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finalData?.assessmentId]);
 
+  // Custom radar chart tick renderer
+  const renderCustomTick = useCallback(({ payload, x, y, textAnchor, ...rest }: any) => {
+    const dimKey = DIMENSION_KEYS.find((k) => SHORT_NAMES[k] === payload.value);
+    const isHovered = dimKey === hoveredDimension;
+    return (
+      <text
+        {...rest}
+        x={x}
+        y={y}
+        textAnchor={textAnchor}
+        fill={isHovered ? "#FF5F1F" : "hsl(var(--foreground))"}
+        fontSize={isHovered ? 13 : 12}
+        fontFamily="Inter"
+        fontWeight={isHovered ? 700 : 400}
+        style={{ cursor: "pointer", transition: "all 0.2s ease" }}
+        onMouseEnter={() => dimKey && setHoveredDimension(dimKey)}
+        onMouseLeave={() => setHoveredDimension(null)}
+      >
+        {payload.value}
+      </text>
+    );
+  }, [hoveredDimension]);
+
+  // Custom radar dot renderer
+  const renderCustomDot = useCallback((props: any) => {
+    const { cx, cy, index } = props;
+    const dimKey = DIMENSION_KEYS[index];
+    const isHovered = dimKey === hoveredDimension;
+    return (
+      <circle
+        key={index}
+        cx={cx}
+        cy={cy}
+        r={isHovered ? 8 : 4}
+        fill="#FF5F1F"
+        stroke={isHovered ? "#FF5F1F" : "#FF5F1F"}
+        strokeWidth={isHovered ? 3 : 1}
+        opacity={isHovered ? 1 : 0.9}
+        style={{ transition: "all 0.2s ease", filter: isHovered ? "drop-shadow(0 0 8px rgba(255,95,31,0.6))" : "none" }}
+        onMouseEnter={() => setHoveredDimension(dimKey)}
+        onMouseLeave={() => setHoveredDimension(null)}
+      />
+    );
+  }, [hoveredDimension]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
@@ -386,7 +441,6 @@ const DiagnosticResults = () => {
                 onClick={() => {
                   setError(null);
                   setLoading(true);
-                  // Re-trigger fetch by forcing a state change
                   setResolvedData(null);
                 }}
               >
@@ -433,7 +487,6 @@ const DiagnosticResults = () => {
   const handleConsultationRequest = async () => {
     setConsultationLoading(true);
     try {
-      // Fetch lead data from the assessment
       const { data: assessment, error: fetchErr } = await supabase
         .from("assessments")
         .select("*, leads(*)")
@@ -500,11 +553,14 @@ const DiagnosticResults = () => {
         </section>
 
         {/* ── Score Card + Dimension Map ─────────────────────────── */}
-        <section className="pb-16 md:pb-24">
+        <section
+          ref={scoreSection.ref}
+          className={`pb-16 md:pb-24 transition-all duration-700 ${scoreSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Overall Score Card */}
-              <div className="border border-border p-8 md:p-10 rounded-none">
+              <div className="border border-border p-8 md:p-10 rounded-none transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
                 <p
                   className="text-3xl md:text-4xl font-extrabold mb-4"
                   style={{ color: maturityLevel.color }}
@@ -524,7 +580,7 @@ const DiagnosticResults = () => {
               </div>
 
               {/* Radar Chart */}
-              <div className="border border-border rounded-none p-6 flex flex-col">
+              <div className="border border-border rounded-none p-6 flex flex-col transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
                 <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
                   [DIMENSION MAP]
                 </span>
@@ -534,6 +590,7 @@ const DiagnosticResults = () => {
                       data={DIMENSION_KEYS.map((key) => ({
                         dimension: SHORT_NAMES[key],
                         score: dimensionScores[key],
+                        fullMark: 25,
                       }))}
                       cx="50%"
                       cy="50%"
@@ -542,7 +599,7 @@ const DiagnosticResults = () => {
                       <PolarGrid stroke="#1A1C1E" />
                       <PolarAngleAxis
                         dataKey="dimension"
-                        tick={{ fill: "hsl(var(--foreground))", fontSize: 12, fontFamily: "Inter" }}
+                        tick={renderCustomTick}
                       />
                       <PolarRadiusAxis
                         domain={[0, 25]}
@@ -554,8 +611,9 @@ const DiagnosticResults = () => {
                         stroke="#FF5F1F"
                         strokeWidth={2}
                         fill="#FF5F1F"
-                        fillOpacity={0.3}
-                        dot={{ r: 4, fill: "#FF5F1F", stroke: "#FF5F1F" }}
+                        fillOpacity={hoveredDimension ? 0.15 : 0.3}
+                        dot={renderCustomDot}
+                        animationDuration={800}
                       />
                     </RadarChart>
                   </ResponsiveContainer>
@@ -566,7 +624,10 @@ const DiagnosticResults = () => {
         </section>
 
         {/* ── Dimension Breakdown Grid ─────────────────────────────── */}
-        <section className="pb-12 md:pb-16">
+        <section
+          ref={dimensionSection.ref}
+          className={`pb-12 md:pb-16 transition-all duration-700 ${dimensionSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
           <div className="container mx-auto px-6 lg:px-12">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">
               Dimension Breakdown
@@ -578,12 +639,22 @@ const DiagnosticResults = () => {
                 const rating = dimensionRatings[key];
                 const name = DIMENSION_NAMES[key];
                 const pct = (score / 25) * 100;
+                const isHovered = hoveredDimension === key;
 
                 return (
                   <div
                     key={key}
-                    className="border border-border p-5 rounded-none opacity-0 animate-fade-in-up"
-                    style={{ animationDelay: `${idx * 100}ms`, animationFillMode: "forwards" }}
+                    className={`border p-5 rounded-none cursor-pointer transition-all duration-300 ${
+                      isHovered
+                        ? "border-primary/60 shadow-lg shadow-primary/10 -translate-y-1"
+                        : "border-border hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 hover:-translate-y-0.5"
+                    } ${dimensionSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"}`}
+                    style={{
+                      animationDelay: dimensionSection.isVisible ? `${idx * 100}ms` : "0ms",
+                      animationFillMode: "forwards",
+                    }}
+                    onMouseEnter={() => setHoveredDimension(key)}
+                    onMouseLeave={() => setHoveredDimension(null)}
                   >
                     <p className="font-display text-sm font-bold text-foreground mb-3">
                       {name}
@@ -599,7 +670,7 @@ const DiagnosticResults = () => {
                       {rating.rating}
                     </p>
                     <div
-                      className="w-full h-1.5 bg-secondary rounded-none overflow-hidden"
+                      className="w-full h-1.5 bg-secondary rounded-none overflow-hidden group"
                       role="meter"
                       aria-label={`${name} score`}
                       aria-valuenow={score}
@@ -607,7 +678,7 @@ const DiagnosticResults = () => {
                       aria-valuemax={25}
                     >
                       <div
-                        className="h-full rounded-none transition-all duration-500"
+                        className={`h-full rounded-none transition-all duration-500 ${isHovered ? "brightness-125" : ""}`}
                         style={{ width: `${pct}%`, backgroundColor: rating.color }}
                       />
                     </div>
@@ -620,7 +691,10 @@ const DiagnosticResults = () => {
         </section>
 
         {/* ── Detailed Recommendations ─────────────────────────────── */}
-        <section className="pb-16 md:pb-24">
+        <section
+          ref={recommendationsSection.ref}
+          className={`pb-16 md:pb-24 transition-all duration-700 ${recommendationsSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
           <div className="container mx-auto px-6 lg:px-12">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
               Detailed Recommendations
@@ -639,7 +713,16 @@ const DiagnosticResults = () => {
                 if (!rec) return null;
 
                 return (
-                  <div key={key} className="border border-border p-6 md:p-8 rounded-none">
+                  <div
+                    key={key}
+                    className={`border border-border p-6 md:p-8 rounded-none transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 ${
+                      recommendationsSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
+                    }`}
+                    style={{
+                      animationDelay: recommendationsSection.isVisible ? `${i * 120}ms` : "0ms",
+                      animationFillMode: "forwards",
+                    }}
+                  >
                     {/* Header */}
                     <div className="flex items-start justify-between gap-4 mb-4">
                       <div className="flex items-center gap-3">
@@ -687,7 +770,7 @@ const DiagnosticResults = () => {
                     </div>
 
                     {/* Ask your team callout */}
-                    <div className="bg-secondary border border-border p-5 rounded-none">
+                    <div className="bg-secondary border border-border p-5 rounded-none transition-colors duration-300 hover:border-primary/20">
                       <span className="font-mono text-xs text-primary uppercase tracking-widest mb-2 block">
                         [ASK YOUR TEAM]
                       </span>
@@ -703,7 +786,10 @@ const DiagnosticResults = () => {
         </section>
 
         {/* ── Priority Action Plan ─────────────────────────────────── */}
-        <section className="pb-16 md:pb-24">
+        <section
+          ref={actionPlanSection.ref}
+          className={`pb-16 md:pb-24 transition-all duration-700 ${actionPlanSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
           <div className="container mx-auto px-6 lg:px-12">
             <span className="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">
               [NEXT STEPS]
@@ -714,16 +800,21 @@ const DiagnosticResults = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Quick Wins */}
-              <div className="border border-border p-6 rounded-none">
+              <div
+                className={`border border-border p-6 rounded-none transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
+                  actionPlanSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
+                }`}
+                style={{ animationDelay: actionPlanSection.isVisible ? "0ms" : "0ms", animationFillMode: "forwards" }}
+              >
                 <h3 className="font-display text-base font-bold text-foreground mb-1">
                   Quick Wins
                 </h3>
                 <p className="text-xs text-muted-foreground font-mono mb-5">0–3 months</p>
                 <div className="space-y-4">
                   {actionPlan.quickWins.map((item, i) => (
-                    <div key={i}>
+                    <div key={i} className="transition-all duration-200 hover:translate-x-1">
                       <span
-                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded-none"
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded-none transition-colors duration-200"
                         style={{
                           color: dimensionRatings[item.dimension].color,
                           borderColor: dimensionRatings[item.dimension].color,
@@ -740,16 +831,21 @@ const DiagnosticResults = () => {
               </div>
 
               {/* Medium-term */}
-              <div className="border border-border p-6 rounded-none">
+              <div
+                className={`border border-border p-6 rounded-none transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
+                  actionPlanSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
+                }`}
+                style={{ animationDelay: actionPlanSection.isVisible ? "150ms" : "0ms", animationFillMode: "forwards" }}
+              >
                 <h3 className="font-display text-base font-bold text-foreground mb-1">
                   Medium-term
                 </h3>
                 <p className="text-xs text-muted-foreground font-mono mb-5">3–6 months</p>
                 <div className="space-y-4">
                   {actionPlan.mediumTerm.map((item, i) => (
-                    <div key={i}>
+                    <div key={i} className="transition-all duration-200 hover:translate-x-1">
                       <span
-                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded-none"
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded-none transition-colors duration-200"
                         style={{
                           color: dimensionRatings[item.dimension].color,
                           borderColor: dimensionRatings[item.dimension].color,
@@ -766,16 +862,21 @@ const DiagnosticResults = () => {
               </div>
 
               {/* Strategic */}
-              <div className="border border-border p-6 rounded-none">
+              <div
+                className={`border border-border p-6 rounded-none transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
+                  actionPlanSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
+                }`}
+                style={{ animationDelay: actionPlanSection.isVisible ? "300ms" : "0ms", animationFillMode: "forwards" }}
+              >
                 <h3 className="font-display text-base font-bold text-foreground mb-1">
                   Strategic
                 </h3>
                 <p className="text-xs text-muted-foreground font-mono mb-5">6–12 months</p>
                 <div className="space-y-4">
                   {actionPlan.strategic.map((item, i) => (
-                    <div key={i}>
+                    <div key={i} className="transition-all duration-200 hover:translate-x-1">
                       <span
-                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded-none"
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded-none transition-colors duration-200"
                         style={{
                           color: dimensionRatings[item.dimension].color,
                           borderColor: dimensionRatings[item.dimension].color,
@@ -795,7 +896,10 @@ const DiagnosticResults = () => {
         </section>
 
         {/* ── Share Buttons ────────────────────────────────────────── */}
-        <section className="pb-10">
+        <section
+          ref={shareSection.ref}
+          className={`pb-10 transition-all duration-700 ${shareSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-2xl mx-auto">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -821,7 +925,10 @@ const DiagnosticResults = () => {
         </section>
 
         {/* ── CTAs ─────────────────────────────────────────────────── */}
-        <section className="pb-20 md:pb-32">
+        <section
+          ref={ctaSection.ref}
+          className={`pb-20 md:pb-32 transition-all duration-700 ${ctaSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-2xl mx-auto text-center">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
