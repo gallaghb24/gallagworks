@@ -7,10 +7,11 @@ interface CTABandProps {
   headline?: React.ReactNode;
   subcopy?: React.ReactNode;
   wrapperClassName?: string;
+  primaryCTA?: { label: string; to: string };
   secondaryCTA?: { label: string; to: string };
 }
 
-const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wrapperClassName, secondaryCTA }: CTABandProps) => {
+const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wrapperClassName, primaryCTA, secondaryCTA }: CTABandProps) => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
