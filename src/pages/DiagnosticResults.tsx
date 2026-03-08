@@ -771,7 +771,7 @@ const DiagnosticResults = () => {
                 <Button
                   className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-none bg-primary text-primary-foreground hover:bg-primary/90"
                   onClick={() => {
-                    // PDF generation placeholder — will be implemented later
+                    trackEvent("pdf_downloaded", { assessment_id: currentAssessmentId });
                     console.log("PDF download triggered");
                   }}
                 >
