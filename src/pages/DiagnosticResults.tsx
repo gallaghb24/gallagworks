@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 import { format } from "date-fns";
 import {
   RadarChart,
@@ -9,13 +9,17 @@ import {
   Radar,
   ResponsiveContainer,
 } from "recharts";
+import { Link as LinkIcon, Linkedin, Loader2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { dimensions } from "@/data/questions";
 import { getRecommendation } from "@/data/recommendations";
 import type { ScoringResult, DimensionKey } from "@/lib/scoring";
+import { getMaturityLevel, getDimensionRating, getPriorityOrder } from "@/lib/scoring";
 import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 // ── Maturity summaries ─────────────────────────────────────────────────
 
