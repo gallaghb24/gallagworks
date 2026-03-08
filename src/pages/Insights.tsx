@@ -142,7 +142,7 @@ const Insights = () => {
                     key={item.ref}
                     to={item.type === "TOOL" ? `/${item.slug}` : `/insights/${item.slug}`}
                     className="block md:grid px-5 pt-5 pb-4 md:px-6 md:pt-6 md:pb-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group"
-                    style={{ gridTemplateColumns: '15% 45% 28% 12%' }}
+                    style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}
                   >
                     <span className="font-mono text-sm text-primary font-semibold tracking-wider leading-relaxed block mb-1 md:mb-0">
                       {item.ref}
@@ -152,6 +152,9 @@ const Insights = () => {
                     </span>
                     <span className="font-mono text-sm text-muted-foreground leading-relaxed block mb-1 md:mb-0">
                       {item.metric}
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground leading-relaxed block mb-1 md:mb-0">
+                      {item.date || "—"}
                     </span>
                     <span className={`font-mono text-xs uppercase tracking-widest leading-relaxed block md:text-right ${item.type === "TOOL" ? "text-green-500" : "text-primary"}`}>
                       [{item.status}]
