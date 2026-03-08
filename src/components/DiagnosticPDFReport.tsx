@@ -375,6 +375,106 @@ function generateActionPlan(
   return { quickWins, mediumTerm, strategic };
 }
 
+// ── Radar Chart SVG Component ──────────────────────────────────────────
+
+const SHORT_LABELS: Record<DimensionKey, string> = {
+  data_foundation: "Data",
+  process_maturity: "Process",
+  governance_risk: "Governance",
+  skills_culture: "Skills",
+  tooling_infrastructure: "Tooling",
+  strategic_clarity: "Strategy",
+};
+
+function hexPoint(cx: number, cy: number, r: number, i: number): [number, number] {
+  // Start from top (270°), go clockwise
+  const angle = (Math.PI * 2 * i) / 6 - Math.PI / 2;
+  return [cx + r * Math.cos(angle), cy + r * Math.sin(angle)];
+}
+
+function hexPoints(cx: number, cy: number, r: number): string {
+  return Array.from({ length: 6 }, (_, i) => hexPoint(cx, cy, r, i).join(",")).join(" ");
+}
+
+const RadarChartSVG = ({
+  dimKeys,
+  dimensionScores,
+}: {
+  dimKeys: DimensionKey[];
+  dimensionScores: Record<DimensionKey, number>;
+}) => {
+  const cx = 170;
+  const cy = 150;
+  const maxR = 100;
+  const gridLevels = [0.33, 0.66, 1.0];
+
+  // Score polygon
+  const scorePoints = dimKeys
+    .map((key, i) => {
+      const score = dimensionScores[key];
+      const r = (score / 25) * maxR;
+      return hexPoint(cx, cy, r, i).join(",");
+    })
+    .join(" ");
+
+  // Label positions (pushed outward)
+  const labelR = maxR + 30;
+  const labelPositions = dimKeys.map((key, i) => {
+    const [x, y] = hexPoint(cx, cy, labelR, i);
+    return { key, x, y, label: SHORT_LABELS[key] };
+  });
+
+  return (
+    <Svg width="340" height="300" viewBox="0 0 340 300">
+      {/* Grid hexagons */}
+      {gridLevels.map((level) => (
+        <Polygon
+          key={level}
+          points={hexPoints(cx, cy, maxR * level)}
+          stroke="#1A1C1E"
+          strokeWidth={1}
+          fill="none"
+        />
+      ))}
+      {/* Axis lines */}
+      {dimKeys.map((_, i) => {
+        const [x, y] = hexPoint(cx, cy, maxR, i);
+        return (
+          <Line
+            key={i}
+            x1={cx}
+            y1={cy}
+            x2={x}
+            y2={y}
+            stroke="#1A1C1E"
+            strokeWidth={0.5}
+          />
+        );
+      })}
+      {/* Score polygon */}
+      <Polygon
+        points={scorePoints}
+        stroke={ORANGE}
+        strokeWidth={2}
+        fill={ORANGE}
+        fillOpacity={0.3}
+      />
+      {/* Score dots */}
+      {dimKeys.map((key, i) => {
+        const score = dimensionScores[key];
+        const r = (score / 25) * maxR;
+        const [x, y] = hexPoint(cx, cy, r, i);
+        return (
+          <G key={key}>
+            <Circle cx={x} cy={y} r={4} fill={ORANGE} stroke={ORANGE} strokeWidth={1} />
+            <Circle cx={x} cy={y} r={2} fill={PAGE_BG} />
+          </G>
+        );
+      })}
+    </Svg>
+  );
+};
+
 // ── PDF Document ───────────────────────────────────────────────────────
 
 interface PDFProps {
