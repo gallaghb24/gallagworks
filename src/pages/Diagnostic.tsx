@@ -151,6 +151,7 @@ const Diagnostic = () => {
           }
           subcopy="No sign-up required. Get your AI readiness score and a clear action plan."
           primaryCTA={{ label: "Start the Diagnostic", to: "/diagnostic/assess" }}
+          secondaryCTA={{ label: "Request a Consultation", to: "/contact" }}
         />
       </main>
       <Footer hideCTA />
