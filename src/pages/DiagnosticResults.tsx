@@ -324,8 +324,33 @@ const DiagnosticResults = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="container mx-auto px-6 lg:px-12 pt-32">
+          <div className="max-w-3xl">
+            <div className="h-4 w-32 bg-secondary rounded-none mb-4 animate-pulse" />
+            <div className="h-10 w-80 bg-secondary rounded-none mb-3 animate-pulse" />
+            <div className="h-5 w-48 bg-secondary rounded-none mb-12 animate-pulse" />
+          </div>
+          <div className="w-full max-w-[600px] mx-auto border border-border p-8">
+            <div className="h-8 w-40 bg-secondary rounded-none mb-4 animate-pulse" />
+            <div className="h-14 w-32 bg-secondary rounded-none mb-6 animate-pulse" />
+            <div className="space-y-2">
+              <div className="h-4 w-full bg-secondary rounded-none animate-pulse" />
+              <div className="h-4 w-3/4 bg-secondary rounded-none animate-pulse" />
+              <div className="h-4 w-5/6 bg-secondary rounded-none animate-pulse" />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="border border-border p-5">
+                <div className="h-4 w-24 bg-secondary rounded-none mb-3 animate-pulse" />
+                <div className="h-7 w-16 bg-secondary rounded-none mb-2 animate-pulse" />
+                <div className="h-1.5 w-full bg-secondary rounded-none animate-pulse" />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
@@ -444,7 +469,7 @@ const DiagnosticResults = () => {
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
                 [DIMENSION MAP]
               </span>
-              <ResponsiveContainer width="100%" height={320}>
+              <ResponsiveContainer width="100%" height={280}>
                 <RadarChart
                   data={DIMENSION_KEYS.map((key) => ({
                     dimension: SHORT_NAMES[key],
@@ -705,7 +730,7 @@ const DiagnosticResults = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button
                   variant="outline"
-                  className="h-10 px-5 text-sm font-semibold rounded-none border-border text-foreground hover:bg-secondary gap-2"
+                  className="w-full sm:w-auto h-10 px-5 text-sm font-semibold rounded-none border-border text-foreground hover:bg-secondary gap-2"
                   onClick={handleCopyLink}
                 >
                   <LinkIcon className="h-4 w-4" />
@@ -713,7 +738,7 @@ const DiagnosticResults = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-10 px-5 text-sm font-semibold rounded-none border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2]/10 gap-2"
+                  className="w-full sm:w-auto h-10 px-5 text-sm font-semibold rounded-none border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2]/10 gap-2"
                   onClick={handleLinkedInShare}
                 >
                   <Linkedin className="h-4 w-4" />
@@ -730,7 +755,7 @@ const DiagnosticResults = () => {
             <div className="max-w-2xl mx-auto text-center">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
                 <Button
-                  className="h-12 px-8 text-base font-semibold rounded-none bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-none bg-primary text-primary-foreground hover:bg-primary/90"
                   onClick={() => {
                     // PDF generation placeholder — will be implemented later
                     console.log("PDF download triggered");
@@ -740,7 +765,7 @@ const DiagnosticResults = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-12 px-8 text-base font-semibold rounded-none border-border text-foreground hover:bg-secondary"
+                  className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-none border-border text-foreground hover:bg-secondary"
                   asChild
                 >
                   <a

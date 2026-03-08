@@ -71,7 +71,7 @@ const AdminLogin = () => {
           </div>
 
           {error && (
-            <p className="text-destructive text-sm">{error}</p>
+            <p className="text-primary text-sm">{error}</p>
           )}
 
           <Button

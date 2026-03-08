@@ -5,7 +5,7 @@ import HeroSchematic from "@/components/HeroSchematic";
 
 const HeroSection = () => {
   return (
-    <section className="relative z-10 min-h-[85vh] flex items-center pt-24 pb-16">
+    <section className="relative z-10 min-h-[70vh] md:min-h-[85vh] flex items-center pt-24 pb-16">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl">
@@ -27,7 +27,7 @@ const HeroSection = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-6 text-lg font-medium group"
+                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-6 text-lg font-medium group"
               >
                 <Link to="/contact">
                   Request a Consultation

@@ -57,7 +57,6 @@ const DiagnosticCapture = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // If no answers, redirect back to assess
     if (Object.keys(answers).length === 0) {
       navigate("/diagnostic/assess", { replace: true });
     }
@@ -87,7 +86,6 @@ const DiagnosticCapture = () => {
     try {
       const scoring = calculateFullScoring(answers);
 
-      // Insert lead
       const { data: lead, error: leadError } = await supabase
         .from("leads")
         .insert({
@@ -103,7 +101,6 @@ const DiagnosticCapture = () => {
 
       if (leadError) throw leadError;
 
-      // Insert assessment
       const { data: assessment, error: assessError } = await supabase
         .from("assessments")
         .insert({
@@ -145,8 +142,8 @@ const DiagnosticCapture = () => {
       <Navigation />
       <main>
         <section className="pt-24 pb-16 md:pt-32 md:pb-24">
-          <div className="container mx-auto px-6 lg:px-12 flex justify-center">
-            <div className="w-full max-w-[520px] bg-slate border border-border p-8 md:p-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-12 flex justify-center">
+            <div className="w-full max-w-[520px] bg-slate border border-border p-6 sm:p-8 md:p-10">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
                 [YOUR RESULTS ARE READY]
               </span>
@@ -166,11 +163,11 @@ const DiagnosticCapture = () => {
                     id="name"
                     value={form.name}
                     onChange={(e) => handleChange("name", e.target.value)}
-                    className="rounded-none"
+                    className="rounded-none h-12"
                     placeholder="Your name"
                   />
                   {errors.name && (
-                    <p className="text-sm text-destructive">{errors.name}</p>
+                    <p className="text-sm text-primary">{errors.name}</p>
                   )}
                 </div>
 
@@ -182,11 +179,11 @@ const DiagnosticCapture = () => {
                     type="email"
                     value={form.email}
                     onChange={(e) => handleChange("email", e.target.value)}
-                    className="rounded-none"
+                    className="rounded-none h-12"
                     placeholder="you@company.com"
                   />
                   {errors.email && (
-                    <p className="text-sm text-destructive">{errors.email}</p>
+                    <p className="text-sm text-primary">{errors.email}</p>
                   )}
                 </div>
 
@@ -199,11 +196,11 @@ const DiagnosticCapture = () => {
                     onChange={(e) =>
                       handleChange("organisation", e.target.value)
                     }
-                    className="rounded-none"
+                    className="rounded-none h-12"
                     placeholder="Your company"
                   />
                   {errors.organisation && (
-                    <p className="text-sm text-destructive">
+                    <p className="text-sm text-primary">
                       {errors.organisation}
                     </p>
                   )}
@@ -216,7 +213,7 @@ const DiagnosticCapture = () => {
                     id="role"
                     value={form.role}
                     onChange={(e) => handleChange("role", e.target.value)}
-                    className="rounded-none"
+                    className="rounded-none h-12"
                     placeholder="e.g. Head of Operations"
                   />
                 </div>
@@ -228,7 +225,7 @@ const DiagnosticCapture = () => {
                     value={form.industry}
                     onValueChange={(v) => handleChange("industry", v)}
                   >
-                    <SelectTrigger className="rounded-none">
+                    <SelectTrigger className="rounded-none h-12">
                       <SelectValue placeholder="Select industry" />
                     </SelectTrigger>
                     <SelectContent>
@@ -248,7 +245,7 @@ const DiagnosticCapture = () => {
                     value={form.company_size}
                     onValueChange={(v) => handleChange("company_size", v)}
                   >
-                    <SelectTrigger className="rounded-none">
+                    <SelectTrigger className="rounded-none h-12">
                       <SelectValue placeholder="Select company size" />
                     </SelectTrigger>
                     <SelectContent>
@@ -264,7 +261,7 @@ const DiagnosticCapture = () => {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-none"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-none h-12"
                 >
                   {submitting ? "Submitting..." : "See My Results"}
                 </Button>
