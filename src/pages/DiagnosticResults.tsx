@@ -352,6 +352,8 @@ const DiagnosticResults = () => {
   const [consultationLoading, setConsultationLoading] = useState(false);
   const [consultationRequested, setConsultationRequested] = useState(false);
   const [hoveredDimension, setHoveredDimension] = useState<DimensionKey | null>(null);
+  const [animatedTotalScore, setAnimatedTotalScore] = useState(0);
+  const [totalScoreAnimated, setTotalScoreAnimated] = useState(false);
   const [resolvedData, setResolvedData] = useState<{
     scoring: ScoringResult;
     organisation: string;
@@ -444,6 +446,27 @@ const DiagnosticResults = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finalData?.assessmentId]);
+
+  // Animate total score count-up when score section is visible
+  useEffect(() => {
+    if (!scoreSection.isVisible || totalScoreAnimated || !finalData) return;
+    setTotalScoreAnimated(true);
+    const target = finalData.scoring.totalScore;
+    const delay = 500; // wait for section fade-in
+    const duration = 1200;
+    const timer = setTimeout(() => {
+      const startTime = performance.now();
+      const step = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setAnimatedTotalScore(Math.round(eased * target));
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [scoreSection.isVisible, totalScoreAnimated, finalData]);
 
   // Custom radar chart tick renderer
   const renderCustomTick = useCallback(({ payload, x, y, textAnchor, ...rest }: any) => {
@@ -665,7 +688,7 @@ const DiagnosticResults = () => {
                   {maturityLevel.label}
                 </p>
                 <p className="font-mono text-5xl md:text-6xl font-bold text-foreground mb-1">
-                  {totalScore}{" "}
+                  {animatedTotalScore}{" "}
                   <span className="text-muted-foreground text-2xl md:text-3xl font-normal">/ 150</span>
                 </p>
                 <p className="font-mono text-lg text-primary font-semibold mb-6">
