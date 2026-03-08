@@ -267,23 +267,26 @@ const DimensionCard = ({ dimKey, score, pct, rating, name, isHovered, sectionVis
   // Trigger appearance after stagger delay once section is visible
   useEffect(() => {
     if (!sectionVisible || hasAnimated) return;
-    const timer = setTimeout(() => {
+    // First: fade in the card after stagger delay
+    const appearTimer = setTimeout(() => {
       setIsVisible(true);
+    }, cardDelay);
+    // Then: start count-up 500ms after the card has appeared
+    const countTimer = setTimeout(() => {
       setHasAnimated(true);
-      // Animate count-up and bar
       const duration = 900;
       const startTime = performance.now();
       const step = (now: number) => {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
         setAnimatedScore(Math.round(eased * score));
         setBarWidth(eased * pct);
         if (progress < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
-    }, cardDelay);
-    return () => clearTimeout(timer);
+    }, cardDelay + 500);
+    return () => { clearTimeout(appearTimer); clearTimeout(countTimer); };
   }, [sectionVisible, hasAnimated, cardDelay, score, pct]);
 
   return (
