@@ -53,6 +53,15 @@ const About = () => {
               >
                 Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I led operational transformation for Tier-1 retailers and FTSE 100 entities, managing £15M+ annual multichannel contracts.
               </p>
+              <a
+                href="https://www.linkedin.com/in/bengallagher/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors mt-6 opacity-0 animate-fade-in-up"
+                style={{ animationDelay: "0.2s" }}
+              >
+                Connect on LinkedIn →
+              </a>
             </div>
           </div>
         </section>

@@ -28,6 +28,14 @@ const Principal = () => {
             >
               Meet the Principal <ArrowRight className="w-4 h-4" />
             </Link>
+            <a
+              href="https://www.linkedin.com/in/bengallagher/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-mono text-sm text-muted-foreground hover:text-primary transition-colors mt-3"
+            >
+              LinkedIn →
+            </a>
           </div>
         </div>
       </div>
