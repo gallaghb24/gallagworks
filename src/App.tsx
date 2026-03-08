@@ -21,6 +21,11 @@ import Diagnostic from "./pages/Diagnostic";
 import DiagnosticAssess from "./pages/DiagnosticAssess";
 import DiagnosticCapture from "./pages/DiagnosticCapture";
 import DiagnosticResults from "./pages/DiagnosticResults";
+import AdminLogin from "./pages/AdminLogin";
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminOverview from "./pages/admin/AdminOverview";
+import AdminLeads from "./pages/admin/AdminLeads";
+import AdminAssessments from "./pages/admin/AdminAssessments";
 
 const queryClient = new QueryClient();
 
