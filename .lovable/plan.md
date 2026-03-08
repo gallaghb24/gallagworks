@@ -1,129 +1,81 @@
 
 
-# Light Mode Implementation Plan
+## Mobile Responsiveness, Page Transitions, Loading/Error States & Scroll-to-Top
 
-## Overview
+### 1. Scroll-to-Top on Route Change
+**File: `src/App.tsx`**
+- Create a `<ScrollToTop />` component inline (or in a small file) that uses `useLocation` + `useEffect` to scroll to top on `pathname` change
+- Place it inside `<BrowserRouter>` before `<Routes>`
 
-Add a complete light theme to the site that auto-detects the user's system preference and provides a toggle in the navigation header. The project already has `next-themes` installed but not configured.
+### 2. Page Transitions (Subtle Fade)
+**File: `src/App.tsx`**
+- Wrap each route's element with a `<PageTransition>` wrapper component that applies a CSS fade-in animation on mount
+- Component: a `<div className="animate-fade-in">` wrapper (already defined in tailwind config / index.css)
+- Alternatively, create a `<PageWrapper>` that children are wrapped in, using the existing `animate-fade-in` utility
 
----
+### 3. Mobile Responsiveness Fixes
 
-## 1. Set up ThemeProvider in App.tsx
+**`src/components/HeroSection.tsx`**
+- Hero text already scales (`text-4xl md:text-5xl lg:text-6xl`) — looks OK
+- CTA button: add `w-full sm:w-auto` so it's full-width on mobile
+- Reduce `min-h-[85vh]` to `min-h-[70vh] md:min-h-[85vh]` for better mobile sizing
 
-Wrap the app in `next-themes` `ThemeProvider` with `attribute="class"`, `defaultTheme="system"`, and `enableSystem={true}`. This uses the `darkMode: ["class"]` strategy already configured in `tailwind.config.ts`.
+**`src/pages/Diagnostic.tsx`**
+- Dimension grid already has `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` — correct
+- CTA button: add `w-full sm:w-auto`
 
----
+**`src/pages/DiagnosticCapture.tsx`**
+- Form inputs: add `min-h-[48px]` to all `<Input>` and `<SelectTrigger>` elements (add `h-12` class)
+- Error text: change from `text-destructive` to `text-primary` (Safety Orange) for brand consistency
 
-## 2. Define light mode CSS variables in index.css
+**`src/pages/DiagnosticAssess.tsx`**
+- Radio option buttons: add `min-h-[56px]` (`min-h-14`) for larger touch targets
+- Progress bar header: dimension name — add `truncate` or allow wrapping (it already wraps naturally)
+- Back/Next buttons: make them a sticky footer bar on mobile
+  - Wrap in `<div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 md:relative md:border-0 md:p-0 md:mt-10">` 
+  - Add `pb-24 md:pb-12` to main content to prevent overlap on mobile
 
-Add a `.light` class block (alongside the existing `:root` dark defaults) with inverted values:
+**`src/pages/DiagnosticResults.tsx`**
+- Radar chart: already in `ResponsiveContainer` with max-w-500, will scale — add smaller height on mobile: `height={280}` on mobile via a state check or just reduce to 280 universally (still readable)
+- Dimension grid: already `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` — correct
+- CTA buttons: already have `flex-col sm:flex-row` — correct, but add `w-full sm:w-auto` to each button
+- Share buttons: add `w-full sm:w-auto` for full-width on mobile
 
-```text
-.light {
-  --background:    0 0% 98%;      (near-white)
-  --foreground:    0 0% 10%;      (near-black text)
-  --card:          0 0% 100%;     (white cards)
-  --card-foreground: 0 0% 10%;
-  --popover:       0 0% 100%;
-  --popover-foreground: 0 0% 10%;
-  --primary:       20 100% 50%;   (slightly deeper orange for contrast on white)
-  --primary-foreground: 0 0% 100%;
-  --secondary:     210 10% 94%;   (light grey)
-  --secondary-foreground: 0 0% 10%;
-  --muted:         210 10% 94%;
-  --muted-foreground: 0 0% 40%;
-  --accent:        20 100% 50%;
-  --accent-foreground: 0 0% 100%;
-  --border:        210 10% 85%;
-  --input:         210 10% 90%;
-  --ring:          20 100% 50%;
-  --footer-bg:     210 10% 96%;
-  --footer-fg:     0 0% 30%;
-  --slate:         210 10% 94%;
-  --sidebar-*:     (matching light values)
-}
-```
+### 4. Global Mobile Text Size
+**File: `src/index.css`**
+- Add base rule: `body { font-size: 14px; }` on mobile — but since Tailwind already uses `text-sm` (14px) and `text-base` (16px), just ensure no body text goes below 14px
+- Add a utility: ensure `text-sm` minimum on all body text paragraphs (most are already ≥14px)
 
----
+### 5. Prevent Horizontal Scroll
+**File: `src/index.css`**
+- Add `html, body { overflow-x: hidden; }` as a safety net
 
-## 3. Add theme toggle to Navigation
+### 6. Loading States (Skeleton Screens)
+**File: `src/pages/DiagnosticResults.tsx`**
+- Replace the simple `<Loader2>` spinner with branded skeleton screens:
+  - A skeleton card for the score area
+  - Skeleton bars for the dimension breakdown
+  - Use existing `<Skeleton>` component with `bg-secondary` (graphite) and `rounded-none`
 
-- Import `useTheme` from `next-themes` and `Sun`/`Moon` icons from `lucide-react`
-- Add a small icon button between the nav links and the CTA button (desktop), and at the bottom of the mobile menu
-- The button cycles: if current theme is dark, switch to light; if light, switch to dark; if system, switch to light/dark based on current resolved theme
-- Use a simple Sun/Moon icon swap based on `resolvedTheme`
+**File: `src/pages/admin/AdminOverview.tsx`, `AdminLeads.tsx`, `AdminAssessments.tsx`**
+- Replace "Loading…" text with skeleton table rows / cards
 
----
+### 7. Error States
+- Use Safety Orange (`text-primary`) for error messages instead of red `text-destructive`
+- Apply to: `DiagnosticCapture.tsx` form validation errors, `DiagnosticResults.tsx` fetch error, `AdminLogin.tsx` auth error
 
-## 4. Replace hardcoded colours with CSS variable references
+### Files to Edit
+1. `src/index.css` — overflow-x hidden
+2. `src/App.tsx` — ScrollToTop component + PageTransition wrapper
+3. `src/components/HeroSection.tsx` — mobile CTA width
+4. `src/pages/Diagnostic.tsx` — mobile CTA width  
+5. `src/pages/DiagnosticAssess.tsx` — sticky footer buttons, larger touch targets
+6. `src/pages/DiagnosticCapture.tsx` — input heights, error color
+7. `src/pages/DiagnosticResults.tsx` — skeleton loading, button widths, radar height
+8. `src/pages/AdminLogin.tsx` — error color
+9. `src/pages/admin/AdminOverview.tsx` — skeleton loading
+10. `src/pages/admin/AdminLeads.tsx` — skeleton loading
+11. `src/pages/admin/AdminAssessments.tsx` — skeleton loading
 
-Several components use hardcoded hex values that won't adapt to light mode. These need updating:
-
-### LeakageEstimator.tsx (heaviest offender)
-- `background: "#000000"` on the section -- replace with `bg-background` or a new CSS variable `--estimator-bg`
-- `color: "#FFFFFF"` on inputs/headings -- replace with `text-foreground`
-- `BORDER_COLOR = "#1A1C1E"` -- replace with `hsl(var(--border))`
-- `background: "hsl(210, 3%, 16%)"` on inputs/buttons -- replace with `hsl(var(--input))`
-- `color: "#FF5F1F"` -- replace with `hsl(var(--primary))`
-- Hover states (`#FFFFFF` / `#000000`) -- use foreground/background variables
-
-### HeroSchematic.tsx
-- SVG strokes `#2F3133` -- replace with `hsl(var(--border))` via a CSS variable or `currentColor`
-- `#F5F5F5` core strokes -- replace with `hsl(var(--foreground))`
-- `#FF5F1F` pulses -- replace with `hsl(var(--primary))`
-
-### HowWeWork.tsx
-- `border-[#2F3133]` -- replace with `border-border`
-
-### EngagementTypes.tsx
-- `bg-[#1A1C1E]` -- replace with `bg-muted` or `bg-slate`
-- `border-[#2F3133]` -- replace with `border-border`
-
-### FAQSection.tsx
-- `bg-[#1A1C1E]` -- replace with `bg-slate`
-- `border-[#2F3133]` -- replace with `border-border`
-
-### GallagGlyph.tsx
-- `stroke="#2F3133"` -- replace with CSS variable
-- `group-hover:stroke-[#F5F5F5]` -- replace with `group-hover:stroke-foreground`
-
-### About.tsx
-- `bg-[#1A1C1E]` and `border-[#2F3133]` on stat cards -- replace with `bg-slate` / `border-border`
-
----
-
-## 5. Handle the wordmark logo
-
-The site uses a PNG wordmark (`gallag-wordmark.png`) that is likely white text on transparent. In light mode this will be invisible. Two approaches:
-
-- **Option A (recommended):** Add a `dark:` variant -- use the existing white wordmark for dark mode and provide a dark version for light mode. If no dark PNG exists, apply a CSS `filter: invert(1)` in light mode via a conditional class.
-- **Option B:** Use CSS `filter: brightness(0)` on the wordmark in light mode to turn it black.
-
-We will use Option B (`filter`) as it requires no additional assets.
-
----
-
-## 6. Files to modify
-
-| File | Change |
-|---|---|
-| `src/App.tsx` | Wrap in `ThemeProvider` |
-| `src/index.css` | Add `.light` CSS variable block |
-| `src/components/Navigation.tsx` | Add Sun/Moon toggle button |
-| `src/components/LeakageEstimator.tsx` | Replace ~15 hardcoded hex values with CSS variables |
-| `src/components/HeroSchematic.tsx` | Replace SVG hardcoded colours with CSS variables |
-| `src/components/HowWeWork.tsx` | Replace `#2F3133` with `border-border` |
-| `src/components/EngagementTypes.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-| `src/components/FAQSection.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-| `src/components/GallagGlyph.tsx` | Replace hardcoded strokes with CSS variable references |
-| `src/pages/About.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-
----
-
-## Technical notes
-
-- `next-themes` is already installed; `darkMode: ["class"]` is already in `tailwind.config.ts` -- no config changes needed
-- The `:root` block keeps the current dark values as the default (so the site stays dark by default for users without a system preference)
-- The `.light` class is applied by `next-themes` to `<html>` when the user selects light mode or their system prefers it
-- The Sonner toaster component already imports `useTheme` and will work automatically once the provider is in place
+No new dependencies needed.
 
