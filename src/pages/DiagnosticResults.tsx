@@ -399,9 +399,9 @@ const DiagnosticResults = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Your AI Readiness Results"
-        description="View your AI Readiness Diagnostic results and recommendations."
-        path="/diagnostic/results"
+        title={`${organisation} AI Readiness Assessment`}
+        description={`Scored ${totalScore}/150 — ${maturityLevel.label}. Take the assessment for your organisation.`}
+        path={`/diagnostic/results/${currentAssessmentId}`}
       />
       <Navigation />
 
