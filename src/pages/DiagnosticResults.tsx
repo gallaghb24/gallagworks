@@ -1,6 +1,14 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { format } from "date-fns";
+import {
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+  ResponsiveContainer,
+} from "recharts";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -40,6 +48,24 @@ const DIMENSION_NAMES: Record<DimensionKey, string> = {} as Record<DimensionKey,
 for (const dim of dimensions) {
   DIMENSION_NAMES[dim.id as DimensionKey] = dim.name;
 }
+
+const SHORT_NAMES: Record<DimensionKey, string> = {
+  data_foundation: "Data",
+  process_maturity: "Process",
+  governance_risk: "Governance",
+  skills_culture: "Skills",
+  tooling_infrastructure: "Tooling",
+  strategic_clarity: "Strategy",
+};
+
+const DIMENSION_KEYS: DimensionKey[] = [
+  "data_foundation",
+  "process_maturity",
+  "governance_risk",
+  "skills_culture",
+  "tooling_infrastructure",
+  "strategic_clarity",
+];
 
 // ── Component ──────────────────────────────────────────────────────────
 
@@ -124,6 +150,47 @@ const DiagnosticResults = () => {
               <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                 {MATURITY_SUMMARIES[maturityLevel.level]}
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Radar Chart ──────────────────────────────────────────── */}
+        <section className="pb-16 md:pb-24">
+          <div className="container mx-auto px-6 lg:px-12 flex justify-center">
+            <div className="w-full max-w-[500px] border border-border rounded-none p-6">
+              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
+                [DIMENSION MAP]
+              </span>
+              <ResponsiveContainer width="100%" height={320}>
+                <RadarChart
+                  data={DIMENSION_KEYS.map((key) => ({
+                    dimension: SHORT_NAMES[key],
+                    score: dimensionScores[key],
+                  }))}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius="75%"
+                >
+                  <PolarGrid stroke="#1A1C1E" />
+                  <PolarAngleAxis
+                    dataKey="dimension"
+                    tick={{ fill: "hsl(var(--foreground))", fontSize: 12, fontFamily: "Inter" }}
+                  />
+                  <PolarRadiusAxis
+                    domain={[0, 25]}
+                    tick={false}
+                    axisLine={false}
+                  />
+                  <Radar
+                    dataKey="score"
+                    stroke="#FF5F1F"
+                    strokeWidth={2}
+                    fill="#FF5F1F"
+                    fillOpacity={0.3}
+                    dot={{ r: 4, fill: "#FF5F1F", stroke: "#FF5F1F" }}
+                  />
+                </RadarChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </section>
