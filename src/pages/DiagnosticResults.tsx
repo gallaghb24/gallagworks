@@ -382,10 +382,12 @@ const DiagnosticResults = () => {
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(shareUrl);
+    trackEvent("results_link_copied", { assessment_id: currentAssessmentId });
     toast({ title: "Link copied", description: "Share URL copied to clipboard." });
   };
 
   const handleLinkedInShare = () => {
+    trackEvent("linkedin_share_clicked", { assessment_id: currentAssessmentId });
     const text = encodeURIComponent(
       `I just completed the AI Readiness Diagnostic from Gallag Works. Our organisation scored ${totalScore}/150 — ${maturityLevel.label}. Interesting framework for thinking about where you actually stand on AI readiness. Take the assessment:`
     );

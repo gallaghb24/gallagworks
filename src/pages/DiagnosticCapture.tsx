@@ -118,6 +118,17 @@ const DiagnosticCapture = () => {
 
       if (assessError) throw assessError;
 
+      // Track analytics
+      trackEvent("assessment_started", {
+        industry: result.data.industry || null,
+        company_size: result.data.company_size || null,
+      });
+      trackEvent("assessment_completed", {
+        total_score: scoring.totalScore,
+        maturity_level: scoring.maturityLevel.label,
+        assessment_id: assessment.id,
+      });
+
       // Fire-and-forget: send confirmation + admin notification emails
       supabase.functions.invoke("send-assessment-email", {
         body: {

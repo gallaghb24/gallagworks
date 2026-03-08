@@ -34,6 +34,7 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+    trackEvent("page_view", { path: pathname });
   }, [pathname]);
   return null;
 };
