@@ -480,19 +480,6 @@ const DiagnosticResults = () => {
       <Navigation />
 
       <main>
-        {/* ── Shared view CTA banner ───────────────────────────────── */}
-        {isSharedView && (
-          <section className="bg-primary/10 border-b border-primary/20">
-            <div className="container mx-auto px-6 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-              <p className="text-sm text-foreground font-medium">
-                See how your organisation compares.
-              </p>
-              <Button asChild size="sm" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link to="/diagnostic">Take the Assessment for Your Organisation</Link>
-              </Button>
-            </div>
-          </section>
-        )}
 
         {/* ── Top Section ──────────────────────────────────────────── */}
         <section className="pt-24 pb-12 md:pt-32 md:pb-16">
