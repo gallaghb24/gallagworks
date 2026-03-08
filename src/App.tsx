@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import StructuredData from "@/components/StructuredData";
+import { DiagnosticProvider } from "@/contexts/DiagnosticContext";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import About from "./pages/About";
@@ -32,25 +33,25 @@ const App = () => (
           <Sonner />
           <StructuredData />
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/about" element={<About />} />
-              {/* Case studies consolidated into /insights */}
-              <Route path="/insights" element={<Insights />} />
-              <Route path="/insights/:slug" element={<InsightManifesto />} />
-              <Route path="/diagnostic" element={<Diagnostic />} />
-              <Route path="/diagnostic/assess" element={<DiagnosticAssess />} />
-              <Route path="/diagnostic/capture" element={<DiagnosticCapture />} />
-              <Route path="/diagnostic/results" element={<DiagnosticResults />} />
-              <Route path="/diagnostic/results/:assessmentId" element={<DiagnosticResults />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/cookies" element={<Cookies />} />
-              <Route path="/glossary" element={<Glossary />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <DiagnosticProvider>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/insights" element={<Insights />} />
+                <Route path="/insights/:slug" element={<InsightManifesto />} />
+                <Route path="/diagnostic" element={<Diagnostic />} />
+                <Route path="/diagnostic/assess" element={<DiagnosticAssess />} />
+                <Route path="/diagnostic/capture" element={<DiagnosticCapture />} />
+                <Route path="/diagnostic/results" element={<DiagnosticResults />} />
+                <Route path="/diagnostic/results/:assessmentId" element={<DiagnosticResults />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/cookies" element={<Cookies />} />
+                <Route path="/glossary" element={<Glossary />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </DiagnosticProvider>
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>
