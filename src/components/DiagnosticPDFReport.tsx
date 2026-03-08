@@ -403,9 +403,11 @@ const RadarChartSVG = ({
   dimKeys: DimensionKey[];
   dimensionScores: Record<DimensionKey, number>;
 }) => {
-  const cx = 170;
-  const cy = 150;
-  const maxR = 100;
+  const w = 380;
+  const h = 340;
+  const cx = w / 2;
+  const cy = h / 2;
+  const maxR = 110;
   const gridLevels = [0.33, 0.66, 1.0];
 
   // Score polygon
@@ -417,15 +419,24 @@ const RadarChartSVG = ({
     })
     .join(" ");
 
-  // Label positions (pushed outward)
-  const labelR = maxR + 30;
-  const labelPositions = dimKeys.map((key, i) => {
+  // Label positions
+  const labelR = maxR + 24;
+  const labels = dimKeys.map((key, i) => {
     const [x, y] = hexPoint(cx, cy, labelR, i);
-    return { key, x, y, label: SHORT_LABELS[key] };
+    const label = SHORT_LABELS[key];
+    // Adjust text-anchor based on position
+    let textAnchor: "middle" | "start" | "end" = "middle";
+    if (i === 1 || i === 2) textAnchor = "start";
+    if (i === 4 || i === 5) textAnchor = "end";
+    // Nudge top/bottom labels vertically
+    let dy = 0;
+    if (i === 0) dy = -6;
+    if (i === 3) dy = 10;
+    return { key, x, y: y + dy, label, textAnchor };
   });
 
   return (
-    <Svg width="340" height="300" viewBox="0 0 340 300">
+    <Svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}>
       {/* Grid hexagons */}
       {gridLevels.map((level) => (
         <Polygon
@@ -440,15 +451,7 @@ const RadarChartSVG = ({
       {dimKeys.map((_, i) => {
         const [x, y] = hexPoint(cx, cy, maxR, i);
         return (
-          <Line
-            key={i}
-            x1={cx}
-            y1={cy}
-            x2={x}
-            y2={y}
-            stroke="#1A1C1E"
-            strokeWidth={0.5}
-          />
+          <Line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke="#1A1C1E" strokeWidth={0.5} />
         );
       })}
       {/* Score polygon */}
