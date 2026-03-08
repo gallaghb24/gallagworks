@@ -447,6 +447,53 @@ const DiagnosticResults = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finalData?.assessmentId]);
 
+  // Auto-trigger consultation request if arriving from email with ?request=consultation
+  const consultationAutoTriggered = useRef(false);
+  useEffect(() => {
+    if (!finalData || consultationAutoTriggered.current) return;
+    const params = new URLSearchParams(location.search);
+    if (params.get("request") !== "consultation") return;
+    consultationAutoTriggered.current = true;
+
+    const autoRequest = async () => {
+      setConsultationLoading(true);
+      try {
+        const { data: assessment, error: fetchErr } = await supabase
+          .from("assessments")
+          .select("*, leads(*)")
+          .eq("id", finalData.assessmentId)
+          .single();
+
+        if (fetchErr || !assessment) throw new Error("Could not fetch assessment data");
+
+        const lead = assessment.leads as any;
+        await supabase.functions.invoke("send-consultation-request", {
+          body: {
+            assessment_id: finalData.assessmentId,
+            name: lead?.name ?? "Unknown",
+            email: lead?.email ?? "",
+            organisation: finalData.organisation,
+            total_score: finalData.scoring.totalScore,
+            maturity_level: finalData.scoring.maturityLevel.label,
+          },
+        });
+
+        setConsultationRequested(true);
+        trackEvent("consultation_requested", { assessment_id: finalData.assessmentId });
+        navigate("/consultation/confirmed", { state: { name: lead?.name } });
+      } catch (err) {
+        console.error("Auto consultation request failed:", err);
+        toast({ title: "Something went wrong", description: "Please try again or email hello@gallag.works directly.", variant: "destructive" });
+      } finally {
+        setConsultationLoading(false);
+      }
+    };
+
+    const timer = setTimeout(autoRequest, 500);
+    return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [finalData]);
+
 
 
   // Last card: stagger 5*120=600ms + 500ms delay + 1800ms count = 2900ms total
