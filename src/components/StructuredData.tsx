@@ -62,7 +62,7 @@ const StructuredData = () => {
       name: "Ben Gallagher",
       jobTitle: "Principal",
       description:
-        "Operational engineering expert with 20+ years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. Specialises in eradicating manual friction and engineering scalable operational systems.",
+        "Operational engineering expert with 15+ years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. Specialises in eradicating manual friction and engineering scalable operational systems.",
       knowsAbout: [
         "Operational Engineering",
         "Enterprise Transformation",
