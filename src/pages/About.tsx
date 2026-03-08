@@ -32,7 +32,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="The Principal"
-        description="15+ years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. Principal-led operational transformation managing £15M+ multichannel contracts."
+        description="15+ years directing enterprise delivery across retail, financial services, and professional services. Principal-led operational transformation as operational lead within a 2,100-person agency."
         path="/about"
       />
       <Navigation />
