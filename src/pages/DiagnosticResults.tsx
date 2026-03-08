@@ -324,8 +324,33 @@ const DiagnosticResults = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="container mx-auto px-6 lg:px-12 pt-32">
+          <div className="max-w-3xl">
+            <div className="h-4 w-32 bg-secondary rounded-none mb-4 animate-pulse" />
+            <div className="h-10 w-80 bg-secondary rounded-none mb-3 animate-pulse" />
+            <div className="h-5 w-48 bg-secondary rounded-none mb-12 animate-pulse" />
+          </div>
+          <div className="w-full max-w-[600px] mx-auto border border-border p-8">
+            <div className="h-8 w-40 bg-secondary rounded-none mb-4 animate-pulse" />
+            <div className="h-14 w-32 bg-secondary rounded-none mb-6 animate-pulse" />
+            <div className="space-y-2">
+              <div className="h-4 w-full bg-secondary rounded-none animate-pulse" />
+              <div className="h-4 w-3/4 bg-secondary rounded-none animate-pulse" />
+              <div className="h-4 w-5/6 bg-secondary rounded-none animate-pulse" />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="border border-border p-5">
+                <div className="h-4 w-24 bg-secondary rounded-none mb-3 animate-pulse" />
+                <div className="h-7 w-16 bg-secondary rounded-none mb-2 animate-pulse" />
+                <div className="h-1.5 w-full bg-secondary rounded-none animate-pulse" />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
