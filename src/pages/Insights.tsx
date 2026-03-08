@@ -21,6 +21,7 @@ const insights = [
     status: "VERIFIED",
     slug: "eradicating-enterprise-data-glue",
     type: "MANIFESTO",
+    date: "MAR 2025",
   },
   {
     ref: "GW-LOG-201",
@@ -29,6 +30,7 @@ const insights = [
     status: "VERIFIED",
     slug: "pos-job-workflow",
     type: "SCHEMATIC",
+    date: "MAY 2025",
   },
   {
     ref: "GW-LOG-202",
@@ -37,6 +39,7 @@ const insights = [
     status: "VERIFIED",
     slug: "costing-process",
     type: "SCHEMATIC",
+    date: "JUL 2025",
   },
   {
     ref: "GW-LOG-203",
@@ -45,6 +48,7 @@ const insights = [
     status: "VERIFIED",
     slug: "validation-pipeline",
     type: "SCHEMATIC",
+    date: "SEP 2025",
   },
   {
     ref: "GW-LOG-204",
@@ -53,6 +57,7 @@ const insights = [
     status: "VERIFIED",
     slug: "multichannel-content-orchestration",
     type: "SCHEMATIC",
+    date: "NOV 2025",
   },
   {
     ref: "GW-LOG-205",
@@ -61,6 +66,7 @@ const insights = [
     status: "VERIFIED",
     slug: "enterprise-reporting-automation",
     type: "SCHEMATIC",
+    date: "JAN 2026",
   },
   {
     ref: "GW-LOG-206",
@@ -69,6 +75,7 @@ const insights = [
     status: "VERIFIED",
     slug: "high-volume-allocation-logistics",
     type: "SCHEMATIC",
+    date: "MAR 2026",
   },
 ];
 
@@ -99,7 +106,7 @@ const Insights = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Technical analysis, field-tested methodology, and verified project outcomes from the Principal. Each entry is drawn from live enterprise engagements.
+                Each entry below is a field-documented engagement led by the Principal. The GW-LOG series covers the technical methodology, friction diagnosis, and engineering outcomes from real operational transformations across retail, financial services, professional services, and media.
               </p>
             </div>
           </div>
@@ -111,7 +118,7 @@ const Insights = () => {
               {/* Technical Index Table */}
               <div className="border border-border">
                 {/* Header Row */}
-                <div className="hidden md:grid border-b border-foreground px-6 py-4" style={{ gridTemplateColumns: '15% 45% 28% 12%' }}>
+                <div className="hidden md:grid border-b border-foreground px-6 py-4" style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}>
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
                     [REF]
                   </span>
@@ -120,6 +127,9 @@ const Insights = () => {
                   </span>
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
                     [PRIMARY METRIC]
+                  </span>
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
+                    [DATE]
                   </span>
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed text-right">
                     [STATUS]
@@ -132,7 +142,7 @@ const Insights = () => {
                     key={item.ref}
                     to={item.type === "TOOL" ? `/${item.slug}` : `/insights/${item.slug}`}
                     className="block md:grid px-5 pt-5 pb-4 md:px-6 md:pt-6 md:pb-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group"
-                    style={{ gridTemplateColumns: '15% 45% 28% 12%' }}
+                    style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}
                   >
                     <span className="font-mono text-sm text-primary font-semibold tracking-wider leading-relaxed block mb-1 md:mb-0">
                       {item.ref}
@@ -142,6 +152,9 @@ const Insights = () => {
                     </span>
                     <span className="font-mono text-sm text-muted-foreground leading-relaxed block mb-1 md:mb-0">
                       {item.metric}
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground leading-relaxed block mb-1 md:mb-0">
+                      {item.date || "—"}
                     </span>
                     <span className={`font-mono text-xs uppercase tracking-widest leading-relaxed block md:text-right ${item.type === "TOOL" ? "text-green-500" : "text-primary"}`}>
                       [{item.status}]
