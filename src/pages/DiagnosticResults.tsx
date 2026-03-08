@@ -13,7 +13,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { dimensions } from "@/data/questions";
+import { getRecommendation } from "@/data/recommendations";
 import type { ScoringResult, DimensionKey } from "@/lib/scoring";
+import { Button } from "@/components/ui/button";
 
 // ── Maturity summaries ─────────────────────────────────────────────────
 
@@ -24,23 +26,6 @@ const MATURITY_SUMMARIES: Record<number, string> = {
   4: "You are well-positioned for AI adoption with strong foundations in most areas. Focus on scaling what works, building internal capability, and ensuring governance keeps pace with adoption. The risk at this stage is fragmentation — too many experiments without a cohesive strategy.",
   5: "Your organisation has the infrastructure, skills, and strategic clarity to drive AI at scale. The challenge now is sustaining momentum, avoiding complacency, and ensuring continued innovation. Consider whether your operating model can absorb the pace of change AI enables.",
 };
-
-// ── Recommendation templates ───────────────────────────────────────────
-
-function getHeadlineRecommendation(dimensionName: string, rating: string): string {
-  switch (rating) {
-    case "Critical Gap":
-      return `${dimensionName} is your most urgent priority. Address this before investing in AI tooling.`;
-    case "Needs Attention":
-      return `${dimensionName} has gaps that will limit the effectiveness of AI initiatives if left unaddressed.`;
-    case "Solid Foundation":
-      return `${dimensionName} is in good shape. Maintain and refine as you scale AI adoption.`;
-    case "Strength":
-      return `${dimensionName} is a genuine strength. Use it as a foundation for building momentum.`;
-    default:
-      return "";
-  }
-}
 
 // ── Dimension name lookup ──────────────────────────────────────────────
 
@@ -66,6 +51,183 @@ const DIMENSION_KEYS: DimensionKey[] = [
   "tooling_infrastructure",
   "strategic_clarity",
 ];
+
+// ── Action plan generation ─────────────────────────────────────────────
+
+interface ActionItem {
+  action: string;
+  dimension: DimensionKey;
+}
+
+function generateActionPlan(
+  priorityOrder: DimensionKey[],
+  dimensionRatings: Record<DimensionKey, { rating: string; color: string }>
+): { quickWins: ActionItem[]; mediumTerm: ActionItem[]; strategic: ActionItem[] } {
+  const quickWins: ActionItem[] = [];
+  const mediumTerm: ActionItem[] = [];
+  const strategic: ActionItem[] = [];
+
+  const actionsByDimension: Record<DimensionKey, Record<string, { quick: string; medium: string; strat: string }>> = {
+    data_foundation: {
+      "Critical Gap": {
+        quick: "Audit your top 5 data-intensive workflows and map where manual handoffs occur",
+        medium: "Implement standardised input templates and automated validation for critical data sources",
+        strat: "Build automated data pipelines with real-time quality monitoring and alerting",
+      },
+      "Needs Attention": {
+        quick: "Identify and document your three most error-prone data handoff points",
+        medium: "Implement automated validation rules for your highest-volume data inputs",
+        strat: "Create data contracts between teams defining format, schema, and delivery expectations",
+      },
+      "Solid Foundation": {
+        quick: "Set up automated quality alerts for your most critical data pipeline",
+        medium: "Implement real-time data quality dashboards accessible to all stakeholders",
+        strat: "Establish data contracts and automated error detection across all data flows",
+      },
+      "Strength": {
+        quick: "Identify one advanced AI use case your clean data layer can support immediately",
+        medium: "Build predictive analytics models leveraging your strong data foundation",
+        strat: "Use your data maturity as a competitive differentiator in client conversations",
+      },
+    },
+    process_maturity: {
+      "Critical Gap": {
+        quick: "Map your three most critical operational workflows as they actually run today",
+        medium: "Document decision points and exception handling for your core processes",
+        strat: "Build an operational process library with version control and regular review cycles",
+      },
+      "Needs Attention": {
+        quick: "Compare documented processes against how work actually flows — identify the gaps",
+        medium: "Create exception handling paths and escalation criteria for your top workflows",
+        strat: "Implement automated triage separating routine from complex work in your highest-volume process",
+      },
+      "Solid Foundation": {
+        quick: "Identify the 80/20 split in your highest-volume workflow — what is predictable vs. exceptional",
+        medium: "Build automated routing for the predictable majority in your top process",
+        strat: "Create decision inboxes for genuine judgement calls with measurable processing times",
+      },
+      "Strength": {
+        quick: "Select your highest-volume, highest-value process for AI augmentation",
+        medium: "Implement AI-assisted automation for the selected process and measure impact",
+        strat: "Scale process automation across the business using early wins as the model",
+      },
+    },
+    governance_risk: {
+      "Critical Gap": {
+        quick: "Create and communicate an approved AI tools list with basic data handling rules",
+        medium: "Assign governance ownership and implement review checkpoints for AI-generated client outputs",
+        strat: "Build a comprehensive AI governance framework with regular compliance auditing",
+      },
+      "Needs Attention": {
+        quick: "Formalise your approved tool list with clear data handling boundaries",
+        medium: "Assign a named individual or group to own AI governance and establish meeting cadence",
+        strat: "Implement risk-tiered governance with different review processes by use case sensitivity",
+      },
+      "Solid Foundation": {
+        quick: "Review your governance framework to ensure it enables rather than blocks low-risk use cases",
+        medium: "Implement lightweight fast-track approval for low-risk internal AI use cases",
+        strat: "Build proportionate governance that scales with your AI adoption ambitions",
+      },
+      "Strength": {
+        quick: "Document your governance framework as a client-facing differentiator",
+        medium: "Create client-facing materials demonstrating your AI governance maturity",
+        strat: "Iterate governance as AI regulations evolve — stay ahead of compliance requirements",
+      },
+    },
+    skills_culture: {
+      "Critical Gap": {
+        quick: "Identify three willing team members and run a small AI pilot solving a problem they recognise",
+        medium: "Create an internal AI Champions programme to formalise and share early learnings",
+        strat: "Build role-specific AI skill paths with dedicated learning time and internal communities",
+      },
+      "Needs Attention": {
+        quick: "Capture what your early AI adopters have learned and share it in an internal showcase",
+        medium: "Launch a structured AI Champions programme with regular showcases and knowledge sharing",
+        strat: "Develop role-specific AI training that moves beyond general awareness to practical application",
+      },
+      "Solid Foundation": {
+        quick: "Shift from general AI awareness training to role-specific skill building for one team",
+        medium: "Create role-specific AI learning paths for your three largest functional teams",
+        strat: "Build a continuous learning culture with dedicated innovation time and mentoring programmes",
+      },
+      "Strength": {
+        quick: "Identify how to retain and reward your AI-literate talent to protect this advantage",
+        medium: "Ensure AI adoption remains collaborative and psychologically safe as you scale",
+        strat: "Build AI capability into your hiring and career development frameworks",
+      },
+    },
+    tooling_infrastructure: {
+      "Critical Gap": {
+        quick: "Identify the three specific integration points where AI would need to connect to your systems",
+        medium: "Implement API wrappers or middleware for your most critical legacy system integrations",
+        strat: "Develop a technology modernisation roadmap focused on AI-readiness, not wholesale replacement",
+      },
+      "Needs Attention": {
+        quick: "Assess middleware or integration platforms that can bridge your existing systems to AI tooling",
+        medium: "Implement integration pathways for your top two AI use cases",
+        strat: "Build documented APIs for core systems and develop internal automation capability",
+      },
+      "Solid Foundation": {
+        quick: "Review data access policies to ensure AI tools can access what they need securely",
+        medium: "Assess whether your infrastructure can handle AI workload processing requirements",
+        strat: "Build elastic infrastructure that scales with AI workload demands",
+      },
+      "Strength": {
+        quick: "Pilot one emerging AI technology ahead of the market using your infrastructure advantage",
+        medium: "Build custom AI solutions that leverage your advanced technical capabilities",
+        strat: "Maintain infrastructure investment pace with AI tooling evolution",
+      },
+    },
+    strategic_clarity: {
+      "Critical Gap": {
+        quick: "Identify three specific business problems where AI could deliver measurable, quantified value",
+        medium: "Build detailed business cases with defined success metrics for your top three AI opportunities",
+        strat: "Create a prioritised AI strategy with quarterly reviews and portfolio management",
+      },
+      "Needs Attention": {
+        quick: "Align your leadership team on a single top AI priority with a defined success metric",
+        medium: "Document your AI strategy with prioritised use cases, metrics, baselines, and allocated budget",
+        strat: "Implement quarterly AI strategy reviews with the ability to pivot or kill underperforming initiatives",
+      },
+      "Solid Foundation": {
+        quick: "Review whether your delivery model can keep up with your strategic AI ambitions",
+        medium: "Implement portfolio management across your AI initiatives with clear go/no-go gates",
+        strat: "Build the discipline to kill AI projects that are not delivering and reallocate resources",
+      },
+      "Strength": {
+        quick: "Reassess your AI strategy against the latest technology developments",
+        medium: "Ensure your strategy remains adaptive and regularly re-evaluated as AI evolves",
+        strat: "Use your strategic clarity to say no to AI distractions and focus on highest-value initiatives",
+      },
+    },
+  };
+
+  for (const key of priorityOrder) {
+    const rating = dimensionRatings[key].rating;
+    const actions = actionsByDimension[key]?.[rating];
+    if (!actions) continue;
+
+    if (rating === "Critical Gap") {
+      quickWins.push({ action: actions.quick, dimension: key });
+      mediumTerm.push({ action: actions.medium, dimension: key });
+      strategic.push({ action: actions.strat, dimension: key });
+    } else if (rating === "Needs Attention") {
+      quickWins.push({ action: actions.quick, dimension: key });
+      mediumTerm.push({ action: actions.medium, dimension: key });
+      strategic.push({ action: actions.strat, dimension: key });
+    } else if (rating === "Solid Foundation") {
+      quickWins.push({ action: actions.quick, dimension: key });
+      mediumTerm.push({ action: actions.medium, dimension: key });
+      strategic.push({ action: actions.strat, dimension: key });
+    } else {
+      quickWins.push({ action: actions.quick, dimension: key });
+      mediumTerm.push({ action: actions.medium, dimension: key });
+      strategic.push({ action: actions.strat, dimension: key });
+    }
+  }
+
+  return { quickWins, mediumTerm, strategic };
+}
 
 // ── Component ──────────────────────────────────────────────────────────
 
@@ -94,6 +256,7 @@ const DiagnosticResults = () => {
 
   const { scoring, organisation } = state;
   const { maturityLevel, totalScore, dimensionScores, dimensionRatings, priorityOrder } = scoring;
+  const actionPlan = generateActionPlan(priorityOrder, dimensionRatings);
 
   return (
     <div className="min-h-screen bg-background">
@@ -127,26 +290,19 @@ const DiagnosticResults = () => {
         <section className="pb-16 md:pb-24">
           <div className="container mx-auto px-6 lg:px-12 flex justify-center">
             <div className="w-full max-w-[600px] border border-border p-8 md:p-10 rounded-none">
-              {/* Maturity label */}
               <p
                 className="text-3xl md:text-4xl font-extrabold mb-4"
                 style={{ color: maturityLevel.color }}
               >
                 {maturityLevel.label}
               </p>
-
-              {/* Total score */}
               <p className="font-mono text-5xl md:text-6xl font-bold text-foreground mb-1">
                 {totalScore}{" "}
                 <span className="text-muted-foreground text-2xl md:text-3xl font-normal">/ 150</span>
               </p>
-
-              {/* Level indicator */}
               <p className="font-mono text-lg text-primary font-semibold mb-6">
                 Level {maturityLevel.level}
               </p>
-
-              {/* Summary */}
               <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                 {MATURITY_SUMMARIES[maturityLevel.level]}
               </p>
@@ -217,20 +373,16 @@ const DiagnosticResults = () => {
                     <p className="font-display text-sm font-bold text-foreground mb-3">
                       {name}
                     </p>
-
                     <p className="font-mono text-2xl font-bold text-foreground mb-1">
                       {score}{" "}
                       <span className="text-muted-foreground text-sm font-normal">/ 25</span>
                     </p>
-
                     <p
                       className="text-xs font-semibold uppercase tracking-wider mb-3"
                       style={{ color: rating.color }}
                     >
                       {rating.rating}
                     </p>
-
-                    {/* Progress bar */}
                     <div className="w-full h-1.5 bg-secondary rounded-none overflow-hidden">
                       <div
                         className="h-full rounded-none transition-all duration-500"
@@ -244,28 +396,212 @@ const DiagnosticResults = () => {
           </div>
         </section>
 
-        {/* ── Headline Recommendations ─────────────────────────────── */}
+        {/* ── Detailed Recommendations ─────────────────────────────── */}
         <section className="pb-16 md:pb-24">
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6">
-              Priority Recommendations
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Detailed Recommendations
             </h2>
+            <p className="text-muted-foreground text-sm mb-10 max-w-2xl">
+              Ordered by priority. Address the top items first for maximum impact.
+            </p>
 
-            <div className="space-y-3 max-w-3xl">
+            <div className="space-y-10 max-w-3xl">
               {priorityOrder.map((key, i) => {
-                const name = DIMENSION_NAMES[key];
+                const score = dimensionScores[key];
                 const rating = dimensionRatings[key];
-                const rec = getHeadlineRecommendation(name, rating.rating);
+                const name = DIMENSION_NAMES[key];
+                const rec = getRecommendation(key, rating.rating);
+
+                if (!rec) return null;
 
                 return (
-                  <div key={key} className="flex gap-3 items-start">
-                    <span className="font-mono text-xs text-primary mt-1 shrink-0">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{rec}</p>
+                  <div key={key} className="border border-border p-6 md:p-8 rounded-none">
+                    {/* Header */}
+                    <div className="flex items-start justify-between gap-4 mb-4">
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-xs text-primary shrink-0">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <h3 className="font-display text-lg font-bold text-foreground">
+                          {name}
+                        </h3>
+                      </div>
+                      <div className="flex items-center gap-3 shrink-0">
+                        <span className="font-mono text-sm font-bold text-foreground">
+                          {score}/25
+                        </span>
+                        <span
+                          className="text-xs font-semibold uppercase tracking-wider"
+                          style={{ color: rating.color }}
+                        >
+                          {rating.rating}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Headline */}
+                    <p className="text-xl font-bold text-foreground mb-4">
+                      {rec.headline}
+                    </p>
+
+                    {/* Detail */}
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      {rec.detail}
+                    </p>
+
+                    {/* What good looks like */}
+                    <div
+                      className="pl-5 mb-6"
+                      style={{ borderLeft: `3px solid ${rating.color}` }}
+                    >
+                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                        What good looks like
+                      </p>
+                      <p className="text-sm text-foreground leading-relaxed">
+                        {rec.whatGoodLooksLike}
+                      </p>
+                    </div>
+
+                    {/* Ask your team callout */}
+                    <div className="bg-secondary border border-border p-5 rounded-none">
+                      <span className="font-mono text-xs text-primary uppercase tracking-widest mb-2 block">
+                        [ASK YOUR TEAM]
+                      </span>
+                      <p className="text-foreground text-sm leading-relaxed italic">
+                        {rec.internalQuestion}
+                      </p>
+                    </div>
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Priority Action Plan ─────────────────────────────────── */}
+        <section className="pb-16 md:pb-24">
+          <div className="container mx-auto px-6 lg:px-12">
+            <span className="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">
+              [NEXT STEPS]
+            </span>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-10">
+              Your Prioritised Action Plan.
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Quick Wins */}
+              <div className="border border-border p-6 rounded-none">
+                <h3 className="font-display text-base font-bold text-foreground mb-1">
+                  Quick Wins
+                </h3>
+                <p className="text-xs text-muted-foreground font-mono mb-5">0–3 months</p>
+                <div className="space-y-4">
+                  {actionPlan.quickWins.map((item, i) => (
+                    <div key={i}>
+                      <span
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded-none"
+                        style={{
+                          color: dimensionRatings[item.dimension].color,
+                          borderColor: dimensionRatings[item.dimension].color,
+                        }}
+                      >
+                        {SHORT_NAMES[item.dimension]}
+                      </span>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {item.action}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Medium-term */}
+              <div className="border border-border p-6 rounded-none">
+                <h3 className="font-display text-base font-bold text-foreground mb-1">
+                  Medium-term
+                </h3>
+                <p className="text-xs text-muted-foreground font-mono mb-5">3–6 months</p>
+                <div className="space-y-4">
+                  {actionPlan.mediumTerm.map((item, i) => (
+                    <div key={i}>
+                      <span
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded-none"
+                        style={{
+                          color: dimensionRatings[item.dimension].color,
+                          borderColor: dimensionRatings[item.dimension].color,
+                        }}
+                      >
+                        {SHORT_NAMES[item.dimension]}
+                      </span>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {item.action}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Strategic */}
+              <div className="border border-border p-6 rounded-none">
+                <h3 className="font-display text-base font-bold text-foreground mb-1">
+                  Strategic
+                </h3>
+                <p className="text-xs text-muted-foreground font-mono mb-5">6–12 months</p>
+                <div className="space-y-4">
+                  {actionPlan.strategic.map((item, i) => (
+                    <div key={i}>
+                      <span
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded-none"
+                        style={{
+                          color: dimensionRatings[item.dimension].color,
+                          borderColor: dimensionRatings[item.dimension].color,
+                        }}
+                      >
+                        {SHORT_NAMES[item.dimension]}
+                      </span>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {item.action}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTAs ─────────────────────────────────────────────────── */}
+        <section className="pb-20 md:pb-32">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+                <Button
+                  className="h-12 px-8 text-base font-semibold rounded-none bg-primary text-primary-foreground hover:bg-primary/90"
+                  onClick={() => {
+                    // PDF generation placeholder — will be implemented later
+                    console.log("PDF download triggered");
+                  }}
+                >
+                  Download PDF Report
+                </Button>
+                <Button
+                  variant="outline"
+                  className="h-12 px-8 text-base font-semibold rounded-none border-border text-foreground hover:bg-secondary"
+                  asChild
+                >
+                  <a
+                    href="https://calendly.com/bengallagher"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book a Strategy Call
+                  </a>
+                </Button>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
+                Walk through your results with Ben Gallagher and identify your highest-leverage next steps. 30 minutes, no obligation.
+              </p>
             </div>
           </div>
         </section>
