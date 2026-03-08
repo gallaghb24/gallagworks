@@ -123,7 +123,12 @@ const DiagnosticAssess = () => {
       setIsAdvancing(false);
     }
     if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
+      setDirection("back");
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => prev - 1);
+        setIsTransitioning(false);
+      }, 250);
     }
   };
 
