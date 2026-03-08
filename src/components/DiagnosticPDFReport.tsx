@@ -3,9 +3,11 @@ import {
   Page,
   Text,
   View,
+  Image,
   StyleSheet,
   pdf,
 } from "@react-pdf/renderer";
+import logoSrc from "@/assets/gallag-wordmark.png";
 
 import type { ScoringResult, DimensionKey } from "@/lib/scoring";
 import { getRecommendation } from "@/data/recommendations";
@@ -402,8 +404,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
       {/* Page 1: Cover */}
       <Page size="A4" style={s.coverPage}>
         <View>
-          <Text style={s.coverBrand}>GALLAG WORKS</Text>
-          <Text style={s.coverBrandSub}>OPERATIONAL ENGINEERING</Text>
+          <Image src={logoSrc} style={{ width: 180, height: 36, marginBottom: 4 }} />
         </View>
         <View>
           <Text style={s.coverTitle}>AI Readiness{"\n"}Diagnostic Report</Text>
@@ -560,6 +561,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           <Text style={s.ctaBoxBody}>
             Walk through your results with Ben Gallagher, Principal at Gallag Works, and identify your highest-leverage next steps. No obligation, no sales pitch — just a direct conversation about what would actually move the needle for {organisation}.
           </Text>
+          <Text style={s.ctaUrl}>hello@gallag.works</Text>
           <Text style={s.ctaUrl}>gallagworks.com/contact</Text>
         </View>
 
