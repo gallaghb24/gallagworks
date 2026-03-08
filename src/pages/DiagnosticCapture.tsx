@@ -121,7 +121,7 @@ const DiagnosticCapture = () => {
       if (assessError) throw assessError;
 
       navigate(`/diagnostic/results/${assessment.id}`, {
-        state: { scoring, assessmentId: assessment.id },
+        state: { scoring, assessmentId: assessment.id, organisation: result.data.organisation },
       });
     } catch (err) {
       console.error("Submission error:", err);
