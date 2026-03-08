@@ -469,7 +469,7 @@ const DiagnosticResults = () => {
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
                 [DIMENSION MAP]
               </span>
-              <ResponsiveContainer width="100%" height={320}>
+              <ResponsiveContainer width="100%" height={280}>
                 <RadarChart
                   data={DIMENSION_KEYS.map((key) => ({
                     dimension: SHORT_NAMES[key],
