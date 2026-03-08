@@ -25,6 +25,8 @@ interface FlatQuestion {
 const DiagnosticAssess = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAdvancing, setIsAdvancing] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [direction, setDirection] = useState<"forward" | "back">("forward");
   const { answers, updateAnswer } = useDiagnostic();
   const navigate = useNavigate();
   const completedRef = useRef(false);
@@ -97,15 +99,21 @@ const DiagnosticAssess = () => {
     }
 
     advanceTimerRef.current = setTimeout(() => {
-      if (isLast) {
-        completedRef.current = true;
-        window.removeEventListener("beforeunload", handleBeforeUnload);
-        navigate("/diagnostic/capture");
-      } else {
-        setCurrentIndex((prev) => prev + 1);
-      }
-      setIsAdvancing(false);
-    }, 600);
+      setIsTransitioning(true);
+      setDirection("forward");
+      // Wait for fade-out, then change index
+      setTimeout(() => {
+        if (isLast) {
+          completedRef.current = true;
+          window.removeEventListener("beforeunload", handleBeforeUnload);
+          navigate("/diagnostic/capture");
+        } else {
+          setCurrentIndex((prev) => prev + 1);
+        }
+        setIsAdvancing(false);
+        setIsTransitioning(false);
+      }, 250);
+    }, 350);
   };
 
   const handleBack = () => {
@@ -115,7 +123,12 @@ const DiagnosticAssess = () => {
       setIsAdvancing(false);
     }
     if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
+      setDirection("back");
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => prev - 1);
+        setIsTransitioning(false);
+      }, 250);
     }
   };
 
@@ -166,10 +179,17 @@ const DiagnosticAssess = () => {
 
       {/* Content */}
       <main className="container mx-auto px-6 lg:px-12 py-8 md:py-12">
-        <div className="max-w-3xl mx-auto">
+        <div
+          className={cn(
+            "max-w-3xl mx-auto transition-all duration-250 ease-[cubic-bezier(0.16,1,0.3,1)]",
+            isTransitioning
+              ? cn("opacity-0", direction === "forward" ? "translate-x-6" : "-translate-x-6")
+              : "opacity-100 translate-x-0"
+          )}
+        >
           {/* Dimension intro - only on first question of each dimension */}
           {current.isFirstInDimension && (
-            <div className="mb-8 animate-in fade-in duration-300">
+            <div className="mb-8">
               <p className="font-mono text-xs text-primary uppercase tracking-widest mb-2">
                 [{current.dimensionTagline}]
               </p>
@@ -182,7 +202,7 @@ const DiagnosticAssess = () => {
           {/* Single question */}
           <div
             key={current.question.id}
-            className="border border-border p-4 sm:p-6 animate-in fade-in slide-in-from-right-4 duration-300"
+            className="border border-border p-4 sm:p-6"
           >
             <p className="font-bold text-foreground mb-5">
               <span className="text-primary font-mono text-sm mr-2">
