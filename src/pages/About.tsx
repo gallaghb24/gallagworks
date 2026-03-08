@@ -51,7 +51,7 @@ const About = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I led operational transformation for Tier-1 retailers and FTSE 100 entities, managing £15M+ annual multichannel contracts.
+                Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I led operational transformation across retail, financial services, and professional services as operational lead within a 2,100-person content production agency, managing £15M+ annual contracts.
               </p>
               <a
                 href="https://www.linkedin.com/in/bengallagher/"
