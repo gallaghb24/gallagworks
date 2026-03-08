@@ -381,7 +381,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-206",
     title: "High-Volume Allocation Logistics.",
     subtitle: "Cutting a 10-hour manual merging task to 15 minutes through intelligent RPA-based allocation consolidation.",
-    date: "FEB 2026",
+    date: "MAR 2026",
     seoDescription: "High-Volume Allocation Logistics: Manual workload reduced by 97%. Task duration cut from 10 hours to 15 minutes through intelligent RPA-based allocation merging.",
     manifesto: [
       {
