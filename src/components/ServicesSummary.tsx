@@ -19,7 +19,7 @@ const services = [
     label: "03",
     title: "Decision Inboxes",
     description:
-      "We engineer lightweight, AI-driven automation that handles the routine aggregation, routing only the exceptions to your team for human judgement.",
+      "I engineer lightweight, AI-driven automation that handles the routine aggregation, routing only the exceptions to your team for human judgement.",
   },
 ];
 

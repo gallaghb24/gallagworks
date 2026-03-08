@@ -3,15 +3,15 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const faqs = [
   {
     q: "How do you handle data security?",
-    a: "Data integrity and security are foundational to operational engineering. I bring enterprise-level governance experience to every project. We work within your existing InfoSec frameworks, follow least-privilege access protocols, and execute under NDA as standard. We don't 'move' your data; we engineer the systems that handle it safely.",
+    a: "Data integrity and security are foundational to operational engineering. I bring enterprise-level governance experience to every project. I work within your existing InfoSec frameworks, follow least-privilege access protocols, and execute under NDA as standard. I don't move your data; I engineer the systems that handle it safely.",
   },
   {
     q: "What tools do you use?",
-    a: "We are tool-agnostic. My goal is to maximise your existing stack (M365, Google Workspace, specialised ERPs/CRMs) before suggesting new infrastructure. When we do build, we use enterprise-grade AI and orchestration tools that your team can actually own and maintain. We don't build black boxes.",
+    a: "I am tool-agnostic. My goal is to maximise your existing stack (M365, Google Workspace, specialised ERPs/CRMs) before suggesting new infrastructure. When I do build, I use enterprise-grade AI and orchestration tools that your team can actually own and maintain. I don't build black boxes.",
   },
   {
     q: "Do you build software?",
-    a: "We build Operational Infrastructure. Sometimes that looks like a custom dashboard or a lightweight internal tool; other times it's a series of automated 'Decision Inboxes' connecting your existing apps. We start with the workflow architecture – software is simply the delivery mechanism for that logic.",
+    a: "I build Operational Infrastructure. Sometimes that looks like a custom dashboard or a lightweight internal tool; other times it is a series of automated Decision Inboxes connecting your existing apps. I start with the workflow architecture – software is simply the delivery mechanism for that logic.",
   },
   {
     q: "What do you need from us?",
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "How long does an engagement take?",
-    a: "A Diagnostic (The X-Ray) is a sharp, 2-week engagement. A Build phase typically runs between 6 and 12 weeks. While I only lead 3–4 full-scale transformations per year to ensure direct Principal involvement, the initial X-Ray is the fastest way to determine if we are a fit.",
+    a: "A Diagnostic (The X-Ray) is a sharp, 2-week engagement. A Build phase typically runs between 6 and 12 weeks. I only lead 3-4 full-scale transformations per year to ensure direct Principal involvement. The initial X-Ray is the fastest way to determine if we are a fit.",
   },
   {
     q: "What industries do you work with?",

@@ -28,7 +28,7 @@ const Philosophy = () => {
             className={`text-lg text-primary font-bold leading-relaxed max-w-[600px] mt-8 clip-reveal ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.24s" }}
           >
-            Everyone is buying AI tools. No one is engineering the logic to make them work. We do the latter.
+            Everyone is buying AI tools. No one is engineering the logic to make them work. I do the latter.
           </p>
         </div>
       </div>

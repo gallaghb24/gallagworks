@@ -52,7 +52,7 @@ const EngagementTypes = () => {
           <p
             className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
           >
-            We de-risk transformation through a phased, results-first approach. Start with the free AI Readiness Diagnostic to understand where you stand. If the results surface something worth exploring, we move into a fixed-scope Operational X-Ray, then prototype, then scale.
+            I de-risk transformation through a phased, results-first approach. Start with the free AI Readiness Diagnostic to understand where you stand. If the results surface something worth exploring, I move into a fixed-scope Operational X-Ray, then prototype, then scale.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
