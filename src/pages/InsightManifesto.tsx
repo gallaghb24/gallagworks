@@ -135,7 +135,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-201",
     title: "POS Job Workflow Automation.",
     subtitle: "How replacing fragmented data pulls with a single automated pipeline reclaimed 15 hours per week for strategic advisory.",
-    date: "FEB 2026",
+    date: "MAY 2025",
     seoDescription: "POS Job Workflow Automation: Reporting cycle cut 70%. 15h/week reclaimed for analysis and client advisory by replacing manual data pulls with a single automated pipeline.",
     manifesto: [
       {
