@@ -53,7 +53,7 @@ const Diagnostic = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="AI Readiness Diagnostic"
-        description="A 5-minute diagnostic built by practitioners. Six dimensions of AI readiness assessed honestly — no jargon, no sales pitch."
+        description="How ready is your organisation for AI? A free 5-minute diagnostic across six critical dimensions. Built by practitioners, not consultants."
         path="/diagnostic"
       />
       <Navigation />

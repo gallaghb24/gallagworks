@@ -135,8 +135,8 @@ const DiagnosticCapture = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Get Your Results"
-        description="Enter your details to receive your AI Readiness Diagnostic results."
+        title="Your Results Are Ready"
+        description="How ready is your organisation for AI? A free 5-minute diagnostic across six critical dimensions. Built by practitioners, not consultants."
         path="/diagnostic/capture"
       />
       <Navigation />

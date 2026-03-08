@@ -39,8 +39,8 @@ const DiagnosticAssess = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="AI Readiness Assessment"
-        description="Take the AI Readiness Diagnostic assessment."
+        title="Assessment in Progress"
+        description="How ready is your organisation for AI? A free 5-minute diagnostic across six critical dimensions. Built by practitioners, not consultants."
         path="/diagnostic/assess"
       />
 
