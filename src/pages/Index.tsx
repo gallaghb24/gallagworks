@@ -31,7 +31,7 @@ const Index = () => {
           secondaryCTA={{ label: "Take the AI Readiness Diagnostic", to: "/diagnostic" }}
         />
       </main>
-      <Footer />
+      <Footer hideCTA />
     </div>
   );
 };
