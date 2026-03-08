@@ -4,16 +4,16 @@ import { useCountUp } from "@/hooks/useCountUp";
 const ProofPoints = () => {
   const { ref, isVisible } = useScrollAnimation();
 
-  const counter1 = useCountUp({ target: 15, prefix: "£", suffix: "M+", formatValue: (n) => (n / 10).toFixed(1) });
+  const counter1 = useCountUp({ target: 10, prefix: "£", suffix: "M+", formatValue: (n) => (n / 10).toFixed(1) });
   const counter2 = useCountUp({ target: 98, suffix: "%" });
   const counter3 = useCountUp({ target: 50, suffix: "%" });
 
   const metrics = [
     {
       counter: counter1,
-      label: "Quantified Margin Recovery",
+      label: "Identified Operational Leakage",
       detail:
-        "Identifying and engineering out over £1.5M in cumulative operational leakage for Tier-1 retailers and enterprise clients by eradicating \u201CData Glue\u201D and manual friction.",
+        "Identified over £1M in cumulative operational leakage across enterprise engagements. Leakage quantified through the Operational X-Ray methodology: fully-loaded cost of manual re-keying, spreadsheet handoffs, and coordination overhead mapped workflow by workflow.",
     },
     {
       counter: counter2,
