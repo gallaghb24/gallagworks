@@ -1,129 +1,40 @@
 
 
-# Light Mode Implementation Plan
+## One-Question-Per-Page Diagnostic
 
-## Overview
+### Current State
+The assessment shows all 5 questions per dimension on a single scrollable page (6 dimensions × 5 questions = 30 total). Users must scroll and click "Next" after each dimension.
 
-Add a complete light theme to the site that auto-detects the user's system preference and provides a toggle in the navigation header. The project already has `next-themes` installed but not configured.
+### Proposed Change
+Flatten all 30 questions into a single linear sequence. Show one question at a time. When the user selects an answer, auto-advance to the next question after a brief delay (~600ms). The progress bar tracks individual questions (1/30 → 2/30 → ... → 30/30).
 
----
+### Technical Changes — `src/pages/DiagnosticAssess.tsx`
 
-## 1. Set up ThemeProvider in App.tsx
+1. **Replace dimension-based state with flat question index:**
+   - Flatten `dimensions` into a single array of `{ dimension, question, globalIndex }` objects
+   - Track `currentQuestion` (0–29) instead of `currentDimension`
+   - Progress = `(currentQuestion + 1) / totalQuestions * 100`
 
-Wrap the app in `next-themes` `ThemeProvider` with `attribute="class"`, `defaultTheme="system"`, and `enableSystem={true}`. This uses the `darkMode: ["class"]` strategy already configured in `tailwind.config.ts`.
+2. **Auto-advance on answer selection:**
+   - Wrap `updateAnswer` — after calling it, set a `setTimeout` (~600ms) to increment `currentQuestion`
+   - On the last question, navigate to `/diagnostic/capture` instead
+   - Show a brief visual confirmation (the selected option highlights) before advancing
 
----
+3. **Update the sticky header:**
+   - Show dimension name + tagline for context (derived from current question's parent dimension)
+   - Counter changes to `[06/30]` style
+   - Progress bar width based on per-question progress
 
-## 2. Define light mode CSS variables in index.css
+4. **Simplify the content area:**
+   - Render only the single current question (no `.map()` over questions)
+   - Keep the dimension intro shown only when entering a new dimension (first question of that dimension)
 
-Add a `.light` class block (alongside the existing `:root` dark defaults) with inverted values:
+5. **Navigation:**
+   - Keep a "Back" button (or arrow) to go to previous question
+   - Remove the "Next" button — selection auto-advances
+   - On the very last question, after selection, auto-navigate to capture page
 
-```text
-.light {
-  --background:    0 0% 98%;      (near-white)
-  --foreground:    0 0% 10%;      (near-black text)
-  --card:          0 0% 100%;     (white cards)
-  --card-foreground: 0 0% 10%;
-  --popover:       0 0% 100%;
-  --popover-foreground: 0 0% 10%;
-  --primary:       20 100% 50%;   (slightly deeper orange for contrast on white)
-  --primary-foreground: 0 0% 100%;
-  --secondary:     210 10% 94%;   (light grey)
-  --secondary-foreground: 0 0% 10%;
-  --muted:         210 10% 94%;
-  --muted-foreground: 0 0% 40%;
-  --accent:        20 100% 50%;
-  --accent-foreground: 0 0% 100%;
-  --border:        210 10% 85%;
-  --input:         210 10% 90%;
-  --ring:          20 100% 50%;
-  --footer-bg:     210 10% 96%;
-  --footer-fg:     0 0% 30%;
-  --slate:         210 10% 94%;
-  --sidebar-*:     (matching light values)
-}
-```
-
----
-
-## 3. Add theme toggle to Navigation
-
-- Import `useTheme` from `next-themes` and `Sun`/`Moon` icons from `lucide-react`
-- Add a small icon button between the nav links and the CTA button (desktop), and at the bottom of the mobile menu
-- The button cycles: if current theme is dark, switch to light; if light, switch to dark; if system, switch to light/dark based on current resolved theme
-- Use a simple Sun/Moon icon swap based on `resolvedTheme`
-
----
-
-## 4. Replace hardcoded colours with CSS variable references
-
-Several components use hardcoded hex values that won't adapt to light mode. These need updating:
-
-### LeakageEstimator.tsx (heaviest offender)
-- `background: "#000000"` on the section -- replace with `bg-background` or a new CSS variable `--estimator-bg`
-- `color: "#FFFFFF"` on inputs/headings -- replace with `text-foreground`
-- `BORDER_COLOR = "#1A1C1E"` -- replace with `hsl(var(--border))`
-- `background: "hsl(210, 3%, 16%)"` on inputs/buttons -- replace with `hsl(var(--input))`
-- `color: "#FF5F1F"` -- replace with `hsl(var(--primary))`
-- Hover states (`#FFFFFF` / `#000000`) -- use foreground/background variables
-
-### HeroSchematic.tsx
-- SVG strokes `#2F3133` -- replace with `hsl(var(--border))` via a CSS variable or `currentColor`
-- `#F5F5F5` core strokes -- replace with `hsl(var(--foreground))`
-- `#FF5F1F` pulses -- replace with `hsl(var(--primary))`
-
-### HowWeWork.tsx
-- `border-[#2F3133]` -- replace with `border-border`
-
-### EngagementTypes.tsx
-- `bg-[#1A1C1E]` -- replace with `bg-muted` or `bg-slate`
-- `border-[#2F3133]` -- replace with `border-border`
-
-### FAQSection.tsx
-- `bg-[#1A1C1E]` -- replace with `bg-slate`
-- `border-[#2F3133]` -- replace with `border-border`
-
-### GallagGlyph.tsx
-- `stroke="#2F3133"` -- replace with CSS variable
-- `group-hover:stroke-[#F5F5F5]` -- replace with `group-hover:stroke-foreground`
-
-### About.tsx
-- `bg-[#1A1C1E]` and `border-[#2F3133]` on stat cards -- replace with `bg-slate` / `border-border`
-
----
-
-## 5. Handle the wordmark logo
-
-The site uses a PNG wordmark (`gallag-wordmark.png`) that is likely white text on transparent. In light mode this will be invisible. Two approaches:
-
-- **Option A (recommended):** Add a `dark:` variant -- use the existing white wordmark for dark mode and provide a dark version for light mode. If no dark PNG exists, apply a CSS `filter: invert(1)` in light mode via a conditional class.
-- **Option B:** Use CSS `filter: brightness(0)` on the wordmark in light mode to turn it black.
-
-We will use Option B (`filter`) as it requires no additional assets.
-
----
-
-## 6. Files to modify
-
-| File | Change |
-|---|---|
-| `src/App.tsx` | Wrap in `ThemeProvider` |
-| `src/index.css` | Add `.light` CSS variable block |
-| `src/components/Navigation.tsx` | Add Sun/Moon toggle button |
-| `src/components/LeakageEstimator.tsx` | Replace ~15 hardcoded hex values with CSS variables |
-| `src/components/HeroSchematic.tsx` | Replace SVG hardcoded colours with CSS variables |
-| `src/components/HowWeWork.tsx` | Replace `#2F3133` with `border-border` |
-| `src/components/EngagementTypes.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-| `src/components/FAQSection.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-| `src/components/GallagGlyph.tsx` | Replace hardcoded strokes with CSS variable references |
-| `src/pages/About.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-
----
-
-## Technical notes
-
-- `next-themes` is already installed; `darkMode: ["class"]` is already in `tailwind.config.ts` -- no config changes needed
-- The `:root` block keeps the current dark values as the default (so the site stays dark by default for users without a system preference)
-- The `.light` class is applied by `next-themes` to `<html>` when the user selects light mode or their system prefers it
-- The Sonner toaster component already imports `useTheme` and will work automatically once the provider is in place
+6. **Analytics adjustments:**
+   - Track `dimension_completed` when the last question of each dimension is answered
+   - Update abandonment tracking to reference `currentQuestion` index
 
