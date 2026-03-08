@@ -585,7 +585,14 @@ export async function downloadDiagnosticPDF(props: PDFProps): Promise<void> {
   const blob = await pdf(<DiagnosticPDFDocument {...props} />).toBlob();
   const orgSlug = props.organisation.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
   const filename = `ai-readiness-diagnostic-${orgSlug}.pdf`;
-  saveAs(blob, filename);
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 }
 
 export default DiagnosticPDFDocument;
