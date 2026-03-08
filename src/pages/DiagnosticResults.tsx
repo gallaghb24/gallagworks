@@ -786,6 +786,7 @@ const DiagnosticResults = () => {
                     href="https://calendly.com/bengallagher"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent("calendly_clicked", { assessment_id: currentAssessmentId })}
                   >
                     Book a Strategy Call
                   </a>
