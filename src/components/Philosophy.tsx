@@ -22,7 +22,7 @@ const Philosophy = () => {
             className={`text-lg text-muted-foreground leading-relaxed max-w-[600px] clip-reveal ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.16s" }}
           >
-            You cannot scale a business on brute-force human effort, but you also can't fix bad logic with shiny technology. At Gallag Works, we start with the operational reality. We understand margin, SLAs, and adoption. We simplify the workflow first, kill the redundant steps, and build the automation second.
+            You cannot scale a business on brute-force human effort, but you also cannot fix bad logic with shiny technology. I start with the operational reality. I understand margin, SLAs, and adoption. I simplify the workflow first, kill the redundant steps, and build the automation second.
           </p>
           <p
             className={`text-lg text-primary font-bold leading-relaxed max-w-[600px] mt-8 clip-reveal ${isVisible ? "visible" : ""}`}
