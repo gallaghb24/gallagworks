@@ -5,6 +5,7 @@ import ServicesSummary from "@/components/ServicesSummary";
 import Principal from "@/components/Principal";
 import ProofPoints from "@/components/ProofPoints";
 import LeakageEstimator from "@/components/LeakageEstimator";
+import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
