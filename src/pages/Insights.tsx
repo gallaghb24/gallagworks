@@ -118,7 +118,7 @@ const Insights = () => {
               {/* Technical Index Table */}
               <div className="border border-border">
                 {/* Header Row */}
-                <div className="hidden md:grid border-b border-foreground px-6 py-4" style={{ gridTemplateColumns: '15% 45% 28% 12%' }}>
+                <div className="hidden md:grid border-b border-foreground px-6 py-4" style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}>
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
                     [REF]
                   </span>
@@ -127,6 +127,9 @@ const Insights = () => {
                   </span>
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
                     [PRIMARY METRIC]
+                  </span>
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
+                    [DATE]
                   </span>
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed text-right">
                     [STATUS]
