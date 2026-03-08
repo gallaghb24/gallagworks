@@ -83,7 +83,14 @@ const DiagnosticAssess = () => {
             </h2>
           </div>
           {/* Progress bar */}
-          <div className="w-full h-1 bg-border">
+          <div
+            className="w-full h-1 bg-border"
+            role="progressbar"
+            aria-label={`Dimension ${currentDimension + 1} of ${totalDimensions}`}
+            aria-valuenow={currentDimension + 1}
+            aria-valuemin={1}
+            aria-valuemax={totalDimensions}
+          >
             <div
               className="h-full bg-primary transition-all duration-500 ease-out"
               style={{ width: `${progressPercent}%` }}
