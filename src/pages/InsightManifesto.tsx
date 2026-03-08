@@ -54,7 +54,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-101",
     title: "Eradicating the Enterprise Data Glue.",
     subtitle: "A field manifesto on identifying and engineering out the manual friction that silently erodes enterprise margins.",
-    date: "FEB 2026",
+    date: "MAR 2025",
     seoDescription: "How Operational Engineering identifies and removes the manual friction costing Tier-1 retailers £1.5M+ annually. 1,200 hours reclaimed through systematic Data Glue eradication.",
     manifesto: [
       {
@@ -135,7 +135,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-201",
     title: "POS Job Workflow Automation.",
     subtitle: "How replacing fragmented data pulls with a single automated pipeline reclaimed 15 hours per week for strategic advisory.",
-    date: "FEB 2026",
+    date: "MAY 2025",
     seoDescription: "POS Job Workflow Automation: Reporting cycle cut 70%. 15h/week reclaimed for analysis and client advisory by replacing manual data pulls with a single automated pipeline.",
     manifesto: [
       {
@@ -184,7 +184,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-202",
     title: "Costing Process Re-engineering.",
     subtitle: "Eliminating spreadsheet handoffs and email-based coordination to remove 10 hours of weekly overhead and cut missed deadlines by 85%.",
-    date: "FEB 2026",
+    date: "JUL 2025",
     seoDescription: "Costing Process Re-engineering: Missed deadlines down 85%. 10h/week coordination overhead removed by consolidating spreadsheet handoffs into an automated production system.",
     manifesto: [
       {
@@ -234,7 +234,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-203",
     title: "Validation Pipeline Automation.",
     subtitle: "Building validation rules into the data pipeline to eliminate unsustainable manual checking and free capacity for process improvement.",
-    date: "FEB 2026",
+    date: "SEP 2025",
     seoDescription: "Validation Pipeline Automation: Manual checking reduced 60%. 20h/week reclaimed by building validation rules into the data pipeline with exception-only routing.",
     manifesto: [
       {
@@ -283,7 +283,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-204",
     title: "Multichannel Content Orchestration.",
     subtitle: "Engineering out the Data Glue at the briefing stage to reclaim 1,200 hours annually and slash lead times by 50%.",
-    date: "FEB 2026",
+    date: "NOV 2025",
     seoDescription: "Multichannel Content Orchestration: 1,200 hours reclaimed annually. Lead times slashed by 50% through LLM-based ingestion and automated data standardisation.",
     manifesto: [
       {
@@ -332,7 +332,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-205",
     title: "Enterprise Reporting Automation.",
     subtitle: "Replacing 30 hours of monthly Excel manipulation with a 10-minute automated pipeline – a 98% reduction in processing time.",
-    date: "FEB 2026",
+    date: "JAN 2026",
     seoDescription: "Enterprise Reporting Automation: 98% reduction in processing time. 360 hours reclaimed annually while removing 100% of data integrity risk via automated drag-and-drop mapping.",
     manifesto: [
       {
@@ -381,7 +381,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-206",
     title: "High-Volume Allocation Logistics.",
     subtitle: "Cutting a 10-hour manual merging task to 15 minutes through intelligent RPA-based allocation consolidation.",
-    date: "FEB 2026",
+    date: "MAR 2026",
     seoDescription: "High-Volume Allocation Logistics: Manual workload reduced by 97%. Task duration cut from 10 hours to 15 minutes through intelligent RPA-based allocation merging.",
     manifesto: [
       {
