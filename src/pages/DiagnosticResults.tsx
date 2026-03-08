@@ -629,7 +629,7 @@ const DiagnosticResults = () => {
               Ordered by priority. Address the top items first for maximum impact.
             </p>
 
-            <div className="space-y-10 max-w-3xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {priorityOrder.map((key, i) => {
                 const score = dimensionScores[key];
                 const rating = dimensionRatings[key];
