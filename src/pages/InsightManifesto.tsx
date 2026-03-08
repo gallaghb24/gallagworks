@@ -184,7 +184,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-202",
     title: "Costing Process Re-engineering.",
     subtitle: "Eliminating spreadsheet handoffs and email-based coordination to remove 10 hours of weekly overhead and cut missed deadlines by 85%.",
-    date: "FEB 2026",
+    date: "JUL 2025",
     seoDescription: "Costing Process Re-engineering: Missed deadlines down 85%. 10h/week coordination overhead removed by consolidating spreadsheet handoffs into an automated production system.",
     manifesto: [
       {
