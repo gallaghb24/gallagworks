@@ -688,7 +688,7 @@ const DiagnosticResults = () => {
                   {maturityLevel.label}
                 </p>
                 <p className="font-mono text-5xl md:text-6xl font-bold text-foreground mb-1">
-                  {totalScore}{" "}
+                  {animatedTotalScore}{" "}
                   <span className="text-muted-foreground text-2xl md:text-3xl font-normal">/ 150</span>
                 </p>
                 <p className="font-mono text-lg text-primary font-semibold mb-6">
