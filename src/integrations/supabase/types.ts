@@ -14,6 +14,50 @@ export type Database = {
   }
   public: {
     Tables: {
+      assessments: {
+        Row: {
+          answers: Json | null
+          completed_at: string | null
+          dimension_scores: Json | null
+          id: string
+          lead_id: string
+          maturity_level: string | null
+          started_at: string
+          status: string
+          total_score: number | null
+        }
+        Insert: {
+          answers?: Json | null
+          completed_at?: string | null
+          dimension_scores?: Json | null
+          id?: string
+          lead_id: string
+          maturity_level?: string | null
+          started_at?: string
+          status?: string
+          total_score?: number | null
+        }
+        Update: {
+          answers?: Json | null
+          completed_at?: string | null
+          dimension_scores?: Json | null
+          id?: string
+          lead_id?: string
+          maturity_level?: string | null
+          started_at?: string
+          status?: string
+          total_score?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assessments_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       contact_submissions: {
         Row: {
           company: string | null
@@ -38,6 +82,39 @@ export type Database = {
           id?: string
           message?: string
           name?: string
+        }
+        Relationships: []
+      }
+      leads: {
+        Row: {
+          company_size: string | null
+          created_at: string
+          email: string
+          id: string
+          industry: string | null
+          name: string
+          organisation: string
+          role: string | null
+        }
+        Insert: {
+          company_size?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          industry?: string | null
+          name: string
+          organisation: string
+          role?: string | null
+        }
+        Update: {
+          company_size?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          industry?: string | null
+          name?: string
+          organisation?: string
+          role?: string | null
         }
         Relationships: []
       }
