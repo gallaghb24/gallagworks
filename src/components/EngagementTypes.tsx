@@ -28,7 +28,7 @@ const tiers = [
     title: "Enterprise Integration",
     sublabel: "Retainer or Phase-Based",
     description:
-      "Transformation at scale. We focus on Governance and Exception Engineering – human-in-the-loop safety rails that ensure your team stays in control. Combined with champion-led adoption, the system actually sticks across teams and geographies.",
+      "Transformation at scale. I focus on Governance and Exception Engineering – human-in-the-loop safety rails that ensure your team stays in control. Combined with champion-led adoption, the system actually sticks across teams and geographies.",
   },
 ];
 
