@@ -31,6 +31,7 @@ const AdminLayout = lazy(() => import("./components/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
 const AdminAssessments = lazy(() => import("./pages/admin/AdminAssessments"));
+const ConsultationConfirmation = lazy(() => import("./pages/ConsultationConfirmation"));
 
 const queryClient = new QueryClient();
 
@@ -76,6 +77,7 @@ const App = () => (
                   <Route path="/diagnostic/capture" element={<PageWrapper><DiagnosticCapture /></PageWrapper>} />
                   <Route path="/diagnostic/results" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
                   <Route path="/diagnostic/results/:assessmentId" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
+                  <Route path="/consultation/confirmed" element={<PageWrapper><ConsultationConfirmation /></PageWrapper>} />
                   <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
                   <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
                   <Route path="/cookies" element={<PageWrapper><Cookies /></PageWrapper>} />

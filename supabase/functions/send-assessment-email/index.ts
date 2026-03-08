@@ -66,7 +66,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { strongest, weakest } = getStrongestAndWeakest(dimension_scores);
 
     const resultsUrl = `https://www.gallag.works/diagnostic/results/${assessment_id}`;
-    const calendlyUrl = "https://calendly.com/bengallagher/30min";
+    
     const refId = `GW-DX-${Date.now().toString(36).toUpperCase().slice(-6)}`;
 
     // ── Email 1: Lead confirmation ──────────────────────────────────
@@ -103,7 +103,7 @@ const handler = async (req: Request): Promise<Response> => {
       <a href="${resultsUrl}" style="display:inline-block;padding:12px 24px;background-color:#FF5F1F;color:#FFFFFF;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:0.5px;">VIEW FULL RESULTS</a>
     </p>
 
-    <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">Want to talk through your results? <a href="${calendlyUrl}" style="color:#FF5F1F;text-decoration:underline;">Book a 30-minute strategy call</a>.</p>
+    <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">Want to talk through your results? <a href="${resultsUrl}?request=consultation" style="color:#FF5F1F;text-decoration:underline;">Request a Consultation</a>.</p>
 
     <p style="margin:0 0 32px 0;font-size:15px;color:#F5F5F5;">No obligation — just a practical conversation about where AI can move the needle for ${safeOrg}.</p>
 
