@@ -669,7 +669,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
         <PageFooter pageNum={6} />
       </Page>
 
-      {/* Page 10: About & CTA */}
+      {/* Page 7: About & CTA */}
       <Page size="A4" style={s.page}>
         <Text style={s.sectionLabel}>[NEXT STEPS]</Text>
         <Text style={s.ctaTitle}>
