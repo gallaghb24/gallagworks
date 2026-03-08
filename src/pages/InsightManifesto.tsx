@@ -116,7 +116,7 @@ const insightData: InsightEntry[] = [
           name: "How does Data Glue affect retail margins?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Data Glue is the hidden manual friction where expensive talent operates as human middleware between disconnected systems. In multichannel retail environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified and engineered out over £1.5M in cumulative operational leakage caused by Data Glue for Tier-1 retailers, reclaiming over 1,200 hours of annual capacity.",
+            text: "Data Glue is the hidden manual friction where expensive talent operates as human middleware between disconnected systems. In multichannel retail environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified over £1M in cumulative operational leakage caused by Data Glue across enterprise engagements, reclaiming over 1,200 hours of annual capacity.",
           },
         },
         {
