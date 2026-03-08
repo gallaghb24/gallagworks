@@ -1,129 +1,81 @@
 
 
-# Light Mode Implementation Plan
+## Plan: Database Tables + Lead Capture Page + Diagnostic Context
 
-## Overview
+### 1. Database Migration
 
-Add a complete light theme to the site that auto-detects the user's system preference and provides a toggle in the navigation header. The project already has `next-themes` installed but not configured.
+Create `leads` and `assessments` tables with RLS policies allowing anonymous inserts (no auth required — this is a public lead-gen tool):
 
----
+```sql
+CREATE TABLE public.leads (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  name text NOT NULL,
+  email text NOT NULL,
+  organisation text NOT NULL,
+  role text,
+  industry text,
+  company_size text,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
 
-## 1. Set up ThemeProvider in App.tsx
+CREATE TABLE public.assessments (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  lead_id uuid REFERENCES public.leads(id) ON DELETE CASCADE NOT NULL,
+  status text NOT NULL DEFAULT 'in_progress',
+  started_at timestamptz NOT NULL DEFAULT now(),
+  completed_at timestamptz,
+  total_score integer,
+  maturity_level text,
+  dimension_scores jsonb,
+  answers jsonb
+);
 
-Wrap the app in `next-themes` `ThemeProvider` with `attribute="class"`, `defaultTheme="system"`, and `enableSystem={true}`. This uses the `darkMode: ["class"]` strategy already configured in `tailwind.config.ts`.
+ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.assessments ENABLE ROW LEVEL SECURITY;
 
----
+-- Public insert (lead gen, no auth)
+CREATE POLICY "Anyone can submit lead" ON public.leads FOR INSERT WITH CHECK (true);
+CREATE POLICY "Anyone can create assessment" ON public.assessments FOR INSERT WITH CHECK (true);
 
-## 2. Define light mode CSS variables in index.css
-
-Add a `.light` class block (alongside the existing `:root` dark defaults) with inverted values:
-
-```text
-.light {
-  --background:    0 0% 98%;      (near-white)
-  --foreground:    0 0% 10%;      (near-black text)
-  --card:          0 0% 100%;     (white cards)
-  --card-foreground: 0 0% 10%;
-  --popover:       0 0% 100%;
-  --popover-foreground: 0 0% 10%;
-  --primary:       20 100% 50%;   (slightly deeper orange for contrast on white)
-  --primary-foreground: 0 0% 100%;
-  --secondary:     210 10% 94%;   (light grey)
-  --secondary-foreground: 0 0% 10%;
-  --muted:         210 10% 94%;
-  --muted-foreground: 0 0% 40%;
-  --accent:        20 100% 50%;
-  --accent-foreground: 0 0% 100%;
-  --border:        210 10% 85%;
-  --input:         210 10% 90%;
-  --ring:          20 100% 50%;
-  --footer-bg:     210 10% 96%;
-  --footer-fg:     0 0% 30%;
-  --slate:         210 10% 94%;
-  --sidebar-*:     (matching light values)
-}
+-- Only service role can read
+CREATE POLICY "Service role reads leads" ON public.leads FOR SELECT USING (false);
+CREATE POLICY "Service role reads assessments" ON public.assessments FOR SELECT USING (false);
 ```
 
----
+### 2. Diagnostic Context (`src/contexts/DiagnosticContext.tsx`)
 
-## 3. Add theme toggle to Navigation
+React Context to persist answers across route changes (`/assess` → `/capture` → `/results`):
+- `answers: Record<string, number>` — keyed by `dimension_question` (e.g. `"data_foundation_1": 3`)
+- `setAnswers`, `clearAnswers`
+- Wrap diagnostic routes in provider (in `App.tsx` or at page level)
 
-- Import `useTheme` from `next-themes` and `Sun`/`Moon` icons from `lucide-react`
-- Add a small icon button between the nav links and the CTA button (desktop), and at the bottom of the mobile menu
-- The button cycles: if current theme is dark, switch to light; if light, switch to dark; if system, switch to light/dark based on current resolved theme
-- Use a simple Sun/Moon icon swap based on `resolvedTheme`
+### 3. Lead Capture Page (`src/pages/DiagnosticCapture.tsx`)
 
----
+Rebuild the placeholder with a full form following Contact.tsx patterns:
+- Navigation + SEOHead + Footer (hideCTA)
+- Centred card (max-w-[520px], bg-slate border border-border)
+- `[YOUR RESULTS ARE READY]` monospace label
+- Heading: "See how your organisation scored."
+- Subtext in muted-foreground
+- Form fields using Input/Select with `rounded-none` field style (matching Contact.tsx)
+- Required: Name, Email, Organisation
+- Optional: Role (text), Industry (Select), Company Size (Select)
+- Submit: inserts lead → creates assessment with answers + calculated scores → navigates to `/diagnostic/results` with state
 
-## 4. Replace hardcoded colours with CSS variable references
+### 4. Score Calculation (inline utility)
 
-Several components use hardcoded hex values that won't adapt to light mode. These need updating:
+Simple calculation on submit:
+- Group answers by dimension (5 questions each, scores 1-5)
+- Dimension score = sum of 5 answers (max 25)
+- Total = sum of all 6 dimensions (max 150)
+- Maturity level derived from total score percentage
 
-### LeakageEstimator.tsx (heaviest offender)
-- `background: "#000000"` on the section -- replace with `bg-background` or a new CSS variable `--estimator-bg`
-- `color: "#FFFFFF"` on inputs/headings -- replace with `text-foreground`
-- `BORDER_COLOR = "#1A1C1E"` -- replace with `hsl(var(--border))`
-- `background: "hsl(210, 3%, 16%)"` on inputs/buttons -- replace with `hsl(var(--input))`
-- `color: "#FF5F1F"` -- replace with `hsl(var(--primary))`
-- Hover states (`#FFFFFF` / `#000000`) -- use foreground/background variables
+### 5. Files Modified/Created
 
-### HeroSchematic.tsx
-- SVG strokes `#2F3133` -- replace with `hsl(var(--border))` via a CSS variable or `currentColor`
-- `#F5F5F5` core strokes -- replace with `hsl(var(--foreground))`
-- `#FF5F1F` pulses -- replace with `hsl(var(--primary))`
-
-### HowWeWork.tsx
-- `border-[#2F3133]` -- replace with `border-border`
-
-### EngagementTypes.tsx
-- `bg-[#1A1C1E]` -- replace with `bg-muted` or `bg-slate`
-- `border-[#2F3133]` -- replace with `border-border`
-
-### FAQSection.tsx
-- `bg-[#1A1C1E]` -- replace with `bg-slate`
-- `border-[#2F3133]` -- replace with `border-border`
-
-### GallagGlyph.tsx
-- `stroke="#2F3133"` -- replace with CSS variable
-- `group-hover:stroke-[#F5F5F5]` -- replace with `group-hover:stroke-foreground`
-
-### About.tsx
-- `bg-[#1A1C1E]` and `border-[#2F3133]` on stat cards -- replace with `bg-slate` / `border-border`
-
----
-
-## 5. Handle the wordmark logo
-
-The site uses a PNG wordmark (`gallag-wordmark.png`) that is likely white text on transparent. In light mode this will be invisible. Two approaches:
-
-- **Option A (recommended):** Add a `dark:` variant -- use the existing white wordmark for dark mode and provide a dark version for light mode. If no dark PNG exists, apply a CSS `filter: invert(1)` in light mode via a conditional class.
-- **Option B:** Use CSS `filter: brightness(0)` on the wordmark in light mode to turn it black.
-
-We will use Option B (`filter`) as it requires no additional assets.
-
----
-
-## 6. Files to modify
-
-| File | Change |
-|---|---|
-| `src/App.tsx` | Wrap in `ThemeProvider` |
-| `src/index.css` | Add `.light` CSS variable block |
-| `src/components/Navigation.tsx` | Add Sun/Moon toggle button |
-| `src/components/LeakageEstimator.tsx` | Replace ~15 hardcoded hex values with CSS variables |
-| `src/components/HeroSchematic.tsx` | Replace SVG hardcoded colours with CSS variables |
-| `src/components/HowWeWork.tsx` | Replace `#2F3133` with `border-border` |
-| `src/components/EngagementTypes.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-| `src/components/FAQSection.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-| `src/components/GallagGlyph.tsx` | Replace hardcoded strokes with CSS variable references |
-| `src/pages/About.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-
----
-
-## Technical notes
-
-- `next-themes` is already installed; `darkMode: ["class"]` is already in `tailwind.config.ts` -- no config changes needed
-- The `:root` block keeps the current dark values as the default (so the site stays dark by default for users without a system preference)
-- The `.light` class is applied by `next-themes` to `<html>` when the user selects light mode or their system prefers it
-- The Sonner toaster component already imports `useTheme` and will work automatically once the provider is in place
+| File | Action |
+|------|--------|
+| Migration SQL | Create leads + assessments tables |
+| `src/contexts/DiagnosticContext.tsx` | New — React context for answer state |
+| `src/pages/DiagnosticCapture.tsx` | Rewrite — full lead capture form |
+| `src/App.tsx` | Wrap diagnostic routes in DiagnosticProvider |
 
