@@ -86,7 +86,7 @@ const DiagnosticCapture = () => {
 
     setSubmitting(true);
     try {
-      const scoring = calculateScores(answers);
+      const scoring = calculateScores(answers, dimensions);
 
       // Insert lead
       const { data: lead, error: leadError } = await supabase
