@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { dimensions } from "@/data/questions";
 import { useDiagnostic } from "@/contexts/DiagnosticContext";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 const DiagnosticAssess = () => {
   const [currentDimension, setCurrentDimension] = useState(0);
