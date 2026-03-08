@@ -7,6 +7,14 @@ import SEOHead from "@/components/SEOHead";
 
 const insights = [
   {
+    ref: "GW-TOOL-001",
+    topic: "AI Readiness Diagnostic",
+    metric: "Self-Serve Assessment",
+    status: "LIVE",
+    slug: "diagnostic",
+    type: "TOOL",
+  },
+  {
     ref: "GW-LOG-101",
     topic: "Eradicating the Enterprise Data Glue",
     metric: "1,200hrs+ Reclaimed",
