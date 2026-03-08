@@ -15,7 +15,6 @@ const DiagnosticAssess = () => {
   const totalDimensions = dimensions.length;
   const progressPercent = ((currentDimension + 1) / totalDimensions) * 100;
 
-  // Check if all 5 questions in current dimension are answered
   const allAnswered = dimension.questions.every((q) => answers[q.id] !== undefined);
   const isLastDimension = currentDimension === totalDimensions - 1;
 
@@ -52,7 +51,7 @@ const DiagnosticAssess = () => {
             <span className="font-mono text-sm text-primary font-bold">
               [{String(currentDimension + 1).padStart(2, "0")}/{String(totalDimensions).padStart(2, "0")}]
             </span>
-            <h2 className="font-sans font-bold text-foreground text-lg">
+            <h2 className="font-sans font-bold text-foreground text-lg break-words">
               {dimension.name}
             </h2>
           </div>
@@ -67,7 +66,7 @@ const DiagnosticAssess = () => {
       </div>
 
       {/* Content */}
-      <main className="container mx-auto px-6 lg:px-12 py-8 md:py-12">
+      <main className="container mx-auto px-6 lg:px-12 py-8 md:py-12 pb-28 md:pb-12">
         <div className="max-w-3xl mx-auto">
           {/* Dimension intro */}
           <div className="mb-10">
@@ -82,7 +81,7 @@ const DiagnosticAssess = () => {
           {/* Questions */}
           <div className="space-y-6">
             {dimension.questions.map((question, qIdx) => (
-              <div key={question.id} className="border border-border p-6">
+              <div key={question.id} className="border border-border p-4 sm:p-6">
                 <p className="font-bold text-foreground mb-4">
                   <span className="text-primary font-mono text-sm mr-2">
                     {String(qIdx + 1).padStart(2, "0")}.
@@ -98,7 +97,7 @@ const DiagnosticAssess = () => {
                         type="button"
                         onClick={() => updateAnswer(question.id, option.value)}
                         className={cn(
-                          "w-full text-left p-4 border transition-all duration-150",
+                          "w-full text-left p-4 min-h-14 border transition-all duration-150",
                           "hover:border-primary",
                           isSelected
                             ? "border-l-[3px] border-l-primary bg-primary/5 border-t-border border-r-border border-b-border"
@@ -115,14 +114,18 @@ const DiagnosticAssess = () => {
               </div>
             ))}
           </div>
+        </div>
+      </main>
 
-          {/* Navigation */}
-          <div className="flex flex-col sm:flex-row gap-3 mt-10 pb-12">
+      {/* Sticky navigation footer on mobile */}
+      <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 z-40 md:relative md:border-t-0 md:p-0">
+        <div className="container mx-auto px-0 md:px-6 lg:px-12">
+          <div className="max-w-3xl mx-auto flex gap-3 md:pb-12 md:pt-10">
             {currentDimension > 0 && (
               <Button
                 variant="outline"
                 onClick={handleBack}
-                className="rounded-none border-border text-foreground sm:w-auto w-full"
+                className="rounded-none border-border text-foreground flex-1 md:flex-none"
               >
                 Back
               </Button>
@@ -130,13 +133,13 @@ const DiagnosticAssess = () => {
             <Button
               onClick={handleNext}
               disabled={!allAnswered}
-              className="rounded-none bg-primary text-primary-foreground sm:w-auto w-full sm:ml-auto"
+              className="rounded-none bg-primary text-primary-foreground flex-1 md:flex-none md:ml-auto"
             >
               {isLastDimension && allAnswered ? "See Your Results" : "Next"}
             </Button>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };

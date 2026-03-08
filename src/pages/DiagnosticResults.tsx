@@ -765,7 +765,7 @@ const DiagnosticResults = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-12 px-8 text-base font-semibold rounded-none border-border text-foreground hover:bg-secondary"
+                  className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-none border-border text-foreground hover:bg-secondary"
                   asChild
                 >
                   <a

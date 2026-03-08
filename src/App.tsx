@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "next-themes";
 import StructuredData from "@/components/StructuredData";
@@ -29,6 +30,18 @@ import AdminAssessments from "./pages/admin/AdminAssessments";
 
 const queryClient = new QueryClient();
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
+const PageWrapper = ({ children }: { children: React.ReactNode }) => (
+  <div className="animate-fade-in">{children}</div>
+);
+
 const App = () => (
   <HelmetProvider>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -38,29 +51,30 @@ const App = () => (
           <Sonner />
           <StructuredData />
           <BrowserRouter>
+            <ScrollToTop />
             <DiagnosticProvider>
               <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/insights" element={<Insights />} />
-                <Route path="/insights/:slug" element={<InsightManifesto />} />
-                <Route path="/diagnostic" element={<Diagnostic />} />
-                <Route path="/diagnostic/assess" element={<DiagnosticAssess />} />
-                <Route path="/diagnostic/capture" element={<DiagnosticCapture />} />
-                <Route path="/diagnostic/results" element={<DiagnosticResults />} />
-                <Route path="/diagnostic/results/:assessmentId" element={<DiagnosticResults />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/cookies" element={<Cookies />} />
-                <Route path="/glossary" element={<Glossary />} />
-                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
+                <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+                <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+                <Route path="/insights" element={<PageWrapper><Insights /></PageWrapper>} />
+                <Route path="/insights/:slug" element={<PageWrapper><InsightManifesto /></PageWrapper>} />
+                <Route path="/diagnostic" element={<PageWrapper><Diagnostic /></PageWrapper>} />
+                <Route path="/diagnostic/assess" element={<PageWrapper><DiagnosticAssess /></PageWrapper>} />
+                <Route path="/diagnostic/capture" element={<PageWrapper><DiagnosticCapture /></PageWrapper>} />
+                <Route path="/diagnostic/results" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
+                <Route path="/diagnostic/results/:assessmentId" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
+                <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+                <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
+                <Route path="/cookies" element={<PageWrapper><Cookies /></PageWrapper>} />
+                <Route path="/glossary" element={<PageWrapper><Glossary /></PageWrapper>} />
+                <Route path="/admin/login" element={<PageWrapper><AdminLogin /></PageWrapper>} />
                 <Route path="/admin" element={<AdminLayout />}>
                   <Route index element={<AdminOverview />} />
                   <Route path="leads" element={<AdminLeads />} />
                   <Route path="assessments" element={<AdminAssessments />} />
                 </Route>
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
               </Routes>
             </DiagnosticProvider>
           </BrowserRouter>

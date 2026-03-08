@@ -165,7 +165,21 @@ const AdminLeads = () => {
     </th>
   );
 
-  if (loading) return <p className="text-muted-foreground font-mono text-sm">Loading…</p>;
+  if (loading) return (
+    <div className="space-y-6">
+      <div className="h-6 w-24 bg-secondary rounded-none animate-pulse" />
+      <div className="border border-border rounded-none">
+        {[...Array(6)].map((_, i) => (
+          <div key={i} className="flex gap-4 px-3 py-3 border-b border-border">
+            <div className="h-4 w-24 bg-secondary rounded-none animate-pulse" />
+            <div className="h-4 w-32 bg-secondary rounded-none animate-pulse" />
+            <div className="h-4 w-40 bg-secondary rounded-none animate-pulse" />
+            <div className="h-4 w-20 bg-secondary rounded-none animate-pulse" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="space-y-6">

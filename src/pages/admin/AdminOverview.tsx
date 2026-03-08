@@ -93,7 +93,24 @@ const AdminOverview = () => {
     fetch();
   }, []);
 
-  if (loading) return <p className="text-muted-foreground font-mono text-sm">Loading…</p>;
+  if (loading) return (
+    <div className="space-y-8">
+      <div className="h-6 w-32 bg-secondary rounded-none animate-pulse" />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="border border-border rounded-none p-5 bg-card">
+            <div className="h-3 w-20 bg-secondary rounded-none mb-2 animate-pulse" />
+            <div className="h-7 w-16 bg-secondary rounded-none animate-pulse" />
+          </div>
+        ))}
+      </div>
+      <div className="grid lg:grid-cols-2 gap-6">
+        {[...Array(2)].map((_, i) => (
+          <div key={i} className="border border-border rounded-none p-5 bg-card h-[300px] animate-pulse bg-secondary/20" />
+        ))}
+      </div>
+    </div>
+  );
   if (!stats) return <p className="text-muted-foreground font-mono text-sm">No data available.</p>;
 
   const cards = [
