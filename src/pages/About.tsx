@@ -16,7 +16,7 @@ const About = () => {
   const method = useScrollAnimation();
   const exp = useScrollAnimation();
 
-  const c1 = useCountUp({ target: 20, suffix: " Years" });
+  const c1 = useCountUp({ target: 15, suffix: "+ Years" });
   const c2 = useCountUp({ target: 15, prefix: "£", suffix: "m+" });
   const c3 = useCountUp({ target: 4000, suffix: "+", formatValue: commaFormat });
   const c4 = useCountUp({ target: 30, suffix: "+" });
