@@ -7,7 +7,7 @@ const services = [
     label: "01",
     title: "The Operational X-Ray",
     description:
-      "We map how the work actually flows. We don't just look at the org chart; we expose the invisible friction and manual workarounds.",
+      "I map how the work actually flows. Not the org chart version – the real one, with the invisible friction and manual workarounds exposed.",
   },
   {
     label: "02",
