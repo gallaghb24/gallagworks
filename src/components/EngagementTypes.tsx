@@ -21,7 +21,7 @@ const tiers = [
     title: "Structural Prototype",
     sublabel: "4–8 Weeks | Proof of Value",
     description:
-      "We re-engineer one high-friction workflow end-to-end via engineered Decision Inboxes – AI aggregates the context, but your experts retain the final sign-off. We don't just 'test' AI; we build working infrastructure that proves the ROI and protects the P&L before you commit to scaling.",
+      "I re-engineer one high-friction workflow end-to-end via engineered Decision Inboxes – AI aggregates the context, but your experts retain the final sign-off. I don't just test AI; I build working infrastructure that proves the ROI and protects the P&L before you commit to scaling.",
   },
   {
     number: "03",
