@@ -728,58 +728,20 @@ const DiagnosticResults = () => {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {priorityOrder.map((key, idx) => {
-                const score = dimensionScores[key];
-                const rating = dimensionRatings[key];
-                const name = DIMENSION_NAMES[key];
-                const pct = (score / 25) * 100;
-                const isHovered = hoveredDimension === key;
-
-                return (
-                  <div
-                    key={key}
-                    className={`border p-5 rounded-none cursor-pointer transition-all duration-300 ${
-                      isHovered
-                        ? "border-primary/60 shadow-lg shadow-primary/10 -translate-y-1"
-                        : "border-border hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 hover:-translate-y-0.5"
-                    } ${dimensionSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"}`}
-                    style={{
-                      animationDelay: dimensionSection.isVisible ? `${idx * 100}ms` : "0ms",
-                      animationFillMode: "forwards",
-                    }}
-                    onMouseEnter={() => setHoveredDimension(key)}
-                    onMouseLeave={() => setHoveredDimension(null)}
-                  >
-                    <p className="font-display text-sm font-bold text-foreground mb-3">
-                      {name}
-                    </p>
-                    <p className="font-mono text-2xl font-bold text-foreground mb-1">
-                      {score}{" "}
-                      <span className="text-muted-foreground text-sm font-normal">/ 25</span>
-                    </p>
-                    <p
-                      className="text-xs font-semibold uppercase tracking-wider mb-3"
-                      style={{ color: rating.color }}
-                    >
-                      {rating.rating}
-                    </p>
-                    <div
-                      className="w-full h-1.5 bg-secondary rounded-none overflow-hidden group"
-                      role="meter"
-                      aria-label={`${name} score`}
-                      aria-valuenow={score}
-                      aria-valuemin={0}
-                      aria-valuemax={25}
-                    >
-                      <div
-                        className={`h-full rounded-none transition-all duration-500 ${isHovered ? "brightness-125" : ""}`}
-                        style={{ width: `${pct}%`, backgroundColor: rating.color }}
-                      />
-                    </div>
-                    <span className="sr-only">{name}: {score} out of 25, rated {rating.rating}</span>
-                  </div>
-                );
-              })}
+              {priorityOrder.map((key, idx) => (
+                <DimensionCard
+                  key={key}
+                  dimKey={key}
+                  score={dimensionScores[key]}
+                  pct={(dimensionScores[key] / 25) * 100}
+                  rating={dimensionRatings[key]}
+                  name={DIMENSION_NAMES[key]}
+                  isHovered={hoveredDimension === key}
+                  sectionVisible={dimensionSection.isVisible}
+                  cardDelay={idx * 120}
+                  onHover={setHoveredDimension}
+                />
+              ))}
             </div>
           </div>
         </section>
