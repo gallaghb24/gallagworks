@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const RECOVERY_OPTIONS = [50, 70, 90] as const;
+const RECOVERY_OPTIONS = [
+  { pct: 50, label: "CONSERVATIVE" },
+  { pct: 70, label: "MODERATE" },
+  { pct: 90, label: "AGGRESSIVE" },
+] as const;
 
 const formatGBP = (value: number) =>
   new Intl.NumberFormat("en-GB", {
