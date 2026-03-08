@@ -666,7 +666,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           </View>
         ))}
 
-        <PageFooter pageNum={9} />
+        <PageFooter pageNum={6} />
       </Page>
 
       {/* Page 10: About & CTA */}
