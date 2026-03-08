@@ -6,7 +6,7 @@ import {
   StyleSheet,
   pdf,
 } from "@react-pdf/renderer";
-import { saveAs } from "file-saver";
+
 import type { ScoringResult, DimensionKey } from "@/lib/scoring";
 import { getRecommendation } from "@/data/recommendations";
 import { dimensions } from "@/data/questions";
