@@ -88,9 +88,17 @@ const Contact = () => {
               </p>
 
               {submitState === "success" ? (
-                <div className="mt-16">
+                <div className="mt-16 space-y-4">
                   <p className="font-mono text-sm tracking-widest uppercase text-foreground/70">
-                    Form Received. Architectural review in progress.
+                    [RECEIVED]
+                  </p>
+                  <p className="text-foreground/70 leading-relaxed font-light">
+                    Thank you. I will review your submission and respond within 24 hours with initial thoughts on how I can help.
+                  </p>
+                  <p className="text-foreground/70 leading-relaxed font-light">
+                    If you need to add anything in the meantime, email{" "}
+                    <a href="mailto:hello@gallag.works" className="text-primary hover:text-primary/80 transition-colors">hello@gallag.works</a>{" "}
+                    directly.
                   </p>
                 </div>
               ) : (
