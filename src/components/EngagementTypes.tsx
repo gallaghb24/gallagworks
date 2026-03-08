@@ -14,7 +14,7 @@ const tiers = [
     title: "Operational Audit & X-Ray",
     sublabel: "2–3 Weeks | Fixed Scope",
     description:
-      "A surgical deep dive into the 'as-is' state. We expose the Data Glue – the manual re-keying and spreadsheet handoffs – hiding in plain sight. We identify the 20% of 'Data Glue' causing 80% of your operational friction. You receive a logic schematic of where your margin is leaking.",
+      "A surgical deep dive into the 'as-is' state. I expose the Data Glue – the manual re-keying and spreadsheet handoffs – hiding in plain sight. I identify the 20% of 'Data Glue' causing 80% of your operational friction. You receive a logic schematic of where your margin is leaking.",
   },
   {
     number: "02",
