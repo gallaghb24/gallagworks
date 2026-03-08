@@ -404,8 +404,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
       {/* Page 1: Cover */}
       <Page size="A4" style={s.coverPage}>
         <View>
-          <Text style={s.coverBrand}>GALLAG WORKS</Text>
-          <Text style={s.coverBrandSub}>OPERATIONAL ENGINEERING</Text>
+          <Image src={logoSrc} style={{ width: 180, height: 36, marginBottom: 4 }} />
         </View>
         <View>
           <Text style={s.coverTitle}>AI Readiness{"\n"}Diagnostic Report</Text>
