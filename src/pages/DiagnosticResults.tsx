@@ -274,7 +274,7 @@ const DimensionCard = ({ dimKey, score, pct, rating, name, isHovered, sectionVis
     // Then: start count-up 500ms after the card has appeared
     const countTimer = setTimeout(() => {
       setHasAnimated(true);
-      const duration = 900;
+      const duration = 1800;
       const startTime = performance.now();
       const step = (now: number) => {
         const elapsed = now - startTime;
