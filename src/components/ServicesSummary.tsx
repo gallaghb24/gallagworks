@@ -13,7 +13,7 @@ const services = [
     label: "02",
     title: "Process Architecture",
     description:
-      "We kill redundant steps, standardise inputs, and clarify ownership before touching any technology. Technology comes after the thinking.",
+      "I kill redundant steps, standardise inputs, and clarify ownership before touching any technology. Technology comes after the thinking.",
   },
   {
     label: "03",
