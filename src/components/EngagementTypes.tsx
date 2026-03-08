@@ -1,6 +1,14 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
 
 const tiers = [
+  {
+    number: "00",
+    title: "AI Readiness Diagnostic",
+    sublabel: "5 Minutes | Self-Serve | Free",
+    description:
+      "Before you invest in transformation, understand where you stand. Our self-serve diagnostic scores your organisation across six dimensions of AI readiness – Data Foundation, Process Maturity, Governance, Skills, Tooling, and Strategic Clarity. You get a full report with detailed recommendations and a prioritised action plan. No cost, no obligation.",
+  },
   {
     number: "01",
     title: "Operational Audit & X-Ray",
@@ -39,35 +47,47 @@ const EngagementTypes = () => {
           <h2
             className={`text-3xl md:text-4xl font-extrabold text-foreground mb-6 clip-reveal ${isVisible ? "visible" : ""}`}
           >
-            Three tiers. One methodology.
+            Four tiers. One methodology.
           </h2>
           <p
             className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
           >
-            We de-risk transformation through a phased, results-first approach. By starting with a sharp, fixed-scope diagnostic, we identify high-value targets for automation before committing to long-term builds. This ensures every engineered hour delivers a measurable return on margin.
+            We de-risk transformation through a phased, results-first approach. Start with the free AI Readiness Diagnostic to understand where you stand. If the results surface something worth exploring, we move into a fixed-scope Operational X-Ray, then prototype, then scale.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {tiers.map((tier, index) => (
-              <div
-                key={tier.number}
-                className={`bg-slate border border-border p-6 md:p-8 clip-reveal-down ${isVisible ? "visible" : ""}`}
-                style={{ transitionDelay: `${index * 0.1}s` }}
-              >
-                <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
-                  [{tier.number}]
-                </span>
-                <h3 className="text-xl font-extrabold text-foreground mb-2">
-                  {tier.title}
-                </h3>
-                <p className="font-mono text-xs text-primary/80 uppercase tracking-wider mb-6">
-                  {tier.sublabel}
-                </p>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  {tier.description}
-                </p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {tiers.map((tier, index) => {
+              const card = (
+                <div
+                  key={tier.number}
+                  className={`bg-slate border border-border p-6 md:p-8 clip-reveal-down ${isVisible ? "visible" : ""} ${index === 0 ? "hover:border-primary transition-colors cursor-pointer" : ""}`}
+                  style={{ transitionDelay: `${index * 0.1}s` }}
+                >
+                  <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
+                    [{tier.number}]
+                  </span>
+                  <h3 className="text-xl font-extrabold text-foreground mb-2">
+                    {tier.title}
+                  </h3>
+                  <p className="font-mono text-xs text-primary/80 uppercase tracking-wider mb-6">
+                    {tier.sublabel}
+                  </p>
+                  <p className="text-muted-foreground font-light leading-relaxed">
+                    {tier.description}
+                  </p>
+                </div>
+              );
+
+              if (index === 0) {
+                return (
+                  <Link key={tier.number} to="/diagnostic" className="block">
+                    {card}
+                  </Link>
+                );
+              }
+
+              return card;
+            })}
           </div>
         </div>
       </div>
