@@ -565,8 +565,16 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
         {/* Dimension Map - Radar Chart */}
         <View style={{ marginTop: 24, alignItems: "center" }}>
           <Text style={[s.sectionLabel, { alignSelf: "flex-start" }]}>[DIMENSION MAP]</Text>
-          <View style={{ width: 340, height: 300, marginTop: 8 }}>
+          <View style={{ width: 380, height: 340, marginTop: 8, position: "relative" }}>
             <RadarChartSVG dimKeys={dimKeys} dimensionScores={dimensionScores} />
+            {/* Labels positioned around the chart */}
+            <Text style={{ position: "absolute", top: 8, left: 0, right: 0, textAlign: "center", fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Data</Text>
+            <Text style={{ position: "absolute", top: 85, right: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Process</Text>
+            <Text style={{ position: "absolute", top: 235, right: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Governance</Text>
+            <Text style={{ position: "absolute", bottom: 8, left: 0, right: 0, textAlign: "center", fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Skills</Text>
+            <Text style={{ position: "absolute", top: 235, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Tooling</Text>
+            <Text style={{ position: "absolute", top: 85, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Strategy</Text>
+          </View>
           </View>
         </View>
 
