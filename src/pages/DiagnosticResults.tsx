@@ -429,6 +429,46 @@ const DiagnosticResults = () => {
     );
   };
 
+  const handleConsultationRequest = async () => {
+    setConsultationLoading(true);
+    try {
+      // Fetch lead data from the assessment
+      const { data: assessment, error: fetchErr } = await supabase
+        .from("assessments")
+        .select("*, leads(*)")
+        .eq("id", currentAssessmentId)
+        .single();
+
+      if (fetchErr || !assessment) {
+        throw new Error("Could not fetch assessment data");
+      }
+
+      const lead = assessment.leads as any;
+
+      const { error: fnErr } = await supabase.functions.invoke("send-consultation-request", {
+        body: {
+          assessment_id: currentAssessmentId,
+          name: lead?.name ?? "Unknown",
+          email: lead?.email ?? "",
+          organisation: organisation,
+          total_score: totalScore,
+          maturity_level: maturityLevel.label,
+        },
+      });
+
+      if (fnErr) throw fnErr;
+
+      setConsultationRequested(true);
+      trackEvent("consultation_requested", { assessment_id: currentAssessmentId });
+      toast({ title: "Request sent", description: "Ben will be in touch within 24 hours." });
+    } catch (err: any) {
+      console.error("Consultation request failed:", err);
+      toast({ title: "Something went wrong", description: "Please try again or email hello@gallag.works directly.", variant: "destructive" });
+    } finally {
+      setConsultationLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
