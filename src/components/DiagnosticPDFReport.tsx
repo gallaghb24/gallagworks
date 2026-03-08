@@ -509,7 +509,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
 
   return (
     <Document>
-      {/* Page 1: Cover */}
+      {/* Page 1: Cover + Executive Summary */}
       <Page size="A4" style={s.coverPage}>
         <View>
           <Image src={logoSrc} style={{ width: 160, marginBottom: 4 }} />
@@ -523,23 +523,21 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           <Text style={s.coverMeta}>Maturity Level: {maturityLevel.label}</Text>
         </View>
         <View>
-          <Text style={s.bodySmall}>
-            This report summarises the results of your AI Readiness Diagnostic, evaluating your organisation across six critical operational dimensions.
+          <Text style={s.sectionLabel}>[EXECUTIVE SUMMARY]</Text>
+          <Text style={[s.h3, { color: maturityLevel.color, marginBottom: 4 }]}>
+            Level {maturityLevel.level}: {maturityLevel.label}
+          </Text>
+          <Text style={s.body}>
+            {MATURITY_SUMMARIES[maturityLevel.level]}
           </Text>
         </View>
       </Page>
 
-      {/* Page 2: Executive Summary */}
+      {/* Page 2: Dimension Breakdown + Radar Chart */}
       <Page size="A4" style={s.page}>
-        <Text style={s.sectionLabel}>[EXECUTIVE SUMMARY]</Text>
-        <Text style={s.h2}>Maturity Level {maturityLevel.level}: {maturityLevel.label}</Text>
-        <Text style={s.body}>
-          {MATURITY_SUMMARIES[maturityLevel.level]}
-        </Text>
+        <Text style={s.sectionLabel}>[DIMENSION BREAKDOWN]</Text>
+        <Text style={s.h2}>Dimension Scores</Text>
 
-        <View style={s.hr} />
-
-        <Text style={s.h3}>Dimension Scores</Text>
         {dimKeys.map((key) => {
           const score = dimensionScores[key];
           const rating = dimensionRatings[key];
@@ -554,7 +552,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           );
         })}
 
-        <View style={{ marginTop: 16 }}>
+        <View style={{ marginTop: 8 }}>
           <View style={s.scoreRow}>
             <Text style={[s.scoreLabel, { fontFamily: "Helvetica-Bold" }]}>Total Score</Text>
             <Text style={[s.scoreValue, { fontFamily: "Helvetica-Bold", fontSize: 12 }]}>{totalScore}/150</Text>
@@ -563,68 +561,71 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
         </View>
 
         {/* Dimension Map - Radar Chart */}
-        <View style={{ marginTop: 24, alignItems: "center" }}>
+        <View style={{ marginTop: 16, alignItems: "center" }}>
           <Text style={[s.sectionLabel, { alignSelf: "flex-start" }]}>[DIMENSION MAP]</Text>
-          <View style={{ width: 380, height: 340, marginTop: 8, position: "relative" }}>
+          <View style={{ width: 380, height: 300, marginTop: 4, position: "relative" }}>
             <RadarChartSVG dimKeys={dimKeys} dimensionScores={dimensionScores} />
-            {/* Labels positioned around the chart */}
-            <Text style={{ position: "absolute", top: 8, left: 0, right: 0, textAlign: "center", fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Data</Text>
-            <Text style={{ position: "absolute", top: 85, right: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Process</Text>
-            <Text style={{ position: "absolute", top: 235, right: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Governance</Text>
-            <Text style={{ position: "absolute", bottom: 8, left: 0, right: 0, textAlign: "center", fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Skills</Text>
-            <Text style={{ position: "absolute", top: 235, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Tooling</Text>
-            <Text style={{ position: "absolute", top: 85, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Strategy</Text>
+            <Text style={{ position: "absolute", top: 4, left: 0, right: 0, textAlign: "center", fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Data</Text>
+            <Text style={{ position: "absolute", top: 75, right: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Process</Text>
+            <Text style={{ position: "absolute", top: 205, right: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Governance</Text>
+            <Text style={{ position: "absolute", bottom: 4, left: 0, right: 0, textAlign: "center", fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Skills</Text>
+            <Text style={{ position: "absolute", top: 205, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Tooling</Text>
+            <Text style={{ position: "absolute", top: 75, left: 10, fontSize: 10, color: LIGHT_TEXT, fontFamily: "Helvetica-Bold" }}>Strategy</Text>
           </View>
         </View>
 
         <PageFooter pageNum={2} />
       </Page>
 
-      {/* Pages 3-8: Dimension Deep Dives */}
-      {dimKeys.map((key, idx) => {
-        const score = dimensionScores[key];
-        const rating = dimensionRatings[key];
-        const rec = getRecommendation(key, rating.rating);
-        const dim = dimensions.find((d) => d.id === key);
-
+      {/* Pages 3-5: Dimension Deep Dives (2 per page) */}
+      {[0, 1, 2].map((pageIdx) => {
+        const pair = dimKeys.slice(pageIdx * 2, pageIdx * 2 + 2);
         return (
-          <Page key={key} size="A4" style={s.page}>
-            <Text style={s.sectionLabel}>[DIMENSION {idx + 1} OF 6]</Text>
-            <View style={s.dimCard}>
-              <View style={s.dimHeader}>
-                <Text style={s.dimName}>{DIMENSION_LABELS[key]}</Text>
-                <Text style={s.dimScore}>{score}/25</Text>
-              </View>
-              <Text style={[s.h3, { color: getRatingColor(rating.rating), marginBottom: 12 }]}>
-                {rating.rating}
-              </Text>
+          <Page key={pageIdx} size="A4" style={s.page}>
+            <Text style={s.sectionLabel}>[DETAILED RECOMMENDATIONS]</Text>
+            {pair.map((key, i) => {
+              const globalIdx = pageIdx * 2 + i;
+              const score = dimensionScores[key];
+              const rating = dimensionRatings[key];
+              const rec = getRecommendation(key, rating.rating);
 
-              {/* Bar */}
-              <View style={s.barContainer}>
-                <View style={[s.barFill, { width: `${(score / 25) * 100}%` }]} />
-              </View>
-
-              {rec && (
-                <View style={{ marginTop: 16 }}>
-                  <Text style={[s.h3, { marginTop: 8 }]}>{rec.headline}</Text>
-                  <Text style={s.body}>{rec.detail}</Text>
-
-                  <Text style={[s.sectionLabel, { marginTop: 12 }]}>[WHAT GOOD LOOKS LIKE]</Text>
-                  <Text style={s.body}>{rec.whatGoodLooksLike}</Text>
-
-                  <View style={s.calloutBox}>
-                    <Text style={s.calloutLabel}>[ASK YOUR TEAM]</Text>
-                    <Text style={s.calloutText}>{rec.internalQuestion}</Text>
+              return (
+                <View key={key} style={[s.dimCard, { marginBottom: i === 0 ? 16 : 0 }]}>
+                  <View style={s.dimHeader}>
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                      <Text style={{ fontFamily: "Courier", fontSize: 9, color: ORANGE, marginRight: 8 }}>
+                        {String(globalIdx + 1).padStart(2, "0")}
+                      </Text>
+                      <Text style={s.dimName}>{DIMENSION_LABELS[key]}</Text>
+                    </View>
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                      <Text style={s.dimScore}>{score}/25</Text>
+                      <Text style={{ fontFamily: "Helvetica-Bold", fontSize: 8, color: getRatingColor(rating.rating), marginLeft: 8 }}>
+                        {rating.rating.toUpperCase()}
+                      </Text>
+                    </View>
                   </View>
+
+                  {rec && (
+                    <View>
+                      <Text style={[s.h3, { marginBottom: 4 }]}>{rec.headline}</Text>
+                      <Text style={[s.body, { fontSize: 9, marginBottom: 6 }]}>{rec.detail}</Text>
+
+                      <View style={s.calloutBox}>
+                        <Text style={s.calloutLabel}>[ASK YOUR TEAM]</Text>
+                        <Text style={s.calloutText}>{rec.internalQuestion}</Text>
+                      </View>
+                    </View>
+                  )}
                 </View>
-              )}
-            </View>
-            <PageFooter pageNum={idx + 3} />
+              );
+            })}
+            <PageFooter pageNum={pageIdx + 3} />
           </Page>
         );
       })}
 
-      {/* Page 9: Priority Action Plan */}
+      {/* Page 6: Priority Action Plan */}
       <Page size="A4" style={s.page}>
         <Text style={s.sectionLabel}>[PRIORITY ACTION PLAN]</Text>
         <Text style={s.h2}>Recommended Next Steps</Text>
@@ -665,10 +666,10 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           </View>
         ))}
 
-        <PageFooter pageNum={9} />
+        <PageFooter pageNum={6} />
       </Page>
 
-      {/* Page 10: About & CTA */}
+      {/* Page 7: About & CTA */}
       <Page size="A4" style={s.page}>
         <Text style={s.sectionLabel}>[NEXT STEPS]</Text>
         <Text style={s.ctaTitle}>
@@ -698,7 +699,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           © {new Date().getFullYear()} Gallag Works Ltd. Registered in England & Wales: 17033965.
         </Text>
 
-        <PageFooter pageNum={10} />
+        <PageFooter pageNum={7} />
       </Page>
     </Document>
   );
