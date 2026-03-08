@@ -375,9 +375,25 @@ const DiagnosticResults = () => {
         <div className="container mx-auto px-6 pt-32 text-center">
           <p className="text-xl text-foreground font-bold mb-4">Assessment not found</p>
           <p className="text-muted-foreground mb-8">This link may be invalid or the assessment may no longer exist.</p>
-          <Button asChild className="rounded-none">
-            <Link to="/diagnostic">Take the Assessment</Link>
-          </Button>
+          <div className="flex gap-3 justify-center">
+            {paramAssessmentId && (
+              <Button
+                variant="outline"
+                className="rounded-none"
+                onClick={() => {
+                  setError(null);
+                  setLoading(true);
+                  // Re-trigger fetch by forcing a state change
+                  setResolvedData(null);
+                }}
+              >
+                Try Again
+              </Button>
+            )}
+            <Button asChild className="rounded-none">
+              <Link to="/diagnostic">Take the Assessment</Link>
+            </Button>
+          </div>
         </div>
         <Footer hideCTA />
       </div>
