@@ -447,21 +447,7 @@ const DiagnosticResults = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finalData?.assessmentId]);
 
-  // Auto-trigger consultation request if arriving from email with ?request=consultation
-  const consultationAutoTriggered = useRef(false);
-  useEffect(() => {
-    if (!finalData || consultationAutoTriggered.current) return;
-    const params = new URLSearchParams(location.search);
-    if (params.get("request") === "consultation") {
-      consultationAutoTriggered.current = true;
-      // Small delay to let page render, then auto-fire
-      const timer = setTimeout(() => {
-        handleConsultationRequest();
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [finalData]);
+
 
   // Last card: stagger 5*120=600ms + 500ms delay + 1800ms count = 2900ms total
   // Overall score: 500ms delay + 2400ms duration = 2900ms total (matches)
