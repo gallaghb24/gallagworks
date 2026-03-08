@@ -561,6 +561,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           <Text style={s.ctaBoxBody}>
             Walk through your results with Ben Gallagher, Principal at Gallag Works, and identify your highest-leverage next steps. No obligation, no sales pitch — just a direct conversation about what would actually move the needle for {organisation}.
           </Text>
+          <Text style={s.ctaUrl}>hello@gallag.works</Text>
           <Text style={s.ctaUrl}>gallagworks.com/contact</Text>
         </View>
 
