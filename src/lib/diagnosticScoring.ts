@@ -24,11 +24,20 @@ export interface ScoringResult {
   maturityLevel: string;
 }
 
-export function calculateScores(answers: Record<string, number>): ScoringResult {
-  const dimensionScores: DimensionScore[] = DIMENSIONS.map((dim) => {
+export function calculateScores(answers: Record<string, number>, questionDimensions?: { id: string; questions: { id: string }[] }[]): ScoringResult {
+  const dimensionScores: DimensionScore[] = DIMENSIONS.map((dim, idx) => {
     let score = 0;
-    for (let i = 1; i <= 5; i++) {
-      score += answers[`${dim.key}_${i}`] ?? 0;
+    if (questionDimensions && questionDimensions[idx]) {
+      for (const q of questionDimensions[idx].questions) {
+        score += answers[q.id] ?? 0;
+      }
+    } else {
+      // Fallback: try all answer keys that start with common prefixes
+      for (const [key, val] of Object.entries(answers)) {
+        if (key.startsWith(dim.key)) {
+          score += val;
+        }
+      }
     }
     return { key: dim.key, label: dim.label, score, maxScore: 25 };
   });
