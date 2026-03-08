@@ -3,9 +3,11 @@ import {
   Page,
   Text,
   View,
+  Image,
   StyleSheet,
   pdf,
 } from "@react-pdf/renderer";
+import logoSrc from "@/assets/gallag-wordmark.png";
 
 import type { ScoringResult, DimensionKey } from "@/lib/scoring";
 import { getRecommendation } from "@/data/recommendations";
