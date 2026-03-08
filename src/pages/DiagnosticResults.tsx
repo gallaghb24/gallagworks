@@ -848,20 +848,15 @@ const DiagnosticResults = () => {
                 <Button
                   variant="outline"
                   className="w-full sm:w-auto h-12 px-8 text-base font-semibold rounded-none border-border text-foreground hover:bg-secondary"
-                  asChild
+                  disabled={consultationRequested || consultationLoading}
+                  onClick={handleConsultationRequest}
                 >
-                  <a
-                    href="https://calendly.com/bengallagher"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent("calendly_clicked", { assessment_id: currentAssessmentId })}
-                  >
-                    Book a Strategy Call
-                  </a>
+                  {consultationLoading && <Loader2 className="h-4 w-4 animate-spin" />}
+                  {consultationRequested ? "Consultation Requested ✓" : "Request Consultation"}
                 </Button>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
-                Walk through your results with Ben Gallagher and identify your highest-leverage next steps. 30 minutes, no obligation.
+                Walk through your results with Ben Gallagher and identify your highest-leverage next steps. No obligation.
               </p>
               <div className="flex flex-wrap justify-center gap-6 mt-8">
                 <Link to="/insights/eradicating-enterprise-data-glue" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -870,9 +865,6 @@ const DiagnosticResults = () => {
                 <Link to="/services" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
                   See how we work →
                 </Link>
-                <a href="https://calendly.com/bengallagher" target="_blank" rel="noopener noreferrer" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Book a strategy call →
-                </a>
               </div>
             </div>
           </div>
