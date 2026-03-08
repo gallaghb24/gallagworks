@@ -16,6 +16,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { useDiagnostic } from "@/contexts/DiagnosticContext";
 import { calculateScores } from "@/lib/diagnosticScoring";
+import { dimensions } from "@/data/questions";
 import { toast } from "@/hooks/use-toast";
 import { z } from "zod";
 
@@ -85,7 +86,7 @@ const DiagnosticCapture = () => {
 
     setSubmitting(true);
     try {
-      const scoring = calculateScores(answers);
+      const scoring = calculateScores(answers, dimensions);
 
       // Insert lead
       const { data: lead, error: leadError } = await supabase
