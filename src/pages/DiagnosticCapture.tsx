@@ -15,8 +15,7 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { useDiagnostic } from "@/contexts/DiagnosticContext";
-import { calculateScores } from "@/lib/diagnosticScoring";
-import { dimensions } from "@/data/questions";
+import { calculateFullScoring } from "@/lib/scoring";
 import { toast } from "@/hooks/use-toast";
 import { z } from "zod";
 
@@ -86,7 +85,7 @@ const DiagnosticCapture = () => {
 
     setSubmitting(true);
     try {
-      const scoring = calculateScores(answers, dimensions);
+      const scoring = calculateFullScoring(answers);
 
       // Insert lead
       const { data: lead, error: leadError } = await supabase
@@ -105,11 +104,6 @@ const DiagnosticCapture = () => {
       if (leadError) throw leadError;
 
       // Insert assessment
-      const dimensionScoresJson: Record<string, number> = {};
-      scoring.dimensionScores.forEach((d) => {
-        dimensionScoresJson[d.key] = d.score;
-      });
-
       const { data: assessment, error: assessError } = await supabase
         .from("assessments")
         .insert({
@@ -117,8 +111,8 @@ const DiagnosticCapture = () => {
           status: "completed",
           completed_at: new Date().toISOString(),
           total_score: scoring.totalScore,
-          maturity_level: scoring.maturityLevel,
-          dimension_scores: dimensionScoresJson,
+          maturity_level: scoring.maturityLevel.label,
+          dimension_scores: scoring.dimensionScores,
           answers: answers,
         })
         .select("id")
