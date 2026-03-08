@@ -698,6 +698,32 @@ const DiagnosticResults = () => {
           </div>
         </section>
 
+        {/* ── Share Buttons ────────────────────────────────────────── */}
+        <section className="pb-10">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-2xl mx-auto">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Button
+                  variant="outline"
+                  className="h-10 px-5 text-sm font-semibold rounded-none border-border text-foreground hover:bg-secondary gap-2"
+                  onClick={handleCopyLink}
+                >
+                  <LinkIcon className="h-4 w-4" />
+                  Share Your Results
+                </Button>
+                <Button
+                  variant="outline"
+                  className="h-10 px-5 text-sm font-semibold rounded-none border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2]/10 gap-2"
+                  onClick={handleLinkedInShare}
+                >
+                  <Linkedin className="h-4 w-4" />
+                  Share on LinkedIn
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── CTAs ─────────────────────────────────────────────────── */}
         <section className="pb-20 md:pb-32">
           <div className="container mx-auto px-6 lg:px-12">
@@ -726,6 +752,20 @@ const DiagnosticResults = () => {
                   </a>
                 </Button>
               </div>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
+                Walk through your results with Ben Gallagher and identify your highest-leverage next steps. 30 minutes, no obligation.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer hideCTA />
+    </div>
+  );
+};
+
+export default DiagnosticResults;
               <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
                 Walk through your results with Ben Gallagher and identify your highest-leverage next steps. 30 minutes, no obligation.
               </p>
