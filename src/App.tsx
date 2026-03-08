@@ -31,6 +31,7 @@ const AdminLayout = lazy(() => import("./components/admin/AdminLayout"));
 const AdminOverview = lazy(() => import("./pages/admin/AdminOverview"));
 const AdminLeads = lazy(() => import("./pages/admin/AdminLeads"));
 const AdminAssessments = lazy(() => import("./pages/admin/AdminAssessments"));
+const ConsultationConfirmation = lazy(() => import("./pages/ConsultationConfirmation"));
 
 const queryClient = new QueryClient();
 
