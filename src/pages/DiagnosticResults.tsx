@@ -352,6 +352,8 @@ const DiagnosticResults = () => {
   const [consultationLoading, setConsultationLoading] = useState(false);
   const [consultationRequested, setConsultationRequested] = useState(false);
   const [hoveredDimension, setHoveredDimension] = useState<DimensionKey | null>(null);
+  const [animatedTotalScore, setAnimatedTotalScore] = useState(0);
+  const [totalScoreAnimated, setTotalScoreAnimated] = useState(false);
   const [resolvedData, setResolvedData] = useState<{
     scoring: ScoringResult;
     organisation: string;
