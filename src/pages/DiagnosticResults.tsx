@@ -375,9 +375,25 @@ const DiagnosticResults = () => {
         <div className="container mx-auto px-6 pt-32 text-center">
           <p className="text-xl text-foreground font-bold mb-4">Assessment not found</p>
           <p className="text-muted-foreground mb-8">This link may be invalid or the assessment may no longer exist.</p>
-          <Button asChild className="rounded-none">
-            <Link to="/diagnostic">Take the Assessment</Link>
-          </Button>
+          <div className="flex gap-3 justify-center">
+            {paramAssessmentId && (
+              <Button
+                variant="outline"
+                className="rounded-none"
+                onClick={() => {
+                  setError(null);
+                  setLoading(true);
+                  // Re-trigger fetch by forcing a state change
+                  setResolvedData(null);
+                }}
+              >
+                Try Again
+              </Button>
+            )}
+            <Button asChild className="rounded-none">
+              <Link to="/diagnostic">Take the Assessment</Link>
+            </Button>
+          </div>
         </div>
         <Footer hideCTA />
       </div>
@@ -526,7 +542,7 @@ const DiagnosticResults = () => {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {priorityOrder.map((key) => {
+              {priorityOrder.map((key, idx) => {
                 const score = dimensionScores[key];
                 const rating = dimensionRatings[key];
                 const name = DIMENSION_NAMES[key];
@@ -535,7 +551,8 @@ const DiagnosticResults = () => {
                 return (
                   <div
                     key={key}
-                    className="border border-border p-5 rounded-none"
+                    className="border border-border p-5 rounded-none opacity-0 animate-fade-in-up"
+                    style={{ animationDelay: `${idx * 100}ms`, animationFillMode: "forwards" }}
                   >
                     <p className="font-display text-sm font-bold text-foreground mb-3">
                       {name}
@@ -550,12 +567,20 @@ const DiagnosticResults = () => {
                     >
                       {rating.rating}
                     </p>
-                    <div className="w-full h-1.5 bg-secondary rounded-none overflow-hidden">
+                    <div
+                      className="w-full h-1.5 bg-secondary rounded-none overflow-hidden"
+                      role="meter"
+                      aria-label={`${name} score`}
+                      aria-valuenow={score}
+                      aria-valuemin={0}
+                      aria-valuemax={25}
+                    >
                       <div
                         className="h-full rounded-none transition-all duration-500"
                         style={{ width: `${pct}%`, backgroundColor: rating.color }}
                       />
                     </div>
+                    <span className="sr-only">{name}: {score} out of 25, rated {rating.rating}</span>
                   </div>
                 );
               })}

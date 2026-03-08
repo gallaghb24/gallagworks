@@ -83,7 +83,14 @@ const DiagnosticAssess = () => {
             </h2>
           </div>
           {/* Progress bar */}
-          <div className="w-full h-1 bg-border">
+          <div
+            className="w-full h-1 bg-border"
+            role="progressbar"
+            aria-label={`Dimension ${currentDimension + 1} of ${totalDimensions}`}
+            aria-valuenow={currentDimension + 1}
+            aria-valuemin={1}
+            aria-valuemax={totalDimensions}
+          >
             <div
               className="h-full bg-primary transition-all duration-500 ease-out"
               style={{ width: `${progressPercent}%` }}
@@ -115,29 +122,39 @@ const DiagnosticAssess = () => {
                   </span>
                   {question.text}
                 </p>
-                <div className="space-y-2">
+                <fieldset className="space-y-2">
+                  <legend className="sr-only">{question.text}</legend>
                   {question.options.map((option) => {
                     const isSelected = answers[question.id] === option.value;
+                    const inputId = `${question.id}-${option.value}`;
                     return (
-                      <button
+                      <label
                         key={option.value}
-                        type="button"
-                        onClick={() => updateAnswer(question.id, option.value)}
+                        htmlFor={inputId}
                         className={cn(
-                          "w-full text-left p-4 min-h-14 border transition-all duration-150",
+                          "w-full text-left p-4 min-h-14 border transition-all duration-150 block cursor-pointer",
                           "hover:border-primary",
                           isSelected
                             ? "border-l-[3px] border-l-primary bg-primary/5 border-t-border border-r-border border-b-border"
                             : "border-border"
                         )}
                       >
+                        <input
+                          type="radio"
+                          id={inputId}
+                          name={question.id}
+                          value={option.value}
+                          checked={isSelected}
+                          onChange={() => updateAnswer(question.id, option.value)}
+                          className="sr-only"
+                        />
                         <span className="text-foreground font-normal text-sm leading-relaxed">
                           {option.label}
                         </span>
-                      </button>
+                      </label>
                     );
                   })}
-                </div>
+                </fieldset>
               </div>
             ))}
           </div>
