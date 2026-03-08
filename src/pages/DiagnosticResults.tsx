@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 import { format } from "date-fns";
 import {
   RadarChart,
@@ -9,13 +9,17 @@ import {
   Radar,
   ResponsiveContainer,
 } from "recharts";
+import { Link as LinkIcon, Linkedin, Loader2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { dimensions } from "@/data/questions";
 import { getRecommendation } from "@/data/recommendations";
 import type { ScoringResult, DimensionKey } from "@/lib/scoring";
+import { getMaturityLevel, getDimensionRating, getPriorityOrder } from "@/lib/scoring";
 import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 // ── Maturity summaries ─────────────────────────────────────────────────
 
@@ -240,23 +244,132 @@ interface ResultsState {
 const DiagnosticResults = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { assessmentId: paramAssessmentId } = useParams<{ assessmentId: string }>();
   const state = location.state as ResultsState | null;
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [resolvedData, setResolvedData] = useState<{
+    scoring: ScoringResult;
+    organisation: string;
+    assessmentId: string;
+    assessmentDate: string;
+  } | null>(null);
+
+  // Whether this page was loaded via a shared URL (not from completing the assessment)
+  const isSharedView = !!paramAssessmentId && !state?.scoring;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Load from Supabase if we have a URL param
   useEffect(() => {
-    if (!state?.scoring) {
+    if (paramAssessmentId && !state?.scoring) {
+      setLoading(true);
+      setError(null);
+
+      const fetchAssessment = async () => {
+        const { data: assessment, error: fetchError } = await supabase
+          .from("assessments")
+          .select("*, leads(*)")
+          .eq("id", paramAssessmentId)
+          .single();
+
+        if (fetchError || !assessment) {
+          setError("Assessment not found.");
+          setLoading(false);
+          return;
+        }
+
+        const lead = assessment.leads as any;
+        const dimScores = assessment.dimension_scores as Record<DimensionKey, number>;
+        const totalScore = assessment.total_score ?? 0;
+        const maturityLevel = getMaturityLevel(totalScore);
+
+        const dimensionRatings = {} as Record<DimensionKey, { rating: string; color: string }>;
+        for (const key of DIMENSION_KEYS) {
+          dimensionRatings[key] = getDimensionRating(dimScores[key] ?? 0);
+        }
+
+        const priorityOrder = getPriorityOrder(dimScores);
+
+        setResolvedData({
+          scoring: { dimensionScores: dimScores, totalScore, maturityLevel, dimensionRatings, priorityOrder },
+          organisation: lead?.organisation ?? "Unknown Organisation",
+          assessmentId: assessment.id,
+          assessmentDate: assessment.completed_at ?? assessment.started_at,
+        });
+        setLoading(false);
+      };
+
+      fetchAssessment();
+    }
+  }, [paramAssessmentId, state]);
+
+  // Redirect only if no param AND no state
+  useEffect(() => {
+    if (!paramAssessmentId && !state?.scoring) {
       navigate("/diagnostic", { replace: true });
     }
-  }, [state, navigate]);
+  }, [paramAssessmentId, state, navigate]);
 
-  if (!state?.scoring) return null;
+  // Resolve final data
+  const finalData = resolvedData ?? (state?.scoring ? {
+    scoring: state.scoring,
+    organisation: state.organisation,
+    assessmentId: state.assessmentId,
+    assessmentDate: new Date().toISOString(),
+  } : null);
 
-  const { scoring, organisation } = state;
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="container mx-auto px-6 pt-32 text-center">
+          <p className="text-xl text-foreground font-bold mb-4">Assessment not found</p>
+          <p className="text-muted-foreground mb-8">This link may be invalid or the assessment may no longer exist.</p>
+          <Button asChild className="rounded-none">
+            <Link to="/diagnostic">Take the Assessment</Link>
+          </Button>
+        </div>
+        <Footer hideCTA />
+      </div>
+    );
+  }
+
+  if (!finalData) return null;
+
+  const { scoring, organisation, assessmentId: currentAssessmentId, assessmentDate } = finalData;
   const { maturityLevel, totalScore, dimensionScores, dimensionRatings, priorityOrder } = scoring;
   const actionPlan = generateActionPlan(priorityOrder, dimensionRatings);
+
+  const shareUrl = `${window.location.origin}/diagnostic/results/${currentAssessmentId}`;
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl);
+    toast({ title: "Link copied", description: "Share URL copied to clipboard." });
+  };
+
+  const handleLinkedInShare = () => {
+    const text = encodeURIComponent(
+      `I just completed the AI Readiness Diagnostic from Gallag Works. Our organisation scored ${totalScore}/150 — ${maturityLevel.label}. Interesting framework for thinking about where you actually stand on AI readiness. Take the assessment:`
+    );
+    const url = encodeURIComponent(`${window.location.origin}/diagnostic`);
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${url}&summary=${text}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -268,6 +381,20 @@ const DiagnosticResults = () => {
       <Navigation />
 
       <main>
+        {/* ── Shared view CTA banner ───────────────────────────────── */}
+        {isSharedView && (
+          <section className="bg-primary/10 border-b border-primary/20">
+            <div className="container mx-auto px-6 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <p className="text-sm text-foreground font-medium">
+                See how your organisation compares.
+              </p>
+              <Button asChild size="sm" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90">
+                <Link to="/diagnostic">Take the Assessment for Your Organisation</Link>
+              </Button>
+            </div>
+          </section>
+        )}
+
         {/* ── Top Section ──────────────────────────────────────────── */}
         <section className="pt-24 pb-12 md:pt-32 md:pb-16">
           <div className="container mx-auto px-6 lg:px-12">
@@ -280,7 +407,7 @@ const DiagnosticResults = () => {
               </h1>
               <p className="text-lg text-foreground font-medium">{organisation}</p>
               <p className="text-sm text-muted-foreground font-mono mt-1">
-                {format(new Date(), "d MMMM yyyy")}
+                {format(new Date(assessmentDate), "d MMMM yyyy")}
               </p>
             </div>
           </div>
@@ -566,6 +693,32 @@ const DiagnosticResults = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Share Buttons ────────────────────────────────────────── */}
+        <section className="pb-10">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-2xl mx-auto">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <Button
+                  variant="outline"
+                  className="h-10 px-5 text-sm font-semibold rounded-none border-border text-foreground hover:bg-secondary gap-2"
+                  onClick={handleCopyLink}
+                >
+                  <LinkIcon className="h-4 w-4" />
+                  Share Your Results
+                </Button>
+                <Button
+                  variant="outline"
+                  className="h-10 px-5 text-sm font-semibold rounded-none border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2]/10 gap-2"
+                  onClick={handleLinkedInShare}
+                >
+                  <Linkedin className="h-4 w-4" />
+                  Share on LinkedIn
+                </Button>
               </div>
             </div>
           </div>
