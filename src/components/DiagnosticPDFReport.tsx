@@ -459,26 +459,12 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
           </View>
         </View>
 
-        {/* Dimension Map - Visual bars */}
-        <View style={{ marginTop: 24 }}>
-          <Text style={s.sectionLabel}>[DIMENSION MAP]</Text>
-          {dimKeys.map((key) => {
-            const score = dimensionScores[key];
-            const rating = dimensionRatings[key];
-            const pct = (score / 25) * 100;
-            return (
-              <View key={key} style={{ marginBottom: 10 }}>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 3 }}>
-                  <Text style={{ fontSize: 9, color: LIGHT_TEXT, fontFamily: "Helvetica" }}>{DIMENSION_LABELS[key]}</Text>
-                  <Text style={{ fontSize: 9, color: getRatingColor(rating.rating), fontFamily: "Helvetica-Bold" }}>{score}/25</Text>
-                </View>
-                <View style={s.barContainer}>
-                  <View style={[s.barFill, { width: `${pct}%`, backgroundColor: getRatingColor(rating.rating) }]} />
-                </View>
-                <Text style={{ fontSize: 7, color: getRatingColor(rating.rating), fontFamily: "Courier", marginTop: 2 }}>{rating.rating}</Text>
-              </View>
-            );
-          })}
+        {/* Dimension Map - Radar Chart */}
+        <View style={{ marginTop: 24, alignItems: "center" }}>
+          <Text style={[s.sectionLabel, { alignSelf: "flex-start" }]}>[DIMENSION MAP]</Text>
+          <View style={{ width: 340, height: 300, marginTop: 8 }}>
+            <RadarChartSVG dimKeys={dimKeys} dimensionScores={dimensionScores} />
+          </View>
         </View>
 
         <PageFooter pageNum={2} />
