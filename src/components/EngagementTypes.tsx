@@ -14,21 +14,21 @@ const tiers = [
     title: "Operational Audit & X-Ray",
     sublabel: "2–3 Weeks | Fixed Scope",
     description:
-      "A surgical deep dive into the 'as-is' state. We expose the Data Glue – the manual re-keying and spreadsheet handoffs – hiding in plain sight. We identify the 20% of 'Data Glue' causing 80% of your operational friction. You receive a logic schematic of where your margin is leaking.",
+      "A surgical deep dive into the 'as-is' state. I expose the Data Glue – the manual re-keying and spreadsheet handoffs – hiding in plain sight. I identify the 20% of 'Data Glue' causing 80% of your operational friction. You receive a logic schematic of where your margin is leaking.",
   },
   {
     number: "02",
     title: "Structural Prototype",
     sublabel: "4–8 Weeks | Proof of Value",
     description:
-      "We re-engineer one high-friction workflow end-to-end via engineered Decision Inboxes – AI aggregates the context, but your experts retain the final sign-off. We don't just 'test' AI; we build working infrastructure that proves the ROI and protects the P&L before you commit to scaling.",
+      "I re-engineer one high-friction workflow end-to-end via engineered Decision Inboxes – AI aggregates the context, but your experts retain the final sign-off. I don't just test AI; I build working infrastructure that proves the ROI and protects the P&L before you commit to scaling.",
   },
   {
     number: "03",
     title: "Enterprise Integration",
     sublabel: "Retainer or Phase-Based",
     description:
-      "Transformation at scale. We focus on Governance and Exception Engineering – human-in-the-loop safety rails that ensure your team stays in control. Combined with champion-led adoption, the system actually sticks across teams and geographies.",
+      "Transformation at scale. I focus on Governance and Exception Engineering – human-in-the-loop safety rails that ensure your team stays in control. Combined with champion-led adoption, the system actually sticks across teams and geographies.",
   },
 ];
 
@@ -52,7 +52,7 @@ const EngagementTypes = () => {
           <p
             className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
           >
-            We de-risk transformation through a phased, results-first approach. Start with the free AI Readiness Diagnostic to understand where you stand. If the results surface something worth exploring, we move into a fixed-scope Operational X-Ray, then prototype, then scale.
+            I de-risk transformation through a phased, results-first approach. Start with the free AI Readiness Diagnostic to understand where you stand. If the results surface something worth exploring, I move into a fixed-scope Operational X-Ray, then prototype, then scale.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

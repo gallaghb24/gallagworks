@@ -7,19 +7,19 @@ const services = [
     label: "01",
     title: "The Operational X-Ray",
     description:
-      "We map how the work actually flows. We don't just look at the org chart; we expose the invisible friction and manual workarounds.",
+      "I map how the work actually flows. Not the org chart version – the real one, with the invisible friction and manual workarounds exposed.",
   },
   {
     label: "02",
     title: "Process Architecture",
     description:
-      "We kill redundant steps, standardise inputs, and clarify ownership before touching any technology. Technology comes after the thinking.",
+      "I kill redundant steps, standardise inputs, and clarify ownership before touching any technology. Technology comes after the thinking.",
   },
   {
     label: "03",
     title: "Decision Inboxes",
     description:
-      "We engineer lightweight, AI-driven automation that handles the routine aggregation, routing only the exceptions to your team for human judgement.",
+      "I engineer lightweight, AI-driven automation that handles the routine aggregation, routing only the exceptions to your team for human judgement.",
   },
 ];
 
