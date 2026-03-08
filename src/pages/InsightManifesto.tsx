@@ -55,7 +55,7 @@ const insightData: InsightEntry[] = [
     title: "Eradicating the Enterprise Data Glue.",
     subtitle: "A field manifesto on identifying and engineering out the manual friction that silently erodes enterprise margins.",
     date: "MAR 2025",
-    seoDescription: "How Operational Engineering identifies and removes the manual friction costing Tier-1 retailers £1.5M+ annually. 1,200 hours reclaimed through systematic Data Glue eradication.",
+    seoDescription: "How Operational Engineering identifies and removes the manual friction costing Tier-1 retailers £1M+ annually. 1,200 hours reclaimed through systematic Data Glue eradication.",
     manifesto: [
       {
         label: "01: THE PROBLEM",
