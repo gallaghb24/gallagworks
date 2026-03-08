@@ -84,7 +84,7 @@ const insightData: InsightEntry[] = [
         label: "03: THE ECONOMIC RESULT",
         title: "Engineering Out £1M+ in Operational Leakage.",
         paragraphs: [
-          "Across engagements with Tier-1 retailers and FTSE 100 entities, we have identified and engineered out over £1.5M in cumulative annual operational leakage. This figure represents the fully-loaded cost of Data Glue: the salaries consumed by manual re-keying, the margin lost to delayed turnaround times, and the opportunity cost of strategic talent trapped in procedural work.",
+          "Across engagements with Tier-1 retailers and FTSE 100 entities, we have identified over £1M in cumulative operational leakage identified across engagements. This figure represents the fully-loaded cost of Data Glue: the salaries consumed by manual re-keying, the margin lost to delayed turnaround times, and the opportunity cost of strategic talent trapped in procedural work.",
           <>In one engagement with a national leisure group, an enterprise reporting pipeline that consumed 30 hours of manual Excel manipulation per month was reduced to a 10-minute automated workflow – a 98% reduction in processing time <LogRef code="LOG-205" slug="enterprise-reporting-automation" />. 360 hours were reclaimed annually while removing 100% of data integrity risk.</>,
           "The pattern is consistent: organisations don't have an AI problem. They have a structural workflow problem. The margin recovery is not achieved by adding more tools. It is achieved by engineering the Data Glue out of the system so your people return to making decisions, not managing tasks.",
         ],
