@@ -67,7 +67,7 @@ const StructuredData = () => {
         "Operational Engineering",
         "Enterprise Transformation",
         "Workflow Automation",
-        "Multichannel Retail Operations",
+        "Enterprise Operations",
       ],
     },
     address: {
