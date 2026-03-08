@@ -264,6 +264,17 @@ const DiagnosticResults = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Track results_viewed when data is ready
+  useEffect(() => {
+    if (finalData) {
+      trackEvent("results_viewed", {
+        assessment_id: finalData.assessmentId,
+        total_score: finalData.scoring.totalScore,
+        maturity_level: finalData.scoring.maturityLevel.label,
+      });
+    }
+  }, [finalData?.assessmentId]);
+
   // Load from Supabase if we have a URL param
   useEffect(() => {
     if (paramAssessmentId && !state?.scoring) {
