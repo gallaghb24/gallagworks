@@ -49,6 +49,24 @@ for (const dim of dimensions) {
   DIMENSION_NAMES[dim.id as DimensionKey] = dim.name;
 }
 
+const SHORT_NAMES: Record<DimensionKey, string> = {
+  data_foundation: "Data",
+  process_maturity: "Process",
+  governance_risk: "Governance",
+  skills_culture: "Skills",
+  tooling_infrastructure: "Tooling",
+  strategic_clarity: "Strategy",
+};
+
+const DIMENSION_KEYS: DimensionKey[] = [
+  "data_foundation",
+  "process_maturity",
+  "governance_risk",
+  "skills_culture",
+  "tooling_infrastructure",
+  "strategic_clarity",
+];
+
 // ── Component ──────────────────────────────────────────────────────────
 
 interface ResultsState {
