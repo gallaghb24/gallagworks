@@ -637,7 +637,10 @@ const DiagnosticResults = () => {
 
       setConsultationRequested(true);
       trackEvent("consultation_requested", { assessment_id: currentAssessmentId });
-      toast({ title: "Request sent", description: "Ben will be in touch within 24 hours." });
+
+      // Get lead name for confirmation page
+      const leadObj = (assessment.leads as any);
+      navigate("/consultation/confirmed", { state: { name: leadObj?.name } });
     } catch (err: any) {
       console.error("Consultation request failed:", err);
       toast({ title: "Something went wrong", description: "Please try again or email hello@gallag.works directly.", variant: "destructive" });

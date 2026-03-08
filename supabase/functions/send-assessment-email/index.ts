@@ -66,7 +66,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { strongest, weakest } = getStrongestAndWeakest(dimension_scores);
 
     const resultsUrl = `https://www.gallag.works/diagnostic/results/${assessment_id}`;
-    const calendlyUrl = "https://calendly.com/bengallagher/30min";
+    
     const refId = `GW-DX-${Date.now().toString(36).toUpperCase().slice(-6)}`;
 
     // ── Email 1: Lead confirmation ──────────────────────────────────
