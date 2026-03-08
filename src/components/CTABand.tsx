@@ -7,9 +7,10 @@ interface CTABandProps {
   headline?: React.ReactNode;
   subcopy?: React.ReactNode;
   wrapperClassName?: string;
+  secondaryCTA?: { label: string; to: string };
 }
 
-const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wrapperClassName }: CTABandProps) => {
+const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wrapperClassName, secondaryCTA }: CTABandProps) => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
@@ -24,7 +25,7 @@ const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wr
               {subcopy}
             </p>
           )}
-          <div className={subcopy ? "" : "mt-8"}>
+          <div className={`flex flex-col sm:flex-row gap-4 ${subcopy ? "" : "mt-8"}`}>
             <Button
               asChild
               size="lg"
@@ -35,6 +36,17 @@ const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wr
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
+            {secondaryCTA && (
+              <Button
+                asChild
+                size="lg"
+                className="border border-border bg-transparent text-foreground hover:text-primary rounded-none px-8 py-6 text-lg font-medium"
+              >
+                <Link to={secondaryCTA.to}>
+                  {secondaryCTA.label}
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </div>

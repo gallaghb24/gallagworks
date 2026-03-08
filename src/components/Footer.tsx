@@ -25,7 +25,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
                 Stop the leakage. <span className="text-primary">Start the Engineering.</span>
               </h2>
               <p className="text-foreground/70 font-light mb-8 max-w-[720px]">
-                Request an Operational X-Ray to quantify your margin recovery opportunity.
+                Start with the free AI Readiness Diagnostic, or request an Operational X-Ray to quantify your margin recovery opportunity.
               </p>
               <Button
                 asChild
@@ -37,6 +37,9 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
+              <Link to="/diagnostic" className="text-sm text-foreground/50 hover:text-primary transition-colors mt-4 block">
+                Or take the free 5-minute diagnostic →
+              </Link>
             </div>
           </div>
         </div>
@@ -60,6 +63,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
                 </span>
                 <nav className="flex flex-col gap-3">
                   <Link to="/services" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Services</Link>
+                  <Link to="/diagnostic" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Diagnostic</Link>
                   <Link to="/about" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">The Principal</Link>
                   <Link to="/insights" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Insights</Link>
                   <Link to="/contact" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Contact</Link>
