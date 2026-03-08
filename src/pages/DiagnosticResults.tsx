@@ -323,6 +323,18 @@ const DiagnosticResults = () => {
     assessmentDate: new Date().toISOString(),
   } : null);
 
+  // Track results_viewed when data is ready
+  useEffect(() => {
+    if (finalData) {
+      trackEvent("results_viewed", {
+        assessment_id: finalData.assessmentId,
+        total_score: finalData.scoring.totalScore,
+        maturity_level: finalData.scoring.maturityLevel.label,
+      });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [finalData?.assessmentId]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
