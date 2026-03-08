@@ -625,7 +625,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
         );
       })}
 
-      {/* Page 9: Priority Action Plan */}
+      {/* Page 6: Priority Action Plan */}
       <Page size="A4" style={s.page}>
         <Text style={s.sectionLabel}>[PRIORITY ACTION PLAN]</Text>
         <Text style={s.h2}>Recommended Next Steps</Text>
