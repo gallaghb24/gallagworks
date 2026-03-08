@@ -20,6 +20,7 @@ import { getMaturityLevel, getDimensionRating, getPriorityOrder } from "@/lib/sc
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { trackEvent } from "@/lib/analytics";
 
 // ── Maturity summaries ─────────────────────────────────────────────────
 
