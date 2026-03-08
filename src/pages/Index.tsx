@@ -25,6 +25,11 @@ const Index = () => {
         <Principal />
         <ProofPoints />
         <LeakageEstimator />
+        <CTABand
+          headline={<>Ready to build <span className="text-primary">scalable operations?</span></>}
+          subcopy="Start with the free AI Readiness Diagnostic or request a consultation to discuss your operational challenges."
+          secondaryCTA={{ label: "Take the AI Readiness Diagnostic", to: "/diagnostic" }}
+        />
       </main>
       <Footer />
     </div>

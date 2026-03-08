@@ -145,7 +145,7 @@ const Insights = () => {
           </div>
         </section>
 
-        <CTABand headline={<><span className="md:whitespace-nowrap">Turn field-tested logic into <span className="text-primary">measurable throughput.</span></span></>} subcopy="Apply these operational schematics to your environment with a targeted diagnostic." wrapperClassName="max-w-3xl" />
+        <CTABand headline={<><span className="md:whitespace-nowrap">Turn field-tested logic into <span className="text-primary">measurable throughput.</span></span></>} subcopy="Apply these operational schematics to your environment with a targeted diagnostic." wrapperClassName="max-w-3xl" secondaryCTA={{ label: "Take the Diagnostic", to: "/diagnostic" }} />
       </main>
       <Footer hideCTA />
     </div>

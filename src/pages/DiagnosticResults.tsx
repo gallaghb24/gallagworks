@@ -821,6 +821,17 @@ const DiagnosticResults = () => {
               <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
                 Walk through your results with Ben Gallagher and identify your highest-leverage next steps. 30 minutes, no obligation.
               </p>
+              <div className="flex flex-wrap justify-center gap-6 mt-8">
+                <Link to="/insights/eradicating-enterprise-data-glue" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Explore our methodology →
+                </Link>
+                <Link to="/services" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
+                  See how we work →
+                </Link>
+                <a href="https://calendly.com/bengallagher" target="_blank" rel="noopener noreferrer" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Book a strategy call →
+                </a>
+              </div>
             </div>
           </div>
         </section>
