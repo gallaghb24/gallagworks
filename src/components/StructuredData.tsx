@@ -45,7 +45,7 @@ const StructuredData = () => {
     "@type": "ProfessionalService",
     name: "Gallag Works",
     description:
-      "Principal-led operational engineering for Tier-1 multichannel retail. Eradicating 'Data Glue' and manual friction to recover enterprise margins.",
+      "Principal-led operational engineering for high-volume, handoff-heavy operations. Eradicating 'Data Glue' and manual friction to recover enterprise margins.",
     url: "https://www.gallag.works",
     logo: "https://www.gallag.works/favicon.svg",
     image: "https://www.gallag.works/og-image.png",
