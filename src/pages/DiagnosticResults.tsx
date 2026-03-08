@@ -766,17 +766,3 @@ const DiagnosticResults = () => {
 };
 
 export default DiagnosticResults;
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
-                Walk through your results with Ben Gallagher and identify your highest-leverage next steps. 30 minutes, no obligation.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <Footer hideCTA />
-    </div>
-  );
-};
-
-export default DiagnosticResults;
