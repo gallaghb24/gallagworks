@@ -332,7 +332,7 @@ const insightData: InsightEntry[] = [
     ref: "GW-LOG-205",
     title: "Enterprise Reporting Automation.",
     subtitle: "Replacing 30 hours of monthly Excel manipulation with a 10-minute automated pipeline – a 98% reduction in processing time.",
-    date: "FEB 2026",
+    date: "JAN 2026",
     seoDescription: "Enterprise Reporting Automation: 98% reduction in processing time. 360 hours reclaimed annually while removing 100% of data integrity risk via automated drag-and-drop mapping.",
     manifesto: [
       {
