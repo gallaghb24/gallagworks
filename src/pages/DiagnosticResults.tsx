@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useLocation, useNavigate, useParams, Link } from "react-router-dom";
 import { format } from "date-fns";
 import {
@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { Link as LinkIcon, Linkedin, Loader2 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
