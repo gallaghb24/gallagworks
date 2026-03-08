@@ -250,6 +250,8 @@ const DiagnosticResults = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [consultationLoading, setConsultationLoading] = useState(false);
+  const [consultationRequested, setConsultationRequested] = useState(false);
   const [resolvedData, setResolvedData] = useState<{
     scoring: ScoringResult;
     organisation: string;
