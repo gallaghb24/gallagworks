@@ -21,6 +21,7 @@ const insights = [
     status: "VERIFIED",
     slug: "eradicating-enterprise-data-glue",
     type: "MANIFESTO",
+    date: "MAR 2025",
   },
   {
     ref: "GW-LOG-201",
@@ -29,6 +30,7 @@ const insights = [
     status: "VERIFIED",
     slug: "pos-job-workflow",
     type: "SCHEMATIC",
+    date: "MAY 2025",
   },
   {
     ref: "GW-LOG-202",
@@ -37,6 +39,7 @@ const insights = [
     status: "VERIFIED",
     slug: "costing-process",
     type: "SCHEMATIC",
+    date: "JUL 2025",
   },
   {
     ref: "GW-LOG-203",
@@ -45,6 +48,7 @@ const insights = [
     status: "VERIFIED",
     slug: "validation-pipeline",
     type: "SCHEMATIC",
+    date: "SEP 2025",
   },
   {
     ref: "GW-LOG-204",
@@ -53,6 +57,7 @@ const insights = [
     status: "VERIFIED",
     slug: "multichannel-content-orchestration",
     type: "SCHEMATIC",
+    date: "NOV 2025",
   },
   {
     ref: "GW-LOG-205",
@@ -61,6 +66,7 @@ const insights = [
     status: "VERIFIED",
     slug: "enterprise-reporting-automation",
     type: "SCHEMATIC",
+    date: "JAN 2026",
   },
   {
     ref: "GW-LOG-206",
@@ -69,6 +75,7 @@ const insights = [
     status: "VERIFIED",
     slug: "high-volume-allocation-logistics",
     type: "SCHEMATIC",
+    date: "MAR 2026",
   },
 ];
 
