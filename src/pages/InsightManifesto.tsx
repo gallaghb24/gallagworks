@@ -257,7 +257,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE ENGINEERING",
         title: "Exception-Only Routing.",
         paragraphs: [
-          "We embedded validation rules directly into the data pipeline with automated routine checks and exception-only routing. A Decision Inbox surfaced only the genuine anomalies requiring human judgement, filtering out the noise that had been consuming the team's capacity.",
+          "I embedded validation rules directly into the data pipeline with automated routine checks and exception-only routing. An exception triage interface surfaced only the genuine anomalies requiring human judgement, filtering out the noise that had been consuming the team's capacity.",
         ],
       },
     ],
