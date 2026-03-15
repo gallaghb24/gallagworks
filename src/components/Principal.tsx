@@ -17,10 +17,10 @@ const Principal = () => {
 
           <div className={`clip-reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.08s" }}>
             <h2 className="font-display text-3xl md:text-4xl font-extrabold text-on-light mb-8 leading-tight tracking-tight">
-              Built by an Operator, not an Agency.
+              Built by someone who's done it, not just advised on it.
             </h2>
             <p className="text-lg text-on-light/70 font-light leading-relaxed max-w-[720px]">
-              Gallag Works is an independent AI transformation practice founded by Ben Gallagher. After 15 years managing £15m+ multichannel contracts as operational lead within a 2,100-person content production agency, I learned a hard truth: efficiency protects the P&L. I'm not here to bill hours – I'm here to recover them. Gallag Works exists to bring that exact methodology to leaders who are drowning in Human Middleware and ready to build scalable systems.
+              Gallag Works is an independent AI transformation practice founded by Ben Gallagher. After 15 years inside marketing production operations — and the last two building an AI transformation function from scratch inside a 2,100-person PE-backed agency group — I learned that most businesses don't fail at AI because of the technology. They fail because nobody fixes the process first. Gallag Works exists to bring that experience to businesses that are ready to move on AI but don't have the in-house leadership to make it happen.
             </p>
             <Link
               to="/about"

@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "How is this different from hiring a consulting firm?",
     answer:
-      "Most operators in this space fall into one of three buckets. Strategy firms produce the roadmap but don't build anything — the deck gets delivered, the client doesn't know what to do next. Tool builders ship the app but don't understand the P&L, the team dynamics, or why the last three 'transformation' projects stalled. Generalist AI freelancers know the tools but haven't operated inside complex, multi-stakeholder businesses where adoption is the real challenge. I sit across all three: strategy, build, and adoption — led by someone who's done it at scale, not theorised about it.",
+      "Most operators in this space fall into one of three buckets. Strategy firms produce the roadmap but don't build anything — the deck gets delivered, the client doesn't know what to do next. Tool builders ship the app but don't understand the commercial reality, the team dynamics, or why the last three 'transformation' projects stalled. Generalist AI freelancers know the tools but haven't operated inside complex, multi-stakeholder businesses where adoption is the real challenge. I sit across all three: strategy, build, and adoption — led by someone who's done it at scale, not theorised about it.",
   },
   {
     question: "Do you replace existing systems?",
@@ -53,7 +53,7 @@ const FAQSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 lg:py-36 bg-slate" ref={ref}>
+    <section className="py-16 lg:py-36 bg-warm-stone" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
           <span
@@ -62,7 +62,7 @@ const FAQSection = () => {
             [FAQ]
           </span>
           <h2
-            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-12 clip-reveal ${isVisible ? "visible" : ""}`}
+            className={`text-3xl md:text-4xl font-extrabold text-on-light mb-12 clip-reveal ${isVisible ? "visible" : ""}`}
           >
             Common questions.
           </h2>
@@ -72,13 +72,13 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`faq-${index}`}
-                className={`border border-border px-6 clip-reveal-down ${isVisible ? "visible" : ""}`}
-                style={{ transitionDelay: `${index * 0.08}s` }}
+                className={`bg-off-white border px-6 clip-reveal-down ${isVisible ? "visible" : ""}`}
+                style={{ borderColor: "rgba(0,0,0,0.08)", transitionDelay: `${index * 0.08}s` }}
               >
-                <AccordionTrigger className="text-foreground font-semibold text-left hover:text-primary py-5">
+                <AccordionTrigger className="text-on-light font-semibold text-left hover:text-primary py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light leading-relaxed pb-5">
+                <AccordionContent className="text-on-light/60 font-light leading-relaxed pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

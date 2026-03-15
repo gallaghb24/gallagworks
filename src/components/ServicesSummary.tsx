@@ -17,6 +17,12 @@ const services = [
   },
   {
     id: "03",
+    title: "Build & Deploy",
+    description:
+      "Hands-on delivery of AI-enabled tools and workflows — production systems designed for real adoption, not proofs of concept.",
+  },
+  {
+    id: "04",
     title: "Fractional AI Leadership",
     description:
       "Embedded strategic leadership for teams who need an experienced operator to drive their AI transformation – without the overhead of a full-time hire.",
@@ -35,7 +41,7 @@ const ServicesSummary = () => {
           [SERVICES]
         </span>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {services.map((service, index) => (
             <div
               key={service.id}
@@ -55,7 +61,7 @@ const ServicesSummary = () => {
           ))}
         </div>
 
-        <div className={`clip-reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.3s" }}>
+        <div className={`clip-reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.4s" }}>
           <Link
             to="/services"
             className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors"
