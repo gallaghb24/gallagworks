@@ -6,46 +6,46 @@ import SEOHead from "@/components/SEOHead";
 
 const glossaryTerms = [
   {
-    id: "data-glue",
-    term: "Data Glue",
+    id: "human-middleware",
+    term: "Human Middleware",
     definition:
-      "The manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity. Data Glue emerges when organisations grow faster than their operational infrastructure, leaving teams to bridge system gaps with manual workarounds that become normalised and invisible.",
+      "Skilled, expensive talent operating as manual connectors between disconnected systems — performing data transfers, format conversions, status updates, and coordination that should be handled by engineered pipelines. Human Middleware is the single largest source of hidden operational cost in enterprise environments. It emerges when organisations grow faster than their operational infrastructure, leaving teams to bridge system gaps with manual workarounds that become normalised and invisible.",
   },
   {
     id: "operational-x-ray",
     term: "Operational X-Ray",
     definition:
-      "A 2–3 week fixed-scope diagnostic that uses Pareto-driven analysis to identify the 20% of Data Glue causing 80% of operational friction. The X-Ray maps every manual touchpoint, quantifies capacity loss by time cost and error rate, and produces a prioritised engineering roadmap with projected margin recovery figures.",
+      "A 2–3 week fixed-scope diagnostic that uses Pareto-driven analysis to identify the 20% of Human Middleware causing 80% of operational friction. The X-Ray maps every manual touchpoint, quantifies capacity loss by time cost and error rate, and produces a prioritised transformation roadmap with projected margin recovery figures.",
   },
   {
-    id: "operational-engineering",
-    term: "Operational Engineering",
+    id: "ai-transformation",
+    term: "AI Transformation",
     definition:
-      "The application of engineering principles to business operations to eliminate frictional loss and maximise systemic throughput. Unlike consultancy, which diagnoses, Operational Engineering diagnoses and builds – delivering production-ready systems that remove manual friction permanently.",
+      "The application of AI and engineering principles to business operations to eliminate frictional loss and maximise systemic throughput. Unlike consultancy, which diagnoses, AI Transformation diagnoses and builds – delivering production-ready systems that remove Human Middleware permanently.",
   },
   {
-    id: "decision-inbox",
-    term: "Decision Inbox",
+    id: "exception-routing",
+    term: "Exception Routing",
     definition:
-      "An exception-routing interface that surfaces only the genuine anomalies requiring human judgement, filtering out routine items that can be validated automatically. The Decision Inbox ensures skilled operators spend time on decisions, not data checking.",
+      "An automated triage pattern that surfaces only the genuine anomalies requiring human judgement, filtering out routine items that can be validated automatically. Exception routing ensures skilled operators spend time on decisions, not data checking.",
   },
   {
     id: "margin-recovery",
     term: "Margin Recovery",
     definition:
-      "The measurable financial return achieved by engineering out Data Glue. Margin recovery is quantified in reclaimed hours, reduced error rates, and eliminated coordination overhead – the fully-loaded cost of manual friction that silently erodes enterprise profitability.",
+      "The measurable financial return achieved by eliminating Human Middleware. Margin recovery is quantified in reclaimed hours, reduced error rates, and eliminated coordination overhead – the fully-loaded cost of manual friction that silently erodes enterprise profitability.",
   },
   {
-    id: "human-middleware",
-    term: "Human Middleware",
+    id: "data-glue",
+    term: "Data Glue",
     definition:
-      "Skilled, expensive talent operating as manual connectors between disconnected systems – performing data transfers, format conversions, and status updates that should be handled by engineered pipelines. Human Middleware is the most visible symptom of Data Glue in an organisation.",
+      "A legacy term for what Gallag Works now calls Human Middleware. Refers to the manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity.",
   },
   {
     id: "systemic-leakage",
     term: "Systemic Leakage",
     definition:
-      "The incremental, often silent loss of operational margin due to unoptimised workflows, redundant communications, and uncaptured data fidelity. Leakage is the cumulative result of Data Glue that has been left untreated for multiple fiscal cycles.",
+      "The incremental, often silent loss of operational margin due to unoptimised workflows, redundant communications, and uncaptured data fidelity. Leakage is the cumulative result of Human Middleware that has been left untreated for multiple fiscal cycles.",
   },
   {
     id: "capacity-reclamation",
@@ -57,7 +57,7 @@ const glossaryTerms = [
     id: "logic-gates",
     term: "Logic Gates",
     definition:
-      "Automated validation checkpoints within an operational pipeline that programmatically determine if data is 'clean' enough to proceed or requires routing to a Decision Inbox. Logic Gates replace manual 'quality checking' loops with instant, error-free verification.",
+      "Automated validation checkpoints within an operational pipeline that programmatically determine if data is 'clean' enough to proceed or requires exception routing. Logic Gates replace manual 'quality checking' loops with instant, error-free verification.",
   },
   {
     id: "process-automation",
@@ -75,7 +75,7 @@ const glossaryTerms = [
     id: "operational-efficiency",
     term: "Operational Efficiency",
     definition:
-      "The ratio of useful output to total input in a business process. In practice, most organisations measure efficiency at the task level while ignoring the systemic friction between tasks. The gap between departmental efficiency metrics and actual end-to-end throughput is where Data Glue hides. Genuine operational efficiency requires measuring the whole workflow, not just the parts that are easy to measure.",
+      "The ratio of useful output to total input in a business process. In practice, most organisations measure efficiency at the task level while ignoring the systemic friction between tasks. The gap between departmental efficiency metrics and actual end-to-end throughput is where Human Middleware hides. Genuine operational efficiency requires measuring the whole workflow, not just the parts that are easy to measure.",
   },
   {
     id: "ai-readiness",
@@ -99,7 +99,7 @@ const glossaryTerms = [
     id: "human-in-the-loop",
     term: "Human-in-the-Loop",
     definition:
-      "A design pattern where automated systems handle routine processing but route exceptions, ambiguities, and high-stakes decisions to a human for review. The Decision Inbox is Gallag Works' implementation of this pattern. The key design challenge is not building the automation but defining the threshold: what genuinely needs human judgement versus what is being routed to a human out of organisational anxiety.",
+      "A design pattern where automated systems handle routine processing but route exceptions, ambiguities, and high-stakes decisions to a human for review. Exception routing is Gallag Works' implementation of this pattern. The key design challenge is not building the automation but defining the threshold: what genuinely needs human judgement versus what is being routed to a human out of organisational anxiety.",
   },
 ];
 
@@ -115,7 +115,7 @@ const Glossary = () => {
     description: t.definition,
     inDefinedTermSet: {
       "@type": "DefinedTermSet",
-      name: "Gallag Works Operational Engineering Glossary",
+      name: "Gallag Works AI Transformation Glossary",
       url: "https://gallag.works/glossary",
     },
   }));
@@ -123,8 +123,8 @@ const Glossary = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Glossary — Operational Engineering Terms"
-        description="Definitions of key Operational Engineering concepts: Data Glue, Operational X-Ray, Decision Inbox, Margin Recovery, and Human Middleware."
+        title="Glossary — AI Transformation Terms"
+        description="Definitions of key AI Transformation concepts: Human Middleware, Operational X-Ray, Exception Routing, Margin Recovery, and more."
         path="/glossary"
       />
       <Helmet>
@@ -143,7 +143,7 @@ const Glossary = () => {
                 [GLOSSARY]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
-                 Operational Engineering Glossary.
+                 AI Transformation Glossary.
               </h1>
               <p
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"

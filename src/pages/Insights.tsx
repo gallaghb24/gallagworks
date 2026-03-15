@@ -106,7 +106,7 @@ const Insights = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Each entry below is a field-documented engagement led by the Principal. The GW-LOG series covers the technical methodology, friction diagnosis, and engineering outcomes from real operational transformations across retail, financial services, professional services, and media.
+                Each entry below is a field-documented engagement led by the Founder. The GW-LOG series covers the technical methodology, friction diagnosis, and engineering outcomes from real operational transformations across retail, financial services, professional services, and media.
               </p>
             </div>
           </div>

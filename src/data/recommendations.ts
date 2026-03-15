@@ -74,7 +74,7 @@ export const recommendations: Recommendation[] = [
     dimension: "process_maturity",
     ratingLevel: "solid_foundation",
     headline: "Your processes are ready for targeted automation.",
-    detail: "You have good documentation and reasonable consistency. The opportunity is to identify the 80/20 in your workflows - the predictable majority that can be automated versus the complex exceptions that need human judgement. This distinction is critical for AI implementation: automate the predictable, flag the exceptions, and build decision inboxes for the genuine judgement calls.",
+    detail: "You have good documentation and reasonable consistency. The opportunity is to identify the 80/20 in your workflows - the predictable majority that can be automated versus the complex exceptions that need human judgement. This distinction is critical for AI implementation: automate the predictable, flag the exceptions, and build exception routing for the genuine judgement calls.",
     whatGoodLooksLike: "Leading organisations have automated triage separating routine from complex work, with clear escalation paths and measurable processing times for each category.",
     internalQuestion: "Which of your workflows has the highest volume of predictable, repeatable tasks?",
   },

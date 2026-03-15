@@ -1101,10 +1101,10 @@ const DiagnosticResults = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-6 mt-8">
                 <Link to="/insights/eradicating-enterprise-data-glue" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Explore our methodology →
+                  Explore the methodology →
                 </Link>
                 <Link to="/services" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
-                  See how we work →
+                  See how I work →
                 </Link>
               </div>
             </div>

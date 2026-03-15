@@ -84,7 +84,7 @@ const Contact = () => {
               <p
                 className="text-lg text-foreground/70 leading-relaxed font-light max-w-[720px]"
               >
-                Every engagement starts with the Operational X-Ray. Whether you are ready to engineer out the 'Data Glue' or are still quantifying the margin recovery opportunity, start here to discuss a structured engagement.
+                Every engagement starts with the Operational X-Ray. Whether you are ready to eliminate the 'Human Middleware' or are still quantifying the margin recovery opportunity, start here to discuss a structured engagement.
               </p>
 
               {submitState === "success" ? (

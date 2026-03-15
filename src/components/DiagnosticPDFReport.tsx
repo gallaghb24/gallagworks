@@ -693,7 +693,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
 
         <Text style={s.sectionLabel}>[ABOUT GALLAG WORKS]</Text>
         <Text style={s.body}>
-          Gallag Works is a principal-led operational engineering practice. We eradicate 'Data Glue' — the manual re-keying, spreadsheet handoffs, and tacit knowledge that silently consume capacity and margin. Our engagements are structured to deliver measurable outcomes: hours reclaimed, errors eliminated, throughput increased.
+          Gallag Works is a founder-led AI transformation practice. I eradicate 'Human Middleware' — the manual re-keying, spreadsheet handoffs, and tacit knowledge that silently consume capacity and margin. Engagements are structured to deliver measurable outcomes: hours reclaimed, errors eliminated, throughput increased.
         </Text>
         <Text style={s.bodySmall}>
           © {new Date().getFullYear()} Gallag Works Ltd. Registered in England & Wales: 17033965.
