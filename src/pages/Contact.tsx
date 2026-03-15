@@ -224,6 +224,12 @@ const Contact = () => {
             </div>
           </div>
         </section>
+        <CTABand
+          headline={<>Stop losing capacity to manual friction. <strong>Start the transformation.</strong></>}
+          subcopy="Start with the free AI Readiness Diagnostic, or request an Operational X-Ray to see where the biggest opportunities are."
+          primaryCTA={{ label: "Request a Consultation", to: "/contact" }}
+          secondaryCTA={{ label: "Take the Diagnostic", to: "/diagnostic" }}
+        />
       </main>
       <Footer />
     </div>
