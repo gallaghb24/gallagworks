@@ -185,7 +185,7 @@ const AdminLeads = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="font-mono text-lg uppercase tracking-widest text-foreground">Leads</h1>
-        <Button onClick={exportCSV} variant="outline" className="rounded-none border-border font-mono text-xs uppercase tracking-wider gap-2">
+        <Button onClick={exportCSV} variant="outline" className="border-border font-mono text-xs uppercase tracking-wider gap-2">
           <Download className="h-3.5 w-3.5" />
           Export CSV
         </Button>
