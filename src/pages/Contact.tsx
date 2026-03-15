@@ -177,7 +177,7 @@ const Contact = () => {
                       htmlFor="message"
                       className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
                     >
-                      [04] Operational Context
+                      [04] What Are You Looking to Solve?
                     </label>
                     <Textarea
                       id="message"
