@@ -95,6 +95,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "04: THE METHODOLOGY",
+        surface: "dark",
         title: "The Operational X-Ray: diagnosing before building.",
         paragraphs: [
           "Every engagement begins with the Operational X-Ray — a 2–3 week fixed-scope diagnostic that identifies the small number of manual processes causing the majority of your capacity loss. This isn't a strategy document. It's a map of every manual touchpoint, with each one quantified by time, cost, error rate, and impact.",
