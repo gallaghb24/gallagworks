@@ -414,6 +414,7 @@ const insightData: InsightEntry[] = [
       {
         label: "THE STRATEGIC COST",
         surface: "light",
+        title: "Operational Fragility at Scale.",
         title: "30+ Project Owners, One Master List.",
         paragraphs: [
           "When a single client change – a revised store list, an updated allocation split – requires hours of manual rework, the organisation has built operational fragility into its delivery model. The team cannot respond with agility because the consolidation process is entirely manual. Every change cascades through dozens of spreadsheets, each requiring individual updates, re-validation, and re-export. The process that should take minutes takes half a day, and the client experiences this as sluggishness.",
