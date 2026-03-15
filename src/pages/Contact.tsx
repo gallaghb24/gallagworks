@@ -7,6 +7,7 @@ import { Loader2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import CTABand from "@/components/CTABand";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -84,7 +85,7 @@ const Contact = () => {
               <p
                 className="text-lg text-foreground/70 leading-relaxed font-light max-w-[720px]"
               >
-                Every engagement starts with the Operational X-Ray. Whether you are ready to eliminate the 'Human Middleware' or are still quantifying the margin recovery opportunity, start here to discuss a structured engagement.
+                Every engagement starts with the Operational X-Ray. Whether you're ready to tackle the Human Middleware or just want to talk through where AI could make a difference, start here.
               </p>
 
               {submitState === "success" ? (
@@ -177,7 +178,7 @@ const Contact = () => {
                       htmlFor="message"
                       className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
                     >
-                      [04] Operational Context
+                      [04] What Are You Looking to Solve?
                     </label>
                     <Textarea
                       id="message"
@@ -223,6 +224,12 @@ const Contact = () => {
             </div>
           </div>
         </section>
+        <CTABand
+          headline={<>Stop losing capacity to manual friction. <strong>Start the transformation.</strong></>}
+          subcopy="Start with the free AI Readiness Diagnostic, or request an Operational X-Ray to see where the biggest opportunities are."
+          primaryCTA={{ label: "Request a Consultation", to: "/contact" }}
+          secondaryCTA={{ label: "Take the Diagnostic", to: "/diagnostic" }}
+        />
       </main>
       <Footer />
     </div>
