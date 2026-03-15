@@ -67,17 +67,13 @@ const About = () => {
         </section>
 
         {/* The Methodology — Light surface */}
-        <section className="py-16 lg:py-36 bg-warm-stone" ref={method.ref}>
+        <section className="py-16 lg:py-36 bg-warm-stone">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-5xl">
-              <span
-                className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${method.isVisible ? "visible" : ""}`}
-              >
+              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
                 [THE METHODOLOGY]
               </span>
-              <h2
-                className={`text-3xl md:text-4xl font-extrabold text-on-light mb-8 clip-reveal ${method.isVisible ? "visible" : ""}`}
-              >
+              <h2 className="text-3xl md:text-4xl font-extrabold text-on-light mb-8">
                 Engineering the problem, not the symptom.
               </h2>
               <p className="text-lg text-on-light/70 font-light leading-relaxed max-w-[720px]">
