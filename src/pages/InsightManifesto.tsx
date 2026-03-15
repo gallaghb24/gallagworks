@@ -421,7 +421,7 @@ const insightData: InsightEntry[] = [
         "Instant duplicate removal and automated totals validation",
         "Auto-formatting for immediate, client-ready approval exports",
       ],
-      humanLayer: "The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in 'Data Glue' for a full day.",
+      humanLayer: "The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in 'Human Middleware' for a full day.",
       result: "Manual workload reduced by 97%. Task duration cut from 10 hours to 15 minutes.",
     },
   },
