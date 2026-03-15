@@ -105,10 +105,10 @@ const insightData: InsightEntry[] = [
       mainEntity: [
         {
           "@type": "Question",
-          name: "What is Operational Engineering?",
+          name: "What is AI Transformation?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Operational Engineering is the application of engineering principles to business operations to eliminate frictional loss and maximise systemic throughput. It focuses on identifying and removing 'Data Glue' – the manual re-keying, spreadsheet handoffs, and workarounds that erode margin – and replacing them with engineered, scalable systems.",
+            text: "AI Transformation is the application of AI and engineering principles to business operations to eliminate frictional loss and maximise systemic throughput. It focuses on identifying and removing 'Human Middleware' – the manual re-keying, spreadsheet handoffs, and workarounds that erode margin – and replacing them with engineered, scalable systems.",
           },
         },
         {
