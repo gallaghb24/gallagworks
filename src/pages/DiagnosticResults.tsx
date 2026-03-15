@@ -906,7 +906,7 @@ const DiagnosticResults = () => {
                     </div>
 
                     {/* Ask your team callout */}
-                    <div className="bg-secondary border border-border p-5 rounded-none transition-colors duration-300 hover:border-primary/20">
+                    <div className="bg-secondary border border-border p-5 transition-colors duration-300 hover:border-primary/20">
                       <span className="font-mono text-xs text-primary uppercase tracking-widest mb-2 block">
                         [ASK YOUR TEAM]
                       </span>
