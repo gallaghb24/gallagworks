@@ -18,18 +18,18 @@ const Privacy = () => {
               <span className="font-mono text-xs text-primary tracking-widest uppercase block mb-4">
                 LEGAL
               </span>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-8">
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-8" style={{ color: '#111113' }}>
                 Privacy Policy.
               </h1>
-              <p className="font-mono text-xs text-muted-foreground/50 mb-8">
+              <p className="font-mono text-xs mb-8" style={{ color: '#888' }}>
                 Effective date: 16 February 2026
               </p>
 
-              <p className="text-muted-foreground font-light leading-relaxed mb-8">
+              <p className="font-light leading-relaxed mb-8" style={{ color: '#333' }}>
                 Gallag Works Ltd ("we", "us", "our") respects your privacy and is committed to protecting your personal data. This policy explains how we handle information when you use gallag.works, submit our consultation form, or engage our services.
               </p>
 
-              <div className="space-y-8 text-muted-foreground font-light leading-relaxed">
+              <div className="space-y-8 font-light leading-relaxed" style={{ color: '#333' }}>
                 <div className="border-t border-border pt-8">
                   <h2 className="text-lg font-bold text-foreground mb-4">1. Who we are.</h2>
                   <p className="mb-2">Data controller: Gallag Works Ltd</p>
