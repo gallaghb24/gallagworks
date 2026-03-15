@@ -1041,7 +1041,7 @@ const DiagnosticResults = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button
                   variant="outline"
-                  className="w-full sm:w-auto h-10 px-5 text-sm font-semibold rounded-none border-border text-foreground hover:bg-secondary gap-2"
+                  className="w-full sm:w-auto h-10 px-5 text-sm font-semibold border-border text-foreground hover:bg-secondary gap-2"
                   onClick={handleCopyLink}
                 >
                   <LinkIcon className="h-4 w-4" />
