@@ -323,7 +323,7 @@ const insightData: InsightEntry[] = [
         "Automated data standardisation and field mapping",
         "One-click reformatting for instant production-ready outputs",
       ],
-      humanLayer: "By engineering out the 'Data Glue' at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
+      humanLayer: "By eliminating the 'Human Middleware' at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
       result: "1,200 hours reclaimed annually. Lead times slashed by 50% from 2 days to <24 hours.",
     },
   },
