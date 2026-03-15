@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight tracking-tight mb-8 opacity-0 animate-fade-in-up">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight tracking-tight mb-10 opacity-0 animate-fade-in-up">
               AI Transformation.<br className="hidden lg:inline" /> <span className="text-primary">Built, not theorised.</span>
             </h1>
 
