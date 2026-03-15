@@ -328,7 +328,7 @@ const DimensionCard = ({ dimKey, score, pct, rating, name, isHovered, sectionVis
         aria-valuemax={25}
       >
         <div
-          className={`h-full rounded-none ${isHovered ? "brightness-125" : ""}`}
+          className={`h-full rounded-full ${isHovered ? "brightness-125" : ""}`}
           style={{
             width: `${barWidth}%`,
             backgroundColor: rating.color,
