@@ -59,6 +59,7 @@ export default {
         "warm-stone": "hsl(var(--warm-stone))",
         "off-white": "hsl(var(--off-white))",
         "on-light": "hsl(var(--text-on-light))",
+        "charcoal-mid": "hsl(var(--slate))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
