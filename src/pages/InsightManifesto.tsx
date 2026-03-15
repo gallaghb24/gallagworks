@@ -116,7 +116,7 @@ const insightData: InsightEntry[] = [
           name: "How does Human Middleware affect margins?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Human Middleware is the hidden manual friction where expensive talent operates as connectors between disconnected systems. In enterprise environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified over £1M in cumulative operational leakage caused by Human Middleware across enterprise engagements, reclaiming over 1,200 hours of annual capacity.",
+            text: "Human Middleware is the hidden manual friction where expensive talent operates as connectors between disconnected systems. In enterprise environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified over £1M in cumulative lost capacity caused by Human Middleware across enterprise engagements, reclaiming over 1,200 hours of annual capacity.",
           },
         },
         {
