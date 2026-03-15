@@ -64,7 +64,7 @@ const Contact = () => {
   };
 
   const fieldStyle =
-    "bg-transparent border border-border focus:border-primary focus:ring-0 focus:outline-none text-foreground placeholder:text-muted-foreground/40";
+    "bg-off-white border border-black/[0.08] focus:border-primary focus:ring-0 focus:outline-none placeholder:text-black/30 rounded-lg";
 
   return (
     <div className="min-h-screen bg-background">
@@ -75,28 +75,33 @@ const Contact = () => {
       />
       <Navigation />
       <main>
-        <section className="pt-36 pb-20 md:pt-40 lg:pb-32">
+        {/* Dark header */}
+        <section className="pt-36 pb-16 md:pt-40 md:pb-20">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-2xl">
-              {/* Header */}
               <h1 className="font-display text-4xl md:text-5xl font-[800] text-foreground mb-6">
                 Request a Consultation.
               </h1>
-              <p
-                className="text-lg text-foreground/70 leading-relaxed font-light max-w-[720px]"
-              >
+              <p className="text-lg text-foreground/70 leading-relaxed font-light max-w-[720px]">
                 Every engagement starts with the Operational X-Ray. Whether you're ready to tackle the Human Middleware or just want to talk through where AI could make a difference, start here.
               </p>
+            </div>
+          </div>
+        </section>
 
+        {/* Light form section */}
+        <section className="bg-warm-stone py-16 lg:py-20">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-2xl">
               {submitState === "success" ? (
-                <div className="mt-16 space-y-4">
-                  <p className="font-mono text-sm tracking-widest uppercase text-foreground/70">
+                <div className="space-y-4">
+                  <p className="font-mono text-sm tracking-widest uppercase" style={{ color: '#333' }}>
                     [RECEIVED]
                   </p>
-                  <p className="text-foreground/70 leading-relaxed font-light">
+                  <p className="leading-relaxed font-light" style={{ color: '#555' }}>
                     Thank you. I will review your submission and respond within 24 hours with initial thoughts on how I can help.
                   </p>
-                  <p className="text-foreground/70 leading-relaxed font-light">
+                  <p className="leading-relaxed font-light" style={{ color: '#555' }}>
                     If you need to add anything in the meantime, email{" "}
                     <a href="mailto:hello@gallag.works" className="text-primary hover:text-primary/80 transition-colors">hello@gallag.works</a>{" "}
                     directly.
@@ -105,7 +110,7 @@ const Contact = () => {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className={`mt-16 space-y-8 ${submitState === "error" ? "border border-red-600 p-8" : ""}`}
+                  className={`space-y-8 ${submitState === "error" ? "border border-red-600 rounded-xl p-8" : ""}`}
                 >
                   {submitState === "error" && (
                     <p className="font-mono text-xs text-red-500">
@@ -119,7 +124,8 @@ const Contact = () => {
                   <div className="space-y-2">
                     <label
                       htmlFor="name"
-                      className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
+                      className="block font-mono text-xs tracking-widest uppercase"
+                      style={{ color: '#333' }}
                     >
                       [01] Name
                     </label>
@@ -130,6 +136,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className={fieldStyle}
+                      style={{ color: '#111113' }}
                       placeholder="Your name"
                     />
                   </div>
@@ -138,7 +145,8 @@ const Contact = () => {
                   <div className="space-y-2">
                     <label
                       htmlFor="email"
-                      className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
+                      className="block font-mono text-xs tracking-widest uppercase"
+                      style={{ color: '#333' }}
                     >
                       [02] Email
                     </label>
@@ -150,6 +158,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className={fieldStyle}
+                      style={{ color: '#111113' }}
                       placeholder="you@company.com"
                     />
                   </div>
@@ -158,7 +167,8 @@ const Contact = () => {
                   <div className="space-y-2">
                     <label
                       htmlFor="company"
-                      className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
+                      className="block font-mono text-xs tracking-widest uppercase"
+                      style={{ color: '#333' }}
                     >
                       [03] Company
                     </label>
@@ -168,15 +178,17 @@ const Contact = () => {
                       value={formData.company}
                       onChange={handleChange}
                       className={fieldStyle}
+                      style={{ color: '#111113' }}
                       placeholder="Your organisation"
                     />
                   </div>
 
-                  {/* [04] OPERATIONAL CONTEXT */}
+                  {/* [04] WHAT ARE YOU LOOKING TO SOLVE? */}
                   <div className="space-y-2">
                     <label
                       htmlFor="message"
-                      className="block font-mono text-xs tracking-widest uppercase text-foreground/70"
+                      className="block font-mono text-xs tracking-widest uppercase"
+                      style={{ color: '#333' }}
                     >
                       [04] What Are You Looking to Solve?
                     </label>
@@ -188,6 +200,7 @@ const Contact = () => {
                       required
                       rows={5}
                       className={`${fieldStyle} resize-none`}
+                      style={{ color: '#111113' }}
                       placeholder="Tell us about the workflow or problem you're looking at..."
                     />
                   </div>
@@ -208,11 +221,11 @@ const Contact = () => {
                         "Request a Consultation"
                       )}
                     </Button>
-                    <p className="mt-3 font-mono text-xs text-muted-foreground/50">
+                    <p className="mt-3 font-mono text-xs" style={{ color: '#666' }}>
                       Data is processed in accordance with our{" "}
                       <a
                         href="/privacy"
-                        className="underline hover:text-muted-foreground transition-colors"
+                        className="underline hover:text-primary transition-colors"
                       >
                         Privacy Policy
                       </a>
