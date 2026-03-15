@@ -207,7 +207,7 @@ const DiagnosticCapture = () => {
                     type="email"
                     value={form.email}
                     onChange={(e) => handleChange("email", e.target.value)}
-                    className="rounded-none h-12"
+                    className="h-12"
                     placeholder="you@company.com"
                   />
                   {errors.email && (
