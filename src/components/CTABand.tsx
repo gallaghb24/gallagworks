@@ -30,7 +30,7 @@ const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wr
             <Button
               asChild
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-6 text-lg font-medium group"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium group"
             >
               <Link to={primaryCTA?.to ?? "/contact"}>
                 {primaryCTA?.label ?? "Request a Consultation"}
