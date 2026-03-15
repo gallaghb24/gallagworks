@@ -15,6 +15,7 @@ interface ManifestoSection {
   title: string;
   paragraphs: ReactNode[];
   metrics?: { value: string; label: string }[];
+  surface?: "dark" | "light";
 }
 
 interface TechnicalSchematic {
