@@ -8,7 +8,6 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import CTABand from "@/components/CTABand";
-import SEOHead from "@/components/SEOHead";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
