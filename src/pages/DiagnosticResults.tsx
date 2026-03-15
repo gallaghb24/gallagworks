@@ -950,7 +950,7 @@ const DiagnosticResults = () => {
                   {actionPlan.quickWins.map((item, i) => (
                     <div key={i} className="transition-all duration-200 hover:translate-x-1">
                       <span
-                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border transition-colors duration-200"
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded transition-colors duration-200"
                         style={{
                           color: dimensionRatings[item.dimension].color,
                           borderColor: dimensionRatings[item.dimension].color,
