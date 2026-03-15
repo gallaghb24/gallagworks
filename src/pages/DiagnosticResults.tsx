@@ -754,7 +754,7 @@ const DiagnosticResults = () => {
               </div>
 
               {/* Radar Chart */}
-              <div className="border border-border p-6 flex flex-col transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+              <div className="border border-white/[0.08] rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
                 <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
                   [DIMENSION MAP]
                 </span>
