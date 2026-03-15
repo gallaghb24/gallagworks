@@ -606,28 +606,61 @@ const InsightManifesto = () => {
         )}
 
         {/* Manifesto Sections */}
-        {entry.manifesto.map((section, i) => (
-          <section key={i} className="pb-16">
-            <div className="container mx-auto px-6 lg:px-12">
-              <div className="max-w-3xl">
-                <div className="border-t border-border pt-12">
-                  <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-6">
-                    [{section.label}]
-                  </span>
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-6">
-                    {section.title}
-                  </h2>
-                  <div className="space-y-6 text-muted-foreground font-light leading-relaxed max-w-[720px]">
-                    {section.paragraphs.map((p, j) => (
-                      <p key={j}>{p}</p>
-                    ))}
-                  </div>
-                  {section.metrics && (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                      {section.metrics.map((m, k) => (
-                        <div key={k} className="border border-white/[0.08] rounded-xl p-6">
-                          <p className="font-mono text-2xl font-extrabold text-primary mb-2">{m.value}</p>
-                          <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">{m.label}</p>
+        {(() => {
+          // Group consecutive sections by surface
+          const groups: { surface: "dark" | "light"; sections: { section: ManifestoSection; index: number }[] }[] = [];
+          entry.manifesto.forEach((section, i) => {
+            const surface = section.surface || "dark";
+            const lastGroup = groups[groups.length - 1];
+            if (lastGroup && lastGroup.surface === surface) {
+              lastGroup.sections.push({ section, index: i });
+            } else {
+              groups.push({ surface, sections: [{ section, index: i }] });
+            }
+          });
+
+          return groups.map((group, gi) => {
+            const isLight = group.surface === "light";
+            return (
+              <div
+                key={gi}
+                className={isLight ? "bg-warm-stone" : ""}
+              >
+                {group.sections.map(({ section, index: i }) => (
+                  <section key={i} className="pb-16">
+                    <div className="container mx-auto px-6 lg:px-12">
+                      <div className="max-w-3xl">
+                        <div className={`border-t pt-12 ${isLight ? "border-black/[0.08]" : "border-border"}`}>
+                          <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-6">
+                            [{section.label}]
+                          </span>
+                          <h2 className={`text-2xl md:text-3xl font-extrabold mb-6 ${isLight ? "" : "text-foreground"}`} style={isLight ? { color: '#111113' } : undefined}>
+                            {section.title}
+                          </h2>
+                          <div className={`space-y-6 font-light leading-relaxed max-w-[720px] ${isLight ? "" : "text-muted-foreground"}`} style={isLight ? { color: '#555' } : undefined}>
+                            {section.paragraphs.map((p, j) => (
+                              <p key={j}>{p}</p>
+                            ))}
+                          </div>
+                          {section.metrics && (
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                              {section.metrics.map((m, k) => (
+                                <div key={k} className={`rounded-xl p-6 ${isLight ? "bg-off-white border border-black/[0.08]" : "border border-white/[0.08]"}`}>
+                                  <p className="font-mono text-2xl font-extrabold text-primary mb-2">{m.value}</p>
+                                  <p className={`font-mono text-xs uppercase tracking-wider ${isLight ? "" : "text-muted-foreground"}`} style={isLight ? { color: '#666' } : undefined}>{m.label}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                ))}
+              </div>
+            );
+          });
+        })()}
                         </div>
                       ))}
                     </div>
