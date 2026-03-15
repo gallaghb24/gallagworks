@@ -63,7 +63,7 @@ const Contact = () => {
   };
 
   const fieldStyle =
-    "bg-transparent border border-border rounded-none focus:border-primary focus:ring-0 focus:outline-none text-foreground placeholder:text-muted-foreground/40";
+    "bg-transparent border border-border focus:border-primary focus:ring-0 focus:outline-none text-foreground placeholder:text-muted-foreground/40";
 
   return (
     <div className="min-h-screen bg-background">
