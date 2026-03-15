@@ -12,19 +12,27 @@ const Cookies = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        <section className="pt-32 pb-20 lg:pb-32 bg-warm-stone">
+        {/* Dark header */}
+        <section className="pt-32 pb-16 bg-[#111113]">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-[720px]">
               <span className="font-mono text-xs text-primary tracking-widest uppercase block mb-4">
                 LEGAL
               </span>
-              <h1 className="text-4xl md:text-5xl font-extrabold mb-8" style={{ color: '#111113' }}>
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-white tracking-tight">
                 Cookie Policy.
               </h1>
-              <p className="font-mono text-xs mb-8" style={{ color: '#888' }}>
+              <p className="font-mono text-xs text-white/50">
                 Effective date: 16 February 2026
               </p>
+            </div>
+          </div>
+        </section>
 
+        {/* Light content */}
+        <section className="py-16 lg:py-24 bg-warm-stone">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-[720px]">
               <div className="space-y-8 font-light leading-relaxed" style={{ color: '#333' }}>
                 <div className="border-t border-black/[0.08] pt-8">
                   <h2 className="text-lg font-bold mb-4" style={{ color: '#111113' }}>1. Our Approach.</h2>
