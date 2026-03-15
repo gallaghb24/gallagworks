@@ -674,7 +674,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
         <Text style={s.sectionLabel}>[NEXT STEPS]</Text>
         <Text style={s.ctaTitle}>
           Stop the leakage.{"\n"}
-          <Text style={s.ctaHighlight}>Start the Engineering.</Text>
+          <Text style={s.ctaHighlight}>Start the Transformation.</Text>
         </Text>
         <Text style={s.ctaBody}>
           This diagnostic is the starting point. The real value comes from translating these findings into a targeted action plan — one that addresses your specific operational context, team dynamics, and commercial pressures.
