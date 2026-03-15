@@ -12,7 +12,7 @@ const Cookies = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        <section className="pt-32 pb-20 lg:pb-32">
+        <section className="pt-32 pb-20 lg:pb-32 bg-warm-stone">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-[720px]">
               <span className="font-mono text-xs text-primary tracking-widest uppercase block mb-4">
