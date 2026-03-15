@@ -14,7 +14,7 @@ const HeroSection = () => {
             </h1>
 
             <p
-              className="text-lg md:text-xl text-muted-foreground font-light max-w-[550px] mb-10 leading-relaxed opacity-0 animate-fade-in-up"
+              className="text-lg md:text-xl text-muted-foreground font-light max-w-[550px] mb-14 md:mb-10 leading-relaxed opacity-0 animate-fade-in-up"
               style={{ animationDelay: "0.15s" }}
             >
               I sit in the gap between the consultancies who write the strategy deck and the dev shops who build the tool. I design how work should move, then build the systems that make it happen.
