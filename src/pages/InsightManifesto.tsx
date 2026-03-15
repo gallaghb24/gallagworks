@@ -70,6 +70,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE EVIDENCE",
+        surface: "dark",
         title: "Reclaiming 1,200 Hours of Annual Capacity.",
         paragraphs: [
           "During an Operational X-Ray for a major health and beauty retailer, I mapped every manual touchpoint in their content production pipeline. The diagnostic revealed a 25% capacity loss — over a quarter of the team's working hours consumed by Human Middleware with zero strategic value.",
