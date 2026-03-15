@@ -123,7 +123,7 @@ const Diagnostic = () => {
                 {dimensions.map((dim, index) => (
                   <div
                     key={dim.number}
-                    className={`bg-slate border border-border p-6 md:p-8 clip-reveal-down ${isVisible ? "visible" : ""}`}
+                    className={`bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 clip-reveal-down ${isVisible ? "visible" : ""}`}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                   >
                     <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">

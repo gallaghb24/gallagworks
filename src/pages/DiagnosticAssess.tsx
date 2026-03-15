@@ -202,7 +202,7 @@ const DiagnosticAssess = () => {
           {/* Single question */}
           <div
             key={current.question.id}
-            className="border border-border p-4 sm:p-6"
+            className="border border-white/[0.08] rounded-xl p-4 sm:p-6"
           >
             <p className="font-bold text-foreground mb-5">
               <span className="text-primary font-mono text-sm mr-2">
@@ -220,7 +220,7 @@ const DiagnosticAssess = () => {
                     key={option.value}
                     htmlFor={inputId}
                     className={cn(
-                      "w-full text-left p-4 min-h-14 border transition-all duration-150 block cursor-pointer",
+                      "w-full text-left p-4 min-h-14 border rounded-lg transition-all duration-150 block cursor-pointer",
                       "hover:border-primary",
                       isAdvancing && isSelected
                         ? "border-l-[3px] border-l-primary bg-primary/10 border-t-primary/30 border-r-primary/30 border-b-primary/30 scale-[1.01]"

@@ -291,10 +291,10 @@ const DimensionCard = ({ dimKey, score, pct, rating, name, isHovered, sectionVis
 
   return (
     <div
-      className={`border p-5 cursor-pointer transition-all duration-300 ${
+      className={`border border-white/[0.08] rounded-xl p-5 cursor-pointer transition-all duration-300 ${
         isHovered
           ? "border-primary/60 shadow-lg shadow-primary/10 -translate-y-1"
-          : "border-border hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 hover:-translate-y-0.5"
+          : "hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 hover:-translate-y-0.5"
       }`}
       style={{
         opacity: isVisible ? 1 : 0,
@@ -574,7 +574,7 @@ const DiagnosticResults = () => {
             <div className="h-10 w-80 bg-secondary rounded mb-3 animate-pulse" />
             <div className="h-5 w-48 bg-secondary rounded mb-12 animate-pulse" />
           </div>
-          <div className="w-full max-w-[600px] mx-auto border border-border p-8">
+          <div className="w-full max-w-[600px] mx-auto border border-white/[0.08] rounded-xl p-8">
             <div className="h-8 w-40 bg-secondary rounded mb-4 animate-pulse" />
             <div className="h-14 w-32 bg-secondary rounded mb-6 animate-pulse" />
             <div className="space-y-2">
@@ -585,7 +585,7 @@ const DiagnosticResults = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="border border-border p-5">
+              <div key={i} className="border border-white/[0.08] rounded-xl p-5">
                 <div className="h-4 w-24 bg-secondary rounded mb-3 animate-pulse" />
                 <div className="h-7 w-16 bg-secondary rounded mb-2 animate-pulse" />
                 <div className="h-1.5 w-full bg-secondary rounded animate-pulse" />
@@ -734,7 +734,7 @@ const DiagnosticResults = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Overall Score Card */}
-              <div className="border border-border p-8 md:p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+              <div className="border border-white/[0.08] rounded-xl p-8 md:p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
                 <p
                   className="text-3xl md:text-4xl font-extrabold mb-4"
                   style={{ color: maturityLevel.color }}
@@ -754,7 +754,7 @@ const DiagnosticResults = () => {
               </div>
 
               {/* Radar Chart */}
-              <div className="border border-border p-6 flex flex-col transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+              <div className="border border-white/[0.08] rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
                 <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
                   [DIMENSION MAP]
                 </span>
@@ -851,7 +851,7 @@ const DiagnosticResults = () => {
                 return (
                   <div
                     key={key}
-                    className={`border border-border p-6 md:p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 ${
+                    className={`border border-white/[0.08] rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 ${
                       recommendationsSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                     }`}
                     style={{
@@ -906,7 +906,7 @@ const DiagnosticResults = () => {
                     </div>
 
                     {/* Ask your team callout */}
-                    <div className="bg-secondary border border-border p-5 transition-colors duration-300 hover:border-primary/20">
+                    <div className="bg-secondary border border-white/[0.08] rounded-lg p-5 transition-colors duration-300 hover:border-primary/20">
                       <span className="font-mono text-xs text-primary uppercase tracking-widest mb-2 block">
                         [ASK YOUR TEAM]
                       </span>
@@ -937,7 +937,7 @@ const DiagnosticResults = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Quick Wins */}
               <div
-                className={`border border-border p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
+                className={`border border-white/[0.08] rounded-xl p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
                   actionPlanSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: actionPlanSection.isVisible ? "0ms" : "0ms", animationFillMode: "forwards" }}
@@ -950,7 +950,7 @@ const DiagnosticResults = () => {
                   {actionPlan.quickWins.map((item, i) => (
                     <div key={i} className="transition-all duration-200 hover:translate-x-1">
                       <span
-                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border transition-colors duration-200"
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded transition-colors duration-200"
                         style={{
                           color: dimensionRatings[item.dimension].color,
                           borderColor: dimensionRatings[item.dimension].color,
@@ -968,7 +968,7 @@ const DiagnosticResults = () => {
 
               {/* Medium-term */}
               <div
-                className={`border border-border p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
+                className={`border border-white/[0.08] rounded-xl p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
                   actionPlanSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: actionPlanSection.isVisible ? "150ms" : "0ms", animationFillMode: "forwards" }}
@@ -981,7 +981,7 @@ const DiagnosticResults = () => {
                   {actionPlan.mediumTerm.map((item, i) => (
                     <div key={i} className="transition-all duration-200 hover:translate-x-1">
                       <span
-                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border transition-colors duration-200"
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded transition-colors duration-200"
                         style={{
                           color: dimensionRatings[item.dimension].color,
                           borderColor: dimensionRatings[item.dimension].color,
@@ -999,7 +999,7 @@ const DiagnosticResults = () => {
 
               {/* Strategic */}
               <div
-                className={`border border-border p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
+                className={`border border-white/[0.08] rounded-xl p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
                   actionPlanSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: actionPlanSection.isVisible ? "300ms" : "0ms", animationFillMode: "forwards" }}
@@ -1012,7 +1012,7 @@ const DiagnosticResults = () => {
                   {actionPlan.strategic.map((item, i) => (
                     <div key={i} className="transition-all duration-200 hover:translate-x-1">
                       <span
-                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border transition-colors duration-200"
+                        className="inline-block text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 mb-1.5 border rounded transition-colors duration-200"
                         style={{
                           color: dimensionRatings[item.dimension].color,
                           borderColor: dimensionRatings[item.dimension].color,

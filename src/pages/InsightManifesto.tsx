@@ -569,7 +569,7 @@ const InsightManifesto = () => {
           <section className="pb-16">
             <div className="container mx-auto px-6 lg:px-12">
               <div className="max-w-3xl">
-                <div className="border border-primary p-8" style={{ backgroundColor: "hsl(var(--primary) / 0.05)" }}>
+                <div className="border border-primary rounded-xl p-8" style={{ backgroundColor: "hsl(var(--primary) / 0.05)" }}>
                   <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-4">
                     [DEFINITION: AI TRANSFORMATION]
                   </span>
@@ -602,7 +602,7 @@ const InsightManifesto = () => {
                   {section.metrics && (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                       {section.metrics.map((m, k) => (
-                        <div key={k} className="border border-border p-6">
+                        <div key={k} className="border border-white/[0.08] rounded-xl p-6">
                           <p className="font-mono text-2xl font-extrabold text-primary mb-2">{m.value}</p>
                           <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">{m.label}</p>
                         </div>
@@ -630,7 +630,7 @@ const InsightManifesto = () => {
                 <TechnicalSchematic schematic={entry.schematic} />
 
                 {/* Confidentiality notice */}
-                <div className="border border-border p-6 mt-10">
+                <div className="border border-white/[0.08] rounded-xl p-6 mt-10">
                   <p className="font-mono text-xs text-muted-foreground leading-relaxed">
                     [NOTICE: CLIENT PRIVACY] To respect enterprise non-disclosure agreements, specific brand names have been abstracted. Verification of outcomes and deeper operational context can be provided during a formal consultation.
                   </p>

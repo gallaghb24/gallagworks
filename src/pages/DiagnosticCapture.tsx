@@ -171,7 +171,7 @@ const DiagnosticCapture = () => {
       <main>
         <section className="pt-24 pb-16 md:pt-32 md:pb-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-12 flex justify-center">
-            <div className="w-full max-w-[520px] bg-slate border border-border p-6 sm:p-8 md:p-10">
+            <div className="w-full max-w-[520px] bg-charcoal-mid border border-white/[0.08] rounded-xl p-6 sm:p-8 md:p-10">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
                 [YOUR RESULTS ARE READY]
               </span>
