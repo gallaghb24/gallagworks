@@ -50,7 +50,7 @@ const AdminLogin = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="rounded-none border-border bg-card text-foreground"
+              className="border-border bg-card text-foreground"
               placeholder="admin@gallagworks.com"
             />
           </div>
