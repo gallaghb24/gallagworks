@@ -7,7 +7,7 @@ const services = [
     id: "01",
     title: "Operational X-Ray",
     description:
-      "A Pareto-driven diagnostic that maps every manual touchpoint across your workflows, quantifies the capacity loss, and produces a prioritised transformation roadmap with projected ROI.",
+      "A structured diagnostic that maps how work actually moves through your business, quantifies the capacity loss, and produces a prioritised transformation roadmap with projected ROI.",
   },
   {
     id: "02",
