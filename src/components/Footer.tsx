@@ -10,7 +10,6 @@ interface FooterProps {
 
 const Footer = ({ hideCTA = false }: FooterProps) => {
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
-  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
 
   return (
     <footer className="bg-footer text-footer-foreground">
