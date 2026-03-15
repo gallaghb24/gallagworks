@@ -16,7 +16,7 @@ const CaseStudyCard = ({ projectId, title, sector, friction, engineering, humanL
   return (
     <div
       ref={ref}
-      className={`border border-border transition-all duration-700 ease-out ${
+      className={`border border-white/[0.08] rounded-xl overflow-hidden transition-all duration-700 ease-out hover:border-primary/30 ${
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-6"

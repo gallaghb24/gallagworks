@@ -63,8 +63,7 @@ const EngagementTypes = () => {
           {engagements.map((eng) => (
             <div
               key={eng.id}
-              className="bg-off-white border p-8 md:p-10"
-              style={{ borderColor: "rgba(0,0,0,0.08)" }}
+              className="bg-off-white border border-black/[0.08] rounded-xl p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6">
                 <div>
