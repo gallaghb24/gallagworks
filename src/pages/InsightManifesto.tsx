@@ -257,7 +257,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
-        title: "The Paradox of Perfect Compliance.",
+        surface: "light",
         paragraphs: [
           "Low error rates are often celebrated as evidence of a well-functioning team. In this case, they masked a deeper problem: the error rates were low precisely because the team was spending 20 hours per week on manual verification. The process was accurate because it was unsustainably labour-intensive. Remove the labour, and the accuracy collapses. This is not quality – it is dependency.",
           "The paradox creates a strategic trap. Leadership sees low error rates and concludes the process is working. The team knows it is working only because they are absorbing the cost personally – through overtime, through deferred improvement work, through the slow accumulation of operational debt that never gets addressed because there is simply no capacity to address it.",
