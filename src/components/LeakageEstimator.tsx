@@ -48,7 +48,7 @@ const LeakageEstimator = () => {
     width: "100%",
     background: "hsl(var(--input))",
     border: "1px solid hsl(var(--border))",
-    borderRadius: 0,
+    borderRadius: "0.625rem",
     padding: "0.75rem 1rem",
     fontFamily: "'JetBrains Mono', monospace",
     fontSize: "1rem",
