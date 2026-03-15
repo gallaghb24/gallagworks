@@ -608,7 +608,7 @@ const DiagnosticResults = () => {
             {paramAssessmentId && (
               <Button
                 variant="outline"
-                className="rounded-none"
+                className=""
                 onClick={() => {
                   setError(null);
                   setLoading(true);
