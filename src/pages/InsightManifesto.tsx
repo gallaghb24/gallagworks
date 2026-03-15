@@ -299,7 +299,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE FRICTION",
-        title: "500+ Line Briefs and 5-Hour QC Loops.",
+        surface: "light",
         paragraphs: [
           "High-volume client briefs containing 500+ lines of product data were arriving with inconsistent formatting and misspellings. Each occurrence triggered a 5-hour manual QC loop. Brief-to-studio handoffs carried 2-day lead times. The account team had normalised the friction – copy-pasting had become the default operating mode rather than the exception.",
         ],
