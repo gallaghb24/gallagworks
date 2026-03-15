@@ -456,7 +456,7 @@ const TechnicalSchematic = ({ schematic }: { schematic: TechnicalSchematic }) =>
       <div className="grid grid-cols-1 md:grid-cols-2 border-t border-border">
         <div className="px-10 py-8 md:border-r border-border">
           <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-5">
-            [FRICTION]
+            [BEFORE]
           </span>
           <ul className="space-y-3">
             {schematic.friction.map((item, i) => (
