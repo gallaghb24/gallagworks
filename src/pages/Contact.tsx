@@ -84,7 +84,7 @@ const Contact = () => {
               <p
                 className="text-lg text-foreground/70 leading-relaxed font-light max-w-[720px]"
               >
-                Every engagement starts with the Operational X-Ray. Whether you are ready to eliminate the 'Human Middleware' or are still quantifying the margin recovery opportunity, start here to discuss a structured engagement.
+                Every engagement starts with the Operational X-Ray. Whether you're ready to tackle the Human Middleware or just want to talk through where AI could make a difference, start here.
               </p>
 
               {submitState === "success" ? (
