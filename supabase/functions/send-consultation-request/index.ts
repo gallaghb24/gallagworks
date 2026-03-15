@@ -97,7 +97,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     <p style="margin:0;font-size:15px;color:#F5F5F5;">Best,</p>
     <p style="margin:4px 0 0 0;font-size:15px;font-weight:700;color:#F5F5F5;">Ben Gallagher</p>
-    <p style="margin:2px 0 0 0;font-size:13px;color:#888;">Principal, Gallag Works</p>
+    <p style="margin:2px 0 0 0;font-size:13px;color:#888;">Founder, Gallag Works</p>
 
     <hr style="border:none;border-top:1px solid #2F3133;margin:32px 0 16px 0;">
 
