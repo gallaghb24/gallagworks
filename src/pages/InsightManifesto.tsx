@@ -85,6 +85,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "03: THE RESULT",
+        surface: "light",
         title: "Recovering £1M+ in lost capacity.",
         paragraphs: [
           "Across engagements with major retailers and large enterprises, I've identified over £1M in cumulative lost capacity. That's the fully loaded cost of Human Middleware: the salaries consumed by manual re-keying, the margin lost to slow turnaround times, and the opportunity cost of talented people trapped in procedural work.",
