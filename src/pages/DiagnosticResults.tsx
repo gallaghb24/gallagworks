@@ -111,7 +111,7 @@ function generateActionPlan(
       "Solid Foundation": {
         quick: "Identify the 80/20 split in your highest-volume workflow — what is predictable vs. exceptional",
         medium: "Build automated routing for the predictable majority in your top process",
-        strat: "Create decision inboxes for genuine judgement calls with measurable processing times",
+        strat: "Create exception routing for genuine judgement calls with measurable processing times",
       },
       "Strength": {
         quick: "Select your highest-volume, highest-value process for AI augmentation",
