@@ -66,7 +66,7 @@ const EngagementTypes = () => {
         </span>
 
         <div className="space-y-6">
-          {engagements.map((eng, index) => (
+          {engagements.map((eng) => (
             <div
               key={eng.id}
               className="bg-off-white border p-8 md:p-10"
