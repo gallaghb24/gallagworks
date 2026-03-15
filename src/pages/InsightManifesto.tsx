@@ -153,6 +153,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
+        surface: "light",
         title: "When Reporting Becomes the Product.",
         paragraphs: [
           "There is a quiet corrosion that happens when a professional services team spends more time assembling reports than interpreting them. The advisory function – the reason clients pay premium rates – atrophies. The team becomes a data factory, and the client relationship shifts from strategic partnership to transactional delivery.",
