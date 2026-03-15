@@ -404,7 +404,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE ENGINEERING",
         title: "Intelligent RPA-Based Consolidation.",
         paragraphs: [
-          "We deployed an Intelligent RPA application for bulk allocation merging with instant duplicate removal and automated totals validation. Auto-formatting delivered immediate, client-ready approval exports. The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in Data Glue for a full day.",
+          "I deployed an Intelligent RPA application for bulk allocation merging with instant duplicate removal and automated totals validation. Auto-formatting delivered immediate, client-ready approval exports. The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in Human Middleware for a full day.",
         ],
       },
     ],
