@@ -32,7 +32,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="The Founder"
-        description="15+ years directing enterprise delivery across retail, financial services, and professional services. Founder-led AI transformation as operational lead within a 2,100-person agency."
+        description="15+ years directing enterprise delivery across retail, financial services, and professional services. Independent AI transformation practice — strategy, build, and adoption."
         path="/about"
       />
       <Navigation />
@@ -45,13 +45,13 @@ const About = () => {
                 [THE FOUNDER]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
-                Operator-Led Transformation.
+                AI Transformation, led from the inside.
               </h1>
               <p
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Gallag Works is a low-volume, high-conviction AI transformation practice. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Founder – I led operational transformation across retail, financial services, and professional services as operational lead within a 2,100-person content production agency, managing £15M+ annual contracts.
+                Gallag Works is an independent AI transformation practice. I don't advise from the sidelines — I embed in your team, set the strategy, build the tools, and drive adoption. You work directly with me across every engagement. My background: 15+ years as operational lead inside a 2,100-person content production agency, managing £15M+ annual contracts, before building the company's AI transformation function from scratch.
               </p>
               <a
                 href="https://www.linkedin.com/in/bengallagher/"
@@ -66,8 +66,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* The Methodology */}
-        <section className="py-16 lg:py-36 bg-slate" ref={method.ref}>
+        {/* The Methodology — Light surface */}
+        <section className="py-16 lg:py-36 bg-warm-stone" ref={method.ref}>
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-5xl">
               <span
@@ -76,20 +76,20 @@ const About = () => {
                 [THE METHODOLOGY]
               </span>
               <h2
-                className={`text-3xl md:text-4xl font-extrabold text-foreground mb-8 clip-reveal ${method.isVisible ? "visible" : ""}`}
+                className={`text-3xl md:text-4xl font-extrabold text-on-light mb-8 clip-reveal ${method.isVisible ? "visible" : ""}`}
               >
                 Engineering the problem, not the symptom.
               </h2>
               <p
-                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${method.isVisible ? "visible" : ""}`}
+                className={`text-lg text-on-light/70 font-light leading-relaxed max-w-[720px] clip-reveal ${method.isVisible ? "visible" : ""}`}
               >
-                Most organisations don't have an AI problem. They have a Structural Workflow problem. I engineer the 'Human Middleware' out of the system so your people go back to making decisions, not managing tasks. I architect every system personally – no junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
+                Most organisations don't have an AI problem. They have a process problem that AI can't fix on its own. I find the Human Middleware — the senior people acting as manual routers between systems — and engineer it out, so your team goes back to making decisions instead of managing tasks. I architect every system personally. No junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Experience Block */}
+        {/* Experience Block — Dark */}
         <section className="py-16 lg:py-36" ref={exp.ref}>
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-5xl">
@@ -127,13 +127,16 @@ const About = () => {
               <p
                 className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
-                15 years directing enterprise client delivery and managing £15M+ contracts as operational lead within a 2,100-person content production agency taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact methodology to leaders across industries who are drowning in Human Middleware and ready to build scalable systems.
+                15 years directing enterprise client delivery and managing £15M+ contracts inside a 2,100-person agency taught me where businesses actually bleed time and money: not in the big strategic decisions, but in the thousands of small manual handoffs that nobody questions anymore. The last two years building an AI transformation function — governance, production tools, training programmes, adoption across the business — showed me that most companies need someone who can do all of it, not just advise on parts of it. That's what Gallag Works is.
               </p>
             </div>
           </div>
         </section>
 
-        <CTABand headline={<>Founder-led AI transformation.<br /><span className="text-primary">Zero-leakage operations.</span></>} subcopy={<>Work directly with the Founder to transform your manual<br className="hidden md:inline" /> cost centres into scalable engines.</>} />
+        <CTABand
+          headline={<>AI transformation, led by someone who's built it at scale.</>}
+          subcopy="Work directly with me to move your business from AI ambition to AI execution."
+        />
       </main>
       <Footer hideCTA />
     </div>

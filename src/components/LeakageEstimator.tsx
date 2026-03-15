@@ -46,13 +46,13 @@ const LeakageEstimator = () => {
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
-    background: "hsl(var(--input))",
-    border: "1px solid hsl(var(--border))",
+    background: "hsl(var(--off-white))",
+    border: "1px solid rgba(0,0,0,0.08)",
     borderRadius: "0.625rem",
     padding: "0.75rem 1rem",
     fontFamily: "'JetBrains Mono', monospace",
     fontSize: "1rem",
-    color: "hsl(var(--foreground))",
+    color: "hsl(var(--text-on-light))",
     outline: "none",
     display: "block",
   };
@@ -60,7 +60,7 @@ const LeakageEstimator = () => {
   return (
     <section
       ref={ref}
-      className="border-draw bg-background"
+      className="border-draw bg-warm-stone"
     >
       {/* Header */}
       <div
@@ -70,11 +70,11 @@ const LeakageEstimator = () => {
           className="block mb-5 text-primary"
           style={{ ...MONO, letterSpacing: "0.12em" }}
         >
-          [LEAKAGE ESTIMATOR]
+          [CAPACITY CALCULATOR]
         </span>
 
         <h2
-          className="font-display font-extrabold mb-3 text-foreground tracking-tight"
+          className="font-display font-extrabold mb-3 text-on-light tracking-tight"
           style={{
             fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
             lineHeight: 1.1,
@@ -88,13 +88,12 @@ const LeakageEstimator = () => {
             fontFamily: "'DM Sans', sans-serif",
             fontSize: "0.9rem",
             fontWeight: 300,
-            color: "hsl(var(--muted-foreground))",
+            color: "hsl(var(--text-on-light) / 0.6)",
             lineHeight: 1.6,
             maxWidth: "70ch",
           }}
         >
-          Input your team's numbers below. See how much capacity and margin
-          you're losing to manual friction – and what recovery looks like.
+          Input your team's numbers below. See how much capacity and cost you're losing to manual friction — and what recovery looks like.
         </p>
       </div>
 
@@ -104,22 +103,23 @@ const LeakageEstimator = () => {
         style={{ transitionDelay: "0.2s" }}
       >
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 border-t border-border"
+          className="grid grid-cols-1 lg:grid-cols-2 border-t"
+          style={{ borderColor: "rgba(0,0,0,0.08)" }}
         >
           {/* ── Row 0: Column labels ── */}
-          <div className="py-6 lg:border-r border-border">
+          <div className="py-6 lg:border-r" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
             <p className="text-primary" style={MONO}>[INPUT TERMINAL]</p>
           </div>
           <div className="hidden lg:block py-6 pl-0 lg:pl-8">
             <p className="text-primary" style={MONO}>[RECOVERY OUTCOME]</p>
           </div>
 
-          {/* ── Row 1: People ↔ Annual Leaked Hours ── */}
-          <div className="py-8 lg:border-r border-border">
+          {/* ── Row 1: People ↔ Annual Lost Hours ── */}
+          <div className="py-8 lg:border-r" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
             <label
               style={{
                 ...MONO,
-                color: "hsl(var(--muted-foreground))",
+                color: "hsl(var(--text-on-light) / 0.5)",
                 display: "block",
                 marginBottom: "0.6rem",
               }}
@@ -133,18 +133,19 @@ const LeakageEstimator = () => {
               value={people}
               onChange={(e) => setPeople(e.target.value)}
               style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--foreground))")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "hsl(var(--border))")}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--text-on-light))")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)")}
             />
           </div>
           <div
-            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0 border-border"
+            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0"
+            style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
-            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
-              ANNUAL LEAKED HOURS
+            <p style={{ ...MONO, color: "hsl(var(--text-on-light) / 0.5)", marginBottom: "0.6rem" }}>
+              ANNUAL LOST HOURS
             </p>
             <p
-              className="text-foreground"
+              className="text-on-light"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 700,
@@ -157,11 +158,11 @@ const LeakageEstimator = () => {
           </div>
 
           {/* ── Row 2: Hours/week ↔ Annual Cost ── */}
-          <div className="py-8 lg:border-r border-border">
+          <div className="py-8 lg:border-r" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
             <label
               style={{
                 ...MONO,
-                color: "hsl(var(--muted-foreground))",
+                color: "hsl(var(--text-on-light) / 0.5)",
                 display: "block",
                 marginBottom: "0.6rem",
               }}
@@ -175,18 +176,19 @@ const LeakageEstimator = () => {
               value={hoursPerWeek}
               onChange={(e) => setHoursPerWeek(e.target.value)}
               style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--foreground))")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "hsl(var(--border))")}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--text-on-light))")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)")}
             />
           </div>
           <div
-            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0 border-border"
+            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0"
+            style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
-            <p style={{ ...MONO, color: "hsl(var(--muted-foreground))", marginBottom: "0.6rem" }}>
+            <p style={{ ...MONO, color: "hsl(var(--text-on-light) / 0.5)", marginBottom: "0.6rem" }}>
               ANNUAL COST
             </p>
             <p
-              className="text-foreground"
+              className="text-on-light"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 700,
@@ -199,11 +201,11 @@ const LeakageEstimator = () => {
           </div>
 
           {/* ── Row 3: Hourly rate ↔ Recovery Scenario ── */}
-          <div className="py-8 lg:border-r border-border">
+          <div className="py-8 lg:border-r" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
             <label
               style={{
                 ...MONO,
-                color: "hsl(var(--muted-foreground))",
+                color: "hsl(var(--text-on-light) / 0.5)",
                 display: "block",
                 marginBottom: "0.6rem",
               }}
@@ -217,12 +219,13 @@ const LeakageEstimator = () => {
               value={hourlyRate}
               onChange={(e) => setHourlyRate(e.target.value)}
               style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--foreground))")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "hsl(var(--border))")}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--text-on-light))")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)")}
             />
           </div>
           <div
-            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0 border-border"
+            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0"
+            style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
             <p className="text-primary" style={{ ...MONO, marginBottom: "0.75rem" }}>
               [RECOVERY SCENARIO]
@@ -242,30 +245,30 @@ const LeakageEstimator = () => {
                         fontSize: "0.75rem",
                         fontWeight: 600,
                         borderRadius: "0.625rem",
-                        border: isActive ? "1px solid hsl(var(--primary))" : "1px solid hsl(var(--border))",
-                        background: isActive ? "hsl(var(--primary))" : "hsl(var(--input))",
-                        color: isActive ? "hsl(var(--primary-foreground))" : "hsl(var(--muted-foreground))",
+                        border: isActive ? "1px solid hsl(var(--primary))" : "1px solid rgba(0,0,0,0.12)",
+                        background: isActive ? "hsl(var(--primary))" : "hsl(var(--off-white))",
+                        color: isActive ? "hsl(var(--primary-foreground))" : "hsl(var(--text-on-light) / 0.6)",
                         cursor: "pointer",
                         transition: "all 0ms",
                       }}
                       onMouseEnter={(e) => {
                         if (!isActive) {
-                          e.currentTarget.style.background = "hsl(var(--foreground))";
-                          e.currentTarget.style.color = "hsl(var(--background))";
-                          e.currentTarget.style.borderColor = "hsl(var(--foreground))";
+                          e.currentTarget.style.background = "hsl(var(--text-on-light))";
+                          e.currentTarget.style.color = "hsl(var(--warm-stone))";
+                          e.currentTarget.style.borderColor = "hsl(var(--text-on-light))";
                         }
                       }}
                       onMouseLeave={(e) => {
                         if (!isActive) {
-                          e.currentTarget.style.background = "hsl(var(--input))";
-                          e.currentTarget.style.color = "hsl(var(--muted-foreground))";
-                          e.currentTarget.style.borderColor = "hsl(var(--border))";
+                          e.currentTarget.style.background = "hsl(var(--off-white))";
+                          e.currentTarget.style.color = "hsl(var(--text-on-light) / 0.6)";
+                          e.currentTarget.style.borderColor = "rgba(0,0,0,0.12)";
                         }
                       }}
                     >
                       {pct}%
                     </button>
-                    <span style={{ ...MONO, fontSize: "0.6rem", color: "hsl(var(--muted-foreground))", marginTop: "0.35rem", display: "block", textAlign: "center" }}>
+                    <span style={{ ...MONO, fontSize: "0.6rem", color: "hsl(var(--text-on-light) / 0.5)", marginTop: "0.35rem", display: "block", textAlign: "center" }}>
                       {label}
                     </span>
                   </div>
@@ -276,10 +279,12 @@ const LeakageEstimator = () => {
 
           {/* ── Row 4: empty ↔ Recovered Capacity ── */}
           <div
-            className="hidden lg:block py-8 lg:border-r border-t border-border"
+            className="hidden lg:block py-8 lg:border-r border-t"
+            style={{ borderColor: "rgba(0,0,0,0.08)" }}
           />
           <div
-            className="py-8 pl-0 lg:pl-8 border-t border-border"
+            className="py-8 pl-0 lg:pl-8 border-t"
+            style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
             <p className="text-primary" style={{ ...MONO, marginBottom: "0.5rem" }}>
               [RECOVERED CAPACITY]
@@ -301,6 +306,9 @@ const LeakageEstimator = () => {
           </div>
         </div>
       </div>
+
+      {/* Bottom padding */}
+      <div className="pb-16" />
     </section>
   );
 };

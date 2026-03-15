@@ -6,7 +6,7 @@ const engagements = [
     title: "Operational X-Ray",
     duration: "2–3 weeks · Fixed scope",
     description:
-      "A Pareto-driven diagnostic that maps how work actually moves through your business — not how the org chart says it should, but how it really does. I expose the Human Middleware, quantify the capacity loss, and produce a prioritised transformation roadmap with projected ROI. This is the starting point for every engagement.",
+      "A structured diagnostic that maps how work actually moves through your business — not how the org chart says it should, but how it really does. I expose the Human Middleware, quantify the capacity loss, and produce a prioritised transformation roadmap with projected ROI. This is the starting point for every engagement.",
     deliverables: [
       "Complete workflow mapping with friction quantification across every manual touchpoint",
       "Capacity loss analysis — hours, cost, and error rates attributed to Human Middleware",
@@ -45,7 +45,7 @@ const engagements = [
     description:
       "Embedded, part-time AI leadership for businesses that need strategic direction and hands-on delivery but aren't ready for — or can't justify — a full-time Head of AI. I operate as an extension of your leadership team: setting the strategy, standing up governance, shipping production tools, and driving adoption across the business.",
     deliverables: [
-      "AI strategy and roadmap development aligned to your P&L priorities",
+      "AI strategy and roadmap development aligned to your business priorities",
       "Governance framework design — policies, risk management, and audit trails",
       "Tool selection, prototyping, and production deployment",
       "Team training and capability building, including apprenticeship programme design",
@@ -57,7 +57,7 @@ const EngagementTypes = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
 
   return (
-    <section className="py-16 lg:py-36 bg-slate" ref={ref}>
+    <section className="py-16 lg:py-36 bg-warm-stone" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <span
           className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
@@ -69,23 +69,23 @@ const EngagementTypes = () => {
           {engagements.map((eng, index) => (
             <div
               key={eng.id}
-              className={`border border-border p-8 md:p-10 clip-reveal-down ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${index * 0.12}s` }}
+              className={`bg-off-white border p-8 md:p-10 clip-reveal-down ${isVisible ? "visible" : ""}`}
+              style={{ borderColor: "rgba(0,0,0,0.08)", transitionDelay: `${index * 0.12}s` }}
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6">
                 <div>
                   <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-2">
                     [{eng.id}]
                   </span>
-                  <h3 className="font-display text-2xl font-bold text-foreground">
+                  <h3 className="font-display text-2xl font-bold text-on-light">
                     {eng.title}
                   </h3>
                 </div>
-                <span className="font-mono text-xs text-muted-foreground/70 uppercase tracking-widest shrink-0">
+                <span className="font-mono text-xs text-on-light/40 uppercase tracking-widest shrink-0">
                   {eng.duration}
                 </span>
               </div>
-              <p className="text-muted-foreground font-light leading-relaxed mb-6 max-w-[720px]">
+              <p className="text-on-light/70 font-light leading-relaxed mb-6 max-w-[720px]">
                 {eng.description}
               </p>
               <div>
@@ -94,7 +94,7 @@ const EngagementTypes = () => {
                 </span>
                 <ul className="space-y-2">
                   {eng.deliverables.map((d, i) => (
-                    <li key={i} className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2">
+                    <li key={i} className="text-on-light/60 text-sm leading-relaxed flex items-start gap-2">
                       <span className="text-primary/60 mt-0.5 flex-shrink-0">→</span>
                       {d}
                     </li>
