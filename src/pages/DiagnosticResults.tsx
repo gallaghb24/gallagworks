@@ -618,7 +618,7 @@ const DiagnosticResults = () => {
                 Try Again
               </Button>
             )}
-            <Button asChild className="rounded-none">
+            <Button asChild>
               <Link to="/diagnostic">Take the Assessment</Link>
             </Button>
           </div>
