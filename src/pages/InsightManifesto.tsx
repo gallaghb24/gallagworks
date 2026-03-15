@@ -282,7 +282,7 @@ const insightData: InsightEntry[] = [
     slug: "multichannel-content-orchestration",
     ref: "GW-LOG-204",
     title: "Multichannel Content Orchestration.",
-    subtitle: "Engineering out the Data Glue at the briefing stage to reclaim 1,200 hours annually and slash lead times by 50%.",
+    subtitle: "Eliminating the Human Middleware at the briefing stage to reclaim 1,200 hours annually and slash lead times by 50%.",
     date: "NOV 2025",
     seoDescription: "Multichannel Content Orchestration: 1,200 hours reclaimed annually. Lead times slashed by 50% through LLM-based ingestion and automated data standardisation.",
     manifesto: [
