@@ -683,8 +683,8 @@ const InsightManifesto = () => {
                 <p className="font-display text-[28px] md:text-[36px] font-bold leading-tight" style={{ color: '#E8E8E6' }}>
                   {entry.schematic.result}
                 </p>
-                <p className="font-mono leading-relaxed mt-8 md:mt-10" style={{ fontSize: '11px', color: '#555' }}>
-                  [NOTICE: CLIENT PRIVACY] To respect enterprise non-disclosure agreements, specific brand names have been abstracted. Verification of outcomes and deeper operational context can be provided during a formal consultation.
+                <p className="leading-relaxed mt-14 max-w-[480px]" style={{ fontSize: '12px', color: '#555', fontFamily: 'DM Sans, sans-serif' }}>
+                  To respect non-disclosure agreements, specific brand names have been abstracted. Verification of outcomes can be provided during a consultation.
                 </p>
               </div>
             </div>
