@@ -81,12 +81,12 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
-        label: "03: THE ECONOMIC RESULT",
-        title: "Engineering Out £1M+ in Operational Leakage.",
+        label: "03: THE RESULT",
+        title: "Recovering £1M+ in lost capacity.",
         paragraphs: [
-          "Across engagements with Tier-1 retailers and FTSE 100 entities, I have identified over £1M in cumulative operational leakage. This figure represents the fully-loaded cost of Human Middleware: the salaries consumed by manual re-keying, the margin lost to delayed turnaround times, and the opportunity cost of strategic talent trapped in procedural work.",
-          <>In one engagement with a national leisure group, an enterprise reporting pipeline that consumed 30 hours of manual Excel manipulation per month was reduced to a 10-minute automated workflow – a 98% reduction in processing time <LogRef code="LOG-205" slug="enterprise-reporting-automation" />. 360 hours were reclaimed annually while removing 100% of data integrity risk.</>,
-          "The pattern is consistent: organisations don't have an AI problem. They have a structural workflow problem. The margin recovery is not achieved by adding more tools. It is achieved by eliminating the Human Middleware so your people return to making decisions, not managing tasks.",
+          "Across engagements with major retailers and large enterprises, I've identified over £1M in cumulative lost capacity. That's the fully loaded cost of Human Middleware: the salaries consumed by manual re-keying, the margin lost to slow turnaround times, and the opportunity cost of talented people trapped in procedural work.",
+          "In one engagement with a national leisure group, a reporting pipeline that consumed 30 hours of manual Excel work per month was reduced to a 10-minute automated workflow — a 98% reduction in processing time. 360 hours reclaimed annually, with data integrity risk eliminated entirely.",
+          "The pattern is consistent: organisations don't have an AI problem. They have a process problem. The recovery isn't achieved by adding more tools. It's achieved by eliminating the Human Middleware so your people go back to making decisions, not managing tasks.",
         ],
       },
       {
