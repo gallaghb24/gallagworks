@@ -1,21 +1,12 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 const Philosophy = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
-    <section className="py-16 lg:py-32 bg-warm-stone" ref={ref}>
+    <section className="py-16 lg:py-32 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
-          <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
-          >
+          <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
             [PHILOSOPHY]
           </span>
-          <h2
-            className={`font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-light mb-10 leading-tight tracking-tight clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.08s" }}
-          >
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-light mb-10 leading-tight tracking-tight">
             Automating a broken process just creates a faster mess.
           </h2>
           <div className="space-y-6 max-w-[600px]">

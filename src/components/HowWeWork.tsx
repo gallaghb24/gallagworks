@@ -1,5 +1,3 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 const steps = [
   {
     id: "01",
@@ -34,19 +32,13 @@ const steps = [
 ];
 
 const HowWeWork = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
-    <section className="py-16 lg:py-36" ref={ref}>
+    <section className="py-16 lg:py-36">
       <div className="container mx-auto px-6 lg:px-12">
-        <span
-          className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
-        >
+        <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
           [HOW I WORK]
         </span>
-        <h2
-          className={`text-3xl md:text-4xl font-extrabold text-foreground mb-12 clip-reveal ${isVisible ? "visible" : ""}`}
-        >
+        <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-12">
           From diagnosis to deployed system.
         </h2>
 

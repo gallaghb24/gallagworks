@@ -4,7 +4,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const faqs = [
   {
@@ -50,20 +49,14 @@ const faqs = [
 ];
 
 const FAQSection = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
-    <section className="py-16 lg:py-36 bg-warm-stone" ref={ref}>
+    <section className="py-16 lg:py-36 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
-          <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
-          >
+          <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
             [FAQ]
           </span>
-          <h2
-            className={`text-3xl md:text-4xl font-extrabold text-on-light mb-12 clip-reveal ${isVisible ? "visible" : ""}`}
-          >
+          <h2 className="text-3xl md:text-4xl font-extrabold text-on-light mb-12">
             Common questions.
           </h2>
 
@@ -72,8 +65,8 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`faq-${index}`}
-                className={`bg-off-white border px-6 clip-reveal-down ${isVisible ? "visible" : ""}`}
-                style={{ borderColor: "rgba(0,0,0,0.08)", transitionDelay: `${index * 0.08}s` }}
+                className="bg-off-white border px-6"
+                style={{ borderColor: "rgba(0,0,0,0.08)" }}
               >
                 <AccordionTrigger className="text-on-light font-semibold text-left hover:text-primary py-5">
                   {faq.question}

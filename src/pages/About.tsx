@@ -13,7 +13,6 @@ const About = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const method = useScrollAnimation();
   const exp = useScrollAnimation();
 
   const c1 = useCountUp({ target: 15, suffix: "+ Years" });

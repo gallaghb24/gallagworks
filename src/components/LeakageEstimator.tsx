@@ -97,134 +97,143 @@ const LeakageEstimator = () => {
         </p>
       </div>
 
-      {/* Grid */}
+      {/* Input/Output Grid */}
       <div
         className={`container mx-auto px-6 lg:px-12 clip-reveal-down ${isVisible ? "visible" : ""}`}
         style={{ transitionDelay: "0.2s" }}
       >
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 border-t"
+          className="border-t"
           style={{ borderColor: "rgba(0,0,0,0.08)" }}
         >
-          {/* ── Row 0: Column labels ── */}
-          <div className="py-6 lg:border-r" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
+          {/* Section label */}
+          <div className="py-6">
             <p className="text-primary" style={MONO}>[INPUT TERMINAL]</p>
           </div>
-          <div className="hidden lg:block py-6 pl-0 lg:pl-8">
-            <p className="text-primary" style={MONO}>[RECOVERY OUTCOME]</p>
-          </div>
 
-          {/* ── Row 1: People ↔ Annual Lost Hours ── */}
-          <div className="py-8 lg:border-r" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
-            <label
-              style={{
-                ...MONO,
-                color: "hsl(var(--text-on-light) / 0.5)",
-                display: "block",
-                marginBottom: "0.6rem",
-              }}
-            >
-              PEOPLE IN WORKFLOW
-            </label>
-            <input
-              type="number"
-              min="0"
-              placeholder="e.g. 12"
-              value={people}
-              onChange={(e) => setPeople(e.target.value)}
-              style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--text-on-light))")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)")}
-            />
-          </div>
+          {/* Row 1: People → Annual Lost Hours */}
           <div
-            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0"
+            className="grid grid-cols-2 gap-4 md:gap-6 py-6 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
-            <p style={{ ...MONO, color: "hsl(var(--text-on-light) / 0.5)", marginBottom: "0.6rem" }}>
-              ANNUAL LOST HOURS
-            </p>
-            <p
-              className="text-on-light"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              {hasInput ? formatHours(annualHours) : "—"}
-            </p>
+            <div>
+              <label
+                style={{
+                  ...MONO,
+                  color: "hsl(var(--text-on-light) / 0.5)",
+                  display: "block",
+                  marginBottom: "0.6rem",
+                }}
+              >
+                PEOPLE IN WORKFLOW
+              </label>
+              <input
+                type="number"
+                min="0"
+                placeholder="e.g. 12"
+                value={people}
+                onChange={(e) => setPeople(e.target.value)}
+                style={inputStyle}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--text-on-light))")}
+                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)")}
+              />
+            </div>
+            <div>
+              <p style={{ ...MONO, color: "hsl(var(--text-on-light) / 0.5)", marginBottom: "0.6rem" }}>
+                ANNUAL LOST HOURS
+              </p>
+              <p
+                className="text-on-light"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {hasInput ? formatHours(annualHours) : "—"}
+              </p>
+            </div>
           </div>
 
-          {/* ── Row 2: Hours/week ↔ Annual Cost ── */}
-          <div className="py-8 lg:border-r" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
-            <label
-              style={{
-                ...MONO,
-                color: "hsl(var(--text-on-light) / 0.5)",
-                display: "block",
-                marginBottom: "0.6rem",
-              }}
-            >
-              AVG HOURS / WEEK LOST PER PERSON
-            </label>
-            <input
-              type="number"
-              min="0"
-              placeholder="e.g. 6"
-              value={hoursPerWeek}
-              onChange={(e) => setHoursPerWeek(e.target.value)}
-              style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--text-on-light))")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)")}
-            />
-          </div>
+          {/* Row 2: Hours/week → Annual Cost */}
           <div
-            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0"
+            className="grid grid-cols-2 gap-4 md:gap-6 py-6 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
-            <p style={{ ...MONO, color: "hsl(var(--text-on-light) / 0.5)", marginBottom: "0.6rem" }}>
-              ANNUAL COST
-            </p>
-            <p
-              className="text-on-light"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              {hasInput ? formatGBP(annualCost) : "—"}
-            </p>
+            <div>
+              <label
+                style={{
+                  ...MONO,
+                  color: "hsl(var(--text-on-light) / 0.5)",
+                  display: "block",
+                  marginBottom: "0.6rem",
+                }}
+              >
+                AVG HOURS / WEEK LOST PER PERSON
+              </label>
+              <input
+                type="number"
+                min="0"
+                placeholder="e.g. 6"
+                value={hoursPerWeek}
+                onChange={(e) => setHoursPerWeek(e.target.value)}
+                style={inputStyle}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--text-on-light))")}
+                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)")}
+              />
+            </div>
+            <div>
+              <p style={{ ...MONO, color: "hsl(var(--text-on-light) / 0.5)", marginBottom: "0.6rem" }}>
+                ANNUAL COST
+              </p>
+              <p
+                className="text-on-light"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {hasInput ? formatGBP(annualCost) : "—"}
+              </p>
+            </div>
           </div>
 
-          {/* ── Row 3: Hourly rate ↔ Recovery Scenario ── */}
-          <div className="py-8 lg:border-r" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
-            <label
-              style={{
-                ...MONO,
-                color: "hsl(var(--text-on-light) / 0.5)",
-                display: "block",
-                marginBottom: "0.6rem",
-              }}
-            >
-              FULLY LOADED HOURLY COST (£)
-            </label>
-            <input
-              type="number"
-              min="0"
-              placeholder="e.g. 45"
-              value={hourlyRate}
-              onChange={(e) => setHourlyRate(e.target.value)}
-              style={inputStyle}
-              onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--text-on-light))")}
-              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)")}
-            />
-          </div>
+          {/* Row 3: Hourly rate → (empty right, rate is a standalone input) */}
           <div
-            className="py-8 pl-0 lg:pl-8 border-t lg:border-t-0"
+            className="grid grid-cols-2 gap-4 md:gap-6 py-6 border-t"
+            style={{ borderColor: "rgba(0,0,0,0.08)" }}
+          >
+            <div>
+              <label
+                style={{
+                  ...MONO,
+                  color: "hsl(var(--text-on-light) / 0.5)",
+                  display: "block",
+                  marginBottom: "0.6rem",
+                }}
+              >
+                FULLY LOADED HOURLY COST (£)
+              </label>
+              <input
+                type="number"
+                min="0"
+                placeholder="e.g. 45"
+                value={hourlyRate}
+                onChange={(e) => setHourlyRate(e.target.value)}
+                style={inputStyle}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "hsl(var(--text-on-light))")}
+                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.08)")}
+              />
+            </div>
+            <div />
+          </div>
+
+          {/* Recovery Scenario — unchanged layout */}
+          <div
+            className="py-8 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
             <p className="text-primary" style={{ ...MONO, marginBottom: "0.75rem" }}>
@@ -277,13 +286,9 @@ const LeakageEstimator = () => {
             </div>
           </div>
 
-          {/* ── Row 4: empty ↔ Recovered Capacity ── */}
+          {/* Recovered Capacity */}
           <div
-            className="hidden lg:block py-8 lg:border-r border-t"
-            style={{ borderColor: "rgba(0,0,0,0.08)" }}
-          />
-          <div
-            className="py-8 pl-0 lg:pl-8 border-t"
+            className="py-8 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
             <p className="text-primary" style={{ ...MONO, marginBottom: "0.5rem" }}>
