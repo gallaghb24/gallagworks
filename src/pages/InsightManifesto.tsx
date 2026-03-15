@@ -653,22 +653,41 @@ const InsightManifesto = () => {
 
 
 
-        {/* Technical Schematic — Blueprint Inset */}
+        {/* Technical Schematic — Light surface */}
         {entry.schematic && (
-          <section id="schematic" className="py-16 border-t border-b border-border" style={{ backgroundColor: '#1A1C1E' }}>
+          <section id="schematic" className="py-16 bg-warm-stone">
             <div className="container mx-auto px-6 lg:px-12">
               <div className="max-w-4xl">
                 <div className="mb-10">
-                  <div className="border-b border-border pb-4 mb-6">
+                  <div className="border-b border-black/[0.08] pb-4 mb-6">
                     <span className="font-mono text-sm text-primary uppercase tracking-widest font-semibold">
                       [HOW IT WORKS]
                     </span>
                   </div>
                 </div>
                 <TechnicalSchematic schematic={entry.schematic} />
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Result + Privacy — Dark surface */}
+        {entry.schematic && (
+          <section className="py-16">
+            <div className="container mx-auto px-6 lg:px-12">
+              <div className="max-w-4xl">
+                {/* Result block */}
+                <div className="border border-white/[0.08] rounded-xl overflow-hidden mb-10">
+                  <div className="border-t-2 border-primary px-10 py-8" style={{ backgroundColor: "hsl(var(--primary) / 0.05)" }}>
+                    <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-3">
+                      [RESULT]
+                    </span>
+                    <p className="text-foreground font-semibold text-base leading-relaxed">{entry.schematic.result}</p>
+                  </div>
+                </div>
 
                 {/* Confidentiality notice */}
-                <div className="border border-white/[0.08] rounded-xl p-6 mt-10">
+                <div className="border border-white/[0.08] rounded-xl p-6">
                   <p className="font-mono text-xs text-muted-foreground leading-relaxed">
                     [NOTICE: CLIENT PRIVACY] To respect enterprise non-disclosure agreements, specific brand names have been abstracted. Verification of outcomes and deeper operational context can be provided during a formal consultation.
                   </p>
