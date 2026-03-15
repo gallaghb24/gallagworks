@@ -1049,7 +1049,7 @@ const DiagnosticResults = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full sm:w-auto h-10 px-5 text-sm font-semibold rounded-none border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2]/10 gap-2"
+                  className="w-full sm:w-auto h-10 px-5 text-sm font-semibold border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2]/10 gap-2"
                   onClick={handleLinkedInShare}
                 >
                   <Linkedin className="h-4 w-4" />

@@ -127,7 +127,7 @@ const AdminOverview = () => {
       {/* Summary cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {cards.map((c) => (
-          <div key={c.label} className="border border-border rounded-none p-5 bg-card">
+          <div key={c.label} className="border border-border p-5 bg-card">
             <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">{c.label}</p>
             <p className="text-2xl font-semibold text-foreground">{c.value}</p>
           </div>
