@@ -937,7 +937,7 @@ const DiagnosticResults = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Quick Wins */}
               <div
-                className={`border border-border p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
+                className={`border border-white/[0.08] rounded-xl p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
                   actionPlanSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: actionPlanSection.isVisible ? "0ms" : "0ms", animationFillMode: "forwards" }}
