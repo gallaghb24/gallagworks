@@ -52,8 +52,8 @@ const insightData: InsightEntry[] = [
   {
     slug: "eradicating-enterprise-data-glue",
     ref: "GW-LOG-101",
-    title: "Eradicating the Enterprise Data Glue.",
-    subtitle: "A field manifesto on identifying and engineering out the manual friction that silently erodes enterprise margins.",
+    title: "Eradicating Enterprise Human Middleware.",
+    subtitle: "A field manifesto on identifying and eliminating the manual friction that silently erodes enterprise margins.",
     date: "MAR 2025",
     seoDescription: "How Operational Engineering identifies and removes the manual friction costing Tier-1 retailers £1M+ annually. 1,200 hours reclaimed through systematic Data Glue eradication.",
     manifesto: [
