@@ -80,9 +80,7 @@ const About = () => {
               >
                 Engineering the problem, not the symptom.
               </h2>
-              <p
-                className={`text-lg text-on-light/70 font-light leading-relaxed max-w-[720px] clip-reveal ${method.isVisible ? "visible" : ""}`}
-              >
+              <p className="text-lg text-on-light/70 font-light leading-relaxed max-w-[720px]">
                 Most organisations don't have an AI problem. They have a process problem that AI can't fix on its own. I find the Human Middleware — the senior people acting as manual routers between systems — and engineer it out, so your team goes back to making decisions instead of managing tasks. I architect every system personally. No junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
               </p>
             </div>
