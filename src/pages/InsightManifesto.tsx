@@ -321,6 +321,7 @@ const insightData: InsightEntry[] = [
       {
         label: "02: THE SOLUTION",
         surface: "dark",
+        title: "LLM-Based Ingestion and Automated Standardisation.",
         paragraphs: [
           "I deployed a custom RPA ingestion engine using LLM-based brand correction, automated data standardisation, and field mapping. One-click reformatting delivered instant production-ready outputs. By eliminating the Human Middleware at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
         ],
