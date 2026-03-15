@@ -202,7 +202,7 @@ const DiagnosticAssess = () => {
           {/* Single question */}
           <div
             key={current.question.id}
-            className="border border-border p-4 sm:p-6"
+            className="border border-white/[0.08] rounded-xl p-4 sm:p-6"
           >
             <p className="font-bold text-foreground mb-5">
               <span className="text-primary font-mono text-sm mr-2">
