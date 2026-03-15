@@ -574,7 +574,7 @@ const DiagnosticResults = () => {
             <div className="h-10 w-80 bg-secondary rounded mb-3 animate-pulse" />
             <div className="h-5 w-48 bg-secondary rounded mb-12 animate-pulse" />
           </div>
-          <div className="w-full max-w-[600px] mx-auto border border-border p-8">
+          <div className="w-full max-w-[600px] mx-auto border border-white/[0.08] rounded-xl p-8">
             <div className="h-8 w-40 bg-secondary rounded mb-4 animate-pulse" />
             <div className="h-14 w-32 bg-secondary rounded mb-6 animate-pulse" />
             <div className="space-y-2">
