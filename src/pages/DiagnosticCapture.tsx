@@ -253,7 +253,7 @@ const DiagnosticCapture = () => {
                     value={form.industry}
                     onValueChange={(v) => handleChange("industry", v)}
                   >
-                    <SelectTrigger className="rounded-none h-12">
+                    <SelectTrigger className="h-12">
                       <SelectValue placeholder="Select industry" />
                     </SelectTrigger>
                     <SelectContent>
