@@ -197,6 +197,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE FRICTION",
+        surface: "light",
         title: "Spreadsheets as the Operating System.",
         paragraphs: [
           "Multiple teams were coordinating complex costing workflows through a patchwork of spreadsheets, email chains, and duplicated tracking files. Ownership was unclear. Status chasing consumed hours weekly. Deadlines were missed not because of competence failures, but because the system itself was built on manual handoffs that couldn't scale.",
