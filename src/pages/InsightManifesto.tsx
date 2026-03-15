@@ -55,7 +55,7 @@ const insightData: InsightEntry[] = [
     title: "Eradicating Enterprise Human Middleware.",
     subtitle: "A field manifesto on identifying and eliminating the manual friction that silently erodes enterprise margins.",
     date: "MAR 2025",
-    seoDescription: "How Operational Engineering identifies and removes the manual friction costing Tier-1 retailers £1M+ annually. 1,200 hours reclaimed through systematic Data Glue eradication.",
+    seoDescription: "How AI Transformation identifies and removes the manual friction costing enterprise operations £1M+ annually. 1,200 hours reclaimed through systematic Human Middleware elimination.",
     manifesto: [
       {
         label: "01: THE PROBLEM",
