@@ -15,6 +15,7 @@ interface ManifestoSection {
   title: string;
   paragraphs: ReactNode[];
   metrics?: { value: string; label: string }[];
+  surface?: "dark" | "light";
 }
 
 interface TechnicalSchematic {
@@ -59,6 +60,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE PROBLEM",
+        surface: "light",
         title: "Your Most Expensive Employees Are Being Used as Human Middleware.",
         paragraphs: [
           <>In every business I've worked with, the same pattern appears: skilled, expensive people spending their time as manual routers between disconnected systems. Re-keying data, copying between spreadsheets, chasing status updates, formatting outputs — work that has no strategic value but consumes 20–40% of operational capacity. That's <Link to="/glossary#human-middleware" className="text-primary no-underline hover:brightness-125 transition-all">Human Middleware</Link>.</>,
@@ -68,6 +70,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE EVIDENCE",
+        surface: "dark",
         title: "Reclaiming 1,200 Hours of Annual Capacity.",
         paragraphs: [
           "During an Operational X-Ray for a major health and beauty retailer, I mapped every manual touchpoint in their content production pipeline. The diagnostic revealed a 25% capacity loss — over a quarter of the team's working hours consumed by Human Middleware with zero strategic value.",
@@ -82,6 +85,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "03: THE RESULT",
+        surface: "light",
         title: "Recovering £1M+ in lost capacity.",
         paragraphs: [
           "Across engagements with major retailers and large enterprises, I've identified over £1M in cumulative lost capacity. That's the fully loaded cost of Human Middleware: the salaries consumed by manual re-keying, the margin lost to slow turnaround times, and the opportunity cost of talented people trapped in procedural work.",
@@ -91,6 +95,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "04: THE METHODOLOGY",
+        surface: "dark",
         title: "The Operational X-Ray: diagnosing before building.",
         paragraphs: [
           "Every engagement begins with the Operational X-Ray — a 2–3 week fixed-scope diagnostic that identifies the small number of manual processes causing the majority of your capacity loss. This isn't a strategy document. It's a map of every manual touchpoint, with each one quantified by time, cost, error rate, and impact.",
@@ -140,6 +145,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE FRICTION",
+        surface: "light",
         title: "Reporting as a Manual Assembly Line.",
         paragraphs: [
           "The team was pulling data from multiple disconnected systems, manually reformatting between tools, and re-keying outputs into client-facing reports. By the time reports reached clients, the underlying data was already stale. The entire reporting function had become a manual assembly line – expensive talent trapped in procedural data wrangling rather than delivering the advisory value that justified their rates.",
@@ -147,6 +153,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
+        surface: "light",
         title: "When Reporting Becomes the Product.",
         paragraphs: [
           "There is a quiet corrosion that happens when a professional services team spends more time assembling reports than interpreting them. The advisory function – the reason clients pay premium rates – atrophies. The team becomes a data factory, and the client relationship shifts from strategic partnership to transactional delivery.",
@@ -156,6 +163,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE SOLUTION",
+        surface: "dark",
         title: "A Single Pipeline Replacing Manual Pulls.",
         paragraphs: [
           "I engineered a unified data pipeline that replaced the fragmented manual pulls with a single automated feed. Report generation was automated with pre-formatted outputs, and live data feeds replaced the static snapshots that were obsolete before they were delivered. The architecture was designed to be tool-agnostic – the pipeline connects to whatever systems the client uses, not the other way around.",
@@ -189,6 +197,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE FRICTION",
+        surface: "light",
         title: "Spreadsheets as the Operating System.",
         paragraphs: [
           "Multiple teams were coordinating complex costing workflows through a patchwork of spreadsheets, email chains, and duplicated tracking files. Ownership was unclear. Status chasing consumed hours weekly. Deadlines were missed not because of competence failures, but because the system itself was built on manual handoffs that couldn't scale.",
@@ -196,6 +205,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
+        surface: "light",
         title: "The Illusion of Under-Resourcing.",
         paragraphs: [
           "When deadlines are consistently missed, the instinctive organisational response is to add headcount. More coordinators. More project managers. More people to chase the status updates that the existing people are already chasing. This is the illusion of under-resourcing – the belief that the problem is capacity when the actual problem is architectural.",
@@ -205,6 +215,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE SOLUTION",
+        surface: "dark",
         title: "A single source of truth.",
         paragraphs: [
           "I replaced the spreadsheet-and-email workflow with a consolidated production system featuring automated status updates, assignment routing, and deadline escalation workflows. The system provided a single source of truth, eliminating the duplicated tracking that had been consuming coordination overhead.",
@@ -239,6 +250,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE FRICTION",
+        surface: "light",
         title: "Low Error Rates, Unsustainable Time Cost.",
         paragraphs: [
           "The team was performing high-volume manual checks on structured data. Error rates were low, but the time cost was unsustainable – 20 hours per week consumed by routine verification that left zero capacity for the process improvement initiatives the organisation needed.",
@@ -246,6 +258,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
+        surface: "light",
         title: "The Paradox of Perfect Compliance.",
         paragraphs: [
           "Low error rates are often celebrated as evidence of a well-functioning team. In this case, they masked a deeper problem: the error rates were low precisely because the team was spending 20 hours per week on manual verification. The process was accurate because it was unsustainably labour-intensive. Remove the labour, and the accuracy collapses. This is not quality – it is dependency.",
@@ -255,6 +268,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE SOLUTION",
+        surface: "dark",
         title: "Exception-Only Routing.",
         paragraphs: [
           "I embedded validation rules directly into the data pipeline with automated routine checks and exception-only routing. An exception triage interface surfaced only the genuine anomalies requiring human judgement, filtering out the noise that had been consuming the team's capacity.",
@@ -288,6 +302,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE FRICTION",
+        surface: "light",
         title: "500+ Line Briefs and 5-Hour QC Loops.",
         paragraphs: [
           "High-volume client briefs containing 500+ lines of product data were arriving with inconsistent formatting and misspellings. Each occurrence triggered a 5-hour manual QC loop. Brief-to-studio handoffs carried 2-day lead times. The account team had normalised the friction – copy-pasting had become the default operating mode rather than the exception.",
@@ -295,6 +310,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
+        surface: "light",
         title: "The Normalisation of Copy-Paste Culture.",
         paragraphs: [
           "When an account team spends the majority of its week reformatting client data, something fundamental shifts in the team's identity. They stop thinking of themselves as strategic partners and start thinking of themselves as production operatives. The copy-paste becomes the job. Client calls become data collection exercises rather than relationship-building opportunities. The team's capacity for proactive thinking – for spotting upsell opportunities, for anticipating seasonal challenges, for deepening the client partnership – is consumed by the mechanics of data handling.",
@@ -304,6 +320,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE SOLUTION",
+        surface: "dark",
         title: "LLM-Based Ingestion and Automated Standardisation.",
         paragraphs: [
           "I deployed a custom RPA ingestion engine using LLM-based brand correction, automated data standardisation, and field mapping. One-click reformatting delivered instant production-ready outputs. By eliminating the Human Middleware at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
@@ -337,6 +354,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE FRICTION",
+        surface: "light",
         title: "30 Hours of Monthly Excel Manipulation.",
         paragraphs: [
           "Fragmented data sources required 30 hours of manual Excel manipulation every month for mission-critical pricing reports. Human error risk was compounded by manual re-keying. Heavy 'Status Chasing' overhead between account and finance teams consumed additional capacity in the days before every reporting deadline.",
@@ -344,6 +362,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
+        surface: "light",
         title: "The Opportunity Cost of Blind Leadership.",
         paragraphs: [
           "In high-stakes enterprise reporting, the quality of leadership decisions is directly constrained by the quality of the data that informs them. When pricing reports require 30 hours of manual assembly, the data that reaches decision-makers is not just late – it is shaped by the limitations of whoever assembled it. Manual processes introduce silent editorial choices: which columns get included, how outliers are handled, whether discrepancies are flagged or quietly smoothed over. The report becomes an interpretation, not a reflection.",
@@ -353,6 +372,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE SOLUTION",
+        surface: "dark",
         title: "Drag-and-Drop Automated Mapping.",
         paragraphs: [
           "I architected a custom drag-and-drop web application for automated column and order mapping, enabling instant fixed-format reporting. The migration from manual Excel work to a 10-minute automated pipeline removed the 'last-minute rush' before reporting deadlines, allowing the team to enter status calls fully prepped with 100% accurate data.",
@@ -386,6 +406,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE FRICTION",
+        surface: "light",
         title: "30+ Project Owners, One Master List.",
         paragraphs: [
           "Single campaigns were split across 30+ project owners, each with siloed store allocations. Every month, someone spent 10 hours manually merging dozens of Excel files into a 'Master List'. Any client change required repeating hours of manual rework. The team was trapped in a cycle of Human Middleware that made reactive agility impossible.",
@@ -393,6 +414,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
+        surface: "light",
         title: "Operational Fragility at Scale.",
         paragraphs: [
           "When a single client change – a revised store list, an updated allocation split – requires hours of manual rework, the organisation has built operational fragility into its delivery model. The team cannot respond with agility because the consolidation process is entirely manual. Every change cascades through dozens of spreadsheets, each requiring individual updates, re-validation, and re-export. The process that should take minutes takes half a day, and the client experiences this as sluggishness.",
@@ -402,6 +424,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "02: THE SOLUTION",
+        surface: "dark",
         title: "Intelligent RPA-Based Consolidation.",
         paragraphs: [
           "I deployed an Intelligent RPA application for bulk allocation merging with instant duplicate removal and automated totals validation. Auto-formatting delivered immediate, client-ready approval exports. The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in Human Middleware for a full day.",
@@ -583,37 +606,63 @@ const InsightManifesto = () => {
         )}
 
         {/* Manifesto Sections */}
-        {entry.manifesto.map((section, i) => (
-          <section key={i} className="pb-16">
-            <div className="container mx-auto px-6 lg:px-12">
-              <div className="max-w-3xl">
-                <div className="border-t border-border pt-12">
-                  <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-6">
-                    [{section.label}]
-                  </span>
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-6">
-                    {section.title}
-                  </h2>
-                  <div className="space-y-6 text-muted-foreground font-light leading-relaxed max-w-[720px]">
-                    {section.paragraphs.map((p, j) => (
-                      <p key={j}>{p}</p>
-                    ))}
-                  </div>
-                  {section.metrics && (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                      {section.metrics.map((m, k) => (
-                        <div key={k} className="border border-white/[0.08] rounded-xl p-6">
-                          <p className="font-mono text-2xl font-extrabold text-primary mb-2">{m.value}</p>
-                          <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">{m.label}</p>
+        {(() => {
+          // Group consecutive sections by surface
+          const groups: { surface: "dark" | "light"; sections: { section: ManifestoSection; index: number }[] }[] = [];
+          entry.manifesto.forEach((section, i) => {
+            const surface = section.surface || "dark";
+            const lastGroup = groups[groups.length - 1];
+            if (lastGroup && lastGroup.surface === surface) {
+              lastGroup.sections.push({ section, index: i });
+            } else {
+              groups.push({ surface, sections: [{ section, index: i }] });
+            }
+          });
+
+          return groups.map((group, gi) => {
+            const isLight = group.surface === "light";
+            return (
+              <div
+                key={gi}
+                className={isLight ? "bg-warm-stone py-4" : ""}
+              >
+                {group.sections.map(({ section, index: i }) => (
+                  <section key={i} className="pb-16">
+                    <div className="container mx-auto px-6 lg:px-12">
+                      <div className="max-w-3xl">
+                        <div className={`border-t pt-12 ${isLight ? "border-black/[0.08]" : "border-border"}`}>
+                          <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-6">
+                            [{section.label}]
+                          </span>
+                          <h2 className={`text-2xl md:text-3xl font-extrabold mb-6 ${isLight ? "" : "text-foreground"}`} style={isLight ? { color: '#111113' } : undefined}>
+                            {section.title}
+                          </h2>
+                          <div className={`space-y-6 font-light leading-relaxed max-w-[720px] ${isLight ? "" : "text-muted-foreground"}`} style={isLight ? { color: '#555' } : undefined}>
+                            {section.paragraphs.map((p, j) => (
+                              <p key={j}>{p}</p>
+                            ))}
+                          </div>
+                          {section.metrics && (
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                              {section.metrics.map((m, k) => (
+                                <div key={k} className={`rounded-xl p-6 ${isLight ? "bg-off-white border border-black/[0.08]" : "border border-white/[0.08]"}`}>
+                                  <p className="font-mono text-2xl font-extrabold text-primary mb-2">{m.value}</p>
+                                  <p className={`font-mono text-xs uppercase tracking-wider ${isLight ? "" : "text-muted-foreground"}`} style={isLight ? { color: '#666' } : undefined}>{m.label}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                      ))}
+                      </div>
                     </div>
-                  )}
-                </div>
+                  </section>
+                ))}
               </div>
-            </div>
-          </section>
-        ))}
+            );
+          });
+        })()}
+
+
 
         {/* Technical Schematic — Blueprint Inset */}
         {entry.schematic && (

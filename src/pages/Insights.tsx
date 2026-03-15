@@ -87,8 +87,8 @@ const Insights = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Insights & Project Schematics"
-        description="AI transformation insights, manifestos, and technical project schematics. Proven results: 98% manual effort reduction, 1,200 hours reclaimed annually for enterprise clients."
+        title="Insights & Case Studies"
+        description="Real examples from real engagements. AI transformation case studies with verified results: 98% manual effort reduction, 1,200 hours reclaimed annually."
         path="/insights"
       />
       <Navigation />
@@ -112,26 +112,26 @@ const Insights = () => {
           </div>
         </section>
 
-        <section className="pb-20">
+        <section className="pb-20 pt-12 md:pt-16 bg-warm-stone">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               {/* Technical Index Table */}
-              <div className="border border-white/[0.08] rounded-xl overflow-hidden">
+              <div className="border border-black/[0.08] rounded-xl overflow-hidden bg-off-white">
                 {/* Header Row */}
-                <div className="hidden md:grid border-b border-foreground px-6 py-4" style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
+                <div className="hidden md:grid border-b border-black/20 px-6 py-4" style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}>
+                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed" style={{ color: '#666' }}>
                     [REF]
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
+                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed" style={{ color: '#666' }}>
                     [TOPIC]
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
+                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed" style={{ color: '#666' }}>
                     [PRIMARY METRIC]
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">
+                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed" style={{ color: '#666' }}>
                     [DATE]
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed text-right">
+                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed text-right" style={{ color: '#666' }}>
                     [STATUS]
                   </span>
                 </div>
@@ -141,19 +141,19 @@ const Insights = () => {
                   <Link
                     key={item.ref}
                     to={item.type === "TOOL" ? `/${item.slug}` : `/insights/${item.slug}`}
-                    className="block md:grid px-5 pt-5 pb-4 md:px-6 md:pt-6 md:pb-5 border-b border-border last:border-b-0 hover:bg-muted/5 transition-colors group"
+                    className="block md:grid px-5 pt-5 pb-4 md:px-6 md:pt-6 md:pb-5 border-b border-black/[0.08] last:border-b-0 hover:bg-black/[0.02] transition-colors group"
                     style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}
                   >
                     <span className="font-mono text-sm text-primary font-semibold tracking-wider leading-relaxed block mb-1 md:mb-0">
                       {item.ref}
                     </span>
-                    <span className="text-sm text-foreground font-medium group-hover:text-primary transition-colors leading-relaxed block mb-1 md:mb-0">
+                    <span className="text-sm font-medium group-hover:text-primary transition-colors leading-relaxed block mb-1 md:mb-0" style={{ color: '#111113' }}>
                       {item.topic}
                     </span>
-                    <span className="font-mono text-sm text-muted-foreground leading-relaxed block mb-1 md:mb-0">
+                    <span className="font-mono text-sm text-primary leading-relaxed block mb-1 md:mb-0">
                       {item.metric}
                     </span>
-                    <span className="font-mono text-xs text-muted-foreground leading-relaxed block mb-1 md:mb-0">
+                    <span className="font-mono text-xs leading-relaxed block mb-1 md:mb-0" style={{ color: '#666' }}>
                       {item.date || "—"}
                     </span>
                     <span className={`font-mono text-xs uppercase tracking-widest leading-relaxed block md:text-right ${item.type === "TOOL" ? "text-green-500" : "text-primary"}`}>
