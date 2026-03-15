@@ -124,7 +124,7 @@ const insightData: InsightEntry[] = [
           name: "What is an Operational X-Ray?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "An Operational X-Ray is a 2–3 week fixed-scope diagnostic that uses a Pareto-driven framework to identify the 20% of Human Middleware causing 80% of operational friction. It maps every manual touchpoint, quantifies the capacity loss, and produces a prioritised transformation roadmap with projected margin recovery figures.",
+            text: "An Operational X-Ray is a 2–3 week fixed-scope diagnostic that identifies the small number of manual processes causing the majority of your capacity loss. It maps every manual touchpoint, quantifies the capacity loss, and produces a prioritised roadmap with projected ROI.",
           },
         },
       ],
