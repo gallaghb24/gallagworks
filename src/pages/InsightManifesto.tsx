@@ -155,7 +155,7 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
-        label: "02: THE ENGINEERING",
+        label: "02: THE SOLUTION",
         title: "A Single Pipeline Replacing Manual Pulls.",
         paragraphs: [
           "I engineered a unified data pipeline that replaced the fragmented manual pulls with a single automated feed. Report generation was automated with pre-formatted outputs, and live data feeds replaced the static snapshots that were obsolete before they were delivered. The architecture was designed to be tool-agnostic – the pipeline connects to whatever systems the client uses, not the other way around.",
