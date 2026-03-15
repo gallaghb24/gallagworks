@@ -97,16 +97,16 @@ const Insights = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
-                [KNOWLEDGE HUB]
+                [INSIGHTS]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
-                Insights &amp; Project Schematics.
+                Insights &amp; Case Studies.
               </h1>
               <p
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Each entry below is a field-documented engagement led by the Founder. The GW-LOG series covers the technical methodology, friction diagnosis, and engineering outcomes from real operational transformations across retail, financial services, professional services, and media.
+                Real examples from real engagements. Each entry documents how Human Middleware was identified, what was built to fix it, and what the measurable outcome was. Client names are anonymised but the numbers are verified.
               </p>
             </div>
           </div>
@@ -166,7 +166,7 @@ const Insights = () => {
           </div>
         </section>
 
-        <CTABand headline={<><span className="md:whitespace-nowrap">Turn field-tested logic into <span className="text-primary">measurable throughput.</span></span></>} subcopy="Apply these operational schematics to your environment with a targeted diagnostic." wrapperClassName="max-w-3xl" secondaryCTA={{ label: "Take the Diagnostic", to: "/diagnostic" }} />
+        <CTABand headline={<><span className="md:whitespace-nowrap">See something <span className="text-primary">familiar?</span></span></>} subcopy="If these problems look like yours, the Operational X-Ray is where we start." wrapperClassName="max-w-3xl" secondaryCTA={{ label: "Take the Diagnostic", to: "/diagnostic" }} />
       </main>
       <Footer hideCTA />
     </div>

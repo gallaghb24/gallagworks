@@ -53,7 +53,7 @@ const insightData: InsightEntry[] = [
     slug: "eradicating-enterprise-data-glue",
     ref: "GW-LOG-101",
     title: "Eradicating Enterprise Human Middleware.",
-    subtitle: "A field manifesto on identifying and eliminating the manual friction that silently erodes enterprise margins.",
+    subtitle: "How to find and fix the manual friction that's silently draining your capacity and margin.",
     date: "MAR 2025",
     seoDescription: "How AI Transformation identifies and removes the manual friction costing enterprise operations £1M+ annually. 1,200 hours reclaimed through systematic Human Middleware elimination.",
     manifesto: [
@@ -61,18 +61,18 @@ const insightData: InsightEntry[] = [
         label: "01: THE PROBLEM",
         title: "Your Most Expensive Employees Are Being Used as Human Middleware.",
         paragraphs: [
-          <>In every enterprise I've diagnosed, the same structural failure appears: skilled, expensive talent operating as Human Middleware between disconnected systems. This is <Link to="/glossary#human-middleware" className="text-primary no-underline hover:brightness-125 transition-all">Human Middleware</Link> – the manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity.</>,
-          "Human Middleware is not a technology problem. It's an architectural one. It emerges when organisations grow faster than their operational infrastructure, leaving teams to bridge the gaps with manual workarounds. These workarounds become normalised. They survive restructures. They outlast the people who created them. And they silently erode margin every single day.",
-          "The cost is not abstract. It is measurable in hours, headcount, error rates, and missed deadlines. But because it's distributed across dozens of micro-tasks, it never appears on a single line item. It's invisible until you engineer the visibility.",
+          <>In every business I've worked with, the same pattern appears: skilled, expensive people spending their time as manual routers between disconnected systems. Re-keying data, copying between spreadsheets, chasing status updates, formatting outputs — work that has no strategic value but consumes 20–40% of operational capacity. That's <Link to="/glossary#human-middleware" className="text-primary no-underline hover:brightness-125 transition-all">Human Middleware</Link>.</>,
+          "Human Middleware isn't a technology problem. It's a process problem. It emerges when organisations grow faster than their systems can keep up, and teams bridge the gaps with manual workarounds. These workarounds become normalised. They survive restructures. They outlast the people who created them. And they silently erode margin every single day.",
+          "The cost is not abstract. It's measurable in hours, headcount, error rates, and missed deadlines. But because it's spread across dozens of small tasks, it never appears on a single line item. It's invisible until someone maps it.",
         ],
       },
       {
         label: "02: THE EVIDENCE",
         title: "Reclaiming 1,200 Hours of Annual Capacity.",
         paragraphs: [
-          <>During an Operational X-Ray for a Tier-1 Health & Beauty Retailer, I mapped every manual touchpoint in their multichannel content orchestration pipeline <LogRef code="LOG-204" slug="multichannel-content-orchestration" />. The diagnostic revealed a 25% capacity loss – over a quarter of the team's working hours consumed by Human Middleware activities with zero strategic value.</>,
+          "During an Operational X-Ray for a major health and beauty retailer, I mapped every manual touchpoint in their content production pipeline. The diagnostic revealed a 25% capacity loss — over a quarter of the team's working hours consumed by Human Middleware with zero strategic value.",
           "High-volume client briefs – 500+ lines of product data – were arriving with inconsistent formatting and misspellings. Each occurrence triggered a 5-hour manual QC loop. Brief-to-studio handoffs carried 2-day lead times. The team had normalised the friction.",
-          "I engineered a custom ingestion pipeline using LLM-based brand correction, automated data standardisation, and one-click reformatting for production-ready outputs. The result:",
+          "I built a custom ingestion pipeline using AI-driven brand correction, automated data standardisation, and one-click reformatting for production-ready outputs. The result:",
         ],
         metrics: [
           { value: "1,200hrs", label: "Reclaimed Annually" },
@@ -81,20 +81,20 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
-        label: "03: THE ECONOMIC RESULT",
-        title: "Engineering Out £1M+ in Operational Leakage.",
+        label: "03: THE RESULT",
+        title: "Recovering £1M+ in lost capacity.",
         paragraphs: [
-          "Across engagements with Tier-1 retailers and FTSE 100 entities, I have identified over £1M in cumulative operational leakage. This figure represents the fully-loaded cost of Human Middleware: the salaries consumed by manual re-keying, the margin lost to delayed turnaround times, and the opportunity cost of strategic talent trapped in procedural work.",
-          <>In one engagement with a national leisure group, an enterprise reporting pipeline that consumed 30 hours of manual Excel manipulation per month was reduced to a 10-minute automated workflow – a 98% reduction in processing time <LogRef code="LOG-205" slug="enterprise-reporting-automation" />. 360 hours were reclaimed annually while removing 100% of data integrity risk.</>,
-          "The pattern is consistent: organisations don't have an AI problem. They have a structural workflow problem. The margin recovery is not achieved by adding more tools. It is achieved by eliminating the Human Middleware so your people return to making decisions, not managing tasks.",
+          "Across engagements with major retailers and large enterprises, I've identified over £1M in cumulative lost capacity. That's the fully loaded cost of Human Middleware: the salaries consumed by manual re-keying, the margin lost to slow turnaround times, and the opportunity cost of talented people trapped in procedural work.",
+          "In one engagement with a national leisure group, a reporting pipeline that consumed 30 hours of manual Excel work per month was reduced to a 10-minute automated workflow — a 98% reduction in processing time. 360 hours reclaimed annually, with data integrity risk eliminated entirely.",
+          "The pattern is consistent: organisations don't have an AI problem. They have a process problem. The recovery isn't achieved by adding more tools. It's achieved by eliminating the Human Middleware so your people go back to making decisions, not managing tasks.",
         ],
       },
       {
         label: "04: THE METHODOLOGY",
-        title: "The Operational X-Ray: Diagnosing Before Engineering.",
+        title: "The Operational X-Ray: diagnosing before building.",
         paragraphs: [
-          "Every engagement begins with the Operational X-Ray – a 2–3 week fixed-scope diagnostic that uses Pareto-driven analysis to identify the 20% of Human Middleware causing 80% of operational friction. This is not a strategy document. It is a technical map of every manual touchpoint, with each one quantified by time cost, error rate, and margin impact.",
-          "The X-Ray produces a prioritised transformation roadmap. Each item has a projected ROI. Each solution is designed with human-in-the-loop safety rails – I automate the routine so your experts retain governance over the exceptions. This is not about replacing people. It is about returning them to the work that justifies their salary.",
+          "Every engagement begins with the Operational X-Ray — a 2–3 week fixed-scope diagnostic that identifies the small number of manual processes causing the majority of your capacity loss. This isn't a strategy document. It's a map of every manual touchpoint, with each one quantified by time, cost, error rate, and impact.",
+          "The X-Ray produces a prioritised roadmap. Each item has a projected ROI. Each solution keeps humans in the loop — I automate the routine so your people retain control over the exceptions that need real judgement. This isn't about replacing people. It's about getting them back to the work that justifies their salary.",
           "Every system is architected by me personally. No junior handoffs. No 50-page strategy decks. Just engineered systems that ship.",
         ],
       },
@@ -108,7 +108,7 @@ const insightData: InsightEntry[] = [
           name: "What is AI Transformation?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "AI Transformation is the application of AI and engineering principles to business operations to eliminate frictional loss and maximise systemic throughput. It focuses on identifying and removing 'Human Middleware' – the manual re-keying, spreadsheet handoffs, and workarounds that erode margin – and replacing them with engineered, scalable systems.",
+            text: "AI Transformation is the application of AI to business operations to eliminate manual friction and free capacity for the work that actually matters. It focuses on identifying and removing 'Human Middleware' – the manual re-keying, spreadsheet handoffs, and workarounds that erode margin – and replacing them with engineered, scalable systems.",
           },
         },
         {
@@ -116,7 +116,7 @@ const insightData: InsightEntry[] = [
           name: "How does Human Middleware affect margins?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Human Middleware is the hidden manual friction where expensive talent operates as connectors between disconnected systems. In enterprise environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified over £1M in cumulative operational leakage caused by Human Middleware across enterprise engagements, reclaiming over 1,200 hours of annual capacity.",
+            text: "Human Middleware is the hidden manual friction where expensive talent operates as connectors between disconnected systems. In enterprise environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified over £1M in cumulative lost capacity caused by Human Middleware across enterprise engagements, reclaiming over 1,200 hours of annual capacity.",
           },
         },
         {
@@ -124,7 +124,7 @@ const insightData: InsightEntry[] = [
           name: "What is an Operational X-Ray?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "An Operational X-Ray is a 2–3 week fixed-scope diagnostic that uses a Pareto-driven framework to identify the 20% of Human Middleware causing 80% of operational friction. It maps every manual touchpoint, quantifies the capacity loss, and produces a prioritised transformation roadmap with projected margin recovery figures.",
+            text: "An Operational X-Ray is a 2–3 week fixed-scope diagnostic that identifies the small number of manual processes causing the majority of your capacity loss. It maps every manual touchpoint, quantifies the capacity loss, and produces a prioritised roadmap with projected ROI.",
           },
         },
       ],
@@ -155,7 +155,7 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
-        label: "02: THE ENGINEERING",
+        label: "02: THE SOLUTION",
         title: "A Single Pipeline Replacing Manual Pulls.",
         paragraphs: [
           "I engineered a unified data pipeline that replaced the fragmented manual pulls with a single automated feed. Report generation was automated with pre-formatted outputs, and live data feeds replaced the static snapshots that were obsolete before they were delivered. The architecture was designed to be tool-agnostic – the pipeline connects to whatever systems the client uses, not the other way around.",
@@ -204,8 +204,8 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
-        label: "02: THE ENGINEERING",
-        title: "Consolidated Production Logic.",
+        label: "02: THE SOLUTION",
+        title: "A single source of truth.",
         paragraphs: [
           "I replaced the spreadsheet-and-email workflow with a consolidated production system featuring automated status updates, assignment routing, and deadline escalation workflows. The system provided a single source of truth, eliminating the duplicated tracking that had been consuming coordination overhead.",
         ],
@@ -254,7 +254,7 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
-        label: "02: THE ENGINEERING",
+        label: "02: THE SOLUTION",
         title: "Exception-Only Routing.",
         paragraphs: [
           "I embedded validation rules directly into the data pipeline with automated routine checks and exception-only routing. An exception triage interface surfaced only the genuine anomalies requiring human judgement, filtering out the noise that had been consuming the team's capacity.",
@@ -303,7 +303,7 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
-        label: "02: THE ENGINEERING",
+        label: "02: THE SOLUTION",
         title: "LLM-Based Ingestion and Automated Standardisation.",
         paragraphs: [
           "I deployed a custom RPA ingestion engine using LLM-based brand correction, automated data standardisation, and field mapping. One-click reformatting delivered instant production-ready outputs. By eliminating the Human Middleware at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
@@ -352,7 +352,7 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
-        label: "02: THE ENGINEERING",
+        label: "02: THE SOLUTION",
         title: "Drag-and-Drop Automated Mapping.",
         paragraphs: [
           "I architected a custom drag-and-drop web application for automated column and order mapping, enabling instant fixed-format reporting. The migration from manual Excel work to a 10-minute automated pipeline removed the 'last-minute rush' before reporting deadlines, allowing the team to enter status calls fully prepped with 100% accurate data.",
@@ -401,7 +401,7 @@ const insightData: InsightEntry[] = [
         ],
       },
       {
-        label: "02: THE ENGINEERING",
+        label: "02: THE SOLUTION",
         title: "Intelligent RPA-Based Consolidation.",
         paragraphs: [
           "I deployed an Intelligent RPA application for bulk allocation merging with instant duplicate removal and automated totals validation. Auto-formatting delivered immediate, client-ready approval exports. The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in Human Middleware for a full day.",
@@ -456,7 +456,7 @@ const TechnicalSchematic = ({ schematic }: { schematic: TechnicalSchematic }) =>
       <div className="grid grid-cols-1 md:grid-cols-2 border-t border-border">
         <div className="px-10 py-8 md:border-r border-border">
           <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-5">
-            [FRICTION]
+            [BEFORE]
           </span>
           <ul className="space-y-3">
             {schematic.friction.map((item, i) => (
@@ -469,7 +469,7 @@ const TechnicalSchematic = ({ schematic }: { schematic: TechnicalSchematic }) =>
         </div>
         <div className="px-10 py-8 border-t md:border-t-0 border-border">
           <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-5">
-            [ENGINEERING]
+            [AFTER]
           </span>
           <ul className="space-y-3">
             {schematic.engineering.map((item, i) => (
@@ -574,7 +574,7 @@ const InsightManifesto = () => {
                     [DEFINITION: AI TRANSFORMATION]
                   </span>
                   <p className="text-foreground font-semibold text-lg leading-relaxed">
-                    The application of AI and engineering principles to business operations to eliminate frictional loss and maximise systemic throughput.
+                    The application of AI to business operations to eliminate manual friction and free capacity for the work that actually matters.
                   </p>
                 </div>
               </div>
@@ -623,7 +623,7 @@ const InsightManifesto = () => {
                 <div className="mb-10">
                   <div className="border-b border-border pb-4 mb-6">
                     <span className="font-mono text-sm text-primary uppercase tracking-widest font-semibold">
-                      [TECHNICAL SCHEMATIC]
+                      [HOW IT WORKS]
                     </span>
                   </div>
                 </div>
