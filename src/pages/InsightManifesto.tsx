@@ -571,7 +571,7 @@ const InsightManifesto = () => {
               <div className="max-w-3xl">
                 <div className="border border-primary p-8" style={{ backgroundColor: "hsl(var(--primary) / 0.05)" }}>
                   <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-4">
-                    [DEFINITION: OPERATIONAL ENGINEERING]
+                    [DEFINITION: AI TRANSFORMATION]
                   </span>
                   <p className="text-foreground font-semibold text-lg leading-relaxed">
                     The application of engineering principles to business operations to eliminate frictional loss and maximise systemic throughput.
