@@ -50,7 +50,7 @@ const AdminLogin = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="rounded-none border-border bg-card text-foreground"
+              className="border-border bg-card text-foreground"
               placeholder="admin@gallagworks.com"
             />
           </div>
@@ -65,7 +65,7 @@ const AdminLogin = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="rounded-none border-border bg-card text-foreground"
+              className="border-border bg-card text-foreground"
               placeholder="••••••••"
             />
           </div>
@@ -77,7 +77,7 @@ const AdminLogin = () => {
           <Button
             type="submit"
             disabled={loading}
-            className="w-full rounded-none bg-primary text-primary-foreground hover:bg-primary/90 font-mono text-sm uppercase tracking-wider"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-mono text-sm uppercase tracking-wider"
           >
             {loading ? "Signing in…" : "Sign In"}
           </Button>

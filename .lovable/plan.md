@@ -1,76 +1,129 @@
 
 
-# Phase 1: Design Foundation + Remove Theme Toggle
+# Light Mode Implementation Plan
 
-This is the foundational layer — typography, colours, border-radius, and removing the theme toggle. Everything else (content, terminology) builds on top in subsequent phases.
+## Overview
 
-## Changes
-
-### 1. Typography swap
-**Files:** `index.html`, `src/index.css`, `tailwind.config.ts`
-
-- Replace Google Fonts import: swap `Inter` for `Sora` and `DM Sans`, keep `JetBrains Mono`
-- Update Tailwind `fontFamily`: `sans` becomes `['DM Sans', ...]`, add `display` as `['Sora', ...]`
-- All headings get `font-display` class (Sora) with tighter tracking (`-0.02em` to `-0.03em`)
-- Body text stays `font-sans` (now DM Sans) with `leading-relaxed` (line-height ~1.7)
-- JetBrains Mono usage unchanged
-
-### 2. Colour palette update
-**File:** `src/index.css`
-
-Remove the `.light` theme block entirely (no toggle). Update `:root` variables to match the new charcoal palette:
-
-| Variable | New value (hex → HSL) |
-|---|---|
-| `--background` | `#111113` → `240 5% 7%` |
-| `--card` / `--secondary` / `--muted` / `--slate` | `#1A1A1F` → `240 6% 11%` |
-| `--foreground` | `#E8E8E6` → `40 5% 91%` |
-| `--primary` | `#FF5F1F` → `16 100% 56%` (stays close) |
-| `--muted-foreground` | `#8A8A8E` → `240 2% 55%` |
-| `--border` | Subtle shift to match Charcoal Mid |
-| `--footer-bg` | `#111113` (same as background) |
-
-Light surface colours (`#F5F4F0` Warm Stone, `#FAFAF8` Off-White) will be used as explicit section backgrounds via utility classes (e.g. `bg-stone`, `bg-off-white`) rather than theme variables — this enables the dual-surface pattern within a single page.
-
-### 3. Remove theme toggle
-**Files:** `src/App.tsx`, `src/components/Navigation.tsx`, `src/components/Footer.tsx`, `src/pages/ConsultationConfirmation.tsx`
-
-- Remove `ThemeProvider` wrapper and `next-themes` import from `App.tsx`
-- Remove theme toggle button and all `dark:` conditional classes from `Navigation.tsx` (show dark logo only)
-- Remove `dark:block` / `block dark:hidden` logo switching from `Footer.tsx`
-- Remove `useTheme` / `mounted` / `toggleTheme` from Navigation
-
-### 4. Border-radius update
-**Files:** `tailwind.config.ts`, then global search for `rounded-none`
-
-- Change `--radius` from `0.5rem` to `0.625rem` (10px)
-- Remove all `rounded-none` classes from buttons and inputs across: `HeroSection.tsx`, `CTABand.tsx`, `Navigation.tsx`, `LeakageEstimator.tsx`, `Footer.tsx`, and any other instances
-- Update `LeakageEstimator.tsx` inline `borderRadius: 0` to remove/inherit
-
-### 5. Add dual-surface utilities
-**File:** `src/index.css`, `tailwind.config.ts`
-
-Add custom colour tokens for the warm light surfaces:
-- `--stone: 40 9% 96%` (`#F5F4F0`)
-- `--off-white: 40 14% 98%` (`#FAFAF8`)
-- Tailwind utilities: `bg-warm-stone`, `bg-off-white`, `text-on-light` (`#111113`)
-
-These won't be applied to sections yet (that's Phase 2/3 content work) but the tokens will be ready.
-
-### 6. Update `index.html` meta
-- Update Google Fonts link to load Sora + DM Sans instead of Inter
-- Update `<title>` and meta descriptions (just the "Operational Engineering" → "AI Transformation" swap for now)
+Add a complete light theme to the site that auto-detects the user's system preference and provides a toggle in the navigation header. The project already has `next-themes` installed but not configured.
 
 ---
 
-## What this does NOT change yet
+## 1. Set up ThemeProvider in App.tsx
 
-- No content or terminology changes (Phase 2)
-- No section-level dark/light surface assignments (Phase 3 — home page content rewrite)
-- Logo stays as-is (you'll update separately)
-- Domain references stay as gallag.works for now
+Wrap the app in `next-themes` `ThemeProvider` with `attribute="class"`, `defaultTheme="system"`, and `enableSystem={true}`. This uses the `darkMode: ["class"]` strategy already configured in `tailwind.config.ts`.
 
-## Implementation order
+---
 
-All changes in one pass — they're interdependent (removing theme toggle requires colour consolidation, typography needs font imports updated simultaneously).
+## 2. Define light mode CSS variables in index.css
+
+Add a `.light` class block (alongside the existing `:root` dark defaults) with inverted values:
+
+```text
+.light {
+  --background:    0 0% 98%;      (near-white)
+  --foreground:    0 0% 10%;      (near-black text)
+  --card:          0 0% 100%;     (white cards)
+  --card-foreground: 0 0% 10%;
+  --popover:       0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --primary:       20 100% 50%;   (slightly deeper orange for contrast on white)
+  --primary-foreground: 0 0% 100%;
+  --secondary:     210 10% 94%;   (light grey)
+  --secondary-foreground: 0 0% 10%;
+  --muted:         210 10% 94%;
+  --muted-foreground: 0 0% 40%;
+  --accent:        20 100% 50%;
+  --accent-foreground: 0 0% 100%;
+  --border:        210 10% 85%;
+  --input:         210 10% 90%;
+  --ring:          20 100% 50%;
+  --footer-bg:     210 10% 96%;
+  --footer-fg:     0 0% 30%;
+  --slate:         210 10% 94%;
+  --sidebar-*:     (matching light values)
+}
+```
+
+---
+
+## 3. Add theme toggle to Navigation
+
+- Import `useTheme` from `next-themes` and `Sun`/`Moon` icons from `lucide-react`
+- Add a small icon button between the nav links and the CTA button (desktop), and at the bottom of the mobile menu
+- The button cycles: if current theme is dark, switch to light; if light, switch to dark; if system, switch to light/dark based on current resolved theme
+- Use a simple Sun/Moon icon swap based on `resolvedTheme`
+
+---
+
+## 4. Replace hardcoded colours with CSS variable references
+
+Several components use hardcoded hex values that won't adapt to light mode. These need updating:
+
+### LeakageEstimator.tsx (heaviest offender)
+- `background: "#000000"` on the section -- replace with `bg-background` or a new CSS variable `--estimator-bg`
+- `color: "#FFFFFF"` on inputs/headings -- replace with `text-foreground`
+- `BORDER_COLOR = "#1A1C1E"` -- replace with `hsl(var(--border))`
+- `background: "hsl(210, 3%, 16%)"` on inputs/buttons -- replace with `hsl(var(--input))`
+- `color: "#FF5F1F"` -- replace with `hsl(var(--primary))`
+- Hover states (`#FFFFFF` / `#000000`) -- use foreground/background variables
+
+### HeroSchematic.tsx
+- SVG strokes `#2F3133` -- replace with `hsl(var(--border))` via a CSS variable or `currentColor`
+- `#F5F5F5` core strokes -- replace with `hsl(var(--foreground))`
+- `#FF5F1F` pulses -- replace with `hsl(var(--primary))`
+
+### HowWeWork.tsx
+- `border-[#2F3133]` -- replace with `border-border`
+
+### EngagementTypes.tsx
+- `bg-[#1A1C1E]` -- replace with `bg-muted` or `bg-slate`
+- `border-[#2F3133]` -- replace with `border-border`
+
+### FAQSection.tsx
+- `bg-[#1A1C1E]` -- replace with `bg-slate`
+- `border-[#2F3133]` -- replace with `border-border`
+
+### GallagGlyph.tsx
+- `stroke="#2F3133"` -- replace with CSS variable
+- `group-hover:stroke-[#F5F5F5]` -- replace with `group-hover:stroke-foreground`
+
+### About.tsx
+- `bg-[#1A1C1E]` and `border-[#2F3133]` on stat cards -- replace with `bg-slate` / `border-border`
+
+---
+
+## 5. Handle the wordmark logo
+
+The site uses a PNG wordmark (`gallag-wordmark.png`) that is likely white text on transparent. In light mode this will be invisible. Two approaches:
+
+- **Option A (recommended):** Add a `dark:` variant -- use the existing white wordmark for dark mode and provide a dark version for light mode. If no dark PNG exists, apply a CSS `filter: invert(1)` in light mode via a conditional class.
+- **Option B:** Use CSS `filter: brightness(0)` on the wordmark in light mode to turn it black.
+
+We will use Option B (`filter`) as it requires no additional assets.
+
+---
+
+## 6. Files to modify
+
+| File | Change |
+|---|---|
+| `src/App.tsx` | Wrap in `ThemeProvider` |
+| `src/index.css` | Add `.light` CSS variable block |
+| `src/components/Navigation.tsx` | Add Sun/Moon toggle button |
+| `src/components/LeakageEstimator.tsx` | Replace ~15 hardcoded hex values with CSS variables |
+| `src/components/HeroSchematic.tsx` | Replace SVG hardcoded colours with CSS variables |
+| `src/components/HowWeWork.tsx` | Replace `#2F3133` with `border-border` |
+| `src/components/EngagementTypes.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
+| `src/components/FAQSection.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
+| `src/components/GallagGlyph.tsx` | Replace hardcoded strokes with CSS variable references |
+| `src/pages/About.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
+
+---
+
+## Technical notes
+
+- `next-themes` is already installed; `darkMode: ["class"]` is already in `tailwind.config.ts` -- no config changes needed
+- The `:root` block keeps the current dark values as the default (so the site stays dark by default for users without a system preference)
+- The `.light` class is applied by `next-themes` to `<html>` when the user selects light mode or their system prefers it
+- The Sonner toaster component already imports `useTheme` and will work automatically once the provider is in place
 

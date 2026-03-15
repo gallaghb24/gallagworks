@@ -118,14 +118,14 @@ const AdminAssessments = () => {
 
   if (loading) return (
     <div className="space-y-6">
-      <div className="h-6 w-36 bg-secondary rounded-none animate-pulse" />
-      <div className="border border-border rounded-none">
+      <div className="h-6 w-36 bg-secondary animate-pulse rounded" />
+      <div className="border border-border rounded">
         {[...Array(6)].map((_, i) => (
           <div key={i} className="flex gap-4 px-3 py-3 border-b border-border">
-            <div className="h-4 w-32 bg-secondary rounded-none animate-pulse" />
-            <div className="h-4 w-24 bg-secondary rounded-none animate-pulse" />
-            <div className="h-4 w-16 bg-secondary rounded-none animate-pulse" />
-            <div className="h-4 w-20 bg-secondary rounded-none animate-pulse" />
+            <div className="h-4 w-32 bg-secondary animate-pulse rounded" />
+            <div className="h-4 w-24 bg-secondary animate-pulse rounded" />
+            <div className="h-4 w-16 bg-secondary animate-pulse rounded" />
+            <div className="h-4 w-20 bg-secondary animate-pulse rounded" />
           </div>
         ))}
       </div>
@@ -136,7 +136,7 @@ const AdminAssessments = () => {
     <div className="space-y-6">
       <h1 className="font-mono text-lg uppercase tracking-widest text-foreground">Assessments</h1>
 
-      <div className="border border-border rounded-none overflow-x-auto">
+      <div className="border border-border rounded overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="border-b border-border bg-card">
             <tr>

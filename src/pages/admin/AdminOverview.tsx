@@ -95,18 +95,18 @@ const AdminOverview = () => {
 
   if (loading) return (
     <div className="space-y-8">
-      <div className="h-6 w-32 bg-secondary rounded-none animate-pulse" />
+      <div className="h-6 w-32 bg-secondary rounded animate-pulse" />
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[...Array(4)].map((_, i) => (
-          <div key={i} className="border border-border rounded-none p-5 bg-card">
-            <div className="h-3 w-20 bg-secondary rounded-none mb-2 animate-pulse" />
-            <div className="h-7 w-16 bg-secondary rounded-none animate-pulse" />
+          <div key={i} className="border border-border p-5 bg-card">
+            <div className="h-3 w-20 bg-secondary rounded mb-2 animate-pulse" />
+            <div className="h-7 w-16 bg-secondary rounded animate-pulse" />
           </div>
         ))}
       </div>
       <div className="grid lg:grid-cols-2 gap-6">
         {[...Array(2)].map((_, i) => (
-          <div key={i} className="border border-border rounded-none p-5 bg-card h-[300px] animate-pulse bg-secondary/20" />
+          <div key={i} className="border border-border p-5 bg-card h-[300px] animate-pulse bg-secondary/20" />
         ))}
       </div>
     </div>
@@ -127,7 +127,7 @@ const AdminOverview = () => {
       {/* Summary cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {cards.map((c) => (
-          <div key={c.label} className="border border-border rounded-none p-5 bg-card">
+          <div key={c.label} className="border border-border p-5 bg-card">
             <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">{c.label}</p>
             <p className="text-2xl font-semibold text-foreground">{c.value}</p>
           </div>
@@ -137,7 +137,7 @@ const AdminOverview = () => {
       {/* Charts row */}
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Maturity distribution */}
-        <div className="border border-border rounded-none p-5 bg-card">
+        <div className="border border-border p-5 bg-card">
           <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
             Assessments by Maturity Level
           </p>
@@ -146,7 +146,7 @@ const AdminOverview = () => {
               <XAxis dataKey="name" tick={{ fill: "hsl(0,0%,60%)", fontSize: 11, fontFamily: "JetBrains Mono" }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: "hsl(0,0%,60%)", fontSize: 11 }} axisLine={false} tickLine={false} allowDecimals={false} />
               <Tooltip
-                contentStyle={{ background: "hsl(210,5%,11%)", border: "1px solid hsl(210,3%,19%)", borderRadius: 0, fontFamily: "Inter" }}
+                contentStyle={{ background: "hsl(240,6%,11%)", border: "1px solid hsl(240,4%,16%)", borderRadius: 10, fontFamily: "DM Sans" }}
                 labelStyle={{ color: "hsl(0,0%,96%)" }}
               />
               <Bar dataKey="count" radius={0}>
@@ -159,7 +159,7 @@ const AdminOverview = () => {
         </div>
 
         {/* Dimension averages */}
-        <div className="border border-border rounded-none p-5 bg-card">
+        <div className="border border-border p-5 bg-card">
           <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
             Average Score by Dimension
           </p>
@@ -168,7 +168,7 @@ const AdminOverview = () => {
               <XAxis dataKey="name" tick={{ fill: "hsl(0,0%,60%)", fontSize: 11, fontFamily: "JetBrains Mono" }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: "hsl(0,0%,60%)", fontSize: 11 }} axisLine={false} tickLine={false} domain={[0, 25]} />
               <Tooltip
-                contentStyle={{ background: "hsl(210,5%,11%)", border: "1px solid hsl(210,3%,19%)", borderRadius: 0, fontFamily: "Inter" }}
+                contentStyle={{ background: "hsl(240,6%,11%)", border: "1px solid hsl(240,4%,16%)", borderRadius: 10, fontFamily: "DM Sans" }}
                 labelStyle={{ color: "hsl(0,0%,96%)" }}
               />
               <Bar dataKey="avg" fill="hsl(20,100%,56%)" radius={0} />

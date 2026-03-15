@@ -1,10 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { useTheme } from "next-themes";
 import gallagWordmark from "@/assets/gallag-wordmark.png";
-import gallagWordmarkLight from "@/assets/gallag-wordmark-light.svg";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,10 +10,6 @@ const Navigation = () => {
   const lastScrollY = useRef(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,10 +37,6 @@ const Navigation = () => {
     { to: "/insights", label: "Insights" },
   ];
 
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  };
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -62,13 +52,8 @@ const Navigation = () => {
           <Link to="/" className="flex items-center">
             <img
               src={gallagWordmark}
-              alt="Gallag Works – Operational Engineering"
-              className="h-8 hidden dark:block"
-            />
-            <img
-              src={gallagWordmarkLight}
-              alt="Gallag Works – Operational Engineering"
-              className="h-8 block dark:hidden"
+              alt="Gallag Works"
+              className="h-8"
             />
           </Link>
 
@@ -86,41 +71,15 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            {mounted && (
-              <button
-                onClick={toggleTheme}
-                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Toggle theme"
-              >
-                {resolvedTheme === "dark" ? (
-                  <Sun className="h-5 w-5" />
-                ) : (
-                  <Moon className="h-5 w-5" />
-                )}
-              </button>
-            )}
             <Button
               asChild
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-6"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6"
             >
               <Link to="/contact">Request a Consultation</Link>
             </Button>
           </div>
 
           <div className="md:hidden flex items-center gap-2">
-            {mounted && (
-              <button
-                onClick={toggleTheme}
-                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Toggle theme"
-              >
-                {resolvedTheme === "dark" ? (
-                  <Sun className="h-5 w-5" />
-                ) : (
-                  <Moon className="h-5 w-5" />
-                )}
-              </button>
-            )}
             <button
               className="p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -141,7 +100,7 @@ const Navigation = () => {
               <div className="px-4">
                 <Button
                   asChild
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-none"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
                   <Link to="/contact">Request a Consultation</Link>
                 </Button>

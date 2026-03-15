@@ -167,14 +167,14 @@ const AdminLeads = () => {
 
   if (loading) return (
     <div className="space-y-6">
-      <div className="h-6 w-24 bg-secondary rounded-none animate-pulse" />
-      <div className="border border-border rounded-none">
+      <div className="h-6 w-24 bg-secondary animate-pulse rounded" />
+      <div className="border border-border rounded">
         {[...Array(6)].map((_, i) => (
           <div key={i} className="flex gap-4 px-3 py-3 border-b border-border">
-            <div className="h-4 w-24 bg-secondary rounded-none animate-pulse" />
-            <div className="h-4 w-32 bg-secondary rounded-none animate-pulse" />
-            <div className="h-4 w-40 bg-secondary rounded-none animate-pulse" />
-            <div className="h-4 w-20 bg-secondary rounded-none animate-pulse" />
+            <div className="h-4 w-24 bg-secondary animate-pulse rounded" />
+            <div className="h-4 w-32 bg-secondary animate-pulse rounded" />
+            <div className="h-4 w-40 bg-secondary animate-pulse rounded" />
+            <div className="h-4 w-20 bg-secondary animate-pulse rounded" />
           </div>
         ))}
       </div>
@@ -185,7 +185,7 @@ const AdminLeads = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="font-mono text-lg uppercase tracking-widest text-foreground">Leads</h1>
-        <Button onClick={exportCSV} variant="outline" className="rounded-none border-border font-mono text-xs uppercase tracking-wider gap-2">
+        <Button onClick={exportCSV} variant="outline" className="border-border font-mono text-xs uppercase tracking-wider gap-2">
           <Download className="h-3.5 w-3.5" />
           Export CSV
         </Button>
@@ -196,7 +196,7 @@ const AdminLeads = () => {
         <select
           value={filterIndustry}
           onChange={(e) => setFilterIndustry(e.target.value)}
-          className="bg-card border border-border rounded-none px-3 py-1.5 text-sm text-foreground font-mono text-xs"
+          className="bg-card border border-border px-3 py-1.5 text-sm text-foreground font-mono text-xs"
         >
           <option value="">All Industries</option>
           {uniqueIndustries.map((i) => <option key={i} value={i!}>{i}</option>)}
@@ -204,7 +204,7 @@ const AdminLeads = () => {
         <select
           value={filterSize}
           onChange={(e) => setFilterSize(e.target.value)}
-          className="bg-card border border-border rounded-none px-3 py-1.5 text-sm text-foreground font-mono text-xs"
+          className="bg-card border border-border px-3 py-1.5 text-sm text-foreground font-mono text-xs"
         >
           <option value="">All Sizes</option>
           {uniqueSizes.map((s) => <option key={s} value={s!}>{s}</option>)}
@@ -212,7 +212,7 @@ const AdminLeads = () => {
         <select
           value={filterMaturity}
           onChange={(e) => setFilterMaturity(e.target.value)}
-          className="bg-card border border-border rounded-none px-3 py-1.5 text-sm text-foreground font-mono text-xs"
+          className="bg-card border border-border px-3 py-1.5 text-sm text-foreground font-mono text-xs"
         >
           <option value="">All Maturity</option>
           {uniqueMaturity.map((m) => <option key={m} value={m!}>{m}</option>)}
@@ -220,7 +220,7 @@ const AdminLeads = () => {
       </div>
 
       {/* Table */}
-      <div className="border border-border rounded-none overflow-x-auto">
+      <div className="border border-border overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="border-b border-border bg-card">
             <tr>

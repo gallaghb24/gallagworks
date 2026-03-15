@@ -191,7 +191,7 @@ const DiagnosticCapture = () => {
                     id="name"
                     value={form.name}
                     onChange={(e) => handleChange("name", e.target.value)}
-                    className="rounded-none h-12"
+                    className="h-12"
                     placeholder="Your name"
                   />
                   {errors.name && (
@@ -207,7 +207,7 @@ const DiagnosticCapture = () => {
                     type="email"
                     value={form.email}
                     onChange={(e) => handleChange("email", e.target.value)}
-                    className="rounded-none h-12"
+                    className="h-12"
                     placeholder="you@company.com"
                   />
                   {errors.email && (
@@ -224,7 +224,7 @@ const DiagnosticCapture = () => {
                     onChange={(e) =>
                       handleChange("organisation", e.target.value)
                     }
-                    className="rounded-none h-12"
+                    className="h-12"
                     placeholder="Your company"
                   />
                   {errors.organisation && (
@@ -241,7 +241,7 @@ const DiagnosticCapture = () => {
                     id="role"
                     value={form.role}
                     onChange={(e) => handleChange("role", e.target.value)}
-                    className="rounded-none h-12"
+                    className="h-12"
                     placeholder="e.g. Head of Operations"
                   />
                 </div>
@@ -253,7 +253,7 @@ const DiagnosticCapture = () => {
                     value={form.industry}
                     onValueChange={(v) => handleChange("industry", v)}
                   >
-                    <SelectTrigger className="rounded-none h-12">
+                    <SelectTrigger className="h-12">
                       <SelectValue placeholder="Select industry" />
                     </SelectTrigger>
                     <SelectContent>
@@ -273,7 +273,7 @@ const DiagnosticCapture = () => {
                     value={form.company_size}
                     onValueChange={(v) => handleChange("company_size", v)}
                   >
-                    <SelectTrigger className="rounded-none h-12">
+                    <SelectTrigger className="h-12">
                       <SelectValue placeholder="Select company size" />
                     </SelectTrigger>
                     <SelectContent>
@@ -289,7 +289,7 @@ const DiagnosticCapture = () => {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-none h-12"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12"
                 >
                   {submitting ? "Submitting..." : "See My Results"}
                 </Button>
