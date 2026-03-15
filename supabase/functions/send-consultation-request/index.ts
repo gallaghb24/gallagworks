@@ -91,7 +91,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">Thanks for requesting a consultation. I've received your details and your AI Readiness results.</p>
 
-    <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">I'll be in touch within 24 hours to arrange a time that works for you. We'll walk through your results, identify your highest-leverage opportunities, and discuss practical next steps.</p>
+    <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">I'll be in touch within 24 hours to arrange a time that works for you. I'll walk through your results, identify your highest-leverage opportunities, and discuss practical next steps.</p>
 
     <p style="margin:0 0 32px 0;font-size:15px;color:#F5F5F5;">No obligation — just a focused conversation about where AI can move the needle for ${safeOrg}.</p>
 
