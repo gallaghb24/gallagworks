@@ -355,6 +355,7 @@ const insightData: InsightEntry[] = [
       {
         label: "01: THE FRICTION",
         surface: "light",
+        title: "30 Hours of Monthly Excel Manipulation.",
         paragraphs: [
           "Fragmented data sources required 30 hours of manual Excel manipulation every month for mission-critical pricing reports. Human error risk was compounded by manual re-keying. Heavy 'Status Chasing' overhead between account and finance teams consumed additional capacity in the days before every reporting deadline.",
         ],
