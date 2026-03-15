@@ -76,7 +76,7 @@ const LeakageEstimator = () => {
         <h2
           className="font-bold mb-3 text-foreground"
           style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'Sora', sans-serif",
             fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
             letterSpacing: "-0.02em",
             lineHeight: 1.1,
