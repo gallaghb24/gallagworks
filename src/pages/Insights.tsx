@@ -116,7 +116,7 @@ const Insights = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               {/* Technical Index Table */}
-              <div className="border border-border">
+              <div className="border border-white/[0.08] rounded-xl overflow-hidden">
                 {/* Header Row */}
                 <div className="hidden md:grid border-b border-foreground px-6 py-4" style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}>
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest leading-relaxed">

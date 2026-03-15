@@ -630,7 +630,7 @@ const InsightManifesto = () => {
                 <TechnicalSchematic schematic={entry.schematic} />
 
                 {/* Confidentiality notice */}
-                <div className="border border-border p-6 mt-10">
+                <div className="border border-white/[0.08] rounded-xl p-6 mt-10">
                   <p className="font-mono text-xs text-muted-foreground leading-relaxed">
                     [NOTICE: CLIENT PRIVACY] To respect enterprise non-disclosure agreements, specific brand names have been abstracted. Verification of outcomes and deeper operational context can be provided during a formal consultation.
                   </p>
