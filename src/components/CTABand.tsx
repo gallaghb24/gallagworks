@@ -18,7 +18,7 @@ const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wr
     <section className="py-20 lg:py-40 border-t border-border border-draw" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className={`max-w-2xl clip-reveal ${isVisible ? "visible" : ""} ${wrapperClassName || ""}`}>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-4">
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
             {headline}
           </h2>
           {subcopy && (
