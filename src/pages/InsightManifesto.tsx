@@ -671,27 +671,21 @@ const InsightManifesto = () => {
           </section>
         )}
 
-        {/* Result + Privacy — Dark surface */}
+        {/* Result + Privacy — Dark surface, bold statement */}
         {entry.schematic && (
-          <section className="py-16">
+          <section className="pt-16 pb-0">
             <div className="container mx-auto px-6 lg:px-12">
               <div className="max-w-4xl">
-                {/* Result block */}
-                <div className="border border-white/[0.08] rounded-xl overflow-hidden mb-10">
-                  <div className="border-t-2 border-primary px-10 py-8" style={{ backgroundColor: "hsl(var(--primary) / 0.05)" }}>
-                    <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-3">
-                      [RESULT]
-                    </span>
-                    <p className="text-foreground font-semibold text-base leading-relaxed">{entry.schematic.result}</p>
-                  </div>
-                </div>
-
-                {/* Confidentiality notice */}
-                <div className="border border-white/[0.08] rounded-xl p-6">
-                  <p className="font-mono text-xs text-muted-foreground leading-relaxed">
-                    [NOTICE: CLIENT PRIVACY] To respect enterprise non-disclosure agreements, specific brand names have been abstracted. Verification of outcomes and deeper operational context can be provided during a formal consultation.
-                  </p>
-                </div>
+                <div className="border-t-2 border-primary mb-8" />
+                <span className="font-mono text-xs text-primary font-semibold tracking-widest uppercase block mb-6">
+                  [RESULT]
+                </span>
+                <p className="font-display text-[28px] md:text-[36px] font-bold leading-tight" style={{ color: '#E8E8E6' }}>
+                  {entry.schematic.result}
+                </p>
+                <p className="font-mono leading-relaxed mt-8 md:mt-10" style={{ fontSize: '11px', color: '#555' }}>
+                  [NOTICE: CLIENT PRIVACY] To respect enterprise non-disclosure agreements, specific brand names have been abstracted. Verification of outcomes and deeper operational context can be provided during a formal consultation.
+                </p>
               </div>
             </div>
           </section>
