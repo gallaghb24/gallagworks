@@ -1,129 +1,37 @@
 
 
-# Light Mode Implementation Plan
+# Services Page Update + Philosophy Enhancement
 
-## Overview
+## Changes
 
-Add a complete light theme to the site that auto-detects the user's system preference and provides a toggle in the navigation header. The project already has `next-themes` installed but not configured.
+### 1. EngagementTypes.tsx — Rewrite to 4 offerings
+Update the engagements array to match the strategy's four distinct services:
 
----
+- **01 Operational X-Ray** (2–3 weeks · Fixed scope) — keep mostly as-is, add target market language ("PE-backed businesses where efficiency gains flow straight to EBITDA", "mid-market organisations outgrowing manual processes")
+- **02 Workflow Engineering** (4–8 weeks · Proof of value) — keep, refine deliverables
+- **03 Build & Deploy** (Project-based) — **full rewrite** to focus on production tools per strategy: brief transformation engines, content validation pipelines, retail allocation tools, data automation. Change duration from "Retainer or phase-based" to "Project-based"
+- **04 Fractional AI Leadership** (Retained · Part-time) — **new**. Embedded AI leadership: strategy, governance, tool selection, team training, stakeholder management. Positioned for businesses that need the function but can't justify a full-time Head of AI
 
-## 1. Set up ThemeProvider in App.tsx
+### 2. Philosophy.tsx — Add 5th principle
+Add "Show the working" as a third body paragraph: *"I don't hide behind proprietary frameworks or black-box methodologies. You understand exactly what I'm building, why, and how to run it without me. The goal is independence, not dependency."*
 
-Wrap the app in `next-themes` `ThemeProvider` with `attribute="class"`, `defaultTheme="system"`, and `enableSystem={true}`. This uses the `darkMode: ["class"]` strategy already configured in `tailwind.config.ts`.
+### 3. Services.tsx — Refine hero copy
+Update the SEO description and hero subhead to weave in target market language naturally: reference people-heavy, process-driven businesses under margin pressure.
 
----
+### 4. FAQSection.tsx — Add transparency FAQ + target market FAQ
+- Add new FAQ: "Who is this for?" — answer references PE-backed businesses, mid-market (£10M–£250M), marketing services as home turf but problems are universal
+- Add new FAQ: "Will I understand what you're building?" — answer reinforces "show the working" principle
+- Update consulting firm FAQ to sharpen the three-category market positioning (strategy firms, tool builders, generalist freelancers)
 
-## 2. Define light mode CSS variables in index.css
+### 5. Voice confirmation
+All new copy in first person ("I"). Will audit every string in touched files.
 
-Add a `.light` class block (alongside the existing `:root` dark defaults) with inverted values:
+### 6. Domain migration
+Parked. No changes to URLs, CNAME, or domain references.
 
-```text
-.light {
-  --background:    0 0% 98%;      (near-white)
-  --foreground:    0 0% 10%;      (near-black text)
-  --card:          0 0% 100%;     (white cards)
-  --card-foreground: 0 0% 10%;
-  --popover:       0 0% 100%;
-  --popover-foreground: 0 0% 10%;
-  --primary:       20 100% 50%;   (slightly deeper orange for contrast on white)
-  --primary-foreground: 0 0% 100%;
-  --secondary:     210 10% 94%;   (light grey)
-  --secondary-foreground: 0 0% 10%;
-  --muted:         210 10% 94%;
-  --muted-foreground: 0 0% 40%;
-  --accent:        20 100% 50%;
-  --accent-foreground: 0 0% 100%;
-  --border:        210 10% 85%;
-  --input:         210 10% 90%;
-  --ring:          20 100% 50%;
-  --footer-bg:     210 10% 96%;
-  --footer-fg:     0 0% 30%;
-  --slate:         210 10% 94%;
-  --sidebar-*:     (matching light values)
-}
-```
-
----
-
-## 3. Add theme toggle to Navigation
-
-- Import `useTheme` from `next-themes` and `Sun`/`Moon` icons from `lucide-react`
-- Add a small icon button between the nav links and the CTA button (desktop), and at the bottom of the mobile menu
-- The button cycles: if current theme is dark, switch to light; if light, switch to dark; if system, switch to light/dark based on current resolved theme
-- Use a simple Sun/Moon icon swap based on `resolvedTheme`
-
----
-
-## 4. Replace hardcoded colours with CSS variable references
-
-Several components use hardcoded hex values that won't adapt to light mode. These need updating:
-
-### LeakageEstimator.tsx (heaviest offender)
-- `background: "#000000"` on the section -- replace with `bg-background` or a new CSS variable `--estimator-bg`
-- `color: "#FFFFFF"` on inputs/headings -- replace with `text-foreground`
-- `BORDER_COLOR = "#1A1C1E"` -- replace with `hsl(var(--border))`
-- `background: "hsl(210, 3%, 16%)"` on inputs/buttons -- replace with `hsl(var(--input))`
-- `color: "#FF5F1F"` -- replace with `hsl(var(--primary))`
-- Hover states (`#FFFFFF` / `#000000`) -- use foreground/background variables
-
-### HeroSchematic.tsx
-- SVG strokes `#2F3133` -- replace with `hsl(var(--border))` via a CSS variable or `currentColor`
-- `#F5F5F5` core strokes -- replace with `hsl(var(--foreground))`
-- `#FF5F1F` pulses -- replace with `hsl(var(--primary))`
-
-### HowWeWork.tsx
-- `border-[#2F3133]` -- replace with `border-border`
-
-### EngagementTypes.tsx
-- `bg-[#1A1C1E]` -- replace with `bg-muted` or `bg-slate`
-- `border-[#2F3133]` -- replace with `border-border`
-
-### FAQSection.tsx
-- `bg-[#1A1C1E]` -- replace with `bg-slate`
-- `border-[#2F3133]` -- replace with `border-border`
-
-### GallagGlyph.tsx
-- `stroke="#2F3133"` -- replace with CSS variable
-- `group-hover:stroke-[#F5F5F5]` -- replace with `group-hover:stroke-foreground`
-
-### About.tsx
-- `bg-[#1A1C1E]` and `border-[#2F3133]` on stat cards -- replace with `bg-slate` / `border-border`
-
----
-
-## 5. Handle the wordmark logo
-
-The site uses a PNG wordmark (`gallag-wordmark.png`) that is likely white text on transparent. In light mode this will be invisible. Two approaches:
-
-- **Option A (recommended):** Add a `dark:` variant -- use the existing white wordmark for dark mode and provide a dark version for light mode. If no dark PNG exists, apply a CSS `filter: invert(1)` in light mode via a conditional class.
-- **Option B:** Use CSS `filter: brightness(0)` on the wordmark in light mode to turn it black.
-
-We will use Option B (`filter`) as it requires no additional assets.
-
----
-
-## 6. Files to modify
-
-| File | Change |
-|---|---|
-| `src/App.tsx` | Wrap in `ThemeProvider` |
-| `src/index.css` | Add `.light` CSS variable block |
-| `src/components/Navigation.tsx` | Add Sun/Moon toggle button |
-| `src/components/LeakageEstimator.tsx` | Replace ~15 hardcoded hex values with CSS variables |
-| `src/components/HeroSchematic.tsx` | Replace SVG hardcoded colours with CSS variables |
-| `src/components/HowWeWork.tsx` | Replace `#2F3133` with `border-border` |
-| `src/components/EngagementTypes.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-| `src/components/FAQSection.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-| `src/components/GallagGlyph.tsx` | Replace hardcoded strokes with CSS variable references |
-| `src/pages/About.tsx` | Replace `#1A1C1E` and `#2F3133` with semantic classes |
-
----
-
-## Technical notes
-
-- `next-themes` is already installed; `darkMode: ["class"]` is already in `tailwind.config.ts` -- no config changes needed
-- The `:root` block keeps the current dark values as the default (so the site stays dark by default for users without a system preference)
-- The `.light` class is applied by `next-themes` to `<html>` when the user selects light mode or their system prefers it
-- The Sonner toaster component already imports `useTheme` and will work automatically once the provider is in place
+## Files to edit
+- `src/components/EngagementTypes.tsx`
+- `src/components/Philosophy.tsx`
+- `src/components/FAQSection.tsx`
+- `src/pages/Services.tsx`
 
