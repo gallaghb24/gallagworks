@@ -16,7 +16,7 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Services"
-        description="AI transformation engagements designed to eliminate Human Middleware and recover enterprise margins. From Operational X-Ray to full Workflow Engineering and deployment."
+        description="AI transformation for people-heavy, process-driven businesses under margin pressure. From Operational X-Ray to Fractional AI Leadership — strategy, build, and adoption."
         path="/services"
       />
       <Navigation />
