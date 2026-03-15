@@ -999,7 +999,7 @@ const DiagnosticResults = () => {
 
               {/* Strategic */}
               <div
-                className={`border border-border p-6 rounded-none transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
+                className={`border border-border p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 ${
                   actionPlanSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: actionPlanSection.isVisible ? "300ms" : "0ms", animationFillMode: "forwards" }}
