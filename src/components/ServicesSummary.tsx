@@ -45,7 +45,7 @@ const ServicesSummary = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="border border-border p-8"
+              className="bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30"
             >
               <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-4">
                 [{service.id}]

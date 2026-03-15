@@ -46,7 +46,7 @@ const HowWeWork = () => {
           {steps.map((step) => (
             <div
               key={step.id}
-              className="border border-border p-6"
+              className="bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30"
             >
               <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-3">
                 [{step.id}]
