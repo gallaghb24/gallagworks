@@ -306,7 +306,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
-        title: "The Normalisation of Copy-Paste Culture.",
+        surface: "light",
         paragraphs: [
           "When an account team spends the majority of its week reformatting client data, something fundamental shifts in the team's identity. They stop thinking of themselves as strategic partners and start thinking of themselves as production operatives. The copy-paste becomes the job. Client calls become data collection exercises rather than relationship-building opportunities. The team's capacity for proactive thinking – for spotting upsell opportunities, for anticipating seasonal challenges, for deepening the client partnership – is consumed by the mechanics of data handling.",
           "This normalisation is insidious because it is gradual. No one decides to become a data entry team. It happens one brief at a time, one QC loop at a time, one 'quick fix' at a time. Each individual task feels manageable. But aggregated across 500-line briefs arriving weekly, the cumulative effect is a team that has been architecturally prevented from scaling client relationships.",
