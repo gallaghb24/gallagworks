@@ -145,6 +145,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE FRICTION",
+        surface: "light",
         title: "Reporting as a Manual Assembly Line.",
         paragraphs: [
           "The team was pulling data from multiple disconnected systems, manually reformatting between tools, and re-keying outputs into client-facing reports. By the time reports reached clients, the underlying data was already stale. The entire reporting function had become a manual assembly line – expensive talent trapped in procedural data wrangling rather than delivering the advisory value that justified their rates.",
