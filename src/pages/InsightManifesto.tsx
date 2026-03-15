@@ -355,7 +355,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
-        title: "The Opportunity Cost of Blind Leadership.",
+        surface: "light",
         paragraphs: [
           "In high-stakes enterprise reporting, the quality of leadership decisions is directly constrained by the quality of the data that informs them. When pricing reports require 30 hours of manual assembly, the data that reaches decision-makers is not just late – it is shaped by the limitations of whoever assembled it. Manual processes introduce silent editorial choices: which columns get included, how outliers are handled, whether discrepancies are flagged or quietly smoothed over. The report becomes an interpretation, not a reflection.",
           "The 'last-minute rush' that precedes every reporting deadline creates a secondary cost that rarely appears in post-mortems. When account and finance teams spend the final 48 hours before a status call scrambling to reconcile numbers, they arrive at the meeting exhausted and defensive rather than prepared and strategic. The conversation shifts from 'what should we do with this data' to 'is this data correct'. Leadership is flying blind – not because the data does not exist, but because the process of assembling it has consumed all the capacity that should have been spent analysing it.",
