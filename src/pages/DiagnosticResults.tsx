@@ -851,7 +851,7 @@ const DiagnosticResults = () => {
                 return (
                   <div
                     key={key}
-                    className={`border border-border p-6 md:p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 ${
+                    className={`border border-white/[0.08] rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 ${
                       recommendationsSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                     }`}
                     style={{
