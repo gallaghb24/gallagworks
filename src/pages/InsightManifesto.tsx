@@ -574,7 +574,7 @@ const InsightManifesto = () => {
                     [DEFINITION: AI TRANSFORMATION]
                   </span>
                   <p className="text-foreground font-semibold text-lg leading-relaxed">
-                    The application of AI and engineering principles to business operations to eliminate frictional loss and maximise systemic throughput.
+                    The application of AI to business operations to eliminate manual friction and free capacity for the work that actually matters.
                   </p>
                 </div>
               </div>
