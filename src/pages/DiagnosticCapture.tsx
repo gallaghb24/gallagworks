@@ -289,7 +289,7 @@ const DiagnosticCapture = () => {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-none h-12"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12"
                 >
                   {submitting ? "Submitting..." : "See My Results"}
                 </Button>

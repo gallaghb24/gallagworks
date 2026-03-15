@@ -168,7 +168,7 @@ const AdminOverview = () => {
               <XAxis dataKey="name" tick={{ fill: "hsl(0,0%,60%)", fontSize: 11, fontFamily: "JetBrains Mono" }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: "hsl(0,0%,60%)", fontSize: 11 }} axisLine={false} tickLine={false} domain={[0, 25]} />
               <Tooltip
-                contentStyle={{ background: "hsl(210,5%,11%)", border: "1px solid hsl(210,3%,19%)", borderRadius: 0, fontFamily: "Inter" }}
+                contentStyle={{ background: "hsl(240,6%,11%)", border: "1px solid hsl(240,4%,16%)", borderRadius: 10, fontFamily: "DM Sans" }}
                 labelStyle={{ color: "hsl(0,0%,96%)" }}
               />
               <Bar dataKey="avg" fill="hsl(20,100%,56%)" radius={0} />

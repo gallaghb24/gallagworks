@@ -196,7 +196,7 @@ const Contact = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-3 text-base font-medium"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-base font-medium"
                     >
                       {isSubmitting ? (
                         <>
