@@ -60,6 +60,7 @@ const insightData: InsightEntry[] = [
     manifesto: [
       {
         label: "01: THE PROBLEM",
+        surface: "light",
         title: "Your Most Expensive Employees Are Being Used as Human Middleware.",
         paragraphs: [
           <>In every business I've worked with, the same pattern appears: skilled, expensive people spending their time as manual routers between disconnected systems. Re-keying data, copying between spreadsheets, chasing status updates, formatting outputs — work that has no strategic value but consumes 20–40% of operational capacity. That's <Link to="/glossary#human-middleware" className="text-primary no-underline hover:brightness-125 transition-all">Human Middleware</Link>.</>,
