@@ -27,7 +27,7 @@ const HeroSection = () => {
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-6 text-lg font-medium group"
+                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium group"
               >
                 <Link to="/contact">
                   Request a Consultation

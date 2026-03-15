@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import gallagWordmark from "@/assets/gallag-wordmark.png";
 import gallagWordmarkFooter from "@/assets/gallag-wordmark-footer.png";
-import gallagWordmarkLight from "@/assets/gallag-wordmark-light.svg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface FooterProps {
@@ -21,7 +19,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
         <div className="border-t border-border" ref={ctaRef}>
           <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-40">
             <div className={`max-w-2xl clip-reveal ${ctaVisible ? "visible" : ""}`}>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-4">
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
                 Stop the leakage. <span className="text-primary">Start the Engineering.</span>
               </h2>
               <p className="text-foreground/70 font-light mb-8 max-w-[720px]">
@@ -30,7 +28,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
               <Button
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-8 py-6 text-lg font-medium group"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium group"
               >
                 <Link to="/contact">
                   Request a Consultation
@@ -52,8 +50,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
               {/* Column 1: Brand */}
               <div className="flex flex-col">
-                <img src={gallagWordmarkFooter} alt="Gallag Works – Operational Engineering" className="h-8 object-contain object-left hidden dark:block" />
-                <img src={gallagWordmarkLight} alt="Gallag Works – Operational Engineering" className="h-8 object-contain object-left block dark:hidden" />
+                <img src={gallagWordmarkFooter} alt="Gallag Works" className="h-8 object-contain object-left" />
               </div>
 
               {/* Column 2: Nav */}

@@ -41,7 +41,7 @@ const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wr
               <Button
                 asChild
                 size="lg"
-                className="border border-border bg-transparent text-foreground hover:text-primary rounded-none px-8 py-6 text-lg font-medium"
+                className="border border-border bg-transparent text-foreground hover:text-primary px-8 py-6 text-lg font-medium"
               >
                 <Link to={secondaryCTA.to}>
                   {secondaryCTA.label}

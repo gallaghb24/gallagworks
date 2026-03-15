@@ -243,7 +243,7 @@ const LeakageEstimator = () => {
                         fontFamily: "'JetBrains Mono', monospace",
                         fontSize: "0.75rem",
                         fontWeight: 600,
-                        borderRadius: 0,
+                        borderRadius: "0.625rem",
                         border: isActive ? "1px solid hsl(var(--primary))" : "1px solid hsl(var(--border))",
                         background: isActive ? "hsl(var(--primary))" : "hsl(var(--input))",
                         color: isActive ? "hsl(var(--primary-foreground))" : "hsl(var(--muted-foreground))",

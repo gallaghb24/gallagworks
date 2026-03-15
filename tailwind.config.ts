@@ -56,6 +56,9 @@ export default {
           DEFAULT: "hsl(var(--footer-bg))",
           foreground: "hsl(var(--footer-fg))",
         },
+        "warm-stone": "hsl(var(--warm-stone))",
+        "off-white": "hsl(var(--off-white))",
+        "on-light": "hsl(var(--text-on-light))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
