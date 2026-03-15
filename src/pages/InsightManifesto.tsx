@@ -272,7 +272,7 @@ const insightData: InsightEntry[] = [
       engineering: [
         "Validation rules built into the data pipeline",
         "Automated routine checks with exception routing",
-        "Decision Inbox for genuine anomalies only",
+        "Exception triage for genuine anomalies only",
       ],
       humanLayer: "Judgement calls on exceptions, relationship management, and process governance.",
       result: "Manual checking reduced 60%. 20h/week reclaimed. Two process improvement initiatives launched in first quarter.",
