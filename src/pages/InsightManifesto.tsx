@@ -623,7 +623,7 @@ const InsightManifesto = () => {
                 <div className="mb-10">
                   <div className="border-b border-border pb-4 mb-6">
                     <span className="font-mono text-sm text-primary uppercase tracking-widest font-semibold">
-                      [TECHNICAL SCHEMATIC]
+                      [HOW IT WORKS]
                     </span>
                   </div>
                 </div>
