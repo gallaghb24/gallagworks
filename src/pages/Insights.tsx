@@ -16,7 +16,7 @@ const insights = [
   },
   {
     ref: "GW-LOG-101",
-    topic: "Eradicating the Enterprise Data Glue",
+    topic: "Eradicating Enterprise Human Middleware",
     metric: "1,200hrs+ Reclaimed",
     status: "VERIFIED",
     slug: "eradicating-enterprise-data-glue",
