@@ -407,6 +407,7 @@ const insightData: InsightEntry[] = [
       {
         label: "01: THE FRICTION",
         surface: "light",
+        title: "30+ Project Owners, One Master List.",
         paragraphs: [
           "Single campaigns were split across 30+ project owners, each with siloed store allocations. Every month, someone spent 10 hours manually merging dozens of Excel files into a 'Master List'. Any client change required repeating hours of manual rework. The team was trapped in a cycle of Human Middleware that made reactive agility impossible.",
         ],
