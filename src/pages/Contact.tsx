@@ -74,7 +74,7 @@ const Contact = () => {
       />
       <Navigation />
       <main>
-        <section className="pt-32 pb-20 lg:pb-32">
+        <section className="pt-36 pb-20 md:pt-40 lg:pb-32">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-2xl">
               {/* Header */}
