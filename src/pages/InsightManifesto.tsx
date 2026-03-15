@@ -469,7 +469,7 @@ const TechnicalSchematic = ({ schematic }: { schematic: TechnicalSchematic }) =>
         </div>
         <div className="px-10 py-8 border-t md:border-t-0 border-border">
           <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-5">
-            [ENGINEERING]
+            [AFTER]
           </span>
           <ul className="space-y-3">
             {schematic.engineering.map((item, i) => (
