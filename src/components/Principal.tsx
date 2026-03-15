@@ -6,7 +6,7 @@ const Principal = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 lg:py-36 bg-slate" ref={ref}>
+    <section className="py-16 lg:py-36 bg-warm-stone" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
           <span
@@ -16,10 +16,10 @@ const Principal = () => {
           </span>
 
           <div className={`clip-reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.08s" }}>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-8 leading-tight">
+            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-on-light mb-8 leading-tight tracking-tight">
               Built by an Operator, not an Agency.
             </h2>
-            <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]">
+            <p className="text-lg text-on-light/70 font-light leading-relaxed max-w-[720px]">
               Gallag Works is an independent AI transformation practice founded by Ben Gallagher. After 15 years managing £15m+ multichannel contracts as operational lead within a 2,100-person content production agency, I learned a hard truth: efficiency protects the P&L. I'm not here to bill hours – I'm here to recover them. Gallag Works exists to bring that exact methodology to leaders who are drowning in Human Middleware and ready to build scalable systems.
             </p>
             <Link
@@ -32,7 +32,7 @@ const Principal = () => {
               href="https://www.linkedin.com/in/bengallagher/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-sm text-muted-foreground hover:text-primary transition-colors mt-3"
+              className="inline-flex items-center gap-2 font-mono text-sm text-on-light/50 hover:text-primary transition-colors mt-3"
             >
               LinkedIn →
             </a>

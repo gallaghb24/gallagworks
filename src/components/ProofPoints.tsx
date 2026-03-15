@@ -48,7 +48,7 @@ const ProofPoints = () => {
               >
                 {point.counter.display}
               </p>
-              <p className="font-display text-lg font-bold text-foreground mb-3">
+              <p className="font-display text-lg font-extrabold text-foreground mb-3 tracking-tight">
                 {point.label}
               </p>
               <p className="text-muted-foreground font-light leading-relaxed text-sm">

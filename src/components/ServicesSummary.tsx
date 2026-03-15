@@ -17,9 +17,9 @@ const services = [
   },
   {
     id: "03",
-    title: "Build & Deploy",
+    title: "Fractional AI Leadership",
     description:
-      "Exception routing and governance at scale. Human-in-the-loop safety rails ensuring system control and champion-led adoption across teams.",
+      "Embedded strategic leadership for teams who need an experienced operator to drive their AI transformation – without the overhead of a full-time hire.",
   },
 ];
 
@@ -45,7 +45,7 @@ const ServicesSummary = () => {
               <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-4">
                 [{service.id}]
               </span>
-              <h3 className="font-display text-xl font-bold text-foreground mb-4">
+              <h3 className="font-display text-xl font-extrabold text-foreground mb-4 tracking-tight">
                 {service.title}
               </h3>
               <p className="text-muted-foreground font-light leading-relaxed text-sm">
