@@ -87,8 +87,8 @@ const Insights = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Insights & Project Schematics"
-        description="AI transformation insights, manifestos, and technical project schematics. Proven results: 98% manual effort reduction, 1,200 hours reclaimed annually for enterprise clients."
+        title="Insights & Case Studies"
+        description="Real examples from real engagements. AI transformation case studies with verified results: 98% manual effort reduction, 1,200 hours reclaimed annually."
         path="/insights"
       />
       <Navigation />

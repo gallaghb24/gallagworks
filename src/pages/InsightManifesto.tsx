@@ -624,7 +624,7 @@ const InsightManifesto = () => {
             return (
               <div
                 key={gi}
-                className={isLight ? "bg-warm-stone" : ""}
+                className={isLight ? "bg-warm-stone py-4" : ""}
               >
                 {group.sections.map(({ section, index: i }) => (
                   <section key={i} className="pb-16">
