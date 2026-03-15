@@ -29,12 +29,18 @@ const Philosophy = () => {
               className={`text-lg text-on-light/70 leading-relaxed clip-reveal ${isVisible ? "visible" : ""}`}
               style={{ transitionDelay: "0.22s" }}
             >
-              Adoption is the product. The best system in the world is worthless if nobody uses it. I design for the people who have to live inside these workflows every day – and I stay until it sticks.
+              Adoption is the product. The best system in the world is worthless if nobody uses it. I design for the people who have to live inside these workflows every day — and I stay until it sticks.
+            </p>
+            <p
+              className={`text-lg text-on-light/70 leading-relaxed clip-reveal ${isVisible ? "visible" : ""}`}
+              style={{ transitionDelay: "0.28s" }}
+            >
+              Show the working. I don't hide behind proprietary frameworks or black-box methodologies. You understand exactly what I'm building, why, and how to run it without me. The goal is independence, not dependency.
             </p>
           </div>
           <p
             className={`text-lg text-primary font-bold leading-relaxed max-w-[600px] mt-8 clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.28s" }}
+            style={{ transitionDelay: "0.34s" }}
           >
             Everyone is buying AI tools. No one is designing how work should move through them. I do the latter.
           </p>

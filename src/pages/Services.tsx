@@ -16,7 +16,7 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Services"
-        description="AI transformation engagements designed to eliminate Human Middleware and recover enterprise margins. From Operational X-Ray to full Workflow Engineering and deployment."
+        description="AI transformation for people-heavy, process-driven businesses under margin pressure. From Operational X-Ray to Fractional AI Leadership — strategy, build, and adoption."
         path="/services"
       />
       <Navigation />
@@ -34,7 +34,7 @@ const Services = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                I design how work should move through your organisation, then build the systems to make it happen. Every engagement is structured to deliver measurable outcomes — hours reclaimed, errors eliminated, throughput increased.
+                Most businesses over a certain size are held together by Human Middleware — senior people spending 30% of their time acting as manual routers between systems. I design how work should move through your organisation, then build the systems to make it happen. Strategy, build, and adoption — measured by capacity reclaimed and margin recovered.
               </p>
             </div>
           </div>

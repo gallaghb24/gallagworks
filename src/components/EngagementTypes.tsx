@@ -6,11 +6,11 @@ const engagements = [
     title: "Operational X-Ray",
     duration: "2–3 weeks · Fixed scope",
     description:
-      "A Pareto-driven diagnostic that maps every manual touchpoint across your workflows. I quantify the capacity loss and produce a prioritised transformation roadmap with projected ROI. This is the starting point for every engagement.",
+      "A Pareto-driven diagnostic that maps how work actually moves through your business — not how the org chart says it should, but how it really does. I expose the Human Middleware, quantify the capacity loss, and produce a prioritised transformation roadmap with projected ROI. This is the starting point for every engagement.",
     deliverables: [
-      "Complete workflow mapping with friction quantification",
-      "Capacity loss analysis (hours, cost, error rates)",
-      "Prioritised transformation roadmap with projected margin recovery",
+      "Complete workflow mapping with friction quantification across every manual touchpoint",
+      "Capacity loss analysis — hours, cost, and error rates attributed to Human Middleware",
+      "Prioritised transformation roadmap with projected margin recovery and payback timeline",
     ],
   },
   {
@@ -18,23 +18,37 @@ const engagements = [
     title: "Workflow Engineering",
     duration: "4–8 weeks · Proof of value",
     description:
-      "I re-engineer your highest-friction workflows into production-ready systems. AI handles the predictable majority — the routine data processing, formatting, and routing — while your experts retain governance over the genuine exceptions that require human judgement.",
+      "I re-engineer your highest-friction workflows into production-ready systems. AI handles the predictable majority — the routine data processing, formatting, and routing — while your experts retain governance over the genuine exceptions that require human judgement. Every build is measured by capacity reclaimed and adoption achieved, not hours billed.",
     deliverables: [
       "Production-ready automated workflows replacing manual processes",
-      "Exception routing with human-in-the-loop escalation",
-      "Measurable before/after metrics on capacity and throughput",
+      "Exception routing with human-in-the-loop escalation for judgement-led decisions",
+      "Measurable before/after metrics on capacity, throughput, and error rates",
     ],
   },
   {
     id: "03",
     title: "Build & Deploy",
-    duration: "Retainer or phase-based",
+    duration: "Project-based",
     description:
-      "Governance and exception management at scale. I embed human-in-the-loop safety rails ensuring system control and champion-led adoption across teams. This is where the transformation moves from proof-of-value to enterprise-wide operation.",
+      "Hands-on delivery of AI-enabled tools and workflows — not proofs of concept that gather dust, but production systems designed for real adoption. I build the things that eliminate the manual re-keying, the copy-paste routines, and the spreadsheet coordination that drain your margin.",
     deliverables: [
-      "Enterprise-wide rollout with change management",
-      "Exception handling frameworks and audit trails",
-      "Champion training and self-service adoption tooling",
+      "Brief transformation engines — automating creative brief processing and bulk upload preparation",
+      "Content validation and QC systems — multi-agent quality assurance pipelines",
+      "Data automation and merge tools — eliminating manual re-keying across platforms",
+      "Delivery tracking systems — consolidated visibility across AI initiatives",
+    ],
+  },
+  {
+    id: "04",
+    title: "Fractional AI Leadership",
+    duration: "Retained · Part-time",
+    description:
+      "Embedded, part-time AI leadership for businesses that need strategic direction and hands-on delivery but aren't ready for — or can't justify — a full-time Head of AI. I operate as an extension of your leadership team: setting the strategy, standing up governance, shipping production tools, and driving adoption across the business.",
+    deliverables: [
+      "AI strategy and roadmap development aligned to your P&L priorities",
+      "Governance framework design — policies, risk management, and audit trails",
+      "Tool selection, prototyping, and production deployment",
+      "Team training and capability building, including apprenticeship programme design",
     ],
   },
 ];
