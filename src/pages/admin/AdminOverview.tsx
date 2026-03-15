@@ -95,12 +95,12 @@ const AdminOverview = () => {
 
   if (loading) return (
     <div className="space-y-8">
-      <div className="h-6 w-32 bg-secondary rounded-none animate-pulse" />
+      <div className="h-6 w-32 bg-secondary rounded animate-pulse" />
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[...Array(4)].map((_, i) => (
-          <div key={i} className="border border-border rounded-none p-5 bg-card">
-            <div className="h-3 w-20 bg-secondary rounded-none mb-2 animate-pulse" />
-            <div className="h-7 w-16 bg-secondary rounded-none animate-pulse" />
+          <div key={i} className="border border-border p-5 bg-card">
+            <div className="h-3 w-20 bg-secondary rounded mb-2 animate-pulse" />
+            <div className="h-7 w-16 bg-secondary rounded animate-pulse" />
           </div>
         ))}
       </div>
