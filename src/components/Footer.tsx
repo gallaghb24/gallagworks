@@ -61,7 +61,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
                 <nav className="flex flex-col gap-3">
                   <Link to="/services" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Services</Link>
                   <Link to="/diagnostic" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Diagnostic</Link>
-                  <Link to="/about" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">The Principal</Link>
+                  <Link to="/about" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">The Founder</Link>
                   <Link to="/insights" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Insights</Link>
                   <Link to="/contact" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Contact</Link>
                 </nav>
