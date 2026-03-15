@@ -93,9 +93,9 @@ const insightData: InsightEntry[] = [
         label: "04: THE METHODOLOGY",
         title: "The Operational X-Ray: Diagnosing Before Engineering.",
         paragraphs: [
-          "Every engagement begins with the Operational X-Ray – a 2–3 week fixed-scope diagnostic that uses Pareto-driven analysis to identify the 20% of Data Glue causing 80% of operational friction. This is not a strategy document. It is a technical map of every manual touchpoint, with each one quantified by time cost, error rate, and margin impact.",
-          "The X-Ray produces a prioritised engineering roadmap. Each item has a projected ROI. Each solution is designed with human-in-the-loop safety rails – we automate the routine so your experts retain governance over the exceptions. This is not about replacing people. It is about returning them to the work that justifies their salary.",
-          "Every system is architected by the Principal personally. No junior handoffs. No 50-page strategy decks. Just engineered systems that ship.",
+          "Every engagement begins with the Operational X-Ray – a 2–3 week fixed-scope diagnostic that uses Pareto-driven analysis to identify the 20% of Human Middleware causing 80% of operational friction. This is not a strategy document. It is a technical map of every manual touchpoint, with each one quantified by time cost, error rate, and margin impact.",
+          "The X-Ray produces a prioritised transformation roadmap. Each item has a projected ROI. Each solution is designed with human-in-the-loop safety rails – I automate the routine so your experts retain governance over the exceptions. This is not about replacing people. It is about returning them to the work that justifies their salary.",
+          "Every system is architected by me personally. No junior handoffs. No 50-page strategy decks. Just engineered systems that ship.",
         ],
       },
     ],
