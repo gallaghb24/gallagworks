@@ -241,7 +241,7 @@ const DiagnosticCapture = () => {
                     id="role"
                     value={form.role}
                     onChange={(e) => handleChange("role", e.target.value)}
-                    className="rounded-none h-12"
+                    className="h-12"
                     placeholder="e.g. Head of Operations"
                   />
                 </div>
