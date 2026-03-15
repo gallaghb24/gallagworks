@@ -602,7 +602,7 @@ const InsightManifesto = () => {
                   {section.metrics && (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                       {section.metrics.map((m, k) => (
-                        <div key={k} className="border border-border p-6">
+                        <div key={k} className="border border-white/[0.08] rounded-xl p-6">
                           <p className="font-mono text-2xl font-extrabold text-primary mb-2">{m.value}</p>
                           <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">{m.label}</p>
                         </div>
