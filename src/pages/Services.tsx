@@ -21,7 +21,7 @@ const Services = () => {
       />
       <Navigation />
       <main>
-        <section className="pt-24 pb-16 md:pt-32 md:pb-24">
+        <section className="pt-36 pb-16 md:pt-40 md:pb-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
