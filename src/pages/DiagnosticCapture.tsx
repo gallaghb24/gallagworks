@@ -224,7 +224,7 @@ const DiagnosticCapture = () => {
                     onChange={(e) =>
                       handleChange("organisation", e.target.value)
                     }
-                    className="rounded-none h-12"
+                    className="h-12"
                     placeholder="Your company"
                   />
                   {errors.organisation && (
