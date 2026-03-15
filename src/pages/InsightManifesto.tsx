@@ -373,6 +373,7 @@ const insightData: InsightEntry[] = [
       {
         label: "02: THE SOLUTION",
         surface: "dark",
+        title: "Drag-and-Drop Automated Mapping.",
         paragraphs: [
           "I architected a custom drag-and-drop web application for automated column and order mapping, enabling instant fixed-format reporting. The migration from manual Excel work to a 10-minute automated pipeline removed the 'last-minute rush' before reporting deadlines, allowing the team to enter status calls fully prepped with 100% accurate data.",
         ],
