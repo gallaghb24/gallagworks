@@ -24,11 +24,11 @@ const Philosophy = () => {
           >
             You cannot scale a business on brute-force human effort, but you also cannot fix bad logic with shiny technology. I start with the operational reality. I understand margin, SLAs, and adoption. I simplify the workflow first, kill the redundant steps, and build the automation second.
           </p>
-          <p
+           <p
             className={`text-lg text-primary font-bold leading-relaxed max-w-[600px] mt-8 clip-reveal ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.24s" }}
           >
-            Everyone is buying AI tools. No one is engineering the logic to make them work. I do the latter.
+            Everyone is buying AI tools. No one is designing how work should move through them. I do the latter.
           </p>
         </div>
       </div>

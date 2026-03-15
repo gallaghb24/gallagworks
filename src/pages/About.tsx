@@ -31,8 +31,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="The Principal"
-        description="15+ years directing enterprise delivery across retail, financial services, and professional services. Principal-led operational transformation as operational lead within a 2,100-person agency."
+        title="The Founder"
+        description="15+ years directing enterprise delivery across retail, financial services, and professional services. Founder-led AI transformation as operational lead within a 2,100-person agency."
         path="/about"
       />
       <Navigation />
@@ -42,7 +42,7 @@ const About = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
-                [THE PRINCIPAL]
+                [THE FOUNDER]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
                 Operator-Led Transformation.
@@ -51,7 +51,7 @@ const About = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Gallag Works is a low-volume, high-conviction operational engineering studio. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Principal – I led operational transformation across retail, financial services, and professional services as operational lead within a 2,100-person content production agency, managing £15M+ annual contracts.
+                Gallag Works is a low-volume, high-conviction AI transformation practice. I don't sell 'creative hours'; I engineer P&L protection. You work directly with the Founder – I led operational transformation across retail, financial services, and professional services as operational lead within a 2,100-person content production agency, managing £15M+ annual contracts.
               </p>
               <a
                 href="https://www.linkedin.com/in/bengallagher/"
@@ -83,7 +83,7 @@ const About = () => {
               <p
                 className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${method.isVisible ? "visible" : ""}`}
               >
-                Most organisations don't have an AI problem. They have a Structural Workflow problem. I engineer the 'Data Glue' out of the system so your people go back to making decisions, not managing tasks. I architect every system personally – no junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
+                Most organisations don't have an AI problem. They have a Structural Workflow problem. I engineer the 'Human Middleware' out of the system so your people go back to making decisions, not managing tasks. I architect every system personally – no junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
               </p>
             </div>
           </div>
@@ -127,13 +127,13 @@ const About = () => {
               <p
                 className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
-                15 years directing enterprise client delivery and managing £15M+ contracts as operational lead within a 2,100-person content production agency taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact efficiency-first methodology to leaders across industries who are drowning in manual workarounds and ready to build scalable systems.
+                15 years directing enterprise client delivery and managing £15M+ contracts as operational lead within a 2,100-person content production agency taught a hard truth: efficiency protects the P&L. Managing high-stakes, 30+ person teams required a ruthless focus on operations. Gallag Works was founded to bring that exact methodology to leaders across industries who are drowning in Human Middleware and ready to build scalable systems.
               </p>
             </div>
           </div>
         </section>
 
-        <CTABand headline={<>High-conviction engineering.<br /><span className="text-primary">Zero-leakage operations.</span></>} subcopy={<>Work directly with the Principal to transform your manual<br className="hidden md:inline" /> cost centres into scalable engines.</>} />
+        <CTABand headline={<>Founder-led AI transformation.<br /><span className="text-primary">Zero-leakage operations.</span></>} subcopy={<>Work directly with the Founder to transform your manual<br className="hidden md:inline" /> cost centres into scalable engines.</>} />
       </main>
       <Footer hideCTA />
     </div>

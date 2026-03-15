@@ -20,7 +20,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
           <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-40">
             <div className={`max-w-2xl clip-reveal ${ctaVisible ? "visible" : ""}`}>
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-                Stop the leakage. <span className="text-primary">Start the Engineering.</span>
+                Stop the leakage. <span className="text-primary">Start the Transformation.</span>
               </h2>
               <p className="text-foreground/70 font-light mb-8 max-w-[720px]">
                 Start with the free AI Readiness Diagnostic, or request an Operational X-Ray to quantify your margin recovery opportunity.
