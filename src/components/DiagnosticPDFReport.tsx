@@ -330,7 +330,7 @@ function generateActionPlan(
     process_maturity: {
       "Critical Gap": { quick: "Map your three most critical operational workflows as they actually run today", medium: "Document decision points and exception handling for your core processes", strat: "Build an operational process library with version control and regular review cycles" },
       "Needs Attention": { quick: "Compare documented processes against how work actually flows — identify the gaps", medium: "Create exception handling paths and escalation criteria for your top workflows", strat: "Implement automated triage separating routine from complex work" },
-      "Solid Foundation": { quick: "Identify the 80/20 split in your highest-volume workflow", medium: "Build automated routing for the predictable majority in your top process", strat: "Create decision inboxes for genuine judgement calls with measurable processing times" },
+      "Solid Foundation": { quick: "Identify the 80/20 split in your highest-volume workflow", medium: "Build automated routing for the predictable majority in your top process", strat: "Create exception routing for genuine judgement calls with measurable processing times" },
       "Strength": { quick: "Select your highest-volume process for AI augmentation", medium: "Implement AI-assisted automation for the selected process", strat: "Scale process automation across the business using early wins as the model" },
     },
     governance_risk: {
