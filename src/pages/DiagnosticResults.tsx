@@ -291,10 +291,10 @@ const DimensionCard = ({ dimKey, score, pct, rating, name, isHovered, sectionVis
 
   return (
     <div
-      className={`border p-5 cursor-pointer transition-all duration-300 ${
+      className={`border border-white/[0.08] rounded-xl p-5 cursor-pointer transition-all duration-300 ${
         isHovered
           ? "border-primary/60 shadow-lg shadow-primary/10 -translate-y-1"
-          : "border-border hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 hover:-translate-y-0.5"
+          : "hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 hover:-translate-y-0.5"
       }`}
       style={{
         opacity: isVisible ? 1 : 0,
