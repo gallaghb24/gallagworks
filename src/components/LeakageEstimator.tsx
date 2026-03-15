@@ -74,15 +74,13 @@ const LeakageEstimator = () => {
         </span>
 
         <h2
-          className="font-bold mb-3 text-foreground"
+          className="font-display font-extrabold mb-3 text-foreground tracking-tight"
           style={{
-            fontFamily: "'Sora', sans-serif",
             fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-            letterSpacing: "-0.02em",
             lineHeight: 1.1,
           }}
         >
-          Quantify your operational drag.
+          Quantify your Human Middleware cost.
         </h2>
 
         <p

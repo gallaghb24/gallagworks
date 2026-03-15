@@ -4,7 +4,7 @@ const Philosophy = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 lg:py-32 bg-slate" ref={ref}>
+    <section className="py-16 lg:py-32 bg-warm-stone" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
           <span
@@ -13,20 +13,28 @@ const Philosophy = () => {
             [PHILOSOPHY]
           </span>
           <h2
-            className={`text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 leading-tight clip-reveal ${isVisible ? "visible" : ""}`}
+            className={`font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-light mb-10 leading-tight tracking-tight clip-reveal ${isVisible ? "visible" : ""}`}
             style={{ transitionDelay: "0.08s" }}
           >
             Automating a broken process just creates a faster mess.
           </h2>
+          <div className="space-y-6 max-w-[600px]">
+            <p
+              className={`text-lg text-on-light/70 leading-relaxed clip-reveal ${isVisible ? "visible" : ""}`}
+              style={{ transitionDelay: "0.16s" }}
+            >
+              Process before technology. You cannot scale a business on brute-force human effort, but you also cannot fix bad logic with shiny technology. I simplify the workflow first, kill the redundant steps, and build the automation second.
+            </p>
+            <p
+              className={`text-lg text-on-light/70 leading-relaxed clip-reveal ${isVisible ? "visible" : ""}`}
+              style={{ transitionDelay: "0.22s" }}
+            >
+              Adoption is the product. The best system in the world is worthless if nobody uses it. I design for the people who have to live inside these workflows every day – and I stay until it sticks.
+            </p>
+          </div>
           <p
-            className={`text-lg text-muted-foreground leading-relaxed max-w-[600px] clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.16s" }}
-          >
-            You cannot scale a business on brute-force human effort, but you also cannot fix bad logic with shiny technology. I start with the operational reality. I understand margin, SLAs, and adoption. I simplify the workflow first, kill the redundant steps, and build the automation second.
-          </p>
-           <p
             className={`text-lg text-primary font-bold leading-relaxed max-w-[600px] mt-8 clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.24s" }}
+            style={{ transitionDelay: "0.28s" }}
           >
             Everyone is buying AI tools. No one is designing how work should move through them. I do the latter.
           </p>
