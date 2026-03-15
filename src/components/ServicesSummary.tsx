@@ -42,11 +42,10 @@ const ServicesSummary = () => {
         </span>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.id}
-              className={`border border-border p-8 clip-reveal-down ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              className="border border-border p-8"
             >
               <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-4">
                 [{service.id}]

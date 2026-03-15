@@ -51,11 +51,10 @@ const HowWeWork = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          {steps.map((step, index) => (
+          {steps.map((step) => (
             <div
               key={step.id}
-              className={`border border-border p-6 clip-reveal-down ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${index * 0.08}s` }}
+              className="border border-border p-6"
             >
               <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-3">
                 [{step.id}]

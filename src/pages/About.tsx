@@ -122,9 +122,7 @@ const About = () => {
                 ))}
               </div>
 
-              <p
-                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${exp.isVisible ? "visible" : ""}`}
-              >
+              <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]">
                 15 years directing enterprise client delivery and managing £15M+ contracts inside a 2,100-person agency taught me where businesses actually bleed time and money: not in the big strategic decisions, but in the thousands of small manual handoffs that nobody questions anymore. The last two years building an AI transformation function — governance, production tools, training programmes, adoption across the business — showed me that most companies need someone who can do all of it, not just advise on parts of it. That's what Gallag Works is.
               </p>
             </div>
