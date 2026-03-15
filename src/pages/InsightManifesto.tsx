@@ -458,46 +458,43 @@ const TechnicalSchematic = ({ schematic }: { schematic: TechnicalSchematic }) =>
   return (
     <div
       ref={ref}
-      className={`border border-border transition-all duration-700 ease-out ${
+      className={`bg-off-white border border-black/[0.08] rounded-xl overflow-hidden transition-all duration-700 ease-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
-      {/* Hard-stop rule */}
-      <div className="border-b border-foreground" />
-
       {/* Header */}
       <div className="px-10 py-8 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
         <span className="font-mono text-sm text-primary font-semibold tracking-widest">
           Ref: {schematic.ref}
         </span>
-        <span className="font-mono text-xs text-muted-foreground/60 uppercase tracking-widest">
+        <span className="font-mono text-xs uppercase tracking-widest" style={{ color: '#888' }}>
           {schematic.sector}
         </span>
       </div>
 
-      {/* Friction / Engineering grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 border-t border-border">
-        <div className="px-10 py-8 md:border-r border-border">
+      {/* Before / After grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 border-t border-black/[0.08]">
+        <div className="px-10 py-8 md:border-r border-black/[0.08]">
           <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-5">
             [BEFORE]
           </span>
           <ul className="space-y-3">
             {schematic.friction.map((item, i) => (
-              <li key={i} className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2">
-                <span className="text-primary/60 mt-0.5 flex-shrink-0">→</span>
+              <li key={i} className="text-sm leading-relaxed flex items-start gap-2" style={{ color: '#333' }}>
+                <span className="text-primary mt-0.5 flex-shrink-0">→</span>
                 {item}
               </li>
             ))}
           </ul>
         </div>
-        <div className="px-10 py-8 border-t md:border-t-0 border-border">
+        <div className="px-10 py-8 border-t md:border-t-0 border-black/[0.08]">
           <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-5">
             [AFTER]
           </span>
           <ul className="space-y-3">
             {schematic.engineering.map((item, i) => (
-              <li key={i} className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2">
-                <span className="text-primary/60 mt-0.5 flex-shrink-0">→</span>
+              <li key={i} className="text-sm leading-relaxed flex items-start gap-2" style={{ color: '#333' }}>
+                <span className="text-primary mt-0.5 flex-shrink-0">→</span>
                 {item}
               </li>
             ))}
@@ -506,19 +503,11 @@ const TechnicalSchematic = ({ schematic }: { schematic: TechnicalSchematic }) =>
       </div>
 
       {/* Human Layer */}
-      <div className="border-t border-border px-10 py-8">
+      <div className="border-t border-black/[0.08] px-10 py-8">
         <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-3">
           [HUMAN LAYER]
         </span>
-        <p className="text-muted-foreground text-sm leading-relaxed max-w-[720px]">{schematic.humanLayer}</p>
-      </div>
-
-      {/* Result */}
-      <div className="border-t border-primary px-10 py-8" style={{ backgroundColor: "hsl(var(--primary) / 0.05)" }}>
-        <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-3">
-          [RESULT]
-        </span>
-        <p className="text-foreground font-semibold text-base leading-relaxed">{schematic.result}</p>
+        <p className="text-sm leading-relaxed max-w-[720px]" style={{ color: '#555' }}>{schematic.humanLayer}</p>
       </div>
     </div>
   );
