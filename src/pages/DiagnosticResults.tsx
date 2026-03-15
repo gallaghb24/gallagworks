@@ -111,7 +111,7 @@ function generateActionPlan(
       "Solid Foundation": {
         quick: "Identify the 80/20 split in your highest-volume workflow — what is predictable vs. exceptional",
         medium: "Build automated routing for the predictable majority in your top process",
-        strat: "Create decision inboxes for genuine judgement calls with measurable processing times",
+        strat: "Create exception routing for genuine judgement calls with measurable processing times",
       },
       "Strength": {
         quick: "Select your highest-volume, highest-value process for AI augmentation",
@@ -531,7 +531,7 @@ const DiagnosticResults = () => {
         textAnchor={textAnchor}
         fill={isHovered ? "#FF5F1F" : "hsl(var(--foreground))"}
         fontSize={isHovered ? 13 : 12}
-        fontFamily="Inter"
+        fontFamily="DM Sans"
         fontWeight={isHovered ? 700 : 400}
         style={{ cursor: "pointer", transition: "all 0.2s ease" }}
         onMouseEnter={() => dimKey && setHoveredDimension(dimKey)}
@@ -1101,10 +1101,10 @@ const DiagnosticResults = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-6 mt-8">
                 <Link to="/insights/eradicating-enterprise-data-glue" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Explore our methodology →
+                  Explore the methodology →
                 </Link>
                 <Link to="/services" className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
-                  See how we work →
+                  See how I work →
                 </Link>
               </div>
             </div>

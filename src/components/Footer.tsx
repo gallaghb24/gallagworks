@@ -20,7 +20,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
           <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-40">
             <div className={`max-w-2xl clip-reveal ${ctaVisible ? "visible" : ""}`}>
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-                Stop the leakage. <span className="text-primary">Start the Engineering.</span>
+                Stop the leakage. <span className="text-primary">Start the Transformation.</span>
               </h2>
               <p className="text-foreground/70 font-light mb-8 max-w-[720px]">
                 Start with the free AI Readiness Diagnostic, or request an Operational X-Ray to quantify your margin recovery opportunity.
@@ -61,7 +61,7 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
                 <nav className="flex flex-col gap-3">
                   <Link to="/services" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Services</Link>
                   <Link to="/diagnostic" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Diagnostic</Link>
-                  <Link to="/about" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">The Principal</Link>
+                  <Link to="/about" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">The Founder</Link>
                   <Link to="/insights" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Insights</Link>
                   <Link to="/contact" className="text-sm text-footer-foreground/70 hover:text-footer-foreground transition-colors">Contact</Link>
                 </nav>

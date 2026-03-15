@@ -13,8 +13,8 @@ const SEOHead = ({
 }) => {
   const siteUrl = "https://www.gallag.works";
   const fullTitle = title
-    ? `${title} | Gallag Works | Operational Engineering`
-    : "Gallag Works | Operational Engineering";
+    ? `${title} | Gallag Works | AI Transformation`
+    : "Gallag Works | AI Transformation";
 
   return (
     <Helmet>

@@ -10,14 +10,14 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-8 opacity-0 animate-fade-in-up">
-              Operational Engineering for<br className="hidden lg:inline" /> the <span className="text-primary">AI Era.</span>
+              AI Transformation for<br className="hidden lg:inline" /> <span className="text-primary">Enterprise Operations.</span>
             </h1>
 
             <p
               className="text-lg md:text-xl text-muted-foreground font-light max-w-[550px] mb-10 leading-relaxed opacity-0 animate-fade-in-up"
               style={{ animationDelay: "0.15s" }}
             >
-              I help operations and commercial leaders untangle the 'Data Glue' – the manual re-keying, spreadsheets, and workarounds that erode margin and burn out your best people.
+              I help operations and commercial leaders eliminate 'Human Middleware' – the manual re-keying, spreadsheets, and workarounds that erode margin and burn out your best people.
             </p>
 
             <div

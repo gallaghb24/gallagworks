@@ -14,7 +14,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title=""
-        description="Principal-led operational engineering for high-volume, handoff-heavy operations. Eradicating 'Data Glue' and manual friction to recover enterprise margins. Proven results: 1,200+ hours reclaimed, up to 98% manual effort reduction."
+        description="Founder-led AI transformation for high-volume, handoff-heavy operations. Eliminating 'Human Middleware' and manual friction to recover enterprise margins. Proven results: 1,200+ hours reclaimed, up to 98% manual effort reduction."
         path="/"
       />
       <Navigation />
@@ -26,7 +26,7 @@ const Index = () => {
         <ProofPoints />
         <LeakageEstimator />
         <CTABand
-          headline={<>Stop the leakage. <span className="text-primary">Start the Engineering.</span></>}
+          headline={<>Stop the leakage. <span className="text-primary">Start the Transformation.</span></>}
           subcopy="Start with the free AI Readiness Diagnostic or request a consultation to discuss your operational challenges."
           secondaryCTA={{ label: "Take the AI Readiness Diagnostic", to: "/diagnostic" }}
         />

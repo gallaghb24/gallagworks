@@ -87,7 +87,7 @@ const LeakageEstimator = () => {
 
         <p
           style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: "0.9rem",
             fontWeight: 300,
             color: "hsl(var(--muted-foreground))",
@@ -148,7 +148,7 @@ const LeakageEstimator = () => {
             <p
               className="text-foreground"
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 700,
                 fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
                 letterSpacing: "-0.02em",
@@ -190,7 +190,7 @@ const LeakageEstimator = () => {
             <p
               className="text-foreground"
               style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 700,
                 fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
                 letterSpacing: "-0.02em",

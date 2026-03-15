@@ -12,7 +12,7 @@ const Principal = () => {
           <span
             className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
           >
-            [THE PRINCIPAL]
+            [THE FOUNDER]
           </span>
 
           <div className={`clip-reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.08s" }}>
@@ -20,13 +20,13 @@ const Principal = () => {
               Built by an Operator, not an Agency.
             </h2>
             <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]">
-              Gallag Works is an independent operational engineering studio founded by Ben Gallagher. After 15 years managing £15m+ multichannel contracts as operational lead within a 2,100-person content production agency, Ben learned a hard truth: efficiency protects the P&L. He's not here to bill hours – he's here to recover them. Gallag Works exists to bring that exact 'efficiency-first' methodology to leaders who are drowning in manual workarounds and ready to build scalable systems.
+              Gallag Works is an independent AI transformation practice founded by Ben Gallagher. After 15 years managing £15m+ multichannel contracts as operational lead within a 2,100-person content production agency, I learned a hard truth: efficiency protects the P&L. I'm not here to bill hours – I'm here to recover them. Gallag Works exists to bring that exact methodology to leaders who are drowning in Human Middleware and ready to build scalable systems.
             </p>
             <Link
               to="/about"
               className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors mt-8"
             >
-              Meet the Principal <ArrowRight className="w-4 h-4" />
+              Meet the Founder <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href="https://www.linkedin.com/in/bengallagher/"

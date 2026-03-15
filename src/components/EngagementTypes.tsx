@@ -1,34 +1,41 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Link } from "react-router-dom";
 
-const tiers = [
+const engagements = [
   {
-    number: "00",
-    title: "AI Readiness Diagnostic",
-    sublabel: "5 Minutes | Self-Serve | Free",
+    id: "01",
+    title: "Operational X-Ray",
+    duration: "2–3 weeks · Fixed scope",
     description:
-      "Before you invest in transformation, understand where you stand. Our self-serve diagnostic scores your organisation across six dimensions of AI readiness – Data Foundation, Process Maturity, Governance, Skills, Tooling, and Strategic Clarity. You get a full report with detailed recommendations and a prioritised action plan. No cost, no obligation.",
+      "A Pareto-driven diagnostic that maps every manual touchpoint across your workflows. I quantify the capacity loss and produce a prioritised transformation roadmap with projected ROI. This is the starting point for every engagement.",
+    deliverables: [
+      "Complete workflow mapping with friction quantification",
+      "Capacity loss analysis (hours, cost, error rates)",
+      "Prioritised transformation roadmap with projected margin recovery",
+    ],
   },
   {
-    number: "01",
-    title: "Operational Audit & X-Ray",
-    sublabel: "2–3 Weeks | Fixed Scope",
+    id: "02",
+    title: "Workflow Engineering",
+    duration: "4–8 weeks · Proof of value",
     description:
-      "A surgical deep dive into the 'as-is' state. I expose the Data Glue – the manual re-keying and spreadsheet handoffs – hiding in plain sight. I identify the 20% of 'Data Glue' causing 80% of your operational friction. You receive a logic schematic of where your margin is leaking.",
+      "I re-engineer your highest-friction workflows into production-ready systems. AI handles the predictable majority — the routine data processing, formatting, and routing — while your experts retain governance over the genuine exceptions that require human judgement.",
+    deliverables: [
+      "Production-ready automated workflows replacing manual processes",
+      "Exception routing with human-in-the-loop escalation",
+      "Measurable before/after metrics on capacity and throughput",
+    ],
   },
   {
-    number: "02",
-    title: "Structural Prototype",
-    sublabel: "4–8 Weeks | Proof of Value",
+    id: "03",
+    title: "Build & Deploy",
+    duration: "Retainer or phase-based",
     description:
-      "I re-engineer one high-friction workflow end-to-end via engineered Decision Inboxes – AI aggregates the context, but your experts retain the final sign-off. I don't just test AI; I build working infrastructure that proves the ROI and protects the P&L before you commit to scaling.",
-  },
-  {
-    number: "03",
-    title: "Enterprise Integration",
-    sublabel: "Retainer or Phase-Based",
-    description:
-      "Transformation at scale. I focus on Governance and Exception Engineering – human-in-the-loop safety rails that ensure your team stays in control. Combined with champion-led adoption, the system actually sticks across teams and geographies.",
+      "Governance and exception management at scale. I embed human-in-the-loop safety rails ensuring system control and champion-led adoption across teams. This is where the transformation moves from proof-of-value to enterprise-wide operation.",
+    deliverables: [
+      "Enterprise-wide rollout with change management",
+      "Exception handling frameworks and audit trails",
+      "Champion training and self-service adoption tooling",
+    ],
   },
 ];
 
@@ -36,59 +43,52 @@ const EngagementTypes = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 lg:py-36 bg-slate border-draw" ref={ref}>
+    <section className="py-16 lg:py-36 bg-slate" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-7xl">
-          <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
-          >
-            [ENGAGEMENT TIERS]
-          </span>
-          <h2
-            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-6 clip-reveal ${isVisible ? "visible" : ""}`}
-          >
-            Four tiers. One methodology.
-          </h2>
-          <p
-            className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
-          >
-            I de-risk transformation through a phased, results-first approach. Start with the free AI Readiness Diagnostic to understand where you stand. If the results surface something worth exploring, I move into a fixed-scope Operational X-Ray, then prototype, then scale.
-          </p>
+        <span
+          className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
+        >
+          [ENGAGEMENT TYPES]
+        </span>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {tiers.map((tier, index) => {
-              const card = (
-                <div
-                  key={tier.number}
-                  className={`bg-slate border border-border p-6 md:p-8 clip-reveal-down ${isVisible ? "visible" : ""} ${index === 0 ? "hover:border-primary transition-colors cursor-pointer" : ""}`}
-                  style={{ transitionDelay: `${index * 0.1}s` }}
-                >
-                  <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
-                    [{tier.number}]
+        <div className="space-y-6">
+          {engagements.map((eng, index) => (
+            <div
+              key={eng.id}
+              className={`border border-border p-8 md:p-10 clip-reveal-down ${isVisible ? "visible" : ""}`}
+              style={{ transitionDelay: `${index * 0.12}s` }}
+            >
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6">
+                <div>
+                  <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-2">
+                    [{eng.id}]
                   </span>
-                  <h3 className="text-xl font-extrabold text-foreground mb-2">
-                    {tier.title}
+                  <h3 className="font-display text-2xl font-bold text-foreground">
+                    {eng.title}
                   </h3>
-                  <p className="font-mono text-xs text-primary/80 uppercase tracking-wider mb-6">
-                    {tier.sublabel}
-                  </p>
-                  <p className="text-muted-foreground font-light leading-relaxed">
-                    {tier.description}
-                  </p>
                 </div>
-              );
-
-              if (index === 0) {
-                return (
-                  <Link key={tier.number} to="/diagnostic" className="block">
-                    {card}
-                  </Link>
-                );
-              }
-
-              return card;
-            })}
-          </div>
+                <span className="font-mono text-xs text-muted-foreground/70 uppercase tracking-widest shrink-0">
+                  {eng.duration}
+                </span>
+              </div>
+              <p className="text-muted-foreground font-light leading-relaxed mb-6 max-w-[720px]">
+                {eng.description}
+              </p>
+              <div>
+                <span className="font-mono text-xs text-primary/80 tracking-widest block mb-3">
+                  [DELIVERABLES]
+                </span>
+                <ul className="space-y-2">
+                  {eng.deliverables.map((d, i) => (
+                    <li key={i} className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2">
+                      <span className="text-primary/60 mt-0.5 flex-shrink-0">→</span>
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,138 +1,100 @@
-import { Helmet } from "react-helmet-async";
-
-const caseStudySchemas = [
-  {
-    id: "GW-LOG-201",
-    name: "POS Job Workflow Automation",
-    description: "Reporting cycle cut 70%. 15h/week reclaimed for analysis and client advisory by replacing manual data pulls with a single automated pipeline.",
-    slug: "pos-job-workflow",
-  },
-  {
-    id: "GW-LOG-202",
-    name: "Costing Process Re-engineering",
-    description: "Missed deadlines down 85%. 10h/week coordination overhead removed by consolidating spreadsheet handoffs into an automated production system.",
-    slug: "costing-process",
-  },
-  {
-    id: "GW-LOG-203",
-    name: "Validation Pipeline Automation",
-    description: "Manual checking reduced 60%. 20h/week reclaimed by building validation rules into the data pipeline with exception-only routing.",
-    slug: "validation-pipeline",
-  },
-  {
-    id: "GW-LOG-204",
-    name: "Multichannel Content Orchestration",
-    description: "1,200 hours reclaimed annually. Lead times slashed by 50% from 2 days to under 24 hours through LLM-based ingestion and automated data standardisation.",
-    slug: "multichannel-content-orchestration",
-  },
-  {
-    id: "GW-LOG-205",
-    name: "Enterprise Reporting Automation",
-    description: "98% reduction in processing time. 360 hours reclaimed annually while removing 100% of data integrity risk via automated drag-and-drop mapping.",
-    slug: "enterprise-reporting-automation",
-  },
-  {
-    id: "GW-LOG-206",
-    name: "High-Volume Allocation Logistics",
-    description: "Manual workload reduced by 97%. Task duration cut from 10 hours to 15 minutes through intelligent RPA-based allocation merging.",
-    slug: "high-volume-allocation-logistics",
-  },
-];
-
 const StructuredData = () => {
-  const professionalService = {
+  const orgSchema = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "Organization",
     name: "Gallag Works",
-    description:
-      "Principal-led operational engineering for high-volume, handoff-heavy operations. Eradicating 'Data Glue' and manual friction to recover enterprise margins.",
     url: "https://www.gallag.works",
     logo: "https://www.gallag.works/favicon.svg",
-    image: "https://www.gallag.works/og-image.png",
-    priceRange: "££££",
+    description:
+      "Founder-led AI transformation for enterprise operations. Eliminating 'Human Middleware' and manual friction to recover enterprise margins.",
+    founder: {
+      "@type": "Person",
+      name: "Ben Gallagher",
+      jobTitle: "Founder",
+    },
     areaServed: "GB",
     serviceType: [
-      "Operational Engineering",
+      "AI Transformation",
       "Workflow Automation",
       "Enterprise Transformation",
       "Operational Audit",
     ],
-    founder: {
-      "@type": "Person",
-      name: "Ben Gallagher",
-      jobTitle: "Principal",
-        description:
-        "Operational engineering expert with 15+ years directing enterprise delivery for enterprise clients across retail, financial services, and professional services. Specialises in eradicating manual friction and engineering scalable operational systems.",
-      knowsAbout: [
-        "Operational Engineering",
-        "Enterprise Transformation",
-        "Workflow Automation",
-        "Enterprise Operations",
-      ],
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "GB",
-    },
   };
 
-  const personSchema = {
+  const faqSchema = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Ben Gallagher",
-    jobTitle: "Principal, Gallag Works",
-    description:
-      "Operational engineering specialist with 15+ years of enterprise delivery experience managing £15M+ contracts across retail, financial services, and professional services.",
-    knowsAbout: [
-      "Operational Engineering",
-      "Enterprise Transformation",
-      "Data Glue Eradication",
-      "Workflow Automation",
-      "Enterprise Operations",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What does Gallag Works do?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Gallag Works provides founder-led AI transformation for enterprise operations. I identify and eradicate 'Human Middleware' — the invisible manual processes, spreadsheet workarounds, and coordination overhead that consume enterprise capacity and erode margins.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is 'Human Middleware'?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Human Middleware is the invisible connective tissue of manual processes — copy-paste routines, spreadsheet reconciliation, email-based approvals, and human coordination overhead — that holds enterprise operations together but consumes vast amounts of skilled capacity. It is the single largest source of hidden operational cost in enterprise operations.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Who is Ben Gallagher?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Ben Gallagher is the Founder of Gallag Works, with 15+ years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. He has managed £15M+ multichannel contracts and specialises in eliminating Human Middleware and engineering scalable operational systems.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What results has Gallag Works delivered?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Proven outcomes include: £1.5M+ in identified operational leakage recovered, 1,200 hours of annual capacity reclaimed, 98% reduction in manual processing effort, 50%+ reduction in turnaround times, and 97% workload reduction on high-volume allocation tasks.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How does the engagement process work?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Engagements follow three tiers: (1) Operational Audit & X-Ray (2–3 weeks, fixed scope) to diagnose friction; (2) Workflow Engineering (4–8 weeks) to re-engineer workflows; (3) Build & Deploy (retainer-based) to embed governance and scale adoption across teams.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Gallag Works replace existing systems?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. Gallag Works is tool-agnostic and works within your existing technology stack. I re-engineer the operational architecture around your current systems rather than replacing them, eliminating the manual workarounds that have grown up between them.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is data kept secure during an engagement?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. All engagements are InfoSec-aligned with enterprise-grade data handling protocols. I work within your existing security frameworks and never require data to leave your controlled environment.",
+        },
+      },
     ],
-    worksFor: {
-      "@type": "Organization",
-      name: "Gallag Works",
-      url: "https://www.gallag.works",
-    },
   };
-
-  const creativeWorks = caseStudySchemas.map((cs) => ({
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: cs.name,
-    description: cs.description,
-    identifier: cs.id,
-    url: `https://www.gallag.works/insights/${cs.slug}`,
-    hasPart: {
-      "@type": "WebPageElement",
-      name: "Technical Schematic",
-      url: `https://www.gallag.works/insights/${cs.slug}#schematic`,
-    },
-    author: {
-      "@type": "Organization",
-      name: "Gallag Works",
-    },
-    about: {
-      "@type": "Thing",
-      name: "Operational Engineering",
-    },
-  }));
 
   return (
-    <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(professionalService)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(personSchema)}
-      </script>
-      {creativeWorks.map((cw, i) => (
-        <script key={i} type="application/ld+json">
-          {JSON.stringify(cw)}
-        </script>
-      ))}
-    </Helmet>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+    </>
   );
 };
 

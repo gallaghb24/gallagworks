@@ -202,7 +202,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">Thanks for reaching out${safeCompany ? ` and sharing some background on <span style="font-family:'Courier New',Courier,monospace;color:#FF5F1F;">${safeCompany}</span>` : ''}.</p>
 
-    <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">I've personally received your request and the details you provided regarding your current operational context. It sounds like there is a significant opportunity to look at the &lsquo;Data Glue&rsquo; and reclaim some capacity within your workflows.</p>
+    <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">I've personally received your request and the details you provided regarding your current operational context. It sounds like there is a significant opportunity to look at the 'Human Middleware' and reclaim some capacity within your workflows.</p>
 
     <p style="margin:0 0 20px 0;font-size:15px;color:#F5F5F5;">I am reviewing the information now and will be in touch within the next 24 hours to suggest a time for us to speak.</p>
 
@@ -210,7 +210,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     <p style="margin:0;font-size:15px;color:#F5F5F5;">Best,</p>
     <p style="margin:4px 0 0 0;font-size:15px;font-weight:700;color:#F5F5F5;">Ben Gallagher</p>
-    <p style="margin:2px 0 0 0;font-size:13px;color:#888;">Principal, Gallag Works</p>
+    <p style="margin:2px 0 0 0;font-size:13px;color:#888;">Founder, Gallag Works</p>
 
     <hr style="border:none;border-top:1px solid #2F3133;margin:32px 0 16px 0;">
 

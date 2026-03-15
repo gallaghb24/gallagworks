@@ -52,17 +52,17 @@ const insightData: InsightEntry[] = [
   {
     slug: "eradicating-enterprise-data-glue",
     ref: "GW-LOG-101",
-    title: "Eradicating the Enterprise Data Glue.",
-    subtitle: "A field manifesto on identifying and engineering out the manual friction that silently erodes enterprise margins.",
+    title: "Eradicating Enterprise Human Middleware.",
+    subtitle: "A field manifesto on identifying and eliminating the manual friction that silently erodes enterprise margins.",
     date: "MAR 2025",
-    seoDescription: "How Operational Engineering identifies and removes the manual friction costing Tier-1 retailers £1M+ annually. 1,200 hours reclaimed through systematic Data Glue eradication.",
+    seoDescription: "How AI Transformation identifies and removes the manual friction costing enterprise operations £1M+ annually. 1,200 hours reclaimed through systematic Human Middleware elimination.",
     manifesto: [
       {
         label: "01: THE PROBLEM",
         title: "Your Most Expensive Employees Are Being Used as Human Middleware.",
         paragraphs: [
-          <>In every enterprise we've diagnosed, the same structural failure appears: skilled, expensive talent operating as human middleware between disconnected systems. This is <Link to="/glossary#data-glue" className="text-primary no-underline hover:brightness-125 transition-all">Data Glue</Link> – the manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity.</>,
-          "Data Glue is not a technology problem. It's an architectural one. It emerges when organisations grow faster than their operational infrastructure, leaving teams to bridge the gaps with manual workarounds. These workarounds become normalised. They survive restructures. They outlast the people who created them. And they silently erode margin every single day.",
+          <>In every enterprise I've diagnosed, the same structural failure appears: skilled, expensive talent operating as Human Middleware between disconnected systems. This is <Link to="/glossary#human-middleware" className="text-primary no-underline hover:brightness-125 transition-all">Human Middleware</Link> – the manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity.</>,
+          "Human Middleware is not a technology problem. It's an architectural one. It emerges when organisations grow faster than their operational infrastructure, leaving teams to bridge the gaps with manual workarounds. These workarounds become normalised. They survive restructures. They outlast the people who created them. And they silently erode margin every single day.",
           "The cost is not abstract. It is measurable in hours, headcount, error rates, and missed deadlines. But because it's distributed across dozens of micro-tasks, it never appears on a single line item. It's invisible until you engineer the visibility.",
         ],
       },
@@ -70,9 +70,9 @@ const insightData: InsightEntry[] = [
         label: "02: THE EVIDENCE",
         title: "Reclaiming 1,200 Hours of Annual Capacity.",
         paragraphs: [
-          <>During an Operational X-Ray for a Tier-1 Health & Beauty Retailer, we mapped every manual touchpoint in their multichannel content orchestration pipeline <LogRef code="LOG-204" slug="multichannel-content-orchestration" />. The diagnostic revealed a 25% capacity loss – over a quarter of the team's working hours consumed by Data Glue activities with zero strategic value.</>,
+          <>During an Operational X-Ray for a Tier-1 Health & Beauty Retailer, I mapped every manual touchpoint in their multichannel content orchestration pipeline <LogRef code="LOG-204" slug="multichannel-content-orchestration" />. The diagnostic revealed a 25% capacity loss – over a quarter of the team's working hours consumed by Human Middleware activities with zero strategic value.</>,
           "High-volume client briefs – 500+ lines of product data – were arriving with inconsistent formatting and misspellings. Each occurrence triggered a 5-hour manual QC loop. Brief-to-studio handoffs carried 2-day lead times. The team had normalised the friction.",
-          "We engineered a custom ingestion pipeline using LLM-based brand correction, automated data standardisation, and one-click reformatting for production-ready outputs. The result:",
+          "I engineered a custom ingestion pipeline using LLM-based brand correction, automated data standardisation, and one-click reformatting for production-ready outputs. The result:",
         ],
         metrics: [
           { value: "1,200hrs", label: "Reclaimed Annually" },
@@ -84,18 +84,18 @@ const insightData: InsightEntry[] = [
         label: "03: THE ECONOMIC RESULT",
         title: "Engineering Out £1M+ in Operational Leakage.",
         paragraphs: [
-          "Across engagements with Tier-1 retailers and FTSE 100 entities, we have identified over £1M in cumulative operational leakage identified across engagements. This figure represents the fully-loaded cost of Data Glue: the salaries consumed by manual re-keying, the margin lost to delayed turnaround times, and the opportunity cost of strategic talent trapped in procedural work.",
+          "Across engagements with Tier-1 retailers and FTSE 100 entities, I have identified over £1M in cumulative operational leakage. This figure represents the fully-loaded cost of Human Middleware: the salaries consumed by manual re-keying, the margin lost to delayed turnaround times, and the opportunity cost of strategic talent trapped in procedural work.",
           <>In one engagement with a national leisure group, an enterprise reporting pipeline that consumed 30 hours of manual Excel manipulation per month was reduced to a 10-minute automated workflow – a 98% reduction in processing time <LogRef code="LOG-205" slug="enterprise-reporting-automation" />. 360 hours were reclaimed annually while removing 100% of data integrity risk.</>,
-          "The pattern is consistent: organisations don't have an AI problem. They have a structural workflow problem. The margin recovery is not achieved by adding more tools. It is achieved by engineering the Data Glue out of the system so your people return to making decisions, not managing tasks.",
+          "The pattern is consistent: organisations don't have an AI problem. They have a structural workflow problem. The margin recovery is not achieved by adding more tools. It is achieved by eliminating the Human Middleware so your people return to making decisions, not managing tasks.",
         ],
       },
       {
         label: "04: THE METHODOLOGY",
         title: "The Operational X-Ray: Diagnosing Before Engineering.",
         paragraphs: [
-          "Every engagement begins with the Operational X-Ray – a 2–3 week fixed-scope diagnostic that uses Pareto-driven analysis to identify the 20% of Data Glue causing 80% of operational friction. This is not a strategy document. It is a technical map of every manual touchpoint, with each one quantified by time cost, error rate, and margin impact.",
-          "The X-Ray produces a prioritised engineering roadmap. Each item has a projected ROI. Each solution is designed with human-in-the-loop safety rails – we automate the routine so your experts retain governance over the exceptions. This is not about replacing people. It is about returning them to the work that justifies their salary.",
-          "Every system is architected by the Principal personally. No junior handoffs. No 50-page strategy decks. Just engineered systems that ship.",
+          "Every engagement begins with the Operational X-Ray – a 2–3 week fixed-scope diagnostic that uses Pareto-driven analysis to identify the 20% of Human Middleware causing 80% of operational friction. This is not a strategy document. It is a technical map of every manual touchpoint, with each one quantified by time cost, error rate, and margin impact.",
+          "The X-Ray produces a prioritised transformation roadmap. Each item has a projected ROI. Each solution is designed with human-in-the-loop safety rails – I automate the routine so your experts retain governance over the exceptions. This is not about replacing people. It is about returning them to the work that justifies their salary.",
+          "Every system is architected by me personally. No junior handoffs. No 50-page strategy decks. Just engineered systems that ship.",
         ],
       },
     ],
@@ -105,18 +105,18 @@ const insightData: InsightEntry[] = [
       mainEntity: [
         {
           "@type": "Question",
-          name: "What is Operational Engineering?",
+          name: "What is AI Transformation?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Operational Engineering is the application of engineering principles to business operations to eliminate frictional loss and maximise systemic throughput. It focuses on identifying and removing 'Data Glue' – the manual re-keying, spreadsheet handoffs, and workarounds that erode margin – and replacing them with engineered, scalable systems.",
+            text: "AI Transformation is the application of AI and engineering principles to business operations to eliminate frictional loss and maximise systemic throughput. It focuses on identifying and removing 'Human Middleware' – the manual re-keying, spreadsheet handoffs, and workarounds that erode margin – and replacing them with engineered, scalable systems.",
           },
         },
         {
           "@type": "Question",
-          name: "How does Data Glue affect retail margins?",
+          name: "How does Human Middleware affect margins?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Data Glue is the hidden manual friction where expensive talent operates as human middleware between disconnected systems. In multichannel retail environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified over £1M in cumulative operational leakage caused by Data Glue across enterprise engagements, reclaiming over 1,200 hours of annual capacity.",
+            text: "Human Middleware is the hidden manual friction where expensive talent operates as connectors between disconnected systems. In enterprise environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified over £1M in cumulative operational leakage caused by Human Middleware across enterprise engagements, reclaiming over 1,200 hours of annual capacity.",
           },
         },
         {
@@ -124,7 +124,7 @@ const insightData: InsightEntry[] = [
           name: "What is an Operational X-Ray?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "An Operational X-Ray is a 2–3 week fixed-scope diagnostic that uses a Pareto-driven framework to identify the 20% of Data Glue causing 80% of operational friction. It maps every manual touchpoint, quantifies the capacity loss, and produces a prioritised engineering roadmap with projected margin recovery figures.",
+            text: "An Operational X-Ray is a 2–3 week fixed-scope diagnostic that uses a Pareto-driven framework to identify the 20% of Human Middleware causing 80% of operational friction. It maps every manual touchpoint, quantifies the capacity loss, and produces a prioritised transformation roadmap with projected margin recovery figures.",
           },
         },
       ],
@@ -158,7 +158,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE ENGINEERING",
         title: "A Single Pipeline Replacing Manual Pulls.",
         paragraphs: [
-          "We engineered a unified data pipeline that replaced the fragmented manual pulls with a single automated feed. Report generation was automated with pre-formatted outputs, and live data feeds replaced the static snapshots that were obsolete before they were delivered. The architecture was designed to be tool-agnostic – the pipeline connects to whatever systems the client uses, not the other way around.",
+          "I engineered a unified data pipeline that replaced the fragmented manual pulls with a single automated feed. Report generation was automated with pre-formatted outputs, and live data feeds replaced the static snapshots that were obsolete before they were delivered. The architecture was designed to be tool-agnostic – the pipeline connects to whatever systems the client uses, not the other way around.",
         ],
       },
     ],
@@ -207,7 +207,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE ENGINEERING",
         title: "Consolidated Production Logic.",
         paragraphs: [
-          "We replaced the spreadsheet-and-email workflow with a consolidated production system featuring automated status updates, assignment routing, and deadline escalation workflows. The system provided a single source of truth, eliminating the duplicated tracking that had been consuming coordination overhead.",
+          "I replaced the spreadsheet-and-email workflow with a consolidated production system featuring automated status updates, assignment routing, and deadline escalation workflows. The system provided a single source of truth, eliminating the duplicated tracking that had been consuming coordination overhead.",
         ],
       },
     ],
@@ -257,7 +257,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE ENGINEERING",
         title: "Exception-Only Routing.",
         paragraphs: [
-          "We embedded validation rules directly into the data pipeline with automated routine checks and exception-only routing. A Decision Inbox surfaced only the genuine anomalies requiring human judgement, filtering out the noise that had been consuming the team's capacity.",
+          "I embedded validation rules directly into the data pipeline with automated routine checks and exception-only routing. An exception triage interface surfaced only the genuine anomalies requiring human judgement, filtering out the noise that had been consuming the team's capacity.",
         ],
       },
     ],
@@ -272,7 +272,7 @@ const insightData: InsightEntry[] = [
       engineering: [
         "Validation rules built into the data pipeline",
         "Automated routine checks with exception routing",
-        "Decision Inbox for genuine anomalies only",
+        "Exception triage for genuine anomalies only",
       ],
       humanLayer: "Judgement calls on exceptions, relationship management, and process governance.",
       result: "Manual checking reduced 60%. 20h/week reclaimed. Two process improvement initiatives launched in first quarter.",
@@ -282,7 +282,7 @@ const insightData: InsightEntry[] = [
     slug: "multichannel-content-orchestration",
     ref: "GW-LOG-204",
     title: "Multichannel Content Orchestration.",
-    subtitle: "Engineering out the Data Glue at the briefing stage to reclaim 1,200 hours annually and slash lead times by 50%.",
+    subtitle: "Eliminating the Human Middleware at the briefing stage to reclaim 1,200 hours annually and slash lead times by 50%.",
     date: "NOV 2025",
     seoDescription: "Multichannel Content Orchestration: 1,200 hours reclaimed annually. Lead times slashed by 50% through LLM-based ingestion and automated data standardisation.",
     manifesto: [
@@ -306,7 +306,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE ENGINEERING",
         title: "LLM-Based Ingestion and Automated Standardisation.",
         paragraphs: [
-          "We deployed a custom RPA ingestion engine using LLM-based brand correction, automated data standardisation, and field mapping. One-click reformatting delivered instant production-ready outputs. By engineering out the Data Glue at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
+          "I deployed a custom RPA ingestion engine using LLM-based brand correction, automated data standardisation, and field mapping. One-click reformatting delivered instant production-ready outputs. By eliminating the Human Middleware at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
         ],
       },
     ],
@@ -323,7 +323,7 @@ const insightData: InsightEntry[] = [
         "Automated data standardisation and field mapping",
         "One-click reformatting for instant production-ready outputs",
       ],
-      humanLayer: "By engineering out the 'Data Glue' at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
+      humanLayer: "By eliminating the 'Human Middleware' at the briefing stage, the account team was freed from copy-pasting to focus on creative strategy and client relationship growth.",
       result: "1,200 hours reclaimed annually. Lead times slashed by 50% from 2 days to <24 hours.",
     },
   },
@@ -355,7 +355,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE ENGINEERING",
         title: "Drag-and-Drop Automated Mapping.",
         paragraphs: [
-          "We architected a custom drag-and-drop web application for automated column and order mapping, enabling instant fixed-format reporting. The migration from manual Excel work to a 10-minute automated pipeline removed the 'last-minute rush' before reporting deadlines, allowing the team to enter status calls fully prepped with 100% accurate data.",
+          "I architected a custom drag-and-drop web application for automated column and order mapping, enabling instant fixed-format reporting. The migration from manual Excel work to a 10-minute automated pipeline removed the 'last-minute rush' before reporting deadlines, allowing the team to enter status calls fully prepped with 100% accurate data.",
         ],
       },
     ],
@@ -388,7 +388,7 @@ const insightData: InsightEntry[] = [
         label: "01: THE FRICTION",
         title: "30+ Project Owners, One Master List.",
         paragraphs: [
-          "Single campaigns were split across 30+ project owners, each with siloed store allocations. Every month, someone spent 10 hours manually merging dozens of Excel files into a 'Master List'. Any client change required repeating hours of manual rework. The team was trapped in a cycle of Data Glue that made reactive agility impossible.",
+          "Single campaigns were split across 30+ project owners, each with siloed store allocations. Every month, someone spent 10 hours manually merging dozens of Excel files into a 'Master List'. Any client change required repeating hours of manual rework. The team was trapped in a cycle of Human Middleware that made reactive agility impossible.",
         ],
       },
       {
@@ -404,7 +404,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE ENGINEERING",
         title: "Intelligent RPA-Based Consolidation.",
         paragraphs: [
-          "We deployed an Intelligent RPA application for bulk allocation merging with instant duplicate removal and automated totals validation. Auto-formatting delivered immediate, client-ready approval exports. The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in Data Glue for a full day.",
+          "I deployed an Intelligent RPA application for bulk allocation merging with instant duplicate removal and automated totals validation. Auto-formatting delivered immediate, client-ready approval exports. The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in Human Middleware for a full day.",
         ],
       },
     ],
@@ -421,7 +421,7 @@ const insightData: InsightEntry[] = [
         "Instant duplicate removal and automated totals validation",
         "Auto-formatting for immediate, client-ready approval exports",
       ],
-      humanLayer: "The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in 'Data Glue' for a full day.",
+      humanLayer: "The team can now react to client allocation changes instantly, re-running the entire consolidation in minutes rather than being stuck in 'Human Middleware' for a full day.",
       result: "Manual workload reduced by 97%. Task duration cut from 10 hours to 15 minutes.",
     },
   },
@@ -543,7 +543,7 @@ const InsightManifesto = () => {
                     [PUBLISHED: {entry.date}]
                   </span>
                   <span className="font-mono text-xs text-muted-foreground tracking-widest">
-                    [PRINCIPAL: GALLAG, B]
+                    [FOUNDER: GALLAG, B]
                   </span>
                 </div>
               </div>
@@ -571,10 +571,10 @@ const InsightManifesto = () => {
               <div className="max-w-3xl">
                 <div className="border border-primary p-8" style={{ backgroundColor: "hsl(var(--primary) / 0.05)" }}>
                   <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-4">
-                    [DEFINITION: OPERATIONAL ENGINEERING]
+                    [DEFINITION: AI TRANSFORMATION]
                   </span>
                   <p className="text-foreground font-semibold text-lg leading-relaxed">
-                    The application of engineering principles to business operations to eliminate frictional loss and maximise systemic throughput.
+                    The application of AI and engineering principles to business operations to eliminate frictional loss and maximise systemic throughput.
                   </p>
                 </div>
               </div>

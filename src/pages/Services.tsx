@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import EngagementTypes from "@/components/EngagementTypes";
 import HowWeWork from "@/components/HowWeWork";
 import FAQSection from "@/components/FAQSection";
 import CTABand from "@/components/CTABand";
-import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
 const Services = () => {
@@ -16,7 +16,7 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Services"
-        description="Operational X-Ray diagnostics, structural prototypes, and enterprise integration. Engineering out the Data Glue consuming your team's capacity."
+        description="AI transformation engagements designed to eliminate Human Middleware and recover enterprise margins. From Operational X-Ray to full Workflow Engineering and deployment."
         path="/services"
       />
       <Navigation />
@@ -28,10 +28,13 @@ const Services = () => {
                 [SERVICES]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
-                Engineering Out the Data Glue.
+                Eliminating Human Middleware.
               </h1>
-              <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                Most operational friction is invisible. We use a proprietary diagnostic framework to expose the 'Data Glue' consuming your team's capacity – then we engineer the infrastructure to remove it. No 50-page strategy decks; just working systems.
+              <p
+                className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
+                style={{ animationDelay: "0.1s" }}
+              >
+                I design how work should move through your organisation, then build the systems to make it happen. Every engagement is structured to deliver measurable outcomes — hours reclaimed, errors eliminated, throughput increased.
               </p>
             </div>
           </div>
@@ -40,7 +43,12 @@ const Services = () => {
         <EngagementTypes />
         <HowWeWork />
         <FAQSection />
-        <CTABand headline={<><span className="md:whitespace-nowrap">Stop managing the process. <span className="text-primary">Build the system.</span></span></>} subcopy="Eradicate the 'Data Glue' consuming your team's capacity with production-ready infrastructure." secondaryCTA={{ label: "Start with the free Diagnostic", to: "/diagnostic" }} />
+
+        <CTABand
+          headline={<>Ready to eliminate the Human Middleware?</>}
+          subcopy="Start with the free AI Readiness Diagnostic or request a consultation to discuss your operational challenges."
+          secondaryCTA={{ label: "Take the AI Readiness Diagnostic", to: "/diagnostic" }}
+        />
       </main>
       <Footer hideCTA />
     </div>

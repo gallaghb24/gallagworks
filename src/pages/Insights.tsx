@@ -16,7 +16,7 @@ const insights = [
   },
   {
     ref: "GW-LOG-101",
-    topic: "Eradicating the Enterprise Data Glue",
+    topic: "Eradicating Enterprise Human Middleware",
     metric: "1,200hrs+ Reclaimed",
     status: "VERIFIED",
     slug: "eradicating-enterprise-data-glue",
@@ -88,7 +88,7 @@ const Insights = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Insights & Project Schematics"
-        description="Operational engineering insights, manifestos, and technical project schematics. Proven results: 98% manual effort reduction, 1,200 hours reclaimed annually for Tier-1 retailers."
+        description="AI transformation insights, manifestos, and technical project schematics. Proven results: 98% manual effort reduction, 1,200 hours reclaimed annually for enterprise clients."
         path="/insights"
       />
       <Navigation />
@@ -106,7 +106,7 @@ const Insights = () => {
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
-                Each entry below is a field-documented engagement led by the Principal. The GW-LOG series covers the technical methodology, friction diagnosis, and engineering outcomes from real operational transformations across retail, financial services, professional services, and media.
+                Each entry below is a field-documented engagement led by the Founder. The GW-LOG series covers the technical methodology, friction diagnosis, and engineering outcomes from real operational transformations across retail, financial services, professional services, and media.
               </p>
             </div>
           </div>

@@ -330,7 +330,7 @@ function generateActionPlan(
     process_maturity: {
       "Critical Gap": { quick: "Map your three most critical operational workflows as they actually run today", medium: "Document decision points and exception handling for your core processes", strat: "Build an operational process library with version control and regular review cycles" },
       "Needs Attention": { quick: "Compare documented processes against how work actually flows — identify the gaps", medium: "Create exception handling paths and escalation criteria for your top workflows", strat: "Implement automated triage separating routine from complex work" },
-      "Solid Foundation": { quick: "Identify the 80/20 split in your highest-volume workflow", medium: "Build automated routing for the predictable majority in your top process", strat: "Create decision inboxes for genuine judgement calls with measurable processing times" },
+      "Solid Foundation": { quick: "Identify the 80/20 split in your highest-volume workflow", medium: "Build automated routing for the predictable majority in your top process", strat: "Create exception routing for genuine judgement calls with measurable processing times" },
       "Strength": { quick: "Select your highest-volume process for AI augmentation", medium: "Implement AI-assisted automation for the selected process", strat: "Scale process automation across the business using early wins as the model" },
     },
     governance_risk: {
@@ -674,7 +674,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
         <Text style={s.sectionLabel}>[NEXT STEPS]</Text>
         <Text style={s.ctaTitle}>
           Stop the leakage.{"\n"}
-          <Text style={s.ctaHighlight}>Start the Engineering.</Text>
+          <Text style={s.ctaHighlight}>Start the Transformation.</Text>
         </Text>
         <Text style={s.ctaBody}>
           This diagnostic is the starting point. The real value comes from translating these findings into a targeted action plan — one that addresses your specific operational context, team dynamics, and commercial pressures.
@@ -683,7 +683,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
         <View style={s.ctaBox}>
           <Text style={s.ctaBoxTitle}>Request a Consultation</Text>
           <Text style={s.ctaBoxBody}>
-            Walk through your results with Ben Gallagher, Principal at Gallag Works, and identify your highest-leverage next steps. No obligation, no sales pitch — just a direct conversation about what would actually move the needle for {organisation}.
+            Walk through your results with Ben Gallagher, Founder of Gallag Works, and identify your highest-leverage next steps. No obligation, no sales pitch — just a direct conversation about what would actually move the needle for {organisation}.
           </Text>
           <Text style={s.ctaUrl}>hello@gallag.works</Text>
           <Text style={s.ctaUrl}>gallagworks.com/contact</Text>
@@ -693,7 +693,7 @@ const DiagnosticPDFDocument = ({ scoring, organisation, assessmentDate }: PDFPro
 
         <Text style={s.sectionLabel}>[ABOUT GALLAG WORKS]</Text>
         <Text style={s.body}>
-          Gallag Works is a principal-led operational engineering practice. We eradicate 'Data Glue' — the manual re-keying, spreadsheet handoffs, and tacit knowledge that silently consume capacity and margin. Our engagements are structured to deliver measurable outcomes: hours reclaimed, errors eliminated, throughput increased.
+          Gallag Works is a founder-led AI transformation practice. I eradicate 'Human Middleware' — the manual re-keying, spreadsheet handoffs, and tacit knowledge that silently consume capacity and margin. Engagements are structured to deliver measurable outcomes: hours reclaimed, errors eliminated, throughput increased.
         </Text>
         <Text style={s.bodySmall}>
           © {new Date().getFullYear()} Gallag Works Ltd. Registered in England & Wales: 17033965.
