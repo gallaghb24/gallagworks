@@ -661,15 +661,8 @@ const InsightManifesto = () => {
             );
           });
         })()}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </section>
-        ))}
+
+
 
         {/* Technical Schematic — Blueprint Inset */}
         {entry.schematic && (
