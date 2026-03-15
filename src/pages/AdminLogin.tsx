@@ -65,7 +65,7 @@ const AdminLogin = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="rounded-none border-border bg-card text-foreground"
+              className="border-border bg-card text-foreground"
               placeholder="••••••••"
             />
           </div>
