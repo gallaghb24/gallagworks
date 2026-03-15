@@ -54,7 +54,7 @@ const engagements = [
 ];
 
 const EngagementTypes = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
 
   return (
     <section className="py-16 lg:py-36 bg-slate" ref={ref}>
