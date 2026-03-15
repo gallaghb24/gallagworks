@@ -4,69 +4,58 @@ import { useCountUp } from "@/hooks/useCountUp";
 const ProofPoints = () => {
   const { ref, isVisible } = useScrollAnimation();
 
-  const counter1 = useCountUp({ target: 10, prefix: "£", suffix: "M+", formatValue: (n) => (n / 10).toFixed(1) });
-  const counter2 = useCountUp({ target: 98, suffix: "%" });
-  const counter3 = useCountUp({ target: 50, suffix: "%" });
+  const stat1 = useCountUp({ target: 1200, suffix: "+", formatValue: (n) => n.toLocaleString() });
+  const stat2 = useCountUp({ target: 98, suffix: "%" });
+  const stat3 = useCountUp({ target: 50, suffix: "%+" });
 
-  const metrics = [
+  const points = [
     {
-      counter: counter1,
-      label: "Identified Operational Leakage",
-      detail:
-        "Identified over £1M in cumulative operational leakage across enterprise engagements. Leakage quantified through the Operational X-Ray methodology: fully-loaded cost of manual re-keying, spreadsheet handoffs, and coordination overhead mapped workflow by workflow.",
+      counter: stat1,
+      label: "Hours Reclaimed Annually",
+      detail: "Capacity recovered from manual Human Middleware across enterprise engagements.",
     },
     {
-      counter: counter2,
+      counter: stat2,
       label: "Manual Effort Reduction",
-      detail:
-        "Up to 98% reduction in repetitive data entry across core workflows – eradicating the 'Data Glue' and reallocating thousands of hours toward strategic growth.",
+      detail: "Enterprise reporting pipelines reduced from 30 hours to 10 minutes.",
     },
     {
-      counter: counter3,
-      label: "Accelerated Speed-to-Market",
-      detail:
-        "Slashing turnaround times by 50%+ by engineering validation and logic checks upstream, removing late-stage bottlenecks in high-stakes environments.",
+      counter: stat3,
+      label: "Lead Time Reduction",
+      detail: "Brief-to-production turnaround times slashed through automated ingestion.",
     },
   ];
 
   return (
-    <section className="py-16 lg:py-32 border-draw" ref={ref}>
-      <div className={`container mx-auto px-6 lg:px-12 ${isVisible ? "" : ""}`}>
-        <div className="max-w-5xl">
-          <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
-          >
-            [OUTCOMES]
-          </span>
-          <h2
-            className={`text-3xl md:text-4xl font-extrabold text-foreground mb-10 md:mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.08s" }}
-          >
-            What changes.
-          </h2>
+    <section className="py-16 lg:py-36 bg-slate" ref={ref}>
+      <div className="container mx-auto px-6 lg:px-12">
+        <span
+          className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
+        >
+          [PROOF POINTS]
+        </span>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
-            {metrics.map((item, i) => (
-              <div
-                key={i}
-                className={`clip-reveal-down ${isVisible ? "visible" : ""}`}
-                style={{ transitionDelay: `${0.2 + i * 0.3}s` }}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {points.map((point, index) => (
+            <div
+              key={point.label}
+              className={`border border-border p-8 clip-reveal-down ${isVisible ? "visible" : ""}`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+              <p
+                ref={point.counter.ref}
+                className="font-mono text-3xl md:text-4xl font-extrabold text-primary mb-3"
               >
-                <p
-                  ref={item.counter.ref}
-                  className="font-mono text-4xl md:text-5xl font-extrabold text-primary mb-3"
-                >
-                  {item.counter.display}
-                </p>
-                <h3 className="text-lg font-extrabold text-foreground mb-3">
-                  {item.label}
-                </h3>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  {item.detail}
-                </p>
-              </div>
-            ))}
-          </div>
+                {point.counter.display}
+              </p>
+              <p className="font-display text-lg font-bold text-foreground mb-3">
+                {point.label}
+              </p>
+              <p className="text-muted-foreground font-light leading-relaxed text-sm">
+                {point.detail}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
