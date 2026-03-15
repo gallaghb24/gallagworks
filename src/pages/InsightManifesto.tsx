@@ -543,7 +543,7 @@ const InsightManifesto = () => {
                     [PUBLISHED: {entry.date}]
                   </span>
                   <span className="font-mono text-xs text-muted-foreground tracking-widest">
-                    [PRINCIPAL: GALLAG, B]
+                    [FOUNDER: GALLAG, B]
                   </span>
                 </div>
               </div>
