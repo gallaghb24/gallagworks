@@ -531,7 +531,7 @@ const DiagnosticResults = () => {
         textAnchor={textAnchor}
         fill={isHovered ? "#FF5F1F" : "hsl(var(--foreground))"}
         fontSize={isHovered ? 13 : 12}
-        fontFamily="Inter"
+        fontFamily="DM Sans"
         fontWeight={isHovered ? 700 : 400}
         style={{ cursor: "pointer", transition: "all 0.2s ease" }}
         onMouseEnter={() => dimKey && setHoveredDimension(dimKey)}
