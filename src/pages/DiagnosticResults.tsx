@@ -734,7 +734,7 @@ const DiagnosticResults = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Overall Score Card */}
-              <div className="border border-border p-8 md:p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+              <div className="border border-white/[0.08] rounded-xl p-8 md:p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
                 <p
                   className="text-3xl md:text-4xl font-extrabold mb-4"
                   style={{ color: maturityLevel.color }}
