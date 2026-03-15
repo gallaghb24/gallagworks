@@ -673,7 +673,7 @@ const InsightManifesto = () => {
 
         {/* Result + Privacy — Dark surface, bold statement */}
         {entry.schematic && (
-          <section className="pt-16 pb-0">
+          <section className="pt-16 pb-8">
             <div className="container mx-auto px-6 lg:px-12">
               <div className="max-w-4xl">
                 <div className="border-t-2 border-primary mb-8" />
