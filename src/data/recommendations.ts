@@ -24,7 +24,7 @@ export const recommendations: Recommendation[] = [
     dimension: "data_foundation",
     ratingLevel: "critical_gap",
     headline: "Your data is held together by manual effort.",
-    detail: "Your data infrastructure relies on what we call Data Glue - manual re-keying, spreadsheet handoffs, and tacit knowledge about where things live. Before investing in AI tooling, you need a systematic audit of how data actually flows through your organisation, where it breaks down, and what it costs you. This is the highest-leverage investment you can make right now, because every AI initiative you attempt will inherit these data quality problems.",
+    detail: "Your data infrastructure relies on what I call Human Middleware - manual re-keying, spreadsheet handoffs, and tacit knowledge about where things live. Before investing in AI tooling, you need a systematic audit of how data actually flows through your organisation, where it breaks down, and what it costs you. This is the highest-leverage investment you can make right now, because every AI initiative you attempt will inherit these data quality problems.",
     whatGoodLooksLike: "Organisations with strong data foundations can produce any operational report within an hour, onboard new team members without data-related delays, and have automated validation preventing bad data from entering their systems.",
     internalQuestion: "If your three most experienced people left tomorrow, how much operational data would become inaccessible?",
   },
