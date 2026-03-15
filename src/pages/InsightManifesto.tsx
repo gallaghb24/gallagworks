@@ -72,7 +72,7 @@ const insightData: InsightEntry[] = [
         paragraphs: [
           <>During an Operational X-Ray for a Tier-1 Health & Beauty Retailer, I mapped every manual touchpoint in their multichannel content orchestration pipeline <LogRef code="LOG-204" slug="multichannel-content-orchestration" />. The diagnostic revealed a 25% capacity loss – over a quarter of the team's working hours consumed by Human Middleware activities with zero strategic value.</>,
           "High-volume client briefs – 500+ lines of product data – were arriving with inconsistent formatting and misspellings. Each occurrence triggered a 5-hour manual QC loop. Brief-to-studio handoffs carried 2-day lead times. The team had normalised the friction.",
-          "We engineered a custom ingestion pipeline using LLM-based brand correction, automated data standardisation, and one-click reformatting for production-ready outputs. The result:",
+          "I engineered a custom ingestion pipeline using LLM-based brand correction, automated data standardisation, and one-click reformatting for production-ready outputs. The result:",
         ],
         metrics: [
           { value: "1,200hrs", label: "Reclaimed Annually" },
