@@ -66,11 +66,11 @@ const EngagementTypes = () => {
         </span>
 
         <div className="space-y-6">
-          {engagements.map((eng, index) => (
+          {engagements.map((eng) => (
             <div
               key={eng.id}
-              className={`bg-off-white border p-8 md:p-10 clip-reveal-down ${isVisible ? "visible" : ""}`}
-              style={{ borderColor: "rgba(0,0,0,0.08)", transitionDelay: `${index * 0.12}s` }}
+              className="bg-off-white border p-8 md:p-10"
+              style={{ borderColor: "rgba(0,0,0,0.08)" }}
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6">
                 <div>

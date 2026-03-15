@@ -10,7 +10,6 @@ interface FooterProps {
 
 const Footer = ({ hideCTA = false }: FooterProps) => {
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
-  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
 
   return (
     <footer className="bg-footer text-footer-foreground">
@@ -44,9 +43,9 @@ const Footer = ({ hideCTA = false }: FooterProps) => {
       )}
 
       {/* Footer Grid */}
-      <div className="border-t border-border" ref={gridRef}>
+      <div className="border-t border-border">
         <div className="container mx-auto px-6 lg:px-12 py-16">
-          <div className={`scroll-fade-in ${gridVisible ? "visible" : ""}`}>
+          <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
               {/* Column 1: Brand */}
               <div className="flex flex-col">

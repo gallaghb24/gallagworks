@@ -80,9 +80,7 @@ const About = () => {
               >
                 Engineering the problem, not the symptom.
               </h2>
-              <p
-                className={`text-lg text-on-light/70 font-light leading-relaxed max-w-[720px] clip-reveal ${method.isVisible ? "visible" : ""}`}
-              >
+              <p className="text-lg text-on-light/70 font-light leading-relaxed max-w-[720px]">
                 Most organisations don't have an AI problem. They have a process problem that AI can't fix on its own. I find the Human Middleware — the senior people acting as manual routers between systems — and engineer it out, so your team goes back to making decisions instead of managing tasks. I architect every system personally. No junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
               </p>
             </div>
@@ -124,9 +122,7 @@ const About = () => {
                 ))}
               </div>
 
-              <p
-                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] clip-reveal ${exp.isVisible ? "visible" : ""}`}
-              >
+              <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]">
                 15 years directing enterprise client delivery and managing £15M+ contracts inside a 2,100-person agency taught me where businesses actually bleed time and money: not in the big strategic decisions, but in the thousands of small manual handoffs that nobody questions anymore. The last two years building an AI transformation function — governance, production tools, training programmes, adoption across the business — showed me that most companies need someone who can do all of it, not just advise on parts of it. That's what Gallag Works is.
               </p>
             </div>
