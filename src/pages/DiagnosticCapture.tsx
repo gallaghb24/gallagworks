@@ -191,7 +191,7 @@ const DiagnosticCapture = () => {
                     id="name"
                     value={form.name}
                     onChange={(e) => handleChange("name", e.target.value)}
-                    className="rounded-none h-12"
+                    className="h-12"
                     placeholder="Your name"
                   />
                   {errors.name && (
