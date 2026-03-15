@@ -251,6 +251,7 @@ const insightData: InsightEntry[] = [
       {
         label: "01: THE FRICTION",
         surface: "light",
+        title: "Low Error Rates, Unsustainable Time Cost.",
         paragraphs: [
           "The team was performing high-volume manual checks on structured data. Error rates were low, but the time cost was unsustainable – 20 hours per week consumed by routine verification that left zero capacity for the process improvement initiatives the organisation needed.",
         ],
