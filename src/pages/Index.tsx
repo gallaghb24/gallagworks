@@ -26,7 +26,7 @@ const Index = () => {
         <ProofPoints />
         <LeakageEstimator />
         <CTABand
-          headline={<>Stop losing capacity to manual friction. <span className="text-primary">Start the transformation.</span></>}
+          headline={<>Stop losing capacity to manual friction. <span className="text-primary whitespace-nowrap">Start the transformation.</span></>}
           subcopy="Start with the free AI Readiness Diagnostic or request a consultation to discuss your operational challenges."
           secondaryCTA={{ label: "Take the AI Readiness Diagnostic", to: "/diagnostic" }}
         />
