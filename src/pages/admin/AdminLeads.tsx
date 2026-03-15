@@ -212,7 +212,7 @@ const AdminLeads = () => {
         <select
           value={filterMaturity}
           onChange={(e) => setFilterMaturity(e.target.value)}
-          className="bg-card border border-border rounded-none px-3 py-1.5 text-sm text-foreground font-mono text-xs"
+          className="bg-card border border-border px-3 py-1.5 text-sm text-foreground font-mono text-xs"
         >
           <option value="">All Maturity</option>
           {uniqueMaturity.map((m) => <option key={m} value={m!}>{m}</option>)}

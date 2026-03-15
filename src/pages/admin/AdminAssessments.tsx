@@ -136,7 +136,7 @@ const AdminAssessments = () => {
     <div className="space-y-6">
       <h1 className="font-mono text-lg uppercase tracking-widest text-foreground">Assessments</h1>
 
-      <div className="border border-border rounded-none overflow-x-auto">
+      <div className="border border-border rounded overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="border-b border-border bg-card">
             <tr>
