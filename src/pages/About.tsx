@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CTABand from "@/components/CTABand";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 import { useCountUp } from "@/hooks/useCountUp";
 import SEOHead from "@/components/SEOHead";
 
