@@ -106,7 +106,7 @@ const AdminOverview = () => {
       </div>
       <div className="grid lg:grid-cols-2 gap-6">
         {[...Array(2)].map((_, i) => (
-          <div key={i} className="border border-border rounded-none p-5 bg-card h-[300px] animate-pulse bg-secondary/20" />
+          <div key={i} className="border border-border p-5 bg-card h-[300px] animate-pulse bg-secondary/20" />
         ))}
       </div>
     </div>
