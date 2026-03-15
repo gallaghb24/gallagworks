@@ -5,7 +5,7 @@ import HeroSchematic from "@/components/HeroSchematic";
 
 const HeroSection = () => {
   return (
-    <section className="relative z-10 min-h-[70vh] md:min-h-[85vh] flex items-center pt-24 pb-16">
+    <section className="relative z-10 min-h-[70vh] md:min-h-[85vh] flex items-center pt-48 md:pt-24 pb-16">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl">
@@ -14,7 +14,7 @@ const HeroSection = () => {
             </h1>
 
             <p
-              className="text-lg md:text-xl text-muted-foreground font-light max-w-[550px] mb-10 leading-relaxed opacity-0 animate-fade-in-up"
+              className="text-lg md:text-xl text-muted-foreground font-light max-w-[550px] mb-14 md:mb-10 leading-relaxed opacity-0 animate-fade-in-up"
               style={{ animationDelay: "0.15s" }}
             >
               I sit in the gap between the consultancies who write the strategy deck and the dev shops who build the tool. I design how work should move, then build the systems that make it happen.
