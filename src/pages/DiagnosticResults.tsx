@@ -320,7 +320,7 @@ const DimensionCard = ({ dimKey, score, pct, rating, name, isHovered, sectionVis
         {rating.rating}
       </p>
       <div
-        className="w-full h-1.5 bg-secondary rounded-none overflow-hidden"
+        className="w-full h-1.5 bg-secondary overflow-hidden rounded-full"
         role="meter"
         aria-label={`${name} score`}
         aria-valuenow={score}
