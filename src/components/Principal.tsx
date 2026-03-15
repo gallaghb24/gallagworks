@@ -1,24 +1,16 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Principal = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
-    <section className="py-16 lg:py-36 bg-warm-stone" ref={ref}>
+    <section className="py-16 lg:py-36 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-5xl">
-          <span
-            className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
-          >
+          <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
             [THE FOUNDER]
           </span>
 
-          <h2
-            className={`font-display text-3xl md:text-4xl font-extrabold text-on-light mb-8 leading-tight tracking-tight clip-reveal ${isVisible ? "visible" : ""}`}
-            style={{ transitionDelay: "0.08s" }}
-          >
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-on-light mb-8 leading-tight tracking-tight">
             Built by someone who's done it, not just advised on it.
           </h2>
           <p className="text-lg text-on-light/70 font-light leading-relaxed max-w-[720px]">

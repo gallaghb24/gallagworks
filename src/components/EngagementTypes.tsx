@@ -1,5 +1,3 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 const engagements = [
   {
     id: "01",
@@ -54,14 +52,10 @@ const engagements = [
 ];
 
 const EngagementTypes = () => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
-
   return (
-    <section className="py-16 lg:py-36 bg-warm-stone" ref={ref}>
+    <section className="py-16 lg:py-36 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
-        <span
-          className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
-        >
+        <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
           [ENGAGEMENT TYPES]
         </span>
 
