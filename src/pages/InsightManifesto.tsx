@@ -205,6 +205,7 @@ const insightData: InsightEntry[] = [
       },
       {
         label: "THE STRATEGIC COST",
+        surface: "light",
         title: "The Illusion of Under-Resourcing.",
         paragraphs: [
           "When deadlines are consistently missed, the instinctive organisational response is to add headcount. More coordinators. More project managers. More people to chase the status updates that the existing people are already chasing. This is the illusion of under-resourcing – the belief that the problem is capacity when the actual problem is architectural.",
