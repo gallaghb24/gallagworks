@@ -87,7 +87,7 @@ const LeakageEstimator = () => {
 
         <p
           style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: "0.9rem",
             fontWeight: 300,
             color: "hsl(var(--muted-foreground))",
