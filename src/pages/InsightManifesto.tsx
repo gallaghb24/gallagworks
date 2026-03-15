@@ -207,7 +207,7 @@ const insightData: InsightEntry[] = [
         label: "02: THE ENGINEERING",
         title: "Consolidated Production Logic.",
         paragraphs: [
-          "We replaced the spreadsheet-and-email workflow with a consolidated production system featuring automated status updates, assignment routing, and deadline escalation workflows. The system provided a single source of truth, eliminating the duplicated tracking that had been consuming coordination overhead.",
+          "I replaced the spreadsheet-and-email workflow with a consolidated production system featuring automated status updates, assignment routing, and deadline escalation workflows. The system provided a single source of truth, eliminating the duplicated tracking that had been consuming coordination overhead.",
         ],
       },
     ],
