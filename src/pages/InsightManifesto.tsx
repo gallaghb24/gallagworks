@@ -108,7 +108,7 @@ const insightData: InsightEntry[] = [
           name: "What is AI Transformation?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "AI Transformation is the application of AI and engineering principles to business operations to eliminate frictional loss and maximise systemic throughput. It focuses on identifying and removing 'Human Middleware' – the manual re-keying, spreadsheet handoffs, and workarounds that erode margin – and replacing them with engineered, scalable systems.",
+            text: "AI Transformation is the application of AI to business operations to eliminate manual friction and free capacity for the work that actually matters. It focuses on identifying and removing 'Human Middleware' – the manual re-keying, spreadsheet handoffs, and workarounds that erode margin – and replacing them with engineered, scalable systems.",
           },
         },
         {
