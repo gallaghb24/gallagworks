@@ -251,7 +251,7 @@ const DiagnosticAssess = () => {
         </div>
       </main>
       <CTABand
-        headline={<>Stop the leakage. <span className="text-primary whitespace-nowrap">Start the Transformation.</span></>}
+        headline={<>Stop the leakage. <span className="text-primary">Start the Transformation.</span></>}
         subcopy="Start with the free AI Readiness Diagnostic or request a consultation to discuss your operational challenges."
       />
       <Footer hideCTA />
