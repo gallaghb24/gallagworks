@@ -113,10 +113,10 @@ const insightData: InsightEntry[] = [
         },
         {
           "@type": "Question",
-          name: "How does Data Glue affect retail margins?",
+          name: "How does Human Middleware affect margins?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Data Glue is the hidden manual friction where expensive talent operates as human middleware between disconnected systems. In multichannel retail environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified over £1M in cumulative operational leakage caused by Data Glue across enterprise engagements, reclaiming over 1,200 hours of annual capacity.",
+            text: "Human Middleware is the hidden manual friction where expensive talent operates as connectors between disconnected systems. In enterprise environments, this manifests as manual data pulls, reformatting between tools, and spreadsheet-based coordination. Gallag Works has identified over £1M in cumulative operational leakage caused by Human Middleware across enterprise engagements, reclaiming over 1,200 hours of annual capacity.",
           },
         },
         {
