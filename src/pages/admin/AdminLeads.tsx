@@ -204,7 +204,7 @@ const AdminLeads = () => {
         <select
           value={filterSize}
           onChange={(e) => setFilterSize(e.target.value)}
-          className="bg-card border border-border rounded-none px-3 py-1.5 text-sm text-foreground font-mono text-xs"
+          className="bg-card border border-border px-3 py-1.5 text-sm text-foreground font-mono text-xs"
         >
           <option value="">All Sizes</option>
           {uniqueSizes.map((s) => <option key={s} value={s!}>{s}</option>)}
