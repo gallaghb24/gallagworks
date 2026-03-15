@@ -61,7 +61,7 @@ const insightData: InsightEntry[] = [
         label: "01: THE PROBLEM",
         title: "Your Most Expensive Employees Are Being Used as Human Middleware.",
         paragraphs: [
-          <>In every enterprise we've diagnosed, the same structural failure appears: skilled, expensive talent operating as human middleware between disconnected systems. This is <Link to="/glossary#data-glue" className="text-primary no-underline hover:brightness-125 transition-all">Data Glue</Link> – the manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity.</>,
+          <>In every enterprise I've diagnosed, the same structural failure appears: skilled, expensive talent operating as Human Middleware between disconnected systems. This is <Link to="/glossary#human-middleware" className="text-primary no-underline hover:brightness-125 transition-all">Human Middleware</Link> – the manual re-keying, spreadsheet handoffs, copy-pasting, and status-chasing that has no strategic value but consumes 20–40% of operational capacity.</>,
           "Data Glue is not a technology problem. It's an architectural one. It emerges when organisations grow faster than their operational infrastructure, leaving teams to bridge the gaps with manual workarounds. These workarounds become normalised. They survive restructures. They outlast the people who created them. And they silently erode margin every single day.",
           "The cost is not abstract. It is measurable in hours, headcount, error rates, and missed deadlines. But because it's distributed across dozens of micro-tasks, it never appears on a single line item. It's invisible until you engineer the visibility.",
         ],
