@@ -137,7 +137,7 @@ const AdminOverview = () => {
       {/* Charts row */}
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Maturity distribution */}
-        <div className="border border-border rounded-none p-5 bg-card">
+        <div className="border border-border p-5 bg-card">
           <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">
             Assessments by Maturity Level
           </p>
