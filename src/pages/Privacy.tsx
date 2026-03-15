@@ -12,26 +12,26 @@ const Privacy = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        <section className="pt-32 pb-20 lg:pb-32">
+        <section className="pt-32 pb-20 lg:pb-32 bg-warm-stone">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-[720px]">
               <span className="font-mono text-xs text-primary tracking-widest uppercase block mb-4">
                 LEGAL
               </span>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-8">
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-8" style={{ color: '#111113' }}>
                 Privacy Policy.
               </h1>
-              <p className="font-mono text-xs text-muted-foreground/50 mb-8">
+              <p className="font-mono text-xs mb-8" style={{ color: '#888' }}>
                 Effective date: 16 February 2026
               </p>
 
-              <p className="text-muted-foreground font-light leading-relaxed mb-8">
+              <p className="font-light leading-relaxed mb-8" style={{ color: '#333' }}>
                 Gallag Works Ltd ("we", "us", "our") respects your privacy and is committed to protecting your personal data. This policy explains how we handle information when you use gallag.works, submit our consultation form, or engage our services.
               </p>
 
-              <div className="space-y-8 text-muted-foreground font-light leading-relaxed">
-                <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">1. Who we are.</h2>
+              <div className="space-y-8 font-light leading-relaxed" style={{ color: '#333' }}>
+                <div className="border-t border-black/[0.08] pt-8">
+                  <h2 className="text-lg font-bold mb-4" style={{ color: '#111113' }}>1. Who we are.</h2>
                   <p className="mb-2">Data controller: Gallag Works Ltd</p>
                   <p className="mb-2">
                     Email:{" "}
@@ -43,21 +43,21 @@ const Privacy = () => {
                   <p>Company number: 17033965</p>
                 </div>
 
-                <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">2. Personal data we collect.</h2>
+                <div className="border-t border-black/[0.08] pt-8">
+                  <h2 className="text-lg font-bold mb-4" style={{ color: '#111113' }}>2. Personal data we collect.</h2>
                   <p className="mb-4">
-                    <span className="font-bold text-foreground">A. Enquiries:</span> Identity and contact details (name, email, company, job title) and project requirements provided via our consultation form.
+                    <span className="font-bold" style={{ color: '#111113' }}>A. Enquiries:</span> Identity and contact details (name, email, company, job title) and project requirements provided via our consultation form.
                   </p>
                   <p className="mb-4">
-                    <span className="font-bold text-foreground">B. Client Delivery:</span> Business contact details and operational information required to fulfill our contractual obligations.
+                    <span className="font-bold" style={{ color: '#111113' }}>B. Client Delivery:</span> Business contact details and operational information required to fulfill our contractual obligations.
                   </p>
                   <p>
-                    <span className="font-bold text-foreground">C. Website Usage (Anonymous):</span> We use PostHog for analytics. In our "cookieless" configuration, we do not store persistent identifiers or personal data in cookies. We collect truncated IP addresses and browser metadata to understand aggregate site performance without identifying individuals.
+                    <span className="font-bold" style={{ color: '#111113' }}>C. Website Usage (Anonymous):</span> We use PostHog for analytics. In our "cookieless" configuration, we do not store persistent identifiers or personal data in cookies. We collect truncated IP addresses and browser metadata to understand aggregate site performance without identifying individuals.
                   </p>
                 </div>
 
-                <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">3. Why we use your data.</h2>
+                <div className="border-t border-black/[0.08] pt-8">
+                  <h2 className="text-lg font-bold mb-4" style={{ color: '#111113' }}>3. Why we use your data.</h2>
                   <ul className="space-y-3 list-disc list-inside">
                     <li>To respond to enquiries and take steps at your request before entering a contract (Lawful basis: Legitimate interests).</li>
                     <li>To provide and manage our services (Lawful basis: Contract).</li>
@@ -65,24 +65,24 @@ const Privacy = () => {
                   </ul>
                 </div>
 
-                <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">4. International transfers &amp; Security.</h2>
+                <div className="border-t border-black/[0.08] pt-8">
+                  <h2 className="text-lg font-bold mb-4" style={{ color: '#111113' }}>4. International transfers &amp; Security.</h2>
                   <p>
                     We use trusted infrastructure providers (e.g., website hosting, email, and PostHog analytics). Where data is processed outside the UK, we ensure appropriate safeguards (such as UK-approved contractual protections) are in place. We maintain suitable technical measures to protect all personal data against unauthorized access.
                   </p>
                 </div>
 
-                <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">5. Data retention.</h2>
+                <div className="border-t border-black/[0.08] pt-8">
+                  <h2 className="text-lg font-bold mb-4" style={{ color: '#111113' }}>5. Data retention.</h2>
                   <ul className="space-y-3 list-disc list-inside">
-                    <li><span className="font-bold text-foreground">Enquiries:</span> Typically 18 months from last contact.</li>
-                    <li><span className="font-bold text-foreground">Client Records:</span> Typically 6 years after the end of the engagement for tax and legal reasons.</li>
-                    <li><span className="font-bold text-foreground">Analytics:</span> Anonymous aggregate data is retained for 1 year.</li>
+                    <li><span className="font-bold" style={{ color: '#111113' }}>Enquiries:</span> Typically 18 months from last contact.</li>
+                    <li><span className="font-bold" style={{ color: '#111113' }}>Client Records:</span> Typically 6 years after the end of the engagement for tax and legal reasons.</li>
+                    <li><span className="font-bold" style={{ color: '#111113' }}>Analytics:</span> Anonymous aggregate data is retained for 1 year.</li>
                   </ul>
                 </div>
 
-                <div className="border-t border-border pt-8">
-                  <h2 className="text-lg font-bold text-foreground mb-4">6. Your rights.</h2>
+                <div className="border-t border-black/[0.08] pt-8">
+                  <h2 className="text-lg font-bold mb-4" style={{ color: '#111113' }}>6. Your rights.</h2>
                   <p>
                     You have the right to access, correct, or delete your personal data, and to object to processing based on legitimate interests. To exercise these rights, please contact us at the email address above. You also have the right to lodge a complaint with the Information Commissioner's Office (ICO).
                   </p>
