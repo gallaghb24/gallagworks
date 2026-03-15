@@ -569,7 +569,7 @@ const InsightManifesto = () => {
           <section className="pb-16">
             <div className="container mx-auto px-6 lg:px-12">
               <div className="max-w-3xl">
-                <div className="border border-primary p-8" style={{ backgroundColor: "hsl(var(--primary) / 0.05)" }}>
+                <div className="border border-primary rounded-xl p-8" style={{ backgroundColor: "hsl(var(--primary) / 0.05)" }}>
                   <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-4">
                     [DEFINITION: AI TRANSFORMATION]
                   </span>
