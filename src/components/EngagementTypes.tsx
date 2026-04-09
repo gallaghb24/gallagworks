@@ -37,7 +37,7 @@ const engagements = [
     ],
   },
   {
-    id: "05",
+    id: "04",
     title: "Agents as a Service",
     duration: "Scoped & delivered",
     description:
@@ -51,7 +51,7 @@ const engagements = [
     ],
   },
   {
-    id: "06",
+    id: "05",
     title: "Fractional AI Leadership",
     duration: "Retained · Part-time",
     description:
