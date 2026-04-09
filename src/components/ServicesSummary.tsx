@@ -22,7 +22,13 @@ const services = [
       "Hands-on delivery of AI-enabled tools and workflows — production systems designed for real adoption, not proofs of concept.",
   },
   {
-    id: "04",
+    id: "05",
+    title: "Agents as a Service",
+    description:
+      "Purpose-built AI agents scoped around your specific business challenge — deployed, governed, and refined.",
+  },
+  {
+    id: "06",
     title: "Fractional AI Leadership",
     description:
       "Embedded strategic leadership for teams who need an experienced operator to drive their AI transformation – without the overhead of a full-time hire.",
@@ -41,7 +47,7 @@ const ServicesSummary = () => {
           [SERVICES]
         </span>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {services.map((service) => (
             <div
               key={service.id}
