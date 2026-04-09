@@ -37,7 +37,21 @@ const engagements = [
     ],
   },
   {
-    id: "04",
+    id: "05",
+    title: "Agents as a Service",
+    duration: "Scoped & delivered",
+    description:
+      "Custom AI agents designed around a specific operational or customer problem in your business. I scope the challenge, design the agent's logic, train it on your data, and deploy it where it needs to live — whether that's inside your marketing operations, on your website, or embedded in your existing platforms. Not generic chatbots. Purpose-built agents with guardrails, brand awareness, and measurable outcomes.",
+    deliverables: [
+      "Bespoke agent scoping and design — mapping the problem, defining the agent's role, behaviour, and decision logic",
+      "Knowledge base and data integration — grounding the agent in your brand data, product catalogue, customer signals, or operational rules",
+      "Deployment across internal or customer-facing channels — marketing ops platforms, websites, CRM, or standalone",
+      "Governance and human oversight framework — permissions, audit trails, escalation rules built in from day one",
+      "Iterative refinement based on live performance data and usage patterns",
+    ],
+  },
+  {
+    id: "06",
     title: "Fractional AI Leadership",
     duration: "Retained · Part-time",
     description:

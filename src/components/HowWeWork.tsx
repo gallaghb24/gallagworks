@@ -31,6 +31,9 @@ const steps = [
   },
 ];
 
+const methodologyNote =
+  "Some engagements follow this full sequence. Others start with a specific agent requirement — a known problem that needs an intelligent, autonomous solution. The methodology adapts to where you are.";
+
 const HowWeWork = () => {
   return (
     <section className="py-16 lg:py-36">
