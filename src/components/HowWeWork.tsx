@@ -63,6 +63,10 @@ const HowWeWork = () => {
             </div>
           ))}
         </div>
+
+        <p className="mt-8 text-muted-foreground font-light leading-relaxed max-w-[720px] text-sm">
+          {methodologyNote}
+        </p>
       </div>
     </section>
   );
