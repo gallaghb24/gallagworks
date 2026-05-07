@@ -498,10 +498,10 @@ const DiagnosticResults = () => {
 
   // Last card: stagger 5*120=600ms + 500ms delay + 1800ms count = 2900ms total
   // Overall score: 500ms delay + 2400ms duration = 2900ms total (matches)
+  const targetTotalScore = finalData?.scoring.totalScore ?? 0;
   useEffect(() => {
-    if (!scoreSection.isVisible || totalScoreAnimatedRef.current || !finalData) return;
+    if (!scoreSection.isVisible || totalScoreAnimatedRef.current || !targetTotalScore) return;
     totalScoreAnimatedRef.current = true;
-    const target = finalData.scoring.totalScore;
     const delay = 500;
     const duration = 2400;
     let rafId: number;
@@ -511,13 +511,13 @@ const DiagnosticResults = () => {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        setAnimatedTotalScore(Math.round(eased * target));
+        setAnimatedTotalScore(Math.round(eased * targetTotalScore));
         if (progress < 1) { rafId = requestAnimationFrame(step); }
       };
       rafId = requestAnimationFrame(step);
     }, delay);
     return () => { clearTimeout(timer); if (rafId) cancelAnimationFrame(rafId); };
-  }, [scoreSection.isVisible, finalData]);
+  }, [scoreSection.isVisible, targetTotalScore]);
 
   // Custom radar chart tick renderer
   const renderCustomTick = useCallback(({ payload, x, y, textAnchor, ...rest }: any) => {
