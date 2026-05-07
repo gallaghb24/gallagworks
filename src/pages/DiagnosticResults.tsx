@@ -800,7 +800,7 @@ const DiagnosticResults = () => {
         {/* ── Dimension Breakdown Grid ─────────────────────────────── */}
         <section
           ref={dimensionSection.ref}
-          className={`pb-12 md:pb-16 transition-all duration-700 ${dimensionSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          className={`pt-16 md:pt-24 pb-12 md:pb-16 transition-all duration-700 ${dimensionSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <div className="container mx-auto px-6 lg:px-12">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8">
