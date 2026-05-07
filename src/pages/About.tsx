@@ -82,8 +82,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Experience Block — Dark */}
-        <section className="py-16 lg:py-36" ref={exp.ref}>
+        {/* Experience Block — Light */}
+        <section className="py-16 lg:py-36 bg-warm-stone" ref={exp.ref}>
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-5xl">
               <span
@@ -92,7 +92,7 @@ const About = () => {
                 [EXPERIENCE]
               </span>
               <h2
-                className={`text-3xl md:text-4xl font-extrabold text-foreground mb-12 clip-reveal ${exp.isVisible ? "visible" : ""}`}
+                className={`text-3xl md:text-4xl font-extrabold text-on-light mb-12 clip-reveal ${exp.isVisible ? "visible" : ""}`}
               >
                 The track record.
               </h2>
@@ -101,7 +101,7 @@ const About = () => {
                 {stats.map((stat, index) => (
                   <div
                     key={stat.label}
-                    className={`bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 clip-reveal-down ${exp.isVisible ? "visible" : ""}`}
+                    className={`bg-off-white border border-black/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] clip-reveal-down ${exp.isVisible ? "visible" : ""}`}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                   >
                     <p
@@ -110,14 +110,14 @@ const About = () => {
                     >
                       {stat.counter.display}
                     </p>
-                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                    <p className="font-mono text-xs text-[#555] uppercase tracking-wider">
                       {stat.label}
                     </p>
                   </div>
                 ))}
               </div>
 
-              <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]">
+              <p className="text-lg text-[#333] font-light leading-relaxed max-w-[720px]">
                 15 years directing enterprise client delivery and managing £15M+ contracts inside a 2,100-person agency taught me where businesses actually bleed time and money: not in the big strategic decisions, but in the thousands of small manual handoffs that nobody questions anymore. The last two years building an AI transformation function — governance, production tools, training programmes, adoption across the business — showed me that most companies need someone who can do all of it, not just advise on parts of it. That's what Gallag Works is.
               </p>
             </div>
