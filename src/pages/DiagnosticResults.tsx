@@ -829,13 +829,13 @@ const DiagnosticResults = () => {
         {/* ── Detailed Recommendations ─────────────────────────────── */}
         <section
           ref={recommendationsSection.ref}
-          className={`pb-16 md:pb-24 transition-all duration-700 ${recommendationsSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          className={`bg-warm-stone pt-16 md:pt-24 pb-16 md:pb-24 transition-all duration-700 ${recommendationsSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <div className="container mx-auto px-6 lg:px-12">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-on-light mb-2">
               Detailed Recommendations
             </h2>
-            <p className="text-muted-foreground text-sm mb-10 max-w-2xl">
+            <p className="text-[#555] text-sm mb-10 max-w-2xl">
               Ordered by priority. Address the top items first for maximum impact.
             </p>
 
@@ -851,7 +851,7 @@ const DiagnosticResults = () => {
                 return (
                   <div
                     key={key}
-                    className={`border border-white/[0.08] rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 ${
+                    className={`bg-off-white border border-black/[0.08] rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 ${
                       recommendationsSection.isVisible ? "opacity-100 animate-fade-in-up" : "opacity-0"
                     }`}
                     style={{
@@ -865,12 +865,12 @@ const DiagnosticResults = () => {
                         <span className="font-mono text-xs text-primary shrink-0">
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <h3 className="font-display text-lg font-bold text-foreground">
+                        <h3 className="font-display text-lg font-bold text-on-light">
                           {name}
                         </h3>
                       </div>
                       <div className="flex items-center gap-3 shrink-0">
-                        <span className="font-mono text-sm font-bold text-foreground">
+                        <span className="font-mono text-sm font-bold text-on-light">
                           {score}/25
                         </span>
                         <span
@@ -883,12 +883,12 @@ const DiagnosticResults = () => {
                     </div>
 
                     {/* Headline */}
-                    <p className="text-xl font-bold text-foreground mb-4">
+                    <p className="text-xl font-bold text-on-light mb-4">
                       {rec.headline}
                     </p>
 
                     {/* Detail */}
-                    <p className="text-muted-foreground leading-relaxed mb-6">
+                    <p className="text-[#555] leading-relaxed mb-6">
                       {rec.detail}
                     </p>
 
@@ -897,20 +897,20 @@ const DiagnosticResults = () => {
                       className="pl-5 mb-6"
                       style={{ borderLeft: `3px solid ${rating.color}` }}
                     >
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#777] mb-2">
                         What good looks like
                       </p>
-                      <p className="text-sm text-foreground leading-relaxed">
+                      <p className="text-sm text-on-light leading-relaxed">
                         {rec.whatGoodLooksLike}
                       </p>
                     </div>
 
                     {/* Ask your team callout */}
-                    <div className="bg-secondary border border-white/[0.08] rounded-lg p-5 transition-colors duration-300 hover:border-primary/20">
+                    <div className="bg-warm-stone border border-black/[0.08] rounded-lg p-5 transition-colors duration-300 hover:border-primary/30">
                       <span className="font-mono text-xs text-primary uppercase tracking-widest mb-2 block">
                         [ASK YOUR TEAM]
                       </span>
-                      <p className="text-foreground text-sm leading-relaxed italic">
+                      <p className="text-on-light text-sm leading-relaxed italic">
                         {rec.internalQuestion}
                       </p>
                     </div>
