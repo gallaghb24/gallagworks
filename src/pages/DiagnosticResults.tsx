@@ -529,7 +529,7 @@ const DiagnosticResults = () => {
         x={x}
         y={y}
         textAnchor={textAnchor}
-        fill={isHovered ? "#FF5F1F" : "hsl(var(--foreground))"}
+        fill={isHovered ? "#FF5F1F" : "#111113"}
         fontSize={isHovered ? 13 : 12}
         fontFamily="DM Sans"
         fontWeight={isHovered ? 700 : 400}
