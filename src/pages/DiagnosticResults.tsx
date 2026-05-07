@@ -729,32 +729,32 @@ const DiagnosticResults = () => {
         {/* ── Score Card + Dimension Map ─────────────────────────── */}
         <section
           ref={scoreSection.ref}
-          className={`pb-16 md:pb-24 transition-all duration-700 ${scoreSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          className={`bg-warm-stone pt-16 md:pt-24 pb-16 md:pb-24 transition-all duration-700 ${scoreSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Overall Score Card */}
-              <div className="border border-white/[0.08] rounded-xl p-8 md:p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+              <div className="bg-off-white border border-black/[0.08] rounded-xl p-8 md:p-10 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10">
                 <p
                   className="text-3xl md:text-4xl font-extrabold mb-4"
                   style={{ color: maturityLevel.color }}
                 >
                   {maturityLevel.label}
                 </p>
-                <p className="font-mono text-5xl md:text-6xl font-bold text-foreground mb-1">
+                <p className="font-mono text-5xl md:text-6xl font-bold text-on-light mb-1">
                   {animatedTotalScore}{" "}
-                  <span className="text-muted-foreground text-2xl md:text-3xl font-normal">/ 150</span>
+                  <span className="text-[#777] text-2xl md:text-3xl font-normal">/ 150</span>
                 </p>
                 <p className="font-mono text-lg text-primary font-semibold mb-6">
                   Level {maturityLevel.level}
                 </p>
-                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                <p className="text-[#555] leading-relaxed text-sm md:text-base">
                   {MATURITY_SUMMARIES[maturityLevel.level]}
                 </p>
               </div>
 
               {/* Radar Chart */}
-              <div className="border border-white/[0.08] rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5">
+              <div className="bg-off-white border border-black/[0.08] rounded-xl p-6 flex flex-col transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10">
                 <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
                   [DIMENSION MAP]
                 </span>
@@ -770,7 +770,7 @@ const DiagnosticResults = () => {
                       cy="50%"
                       outerRadius="75%"
                     >
-                      <PolarGrid stroke="#1A1C1E" />
+                      <PolarGrid stroke="#D4D2CC" />
                       <PolarAngleAxis
                         dataKey="dimension"
                         tick={renderCustomTick}
