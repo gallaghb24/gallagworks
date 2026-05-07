@@ -178,8 +178,9 @@ const DiagnosticAssess = () => {
       </div>
 
       {/* Content */}
-      <main className="container mx-auto px-6 lg:px-12 py-8 md:py-12 bg-warm-stone">
-        <div
+      <main className="bg-warm-stone">
+        <div className="container mx-auto px-6 lg:px-12 py-8 md:py-12">
+          <div
           className={cn(
             "max-w-3xl mx-auto transition-all duration-250 ease-[cubic-bezier(0.16,1,0.3,1)]",
             isTransitioning
