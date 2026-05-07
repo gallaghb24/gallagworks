@@ -99,7 +99,7 @@ const Diagnostic = () => {
         </section>
 
         {/* Dimensions */}
-        <section className="py-16 lg:py-36 bg-slate border-draw" ref={ref}>
+        <section className="py-16 lg:py-36 bg-warm-stone border-draw" ref={ref}>
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-7xl">
               <span
@@ -108,12 +108,12 @@ const Diagnostic = () => {
                 [THE FRAMEWORK]
               </span>
               <h2
-                className={`text-3xl md:text-4xl font-extrabold text-foreground mb-6 clip-reveal ${isVisible ? "visible" : ""}`}
+                className={`text-3xl md:text-4xl font-extrabold text-on-light mb-6 clip-reveal ${isVisible ? "visible" : ""}`}
               >
                 Six dimensions of AI readiness.
               </h2>
               <p
-                className={`text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
+                className={`text-lg text-[#333] font-light leading-relaxed max-w-[720px] mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
               >
                 Each dimension is scored independently, giving you a clear map
                 of where to invest and what to fix first.
@@ -123,16 +123,16 @@ const Diagnostic = () => {
                 {dimensions.map((dim, index) => (
                   <div
                     key={dim.number}
-                    className={`bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 clip-reveal-down ${isVisible ? "visible" : ""}`}
+                    className={`bg-off-white border border-black/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] clip-reveal-down ${isVisible ? "visible" : ""}`}
                     style={{ transitionDelay: `${index * 0.1}s` }}
                   >
                     <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
                       [{dim.number}]
                     </span>
-                    <h3 className="text-xl font-extrabold text-foreground mb-2">
+                    <h3 className="text-xl font-extrabold text-on-light mb-2">
                       {dim.title}
                     </h3>
-                    <p className="text-muted-foreground font-light leading-relaxed">
+                    <p className="text-[#555] font-light leading-relaxed">
                       {dim.question}
                     </p>
                   </div>
