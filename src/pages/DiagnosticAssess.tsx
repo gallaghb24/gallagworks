@@ -178,7 +178,7 @@ const DiagnosticAssess = () => {
       </div>
 
       {/* Content */}
-      <main className="container mx-auto px-6 lg:px-12 py-8 md:py-12">
+      <main className="container mx-auto px-6 lg:px-12 py-8 md:py-12 bg-warm-stone">
         <div
           className={cn(
             "max-w-3xl mx-auto transition-all duration-250 ease-[cubic-bezier(0.16,1,0.3,1)]",
@@ -193,7 +193,7 @@ const DiagnosticAssess = () => {
               <p className="font-mono text-xs text-primary uppercase tracking-widest mb-2">
                 [{current.dimensionTagline}]
               </p>
-              <p className="text-muted-foreground font-light leading-relaxed">
+              <p className="text-[#555] font-light leading-relaxed">
                 {current.dimensionIntro}
               </p>
             </div>
@@ -202,9 +202,9 @@ const DiagnosticAssess = () => {
           {/* Single question */}
           <div
             key={current.question.id}
-            className="border border-white/[0.08] rounded-xl p-4 sm:p-6"
+            className="border border-black/[0.08] rounded-xl p-4 sm:p-6 bg-off-white"
           >
-            <p className="font-bold text-foreground mb-5">
+            <p className="font-bold text-on-light mb-5">
               <span className="text-primary font-mono text-sm mr-2">
                 {String(current.questionIndex + 1).padStart(2, "0")}.
               </span>
@@ -240,7 +240,7 @@ const DiagnosticAssess = () => {
                       disabled={isAdvancing}
                       className="sr-only"
                     />
-                    <span className="text-foreground font-normal text-sm leading-relaxed">
+                    <span className="text-on-light font-normal text-sm leading-relaxed">
                       {option.label}
                     </span>
                   </label>
