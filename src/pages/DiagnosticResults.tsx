@@ -924,7 +924,7 @@ const DiagnosticResults = () => {
         {/* ── Priority Action Plan ─────────────────────────────────── */}
         <section
           ref={actionPlanSection.ref}
-          className={`pb-16 md:pb-24 transition-all duration-700 ${actionPlanSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          className={`pt-16 md:pt-24 pb-16 md:pb-24 transition-all duration-700 ${actionPlanSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
         >
           <div className="container mx-auto px-6 lg:px-12">
             <span className="font-mono text-xs text-primary uppercase tracking-widest mb-3 block">
