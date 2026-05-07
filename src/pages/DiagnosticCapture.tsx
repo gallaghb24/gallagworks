@@ -168,17 +168,17 @@ const DiagnosticCapture = () => {
         path="/diagnostic/capture"
       />
       <Navigation />
-      <main>
+      <main className="bg-warm-stone">
         <section className="pt-24 pb-16 md:pt-32 md:pb-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-12 flex justify-center">
-            <div className="w-full max-w-[520px] bg-charcoal-mid border border-white/[0.08] rounded-xl p-6 sm:p-8 md:p-10">
+            <div className="w-full max-w-[520px] bg-off-white border border-black/[0.08] rounded-xl p-6 sm:p-8 md:p-10 text-on-light">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
                 [YOUR RESULTS ARE READY]
               </span>
-              <h1 className="font-display text-2xl md:text-3xl font-extrabold text-foreground mb-3">
+              <h1 className="font-display text-2xl md:text-3xl font-extrabold text-on-light mb-3">
                 See how your organisation scored.
               </h1>
-              <p className="text-muted-foreground font-light leading-relaxed mb-8">
+              <p className="text-[#555] font-light leading-relaxed mb-8">
                 Enter your details to view your results. No spam, no sales calls
                 unless you ask for them.
               </p>
@@ -191,7 +191,7 @@ const DiagnosticCapture = () => {
                     id="name"
                     value={form.name}
                     onChange={(e) => handleChange("name", e.target.value)}
-                    className="h-12"
+                    className="h-12 bg-white border-black/10 text-on-light placeholder:text-[#999]"
                     placeholder="Your name"
                   />
                   {errors.name && (
@@ -207,7 +207,7 @@ const DiagnosticCapture = () => {
                     type="email"
                     value={form.email}
                     onChange={(e) => handleChange("email", e.target.value)}
-                    className="h-12"
+                    className="h-12 bg-white border-black/10 text-on-light placeholder:text-[#999]"
                     placeholder="you@company.com"
                   />
                   {errors.email && (
@@ -224,7 +224,7 @@ const DiagnosticCapture = () => {
                     onChange={(e) =>
                       handleChange("organisation", e.target.value)
                     }
-                    className="h-12"
+                    className="h-12 bg-white border-black/10 text-on-light placeholder:text-[#999]"
                     placeholder="Your company"
                   />
                   {errors.organisation && (
@@ -241,7 +241,7 @@ const DiagnosticCapture = () => {
                     id="role"
                     value={form.role}
                     onChange={(e) => handleChange("role", e.target.value)}
-                    className="h-12"
+                    className="h-12 bg-white border-black/10 text-on-light placeholder:text-[#999]"
                     placeholder="e.g. Head of Operations"
                   />
                 </div>
@@ -253,7 +253,7 @@ const DiagnosticCapture = () => {
                     value={form.industry}
                     onValueChange={(v) => handleChange("industry", v)}
                   >
-                    <SelectTrigger className="h-12">
+                    <SelectTrigger className="h-12 bg-white border-black/10 text-on-light">
                       <SelectValue placeholder="Select industry" />
                     </SelectTrigger>
                     <SelectContent>
@@ -273,7 +273,7 @@ const DiagnosticCapture = () => {
                     value={form.company_size}
                     onValueChange={(v) => handleChange("company_size", v)}
                   >
-                    <SelectTrigger className="h-12">
+                    <SelectTrigger className="h-12 bg-white border-black/10 text-on-light">
                       <SelectValue placeholder="Select company size" />
                     </SelectTrigger>
                     <SelectContent>
