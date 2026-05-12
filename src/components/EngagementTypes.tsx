@@ -17,27 +17,28 @@ const engagements = [
   },
   {
     id: "02",
-    title: "Workflow Engineering",
+    title: "Solution Design & Proof",
     duration: "4–8 weeks · Proof of value",
     description:
-      "I re-engineer your highest-friction workflows into production-ready systems. AI handles the predictable majority — the routine data processing, formatting, and routing — while your experts retain governance over the genuine exceptions that require human judgement. Every build is measured by capacity reclaimed and adoption achieved, not hours billed.",
+      "I design the target operating model for your highest-friction workflows, then prototype the solution against your real data to prove it works before you commit to a full production build. AI handles the predictable majority — the routine data processing, formatting, and routing — while your experts retain governance over the genuine exceptions that require human judgement. You see a working system running on your own data, not a slide deck describing one.",
     deliverables: [
-      "Production-ready automated workflows replacing manual processes",
-      "Exception routing with human-in-the-loop escalation for judgement-led decisions",
+      "Solution architecture specifying what gets automated, what stays manual, and how the data flows",
+      "Working prototype validated against real operational data",
       "Measurable before/after metrics on capacity, throughput, and error rates",
+      "Clear production specification for the build phase",
     ],
   },
   {
     id: "03",
-    title: "Build & Deploy",
+    title: "Production Delivery",
     duration: "Project-based",
     description:
-      "Hands-on delivery of AI-enabled tools and workflows — not proofs of concept that gather dust, but production systems designed for real adoption. I build the things that eliminate the manual re-keying, the copy-paste routines, and the spreadsheet coordination that drain your margin.",
+      "Full build and deployment of AI-enabled tools and workflows through an assembled specialist team. I architect the system and govern the build — the right engineers deliver production-grade code. Every deployment includes exception handling, human oversight, and audit trails as standard. This is not proof-of-concept work. These are the systems your team runs on every day.",
     deliverables: [
-      "Brief transformation engines — automating creative brief processing and bulk upload preparation",
-      "Content validation and QC systems — multi-agent quality assurance pipelines",
-      "Data automation and merge tools — eliminating manual re-keying across platforms",
-      "Delivery tracking systems — consolidated visibility across AI initiatives",
+      "Production-ready automated workflows replacing manual processes",
+      "Exception routing with human-in-the-loop escalation for judgement-led decisions",
+      "Governance framework including audit trails, data handling protocols, and oversight controls",
+      "Adoption support and team capability transfer",
     ],
   },
   {
