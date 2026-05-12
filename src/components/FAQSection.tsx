@@ -4,6 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion, useReducedMotion } from "framer-motion";
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 const faqs = [
   {
@@ -49,33 +52,64 @@ const faqs = [
 ];
 
 const FAQSection = () => {
+  const reduce = useReducedMotion();
+
   return (
     <section className="py-16 lg:py-36 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-3xl">
-          <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
+          <motion.span
+            initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.6, ease }}
+            className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block"
+          >
             [FAQ]
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-on-light mb-12">
+          </motion.span>
+          <motion.h2
+            initial={reduce ? { opacity: 1 } : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7, ease, delay: 0.05 }}
+            className="text-3xl md:text-4xl font-extrabold text-on-light mb-12 tracking-tight"
+          >
             Common questions.
-          </h2>
+          </motion.h2>
 
-          <Accordion type="single" collapsible className="space-y-2">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`faq-${index}`}
-                className="bg-off-white border border-black/[0.08] rounded-xl px-6"
-              >
-                <AccordionTrigger className="text-on-light font-semibold text-left hover:text-primary py-5">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-on-light/60 font-light leading-relaxed pb-5">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
+            }}
+          >
+            <Accordion type="single" collapsible className="space-y-2">
+              {faqs.map((faq, index) => (
+                <motion.div
+                  key={index}
+                  variants={{
+                    hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } },
+                  }}
+                >
+                  <AccordionItem
+                    value={`faq-${index}`}
+                    className="bg-off-white border border-black/[0.08] rounded-xl px-6 transition-colors duration-300 hover:border-primary/30"
+                  >
+                    <AccordionTrigger className="text-on-light font-semibold text-left hover:text-primary py-5">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-on-light/60 font-light leading-relaxed pb-5">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </motion.div>
         </div>
       </div>
     </section>
