@@ -1,3 +1,7 @@
+import { motion, useReducedMotion } from "framer-motion";
+
+const ease = [0.16, 1, 0.3, 1] as const;
+
 const engagements = [
   {
     id: "01",
@@ -66,25 +70,56 @@ const engagements = [
 ];
 
 const EngagementTypes = () => {
+  const reduce = useReducedMotion();
+
   return (
     <section className="py-16 lg:py-36 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
-        <span className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block">
+        <motion.span
+          initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.6, ease }}
+          className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block"
+        >
           [ENGAGEMENT TYPES]
-        </span>
+        </motion.span>
 
-        <div className="space-y-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+          }}
+          className="space-y-6"
+        >
           {engagements.map((eng) => (
-            <div
+            <motion.div
               key={eng.id}
-              className="bg-off-white border border-black/[0.08] rounded-xl p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
+              variants={{
+                hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
+              }}
+              whileHover={reduce ? undefined : { y: -3 }}
+              transition={{ duration: 0.3, ease }}
+              className="group relative bg-off-white border border-black/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden"
             >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6">
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                style={{
+                  background:
+                    "radial-gradient(520px circle at 50% 0%, hsl(var(--primary) / 0.08), transparent 60%)",
+                }}
+              />
+              <div className="relative flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-6">
                 <div>
                   <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-2">
                     [{eng.id}]
                   </span>
-                  <h3 className="font-display text-2xl font-bold text-on-light">
+                  <h3 className="font-display text-2xl font-bold text-on-light tracking-tight">
                     {eng.title}
                   </h3>
                 </div>
@@ -92,10 +127,10 @@ const EngagementTypes = () => {
                   {eng.duration}
                 </span>
               </div>
-              <p className="text-on-light/70 font-light leading-relaxed mb-6 max-w-[720px]">
+              <p className="relative text-on-light/70 font-light leading-relaxed mb-6 max-w-[720px]">
                 {eng.description}
               </p>
-              <div>
+              <div className="relative">
                 <span className="font-mono text-xs text-primary/80 tracking-widest block mb-3">
                   [DELIVERABLES]
                 </span>
@@ -108,9 +143,9 @@ const EngagementTypes = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
