@@ -8,7 +8,7 @@ const ProofPoints = () => {
   const { ref, isVisible } = useScrollAnimation();
   const reduce = useReducedMotion();
 
-  const stat1 = useCountUp({ target: 1200, suffix: "+", formatValue: (n) => n.toLocaleString() });
+  const stat1 = useCountUp({ target: 32, suffix: "k+" });
   const stat2 = useCountUp({ target: 98, suffix: "%" });
   const stat3 = useCountUp({ target: 50, suffix: "%+" });
 
