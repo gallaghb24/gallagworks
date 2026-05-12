@@ -17,27 +17,28 @@ const engagements = [
   },
   {
     id: "02",
-    title: "Workflow Engineering",
+    title: "Solution Design & Proof",
     duration: "4–8 weeks · Proof of value",
     description:
-      "I re-engineer your highest-friction workflows into production-ready systems. AI handles the predictable majority — the routine data processing, formatting, and routing — while your experts retain governance over the genuine exceptions that require human judgement. Every build is measured by capacity reclaimed and adoption achieved, not hours billed.",
+      "I design the target operating model for your highest-friction workflows, then prototype the solution against your real data to prove it works before you commit to a full production build. AI handles the predictable majority — the routine data processing, formatting, and routing — while your experts retain governance over the genuine exceptions that require human judgement. You see a working system running on your own data, not a slide deck describing one.",
     deliverables: [
-      "Production-ready automated workflows replacing manual processes",
-      "Exception routing with human-in-the-loop escalation for judgement-led decisions",
+      "Solution architecture specifying what gets automated, what stays manual, and how the data flows",
+      "Working prototype validated against real operational data",
       "Measurable before/after metrics on capacity, throughput, and error rates",
+      "Clear production specification for the build phase",
     ],
   },
   {
     id: "03",
-    title: "Build & Deploy",
+    title: "Production Delivery",
     duration: "Project-based",
     description:
-      "Hands-on delivery of AI-enabled tools and workflows — not proofs of concept that gather dust, but production systems designed for real adoption. I build the things that eliminate the manual re-keying, the copy-paste routines, and the spreadsheet coordination that drain your margin.",
+      "Full build and deployment of AI-enabled tools and workflows through an assembled specialist team. I architect the system and govern the build — the right engineers deliver production-grade code. Every deployment includes exception handling, human oversight, and audit trails as standard. This is not proof-of-concept work. These are the systems your team runs on every day.",
     deliverables: [
-      "Brief transformation engines — automating creative brief processing and bulk upload preparation",
-      "Content validation and QC systems — multi-agent quality assurance pipelines",
-      "Data automation and merge tools — eliminating manual re-keying across platforms",
-      "Delivery tracking systems — consolidated visibility across AI initiatives",
+      "Production-ready automated workflows replacing manual processes",
+      "Exception routing with human-in-the-loop escalation for judgement-led decisions",
+      "Governance framework including audit trails, data handling protocols, and oversight controls",
+      "Adoption support and team capability transfer",
     ],
   },
   {
@@ -45,12 +46,12 @@ const engagements = [
     title: "Agents as a Service",
     duration: "Scoped & delivered",
     description:
-      "Custom AI agents designed around a specific operational or customer problem in your business. I scope the challenge, design the agent's logic, train it on your data, and deploy it where it needs to live — whether that's inside your marketing operations, on your website, or embedded in your existing platforms. Not generic chatbots. Purpose-built agents with guardrails, brand awareness, and measurable outcomes.",
+      "Custom AI agents designed around a specific operational or customer problem in your business. I scope the challenge, design the agent's logic, build it against your data, and deploy it where it needs to live — whether that's inside your operations, on your website, or embedded in your existing platforms. Not generic chatbots. Purpose-built agents with guardrails, domain awareness, and measurable outcomes.",
     deliverables: [
-      "Bespoke agent scoping and design — mapping the problem, defining the agent's role, behaviour, and decision logic",
-      "Knowledge base and data integration — grounding the agent in your brand data, product catalogue, customer signals, or operational rules",
-      "Deployment across internal or customer-facing channels — marketing ops platforms, websites, CRM, or standalone",
-      "Governance and human oversight framework — permissions, audit trails, escalation rules built in from day one",
+      "Bespoke agent scoping and design",
+      "Knowledge base and data integration",
+      "Deployment across internal or customer-facing channels",
+      "Governance and human oversight framework",
       "Iterative refinement based on live performance data and usage patterns",
     ],
   },
@@ -62,7 +63,7 @@ const engagements = [
       "Embedded, part-time AI leadership for businesses that need strategic direction and hands-on delivery but aren't ready for — or can't justify — a full-time Head of AI. I operate as an extension of your leadership team: setting the strategy, standing up governance, shipping production tools, and driving adoption across the business.",
     deliverables: [
       "AI strategy and roadmap development aligned to your business priorities",
-      "Governance framework design — policies, risk management, and audit trails",
+      "Governance framework design and oversight",
       "Tool selection, prototyping, and production deployment",
       "Team training and capability building, including apprenticeship programme design",
     ],

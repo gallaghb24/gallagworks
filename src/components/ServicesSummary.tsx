@@ -13,21 +13,21 @@ const services = [
   },
   {
     id: "02",
-    title: "Workflow Engineering",
+    title: "Solution Design & Proof",
     description:
-      "Re-engineer your highest-friction workflows into production-ready systems. AI handles the predictable majority while your experts retain governance over the exceptions.",
+      "I design how the fix should work, then prototype it against your real data to prove it delivers before you commit to a full build. You see a working system, not a strategy deck.",
   },
   {
     id: "03",
-    title: "Build & Deploy",
+    title: "Production Delivery",
     description:
-      "Hands-on delivery of AI-enabled tools and workflows — production systems designed for real adoption, not proofs of concept.",
+      "Full build and deployment of AI-enabled tools and workflows through an assembled specialist team. Production-grade systems with governance, exception handling, and audit trails baked in from day one.",
   },
   {
     id: "04",
     title: "Agents as a Service",
     description:
-      "Purpose-built AI agents scoped around your specific business challenge — deployed, governed, and refined.",
+      "Purpose-built AI agents scoped around your specific business challenge — deployed, governed, and refined. Not generic chatbots. Intelligent systems with guardrails, domain awareness, and measurable outcomes.",
   },
   {
     id: "05",

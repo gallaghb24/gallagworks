@@ -5,38 +5,32 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const steps = [
   {
     id: "01",
-    title: "Map",
+    title: "Scan",
     description:
-      "Document every manual touchpoint, handoff, and reconciliation loop across the workflow.",
+      "The Operational X-Ray. I map every manual touchpoint, handoff, and reconciliation loop. I quantify the capacity loss and identify where the value sits.",
   },
   {
     id: "02",
-    title: "Measure",
+    title: "Scope",
     description:
-      "Quantify time, cost, and error rates at each friction point.",
+      "I design the solution architecture. What gets automated, what stays manual, how the data model works, and how it fits into your existing systems. The output is a clear specification, not a strategy deck.",
   },
   {
     id: "03",
-    title: "Architect",
+    title: "Prove",
     description:
-      "Design the operational infrastructure to eliminate Human Middleware.",
+      "I prototype the solution against your real data at near-zero cost. You see it working before you commit to a full build. This is what separates the approach from traditional consulting — you get a working system, not a recommendation.",
   },
   {
     id: "04",
-    title: "Build",
+    title: "Scale",
     description:
-      "Engineer production-ready systems, not strategy decks.",
-  },
-  {
-    id: "05",
-    title: "Govern",
-    description:
-      "Embed exception handling, audit trails, and human oversight into every automated workflow.",
+      "Production build and deployment through an assembled specialist team. Governance, exception handling, audit trails, and human oversight are embedded from the start — not bolted on afterwards.",
   },
 ];
 
 const methodologyNote =
-  "Some engagements follow this full sequence. Others start with a specific agent requirement — a known problem that needs an intelligent, autonomous solution. The methodology adapts to where you are.";
+  "Some engagements follow this full sequence. Others start at a specific phase — a known problem that needs scoping and proving, or a validated prototype ready for production build. The methodology adapts to where you are.";
 
 const HowWeWork = () => {
   const reduce = useReducedMotion();
@@ -60,7 +54,7 @@ const HowWeWork = () => {
           transition={{ duration: 0.7, ease, delay: 0.05 }}
           className="text-3xl md:text-4xl font-extrabold text-foreground mb-12 tracking-tight"
         >
-          From diagnosis to deployed system.
+          From diagnosis to production system.
         </motion.h2>
 
         <motion.div
