@@ -27,26 +27,24 @@ const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wr
             </p>
           )}
           <div className={`flex flex-col sm:flex-row gap-4 ${subcopy ? "" : "mt-8"}`}>
-            <Button
-              asChild
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium group"
+            <Link
+              to={primaryCTA?.to ?? "/contact"}
+              className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.5)] transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
             >
-              <Link to={primaryCTA?.to ?? "/contact"}>
+              <span className="absolute inset-0 -translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-background">
                 {primaryCTA?.label ?? "Request a Consultation"}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
+              </span>
+              <ArrowRight className="relative z-10 h-5 w-5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-background" />
+            </Link>
             {secondaryCTA && (
-              <Button
-                asChild
-                size="lg"
-                className="border border-border bg-transparent text-foreground hover:text-primary px-8 py-6 text-lg font-medium"
+              <Link
+                to={secondaryCTA.to}
+                className="group relative inline-flex h-14 items-center justify-center gap-3 rounded-lg border border-border bg-transparent px-8 text-base font-medium text-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
               >
-                <Link to={secondaryCTA.to}>
-                  {secondaryCTA.label}
-                </Link>
-              </Button>
+                <span>{secondaryCTA.label}</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
             )}
           </div>
         </div>
