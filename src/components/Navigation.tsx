@@ -41,27 +41,25 @@ const Navigation = () => {
 
   return (
     <motion.nav
-      initial={{ y: -80, opacity: 0 }}
+      initial={{ opacity: 0 }}
       animate={{
         y: isHidden && !isMobileMenuOpen ? -100 : 0,
         opacity: 1,
       }}
-      transition={{ duration: 0.6, ease }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-[background,border-color,backdrop-filter] duration-500 ${
+      transition={{ duration: 0.5, ease }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
         isScrolled
-          ? "bg-background/70 backdrop-blur-xl border-b border-border/60"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-background/75 backdrop-blur-xl border-b border-border/60"
+          : "bg-background/40 backdrop-blur-md border-b border-border/30"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="group flex items-center" aria-label="Gallag Works">
-            <motion.img
+          <Link to="/" className="flex items-center" aria-label="Gallag Works">
+            <img
               src={gallagWordmark}
               alt="Gallag Works"
-              className="h-8"
-              whileHover={{ scale: 1.04 }}
-              transition={{ duration: 0.4, ease }}
+              className="h-8 transition-opacity duration-300 hover:opacity-80"
             />
           </Link>
 
