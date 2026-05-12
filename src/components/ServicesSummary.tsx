@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion, useReducedMotion } from "framer-motion";
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 const services = [
   {
@@ -36,44 +38,80 @@ const services = [
 ];
 
 const ServicesSummary = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const reduce = useReducedMotion();
 
   return (
-    <section className="py-16 lg:py-36" ref={ref}>
-      <div className="container mx-auto px-6 lg:px-12">
-        <span
-          className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
+    <section className="py-16 lg:py-36 relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative">
+        <motion.span
+          initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.6, ease }}
+          className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block"
         >
           [SERVICES]
-        </span>
+        </motion.span>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+        >
           {services.map((service) => (
-            <div
+            <motion.div
               key={service.id}
-              className="bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30"
+              variants={{
+                hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.7, ease },
+                },
+              }}
+              whileHover={reduce ? undefined : { y: -4 }}
+              className="group relative bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/40 overflow-hidden"
             >
-              <span className="font-mono text-xs text-primary font-semibold tracking-widest block mb-4">
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                style={{
+                  background:
+                    "radial-gradient(400px circle at 50% 0%, hsl(var(--primary) / 0.10), transparent 60%)",
+                }}
+              />
+              <span className="relative font-mono text-xs text-primary font-semibold tracking-widest block mb-4">
                 [{service.id}]
               </span>
-              <h3 className="font-display text-xl font-extrabold text-foreground mb-4 tracking-tight">
+              <h3 className="relative font-display text-xl font-extrabold text-foreground mb-4 tracking-tight">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground font-light leading-relaxed text-sm">
+              <p className="relative text-muted-foreground font-light leading-relaxed text-sm">
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className={`clip-reveal ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.4s" }}>
+        <motion.div
+          initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.1, ease }}
+        >
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors"
+            className="group inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors"
           >
-            View all services <ArrowRight className="w-4 h-4" />
+            View all services
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
