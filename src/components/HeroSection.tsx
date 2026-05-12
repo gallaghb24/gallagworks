@@ -27,7 +27,7 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 lg:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          <div className="lg:col-span-7 max-w-[740px]">
+          <div className="lg:col-span-7">
             {/* Status pill */}
             <motion.div
               {...fadeUp(0)}
@@ -45,7 +45,7 @@ const HeroSection = () => {
             {/* Headline — single column, no clipping */}
             <motion.h1
               {...fadeUp(0.1)}
-              className="font-display font-extrabold text-foreground leading-[1.02] tracking-tight mb-10 text-[clamp(2.5rem,6.4vw,5.25rem)]"
+              className="font-display font-extrabold text-foreground leading-[1.04] tracking-tight mb-10 text-[clamp(2.25rem,4.6vw,4.25rem)]"
             >
               AI Transformation.{" "}
               <span className="text-primary">Built,</span>{" "}
