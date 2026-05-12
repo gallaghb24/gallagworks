@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import SmoothScroll from "@/components/SmoothScroll";
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 const dimensions = [
   {
@@ -43,14 +46,21 @@ const dimensions = [
 ];
 
 const Diagnostic = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const fadeUp = (delay = 0) => ({
+    initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease, delay },
+  });
+
   return (
     <div className="min-h-screen bg-background">
+      <SmoothScroll />
       <SEOHead
         title="AI Readiness Diagnostic"
         description="How ready is your organisation for AI? A free 5-minute diagnostic across six critical dimensions. Built by practitioners, not consultants."
@@ -62,24 +72,27 @@ const Diagnostic = () => {
         <section className="pt-36 pb-16 md:pt-40 md:pb-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-3xl">
-              <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
+              <motion.span
+                {...fadeUp(0)}
+                className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block"
+              >
                 [DIAGNOSTIC]
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
+              </motion.span>
+              <motion.h1
+                {...fadeUp(0.08)}
+                className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.05]"
+              >
                 How ready is your organisation for AI.
-              </h1>
-              <p
-                className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-8 opacity-0 animate-fade-in-up"
-                style={{ animationDelay: "0.1s" }}
+              </motion.h1>
+              <motion.p
+                {...fadeUp(0.16)}
+                className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] mb-8"
               >
                 A 5-minute diagnostic built by practitioners, not consultants.
                 No jargon. No sales pitch. Just an honest assessment of where
                 you stand.
-              </p>
-              <div
-                className="opacity-0 animate-fade-in-up"
-                style={{ animationDelay: "0.2s" }}
-              >
+              </motion.p>
+              <motion.div {...fadeUp(0.24)}>
                 <Button
                   asChild
                   size="lg"
@@ -93,51 +106,85 @@ const Diagnostic = () => {
                 <p className="text-sm text-muted-foreground mt-4">
                   Free results. No sign-up to start.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         {/* Dimensions */}
-        <section className="py-16 lg:py-36 bg-warm-stone border-draw" ref={ref}>
+        <section className="py-16 lg:py-36 bg-warm-stone">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-7xl">
-              <span
-                className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
+              <motion.span
+                initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 0.6, ease }}
+                className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block"
               >
                 [THE FRAMEWORK]
-              </span>
-              <h2
-                className={`text-3xl md:text-4xl font-extrabold text-on-light mb-6 clip-reveal ${isVisible ? "visible" : ""}`}
+              </motion.span>
+              <motion.h2
+                initial={reduce ? { opacity: 1 } : { opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, ease, delay: 0.05 }}
+                className="text-3xl md:text-4xl font-extrabold text-on-light mb-6 tracking-tight"
               >
                 Six dimensions of AI readiness.
-              </h2>
-              <p
-                className={`text-lg text-[#333] font-light leading-relaxed max-w-[720px] mb-16 clip-reveal ${isVisible ? "visible" : ""}`}
+              </motion.h2>
+              <motion.p
+                initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 0.6, ease, delay: 0.1 }}
+                className="text-lg text-[#333] font-light leading-relaxed max-w-[720px] mb-16"
               >
                 Each dimension is scored independently, giving you a clear map
                 of where to invest and what to fix first.
-              </p>
+              </motion.p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {dimensions.map((dim, index) => (
-                  <div
+              <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.15 }}
+                variants={{
+                  hidden: {},
+                  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+                }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              >
+                {dimensions.map((dim) => (
+                  <motion.div
                     key={dim.number}
-                    className={`bg-off-white border border-black/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] clip-reveal-down ${isVisible ? "visible" : ""}`}
-                    style={{ transitionDelay: `${index * 0.1}s` }}
+                    variants={{
+                      hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 },
+                      show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
+                    }}
+                    whileHover={reduce ? undefined : { y: -4 }}
+                    transition={{ duration: 0.3, ease }}
+                    className="group relative bg-off-white border border-black/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden"
                   >
-                    <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      style={{
+                        background:
+                          "radial-gradient(400px circle at 50% 0%, hsl(var(--primary) / 0.08), transparent 60%)",
+                      }}
+                    />
+                    <span className="relative font-mono text-xs text-primary uppercase tracking-widest mb-4 block">
                       [{dim.number}]
                     </span>
-                    <h3 className="text-xl font-extrabold text-on-light mb-2">
+                    <h3 className="relative text-xl font-extrabold text-on-light mb-2 tracking-tight">
                       {dim.title}
                     </h3>
-                    <p className="text-[#555] font-light leading-relaxed">
+                    <p className="relative text-[#555] font-light leading-relaxed">
                       {dim.question}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
