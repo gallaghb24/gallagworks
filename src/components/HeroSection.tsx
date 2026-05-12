@@ -28,20 +28,6 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 lg:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           <div className="lg:col-span-7">
-            {/* Status pill */}
-            <motion.div
-              {...fadeUp(0)}
-              className="inline-flex items-center gap-2.5 px-3 py-1.5 mb-8 rounded-full border border-foreground/10 bg-foreground/[0.03] backdrop-blur-sm"
-            >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
-              </span>
-              <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground">
-                Available — One engagement at a time
-              </span>
-            </motion.div>
-
             {/* Headline — single column, no clipping */}
             <motion.h1
               {...fadeUp(0.1)}
