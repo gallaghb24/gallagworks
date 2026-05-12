@@ -1,8 +1,12 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
+import { motion, useReducedMotion } from "framer-motion";
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 const ProofPoints = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const reduce = useReducedMotion();
 
   const stat1 = useCountUp({ target: 1200, suffix: "+", formatValue: (n) => n.toLocaleString() });
   const stat2 = useCountUp({ target: 98, suffix: "%" });
@@ -35,28 +39,49 @@ const ProofPoints = () => {
           [PROOF POINTS]
         </span>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {points.map((point, index) => (
-            <div
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+          }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {points.map((point) => (
+            <motion.div
               key={point.label}
-              className={`bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 clip-reveal-down ${isVisible ? "visible" : ""}`}
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              variants={{
+                hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.75, ease } },
+              }}
+              whileHover={reduce ? undefined : { y: -4 }}
+              className="group relative bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/40 overflow-hidden"
             >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                style={{
+                  background:
+                    "radial-gradient(420px circle at 50% 0%, hsl(var(--primary) / 0.10), transparent 60%)",
+                }}
+              />
               <p
                 ref={point.counter.ref}
-                className="font-mono text-3xl md:text-4xl font-extrabold text-primary mb-3"
+                className="relative font-mono text-3xl md:text-4xl font-extrabold text-primary mb-3"
               >
                 {point.counter.display}
               </p>
-              <p className="font-display text-lg font-extrabold text-foreground mb-3 tracking-tight">
+              <p className="relative font-display text-lg font-extrabold text-foreground mb-3 tracking-tight">
                 {point.label}
               </p>
-              <p className="text-muted-foreground font-light leading-relaxed text-sm">
+              <p className="relative text-muted-foreground font-light leading-relaxed text-sm">
                 {point.detail}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
