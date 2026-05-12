@@ -6,6 +6,7 @@ import CTABand from "@/components/CTABand";
 import { useCountUp } from "@/hooks/useCountUp";
 import SEOHead from "@/components/SEOHead";
 import SmoothScroll from "@/components/SmoothScroll";
+import benGallagher from "@/assets/ben-gallagher.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const commaFormat = (n: number) => n.toLocaleString();
@@ -69,34 +70,47 @@ const About = () => {
         {/* Hero */}
         <section className="pt-36 pb-16 md:pt-40 md:pb-24">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl">
-              <motion.span
-                {...fadeUp(0)}
-                className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block"
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-3 order-2 lg:order-1">
+                <motion.span
+                  {...fadeUp(0)}
+                  className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block"
+                >
+                  [THE FOUNDER]
+                </motion.span>
+                <motion.h1
+                  {...fadeUp(0.08)}
+                  className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.05]"
+                >
+                  AI Transformation, led from the inside.
+                </motion.h1>
+                <motion.p
+                  {...fadeUp(0.16)}
+                  className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]"
+                >
+                  Gallag Works is an independent AI transformation practice. I don't advise from the sidelines — I embed in your team, set the strategy, build the tools, and drive adoption. You work directly with me across every engagement. My background: 15+ years as operational lead inside a 2,100-person content production agency, managing £15M+ annual contracts, before building the company's AI transformation function from scratch.
+                </motion.p>
+                <motion.a
+                  {...fadeUp(0.24)}
+                  href="https://www.linkedin.com/in/bengallagher/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors mt-6"
+                >
+                  Connect on LinkedIn →
+                </motion.a>
+              </div>
+              <motion.div
+                {...fadeUp(0.12)}
+                className="lg:col-span-2 order-1 lg:order-2"
               >
-                [THE FOUNDER]
-              </motion.span>
-              <motion.h1
-                {...fadeUp(0.08)}
-                className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.05]"
-              >
-                AI Transformation, led from the inside.
-              </motion.h1>
-              <motion.p
-                {...fadeUp(0.16)}
-                className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]"
-              >
-                Gallag Works is an independent AI transformation practice. I don't advise from the sidelines — I embed in your team, set the strategy, build the tools, and drive adoption. You work directly with me across every engagement. My background: 15+ years as operational lead inside a 2,100-person content production agency, managing £15M+ annual contracts, before building the company's AI transformation function from scratch.
-              </motion.p>
-              <motion.a
-                {...fadeUp(0.24)}
-                href="https://www.linkedin.com/in/bengallagher/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors mt-6"
-              >
-                Connect on LinkedIn →
-              </motion.a>
+                <img
+                  src={benGallagher}
+                  alt="Ben Gallagher, founder of Gallag Works"
+                  className="w-full h-[280px] sm:h-[350px] lg:h-[480px] object-cover rounded-lg"
+                  style={{ objectPosition: "center top", filter: "sepia(0.08) saturate(1.05)" }}
+                />
+              </motion.div>
             </div>
           </div>
         </section>
