@@ -54,7 +54,7 @@ const HowWeWork = () => {
           transition={{ duration: 0.7, ease, delay: 0.05 }}
           className="text-3xl md:text-4xl font-extrabold text-foreground mb-12 tracking-tight"
         >
-          From diagnosis to deployed system.
+          From diagnosis to production system.
         </motion.h2>
 
         <motion.div
