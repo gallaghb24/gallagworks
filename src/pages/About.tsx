@@ -6,6 +6,7 @@ import CTABand from "@/components/CTABand";
 import { useCountUp } from "@/hooks/useCountUp";
 import SEOHead from "@/components/SEOHead";
 import SmoothScroll from "@/components/SmoothScroll";
+import benGallagher from "@/assets/ben-gallagher.jpg";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const commaFormat = (n: number) => n.toLocaleString();
