@@ -8,10 +8,12 @@ import LeakageEstimator from "@/components/LeakageEstimator";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SmoothScroll />
       <SEOHead
         title=""
         description="Founder-led AI transformation for high-volume, handoff-heavy operations. Eliminating 'Human Middleware' and manual friction to recover enterprise margins. Proven results: 1,200+ hours reclaimed, up to 98% manual effort reduction."
