@@ -703,6 +703,7 @@ const DiagnosticResults = () => {
         title={`${organisation} AI Readiness Assessment`}
         description={`Scored ${totalScore}/150 — ${maturityLevel.label}. Take the assessment for your organisation.`}
         path={`/diagnostic/results/${currentAssessmentId}`}
+        noindex
       />
       <Navigation />
 
