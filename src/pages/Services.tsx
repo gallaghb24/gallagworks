@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import EngagementTypes from "@/components/EngagementTypes";
