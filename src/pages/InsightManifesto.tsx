@@ -535,13 +535,32 @@ const InsightManifesto = () => {
         description={entry.seoDescription}
         path={`/insights/${entry.slug}`}
       />
-      {entry.faqSchema && (
-        <Helmet>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: entry.title,
+            description: entry.seoDescription,
+            datePublished: entry.date,
+            author: {
+              "@type": "Person",
+              name: "Ben Gallagher",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Gallag Works",
+              url: "https://www.gallag.works",
+            },
+            mainEntityOfPage: `https://www.gallag.works/insights/${entry.slug}`,
+          })}
+        </script>
+        {entry.faqSchema && (
           <script type="application/ld+json">
             {JSON.stringify(entry.faqSchema)}
           </script>
-        </Helmet>
-      )}
+        )}
+      </Helmet>
       <Navigation />
       <main>
         {/* Header */}
