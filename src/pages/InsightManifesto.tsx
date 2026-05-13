@@ -560,6 +560,17 @@ const InsightManifesto = () => {
             {JSON.stringify(entry.faqSchema)}
           </script>
         )}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.gallag.works/" },
+              { "@type": "ListItem", position: 2, name: "Insights", item: "https://www.gallag.works/insights" },
+              { "@type": "ListItem", position: 3, name: entry.title, item: `https://www.gallag.works/insights/${entry.slug}` },
+            ],
+          })}
+        </script>
       </Helmet>
       <Navigation />
       <main>
