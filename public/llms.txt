@@ -1,0 +1,31 @@
+# Gallag Works
+
+> Founder-led AI transformation that eliminates the Human Middleware — manual re-keying, spreadsheet workarounds, and coordination overhead that erode enterprise margins.
+
+Gallag Works is the independent practice of Ben Gallagher, with 15+ years directing enterprise delivery for Tier-1 retailers and FTSE 100 entities. The practice diagnoses operational friction, re-engineers workflows, and embeds AI-enabled systems — measured by capacity reclaimed and margin recovered.
+
+## Pages
+
+- [Home](/): Founder-led AI transformation overview and proof points.
+- [Services](/services): Engagement tiers from Operational X-Ray to Fractional AI Leadership.
+- [The Founder](/about): Ben Gallagher's background, methodology, and track record.
+- [AI Readiness Diagnostic](/diagnostic): Free 30-question assessment of operational AI maturity.
+- [Insights](/insights): Case studies and operating principles for eliminating Human Middleware.
+- [Glossary](/glossary): Terminology used across the practice.
+- [Contact](/contact): Request a consultation.
+
+## Insights
+
+- [Eradicating Enterprise Data Glue](/insights/eradicating-enterprise-data-glue): Removing manual integration between systems.
+- [POS Job Workflow](/insights/pos-job-workflow): Re-engineering point-of-sale job orchestration.
+- [Costing Process](/insights/costing-process): Automating high-volume costing and quotation.
+- [Validation Pipeline](/insights/validation-pipeline): Building automated validation into the workflow.
+- [Multichannel Content Orchestration](/insights/multichannel-content-orchestration): Coordinating content across channels at scale.
+- [Enterprise Reporting Automation](/insights/enterprise-reporting-automation): Replacing manual reporting with engineered systems.
+- [High-Volume Allocation Logistics](/insights/high-volume-allocation-logistics): 97% workload reduction on allocation tasks.
+
+## Optional
+
+- [Privacy](/privacy): Privacy policy.
+- [Cookies](/cookies): Cookie policy.
+- [LLM Summary](/llm.html): Structured summary for AI assistants.
