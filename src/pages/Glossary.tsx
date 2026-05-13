@@ -145,6 +145,16 @@ const Glossary = () => {
             {JSON.stringify(schema)}
           </script>
         ))}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.gallag.works/" },
+              { "@type": "ListItem", position: 2, name: "Glossary", item: "https://www.gallag.works/glossary" },
+            ],
+          })}
+        </script>
       </Helmet>
       <Navigation />
       <main>
