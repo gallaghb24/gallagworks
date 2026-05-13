@@ -710,6 +710,48 @@ const InsightManifesto = () => {
           </section>
         )}
 
+        {/* Related Insights — contextual cross-links between manifestos */}
+        {(() => {
+          const currentIndex = insightData.findIndex((e) => e.slug === entry.slug);
+          const related = [1, 2, 3]
+            .map((offset) => insightData[(currentIndex + offset) % insightData.length])
+            .filter(Boolean);
+
+          return (
+            <section className="py-20 bg-warm-stone border-t border-black/[0.08]">
+              <div className="container mx-auto px-6 lg:px-12">
+                <div className="max-w-5xl">
+                  <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-3">
+                    [RELATED LOG ENTRIES]
+                  </span>
+                  <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-10" style={{ color: '#111113' }}>
+                    Continue reading.
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {related.map((r) => (
+                      <Link
+                        key={r.slug}
+                        to={`/insights/${r.slug}`}
+                        className="group block bg-off-white border border-black/[0.08] rounded-xl p-6 hover:border-primary transition-all"
+                      >
+                        <span className="font-mono text-xs text-primary uppercase tracking-widest block mb-3">
+                          [{r.ref}]
+                        </span>
+                        <h3 className="font-display text-lg font-extrabold mb-3 group-hover:text-primary transition-colors" style={{ color: '#111113' }}>
+                          {r.title}
+                        </h3>
+                        <p className="text-sm leading-relaxed" style={{ color: '#555' }}>
+                          {r.subtitle}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })()}
+
         <CTABand headline={entry.schematic ? "See something similar to your situation?" : "Ready to run the Operational X-Ray on your workflows?"} />
       </main>
       <Footer hideCTA />
