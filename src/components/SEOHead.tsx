@@ -5,11 +5,13 @@ const SEOHead = ({
   description,
   path,
   type = "website",
+  noindex = false,
 }: {
   title: string;
   description: string;
   path: string;
   type?: string;
+  noindex?: boolean;
 }) => {
   const siteUrl = "https://www.gallag.works";
   const fullTitle = title
@@ -20,6 +22,7 @@ const SEOHead = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex,follow" />}
       <link rel="canonical" href={`${siteUrl}${path}`} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
