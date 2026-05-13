@@ -31,7 +31,8 @@ const Services = () => {
       <SEOHead
         title="Services"
         description="AI transformation for process-driven businesses under margin pressure. From Operational X-Ray to Fractional AI Leadership."
-        />
+        path="/services"
+      />
         <Helmet>
           <script type="application/ld+json">
             {JSON.stringify({
