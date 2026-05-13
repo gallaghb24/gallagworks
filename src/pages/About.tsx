@@ -62,7 +62,7 @@ const About = () => {
       <SmoothScroll />
       <SEOHead
         title="The Founder"
-        description="15+ years directing enterprise delivery across retail, financial services, and professional services. Independent AI transformation practice — strategy, build, and adoption."
+        description="15+ years directing enterprise delivery in retail and financial services. Independent AI transformation — strategy, build, adoption."
         path="/about"
       />
       <Navigation />
