@@ -49,7 +49,7 @@ const LogRef = ({ code, slug }: { code: string; slug: string }) => (
   </Link>
 );
 
-const insightData: InsightEntry[] = [
+export const insightData: InsightEntry[] = [
   {
     slug: "eradicating-enterprise-data-glue",
     ref: "GW-LOG-101",
