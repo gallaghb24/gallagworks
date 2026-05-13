@@ -16,6 +16,16 @@ if (typeof window !== "undefined") {
         capture_pageview: false,
         capture_pageleave: true,
         debug: false,
+        // Disable heavy optional modules — saves ~95 KiB / 7s on slow 4G
+        autocapture: false,
+        disable_session_recording: true,
+        disable_surveys: true,
+        disable_web_experiments: true,
+        capture_dead_clicks: false,
+        capture_performance: false,
+        advanced_disable_decide: true,
+        advanced_disable_feature_flags: true,
+        advanced_disable_feature_flags_on_first_load: true,
         loaded: (ph) => {
           ph.capture("$pageview");
         },
@@ -28,6 +38,6 @@ if (typeof window !== "undefined") {
   if (ric) {
     ric(initPosthog, { timeout: 3000 });
   } else {
-    setTimeout(initPosthog, 1500);
+    setTimeout(initPosthog, 2000);
   }
 }
