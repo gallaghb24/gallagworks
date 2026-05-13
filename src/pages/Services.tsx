@@ -29,7 +29,7 @@ const Services = () => {
       <SmoothScroll />
       <SEOHead
         title="Services"
-        description="AI transformation for people-heavy, process-driven businesses under margin pressure. From Operational X-Ray to Fractional AI Leadership — strategy, build, and adoption."
+        description="AI transformation for process-driven businesses under margin pressure. From Operational X-Ray to Fractional AI Leadership."
         path="/services"
       />
       <Navigation />

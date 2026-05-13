@@ -16,7 +16,7 @@ const Index = () => {
       <SmoothScroll />
       <SEOHead
         title=""
-        description="Founder-led AI transformation for high-volume, handoff-heavy operations. Eliminating 'Human Middleware' and manual friction to recover enterprise margins. Proven results: 1,200+ hours reclaimed, up to 98% manual effort reduction."
+        description="Founder-led AI transformation that eliminates 'Human Middleware' in handoff-heavy operations. 1,200+ hours reclaimed, up to 98% manual effort cut."
         path="/"
       />
       <Navigation />
