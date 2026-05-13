@@ -138,6 +138,7 @@ const DiagnosticAssess = () => {
         title="Assessment in Progress"
         description="How ready is your organisation for AI? A free 5-minute diagnostic across six critical dimensions. Built by practitioners, not consultants."
         path="/diagnostic/assess"
+        noindex
       />
 
       {/* Fixed progress header */}

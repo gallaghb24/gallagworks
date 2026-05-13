@@ -166,6 +166,7 @@ const DiagnosticCapture = () => {
         title="Your Results Are Ready"
         description="How ready is your organisation for AI? A free 5-minute diagnostic across six critical dimensions. Built by practitioners, not consultants."
         path="/diagnostic/capture"
+        noindex
       />
       <Navigation />
       <main className="bg-warm-stone">
