@@ -112,10 +112,15 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- LLM Summary -->
+  <!-- Diagnostic flow -->
   <url>
-    <loc>https://www.gallag.works/llm.html</loc>
+    <loc>https://www.gallag.works/diagnostic/capture</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.gallag.works/diagnostic/assess</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
