@@ -31,8 +31,31 @@ const Services = () => {
       <SEOHead
         title="Services"
         description="AI transformation for process-driven businesses under margin pressure. From Operational X-Ray to Fractional AI Leadership."
-        path="/services"
-      />
+        />
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: "AI Transformation",
+              description:
+                "Founder-led AI transformation for process-driven businesses. Eliminating Human Middleware through Operational X-Ray, Workflow Engineering, Production Delivery, and Fractional AI Leadership.",
+              provider: {
+                "@type": "Organization",
+                name: "Gallag Works",
+                url: "https://www.gallag.works",
+              },
+              areaServed: "GB",
+              serviceType: [
+                "AI Transformation",
+                "Workflow Automation",
+                "Operational Audit",
+                "Fractional AI Leadership",
+              ],
+              url: "https://www.gallag.works/services",
+            })}
+          </script>
+        </Helmet>
       <Navigation />
       <main>
         <section className="pt-36 pb-16 md:pt-40 md:pb-24">
