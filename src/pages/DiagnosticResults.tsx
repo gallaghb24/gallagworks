@@ -642,37 +642,17 @@ const DiagnosticResults = () => {
   const handleConsultationRequest = async () => {
     setConsultationLoading(true);
     try {
-      const { data: assessment, error: fetchErr } = await supabase
-        .from("assessments")
-        .select("*, leads(*)")
-        .eq("id", currentAssessmentId)
-        .single();
+      const { data: resp, error: fnErr } = await supabase.functions.invoke(
+        "send-consultation-request",
+        { body: { assessment_id: currentAssessmentId } }
+      );
 
-      if (fetchErr || !assessment) {
-        throw new Error("Could not fetch assessment data");
-      }
-
-      const lead = assessment.leads as any;
-
-      const { error: fnErr } = await supabase.functions.invoke("send-consultation-request", {
-        body: {
-          assessment_id: currentAssessmentId,
-          name: lead?.name ?? "Unknown",
-          email: lead?.email ?? "",
-          organisation: organisation,
-          total_score: totalScore,
-          maturity_level: maturityLevel.label,
-        },
-      });
-
-      if (fnErr) throw fnErr;
+      if (fnErr || (resp as any)?.error) throw fnErr ?? new Error("Consultation request failed");
 
       setConsultationRequested(true);
       trackEvent("consultation_requested", { assessment_id: currentAssessmentId });
 
-      // Get lead name for confirmation page
-      const leadObj = (assessment.leads as any);
-      navigate("/consultation/confirmed", { state: { name: leadObj?.name } });
+      navigate("/consultation/confirmed", { state: { name: (resp as any)?.name } });
     } catch (err: any) {
       console.error("Consultation request failed:", err);
       toast({ title: "Something went wrong", description: "Please try again or email hello@gallag.works directly.", variant: "destructive" });
