@@ -230,7 +230,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Confirmation email sent:", confirmationEmail);
 
     return new Response(
-      JSON.stringify({ success: true, notificationEmail, confirmationEmail }),
+      JSON.stringify({ success: true }),
       {
         status: 200,
         headers: {
