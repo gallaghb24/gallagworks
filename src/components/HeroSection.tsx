@@ -81,7 +81,7 @@ const HeroSection = () => {
             initial={reduce ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.4, ease }}
-            className="lg:col-span-5 relative h-[280px] md:h-[480px] lg:h-[560px]"
+            className="lg:col-span-5 relative h-[280px] lg:h-[560px]"
           >
             <HeroSchematic />
           </motion.div>
