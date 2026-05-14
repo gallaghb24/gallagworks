@@ -15,7 +15,7 @@ const HeroSection = () => {
   });
 
   return (
-    <section className="relative z-10 lg:min-h-[90vh] flex items-center pt-40 md:pt-28 pb-12 md:pb-20 overflow-hidden">
+    <section className="relative z-10 min-h-[90vh] flex items-center pt-32 md:pt-28 pb-24 md:pb-20 overflow-hidden">
       {/* Ambient orange glow */}
       <motion.div
         aria-hidden
