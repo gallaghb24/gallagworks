@@ -33,6 +33,19 @@ const AdminLogin = () => {
     navigate("/admin");
   };
 
+  const handleGoogleLogin = async () => {
+    setError("");
+    const result = await lovable.auth.signInWithOAuth("google", {
+      redirect_uri: `${window.location.origin}/admin`,
+    });
+    if (result.error) {
+      setError(result.error.message);
+      return;
+    }
+    if (result.redirected) return;
+    navigate("/admin");
+  };
+
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
