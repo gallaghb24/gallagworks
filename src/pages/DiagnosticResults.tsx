@@ -383,21 +383,19 @@ const DiagnosticResults = () => {
       setError(null);
 
       const fetchAssessment = async () => {
-        const { data: assessment, error: fetchError } = await supabase
-          .from("assessments")
-          .select("*, leads(*)")
-          .eq("id", paramAssessmentId)
-          .single();
+        const { data: assessment, error: fetchError } = await supabase.functions.invoke(
+          "get-assessment",
+          { body: { assessment_id: paramAssessmentId } }
+        );
 
-        if (fetchError || !assessment) {
+        if (fetchError || !assessment || (assessment as any).error) {
           setError("Assessment not found.");
           setLoading(false);
           return;
         }
 
-        const lead = assessment.leads as any;
-        const dimScores = assessment.dimension_scores as Record<DimensionKey, number>;
-        const totalScore = assessment.total_score ?? 0;
+        const dimScores = (assessment as any).dimension_scores as Record<DimensionKey, number>;
+        const totalScore = (assessment as any).total_score ?? 0;
         const maturityLevel = getMaturityLevel(totalScore);
 
         const dimensionRatings = {} as Record<DimensionKey, { rating: string; color: string }>;
@@ -409,9 +407,9 @@ const DiagnosticResults = () => {
 
         setResolvedData({
           scoring: { dimensionScores: dimScores, totalScore, maturityLevel, dimensionRatings, priorityOrder },
-          organisation: lead?.organisation ?? "Unknown Organisation",
-          assessmentId: assessment.id,
-          assessmentDate: assessment.completed_at ?? assessment.started_at,
+          organisation: (assessment as any).organisation ?? "Unknown Organisation",
+          assessmentId: (assessment as any).id,
+          assessmentDate: (assessment as any).completed_at ?? (assessment as any).started_at,
         });
         setLoading(false);
       };
