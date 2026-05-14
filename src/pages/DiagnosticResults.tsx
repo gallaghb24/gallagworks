@@ -456,29 +456,15 @@ const DiagnosticResults = () => {
     const autoRequest = async () => {
       setConsultationLoading(true);
       try {
-        const { data: assessment, error: fetchErr } = await supabase
-          .from("assessments")
-          .select("*, leads(*)")
-          .eq("id", finalData.assessmentId)
-          .single();
-
-        if (fetchErr || !assessment) throw new Error("Could not fetch assessment data");
-
-        const lead = assessment.leads as any;
-        await supabase.functions.invoke("send-consultation-request", {
-          body: {
-            assessment_id: finalData.assessmentId,
-            name: lead?.name ?? "Unknown",
-            email: lead?.email ?? "",
-            organisation: finalData.organisation,
-            total_score: finalData.scoring.totalScore,
-            maturity_level: finalData.scoring.maturityLevel.label,
-          },
-        });
+        const { data: resp, error: fnErr } = await supabase.functions.invoke(
+          "send-consultation-request",
+          { body: { assessment_id: finalData.assessmentId } }
+        );
+        if (fnErr || (resp as any)?.error) throw fnErr ?? new Error("Consultation request failed");
 
         setConsultationRequested(true);
         trackEvent("consultation_requested", { assessment_id: finalData.assessmentId });
-        navigate("/consultation/confirmed", { state: { name: lead?.name } });
+        navigate("/consultation/confirmed", { state: { name: (resp as any)?.name } });
       } catch (err) {
         console.error("Auto consultation request failed:", err);
         toast({ title: "Something went wrong", description: "Please try again or email hello@gallag.works directly.", variant: "destructive" });
