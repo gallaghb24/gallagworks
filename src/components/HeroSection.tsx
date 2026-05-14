@@ -15,7 +15,7 @@ const HeroSection = () => {
   });
 
   return (
-    <section className="relative z-10 min-h-0 lg:min-h-[90vh] flex items-center pt-60 md:pt-28 pb-6 md:pb-20 overflow-hidden">
+    <section className="relative z-10 min-h-0 lg:min-h-[90vh] flex items-center pt-60 lg:pt-28 pb-6 md:pb-12 lg:pb-20 overflow-hidden">
       {/* Ambient orange glow */}
       <motion.div
         aria-hidden
@@ -34,6 +34,7 @@ const HeroSection = () => {
               className="font-display font-extrabold text-foreground leading-[1.04] tracking-tight mb-10 text-[clamp(2.25rem,4.6vw,4.25rem)]"
             >
               AI Transformation.{" "}
+              <br className="lg:hidden" />
               <span className="text-primary">Built,</span>{" "}
               <span className="bg-gradient-to-r from-foreground to-foreground/40 bg-clip-text text-transparent italic font-light">
                 not theorised.
