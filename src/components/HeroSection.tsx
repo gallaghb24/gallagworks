@@ -15,7 +15,7 @@ const HeroSection = () => {
   });
 
   return (
-    <section className="relative z-10 min-h-0 lg:min-h-[90vh] flex items-center pt-40 md:pt-28 pb-12 md:pb-20 overflow-hidden">
+    <section className="relative z-10 min-h-0 lg:min-h-[90vh] flex items-center pt-60 md:pt-28 pb-6 md:pb-20 overflow-hidden">
       {/* Ambient orange glow */}
       <motion.div
         aria-hidden
@@ -81,7 +81,7 @@ const HeroSection = () => {
             initial={reduce ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.4, ease }}
-            className="lg:col-span-5 relative h-[280px] lg:h-[560px]"
+            className="lg:col-span-5 relative h-[140px] lg:h-[560px]"
           >
             <HeroSchematic />
           </motion.div>
