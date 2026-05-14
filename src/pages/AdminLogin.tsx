@@ -96,6 +96,21 @@ const AdminLogin = () => {
             {loading ? "Signing in…" : "Sign In"}
           </Button>
         </form>
+
+        <div className="my-6 flex items-center gap-3">
+          <div className="h-px flex-1 bg-border" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">or</span>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        <Button
+          type="button"
+          onClick={handleGoogleLogin}
+          variant="outline"
+          className="w-full border-border bg-card text-foreground hover:bg-card/80 font-mono text-sm uppercase tracking-wider"
+        >
+          Continue with Google
+        </Button>
       </div>
     </div>
   );
