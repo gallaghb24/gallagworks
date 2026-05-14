@@ -383,21 +383,19 @@ const DiagnosticResults = () => {
       setError(null);
 
       const fetchAssessment = async () => {
-        const { data: assessment, error: fetchError } = await supabase
-          .from("assessments")
-          .select("*, leads(*)")
-          .eq("id", paramAssessmentId)
-          .single();
+        const { data: assessment, error: fetchError } = await supabase.functions.invoke(
+          "get-assessment",
+          { body: { assessment_id: paramAssessmentId } }
+        );
 
-        if (fetchError || !assessment) {
+        if (fetchError || !assessment || (assessment as any).error) {
           setError("Assessment not found.");
           setLoading(false);
           return;
         }
 
-        const lead = assessment.leads as any;
-        const dimScores = assessment.dimension_scores as Record<DimensionKey, number>;
-        const totalScore = assessment.total_score ?? 0;
+        const dimScores = (assessment as any).dimension_scores as Record<DimensionKey, number>;
+        const totalScore = (assessment as any).total_score ?? 0;
         const maturityLevel = getMaturityLevel(totalScore);
 
         const dimensionRatings = {} as Record<DimensionKey, { rating: string; color: string }>;
@@ -409,9 +407,9 @@ const DiagnosticResults = () => {
 
         setResolvedData({
           scoring: { dimensionScores: dimScores, totalScore, maturityLevel, dimensionRatings, priorityOrder },
-          organisation: lead?.organisation ?? "Unknown Organisation",
-          assessmentId: assessment.id,
-          assessmentDate: assessment.completed_at ?? assessment.started_at,
+          organisation: (assessment as any).organisation ?? "Unknown Organisation",
+          assessmentId: (assessment as any).id,
+          assessmentDate: (assessment as any).completed_at ?? (assessment as any).started_at,
         });
         setLoading(false);
       };
@@ -458,29 +456,15 @@ const DiagnosticResults = () => {
     const autoRequest = async () => {
       setConsultationLoading(true);
       try {
-        const { data: assessment, error: fetchErr } = await supabase
-          .from("assessments")
-          .select("*, leads(*)")
-          .eq("id", finalData.assessmentId)
-          .single();
-
-        if (fetchErr || !assessment) throw new Error("Could not fetch assessment data");
-
-        const lead = assessment.leads as any;
-        await supabase.functions.invoke("send-consultation-request", {
-          body: {
-            assessment_id: finalData.assessmentId,
-            name: lead?.name ?? "Unknown",
-            email: lead?.email ?? "",
-            organisation: finalData.organisation,
-            total_score: finalData.scoring.totalScore,
-            maturity_level: finalData.scoring.maturityLevel.label,
-          },
-        });
+        const { data: resp, error: fnErr } = await supabase.functions.invoke(
+          "send-consultation-request",
+          { body: { assessment_id: finalData.assessmentId } }
+        );
+        if (fnErr || (resp as any)?.error) throw fnErr ?? new Error("Consultation request failed");
 
         setConsultationRequested(true);
         trackEvent("consultation_requested", { assessment_id: finalData.assessmentId });
-        navigate("/consultation/confirmed", { state: { name: lead?.name } });
+        navigate("/consultation/confirmed", { state: { name: (resp as any)?.name } });
       } catch (err) {
         console.error("Auto consultation request failed:", err);
         toast({ title: "Something went wrong", description: "Please try again or email hello@gallag.works directly.", variant: "destructive" });
@@ -658,37 +642,17 @@ const DiagnosticResults = () => {
   const handleConsultationRequest = async () => {
     setConsultationLoading(true);
     try {
-      const { data: assessment, error: fetchErr } = await supabase
-        .from("assessments")
-        .select("*, leads(*)")
-        .eq("id", currentAssessmentId)
-        .single();
+      const { data: resp, error: fnErr } = await supabase.functions.invoke(
+        "send-consultation-request",
+        { body: { assessment_id: currentAssessmentId } }
+      );
 
-      if (fetchErr || !assessment) {
-        throw new Error("Could not fetch assessment data");
-      }
-
-      const lead = assessment.leads as any;
-
-      const { error: fnErr } = await supabase.functions.invoke("send-consultation-request", {
-        body: {
-          assessment_id: currentAssessmentId,
-          name: lead?.name ?? "Unknown",
-          email: lead?.email ?? "",
-          organisation: organisation,
-          total_score: totalScore,
-          maturity_level: maturityLevel.label,
-        },
-      });
-
-      if (fnErr) throw fnErr;
+      if (fnErr || (resp as any)?.error) throw fnErr ?? new Error("Consultation request failed");
 
       setConsultationRequested(true);
       trackEvent("consultation_requested", { assessment_id: currentAssessmentId });
 
-      // Get lead name for confirmation page
-      const leadObj = (assessment.leads as any);
-      navigate("/consultation/confirmed", { state: { name: leadObj?.name } });
+      navigate("/consultation/confirmed", { state: { name: (resp as any)?.name } });
     } catch (err: any) {
       console.error("Consultation request failed:", err);
       toast({ title: "Something went wrong", description: "Please try again or email hello@gallag.works directly.", variant: "destructive" });

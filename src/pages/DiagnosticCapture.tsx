@@ -87,36 +87,28 @@ const DiagnosticCapture = () => {
     try {
       const scoring = calculateFullScoring(answers);
 
-      const { data: lead, error: leadError } = await supabase
-        .from("leads")
-        .insert({
-          name: result.data.name,
-          email: result.data.email,
-          organisation: result.data.organisation,
-          role: result.data.role || null,
-          industry: result.data.industry || null,
-          company_size: result.data.company_size || null,
-        })
-        .select("id")
-        .single();
+      const { data: submitData, error: submitError } = await supabase.functions.invoke(
+        "submit-diagnostic",
+        {
+          body: {
+            name: result.data.name,
+            email: result.data.email,
+            organisation: result.data.organisation,
+            role: result.data.role || null,
+            industry: result.data.industry || null,
+            company_size: result.data.company_size || null,
+            total_score: scoring.totalScore,
+            maturity_level: scoring.maturityLevel.label,
+            dimension_scores: scoring.dimensionScores,
+            answers: answers,
+          },
+        }
+      );
 
-      if (leadError) throw leadError;
-
-      const { data: assessment, error: assessError } = await supabase
-        .from("assessments")
-        .insert({
-          lead_id: lead.id,
-          status: "completed",
-          completed_at: new Date().toISOString(),
-          total_score: scoring.totalScore,
-          maturity_level: scoring.maturityLevel.label,
-          dimension_scores: scoring.dimensionScores,
-          answers: answers,
-        })
-        .select("id")
-        .single();
-
-      if (assessError) throw assessError;
+      if (submitError || !submitData?.assessment_id) {
+        throw submitError ?? new Error("Submission failed");
+      }
+      const assessmentId = submitData.assessment_id as string;
 
       // Track analytics
       trackEvent("assessment_started", {
@@ -126,27 +118,11 @@ const DiagnosticCapture = () => {
       trackEvent("assessment_completed", {
         total_score: scoring.totalScore,
         maturity_level: scoring.maturityLevel.label,
-        assessment_id: assessment.id,
+        assessment_id: assessmentId,
       });
 
-      // Fire-and-forget: send confirmation + admin notification emails
-      supabase.functions.invoke("send-assessment-email", {
-        body: {
-          name: result.data.name,
-          email: result.data.email,
-          organisation: result.data.organisation,
-          role: result.data.role || null,
-          industry: result.data.industry || null,
-          company_size: result.data.company_size || null,
-          total_score: scoring.totalScore,
-          maturity_level: scoring.maturityLevel.label,
-          dimension_scores: scoring.dimensionScores,
-          assessment_id: assessment.id,
-        },
-      }).catch((err) => console.error("Email send failed (non-blocking):", err));
-
-      navigate(`/diagnostic/results/${assessment.id}`, {
-        state: { scoring, assessmentId: assessment.id, organisation: result.data.organisation },
+      navigate(`/diagnostic/results/${assessmentId}`, {
+        state: { scoring, assessmentId, organisation: result.data.organisation },
       });
     } catch (err) {
       console.error("Submission error:", err);
