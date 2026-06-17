@@ -143,50 +143,55 @@ const Insights = () => {
             <div className="max-w-4xl">
               {/* Technical Index Table */}
               <div className="border border-black/[0.08] rounded-xl overflow-hidden bg-off-white">
-                {/* Header Row */}
-                <div className="hidden md:grid border-b border-black/20 px-6 py-4" style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}>
-                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed" style={{ color: '#666' }}>
-                    [REF]
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed" style={{ color: '#666' }}>
-                    [TOPIC]
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed" style={{ color: '#666' }}>
-                    [PRIMARY METRIC]
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed" style={{ color: '#666' }}>
-                    [DATE]
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-widest leading-relaxed text-right" style={{ color: '#666' }}>
-                    [STATUS]
-                  </span>
-                </div>
+              {/* Case studies list */}
+              <div className="border border-black/[0.08] rounded-xl overflow-hidden bg-off-white">
+                {insights.map((item) => {
+                  const isTool = item.type === "TOOL";
+                  const to = isTool ? `/${item.slug}` : `/insights/${item.slug}`;
+                  const headline = isTool ? item.topic : (item.problem ?? item.topic);
+                  return (
+                    <Link
+                      key={item.ref}
+                      to={to}
+                      className="block px-5 py-5 md:px-8 md:py-7 border-b border-black/[0.08] last:border-b-0 hover:bg-black/[0.02] transition-colors group"
+                    >
+                      {/* Top meta row */}
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+                        {item.sector && (
+                          <span className="font-mono text-[11px] uppercase tracking-widest px-2 py-1 rounded border border-black/10" style={{ color: '#444' }}>
+                            {item.sector}
+                          </span>
+                        )}
+                        {isTool && (
+                          <span className="font-mono text-[11px] uppercase tracking-widest px-2 py-1 rounded border border-black/10" style={{ color: '#444' }}>
+                            Tool
+                          </span>
+                        )}
+                        <span className="font-mono text-[11px] tracking-wider" style={{ color: '#8a8a8a' }}>
+                          {item.ref}
+                        </span>
+                        {item.date && (
+                          <span className="font-mono text-[11px] tracking-wider" style={{ color: '#8a8a8a' }}>
+                            {item.date}
+                          </span>
+                        )}
+                        <span className={`font-mono text-[11px] uppercase tracking-widest md:ml-auto ${isTool ? "text-green-500" : "text-primary"}`}>
+                          [{item.status}]
+                        </span>
+                      </div>
 
-                {/* Data Rows */}
-                {insights.map((item) => (
-                  <Link
-                    key={item.ref}
-                    to={item.type === "TOOL" ? `/${item.slug}` : `/insights/${item.slug}`}
-                    className="block md:grid px-5 pt-5 pb-4 md:px-6 md:pt-6 md:pb-5 border-b border-black/[0.08] last:border-b-0 hover:bg-black/[0.02] transition-colors group"
-                    style={{ gridTemplateColumns: '12% 38% 24% 14% 12%' }}
-                  >
-                    <span className="font-mono text-sm text-primary font-semibold tracking-wider leading-relaxed block mb-1 md:mb-0">
-                      {item.ref}
-                    </span>
-                    <span className="text-sm font-medium group-hover:text-primary transition-colors leading-relaxed block mb-1 md:mb-0" style={{ color: '#111113' }}>
-                      {item.topic}
-                    </span>
-                    <span className="font-mono text-sm text-primary leading-relaxed block mb-1 md:mb-0">
-                      {item.metric}
-                    </span>
-                    <span className="font-mono text-xs leading-relaxed block mb-1 md:mb-0" style={{ color: '#666' }}>
-                      {item.date || "—"}
-                    </span>
-                    <span className={`font-mono text-xs uppercase tracking-widest leading-relaxed block md:text-right ${item.type === "TOOL" ? "text-green-500" : "text-primary"}`}>
-                      [{item.status}]
-                    </span>
-                  </Link>
-                ))}
+                      {/* Problem / headline */}
+                      <p className="text-base md:text-lg font-medium leading-snug group-hover:text-primary transition-colors mb-3" style={{ color: '#111113' }}>
+                        {headline}
+                      </p>
+
+                      {/* Metric */}
+                      <span className="font-mono text-sm md:text-base text-primary font-semibold tracking-wide">
+                        {item.metric}
+                      </span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
