@@ -132,7 +132,7 @@ const About = () => {
                 But fixing the process is only half the problem. The other half is designing tools that people actually want to use. The best automation in the world fails if the interface ignores how humans really work — how they make decisions, where they need to intervene, what they need to see at a glance. I design for adoption, not just for automation.
               </motion.p>
               <motion.p {...inViewBody(0.26)} className="text-lg text-on-light/70 font-light leading-relaxed max-w-[720px] mt-6">
-                I architect every system personally. No junior handoffs. Every logic flow is built against the reality of your specific commercial constraints.
+                I architect every solution personally and stay accountable for the outcome end to end. When a build moves to production, I bring in specialists I direct and govern, so delivery scales without the quality dropping. You are never handed to a junior and left there. The judgement, the design and the accountability stay with me.
               </motion.p>
             </div>
           </div>
