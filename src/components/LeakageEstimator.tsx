@@ -60,7 +60,8 @@ const LeakageEstimator = () => {
   return (
     <section
       ref={ref}
-      className="border-draw bg-warm-stone"
+      id="capacity-calculator"
+      className="border-draw bg-warm-stone scroll-mt-24"
     >
       {/* Header */}
       <div
