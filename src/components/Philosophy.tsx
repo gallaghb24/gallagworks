@@ -19,6 +19,7 @@ const Philosophy = () => {
   return (
     <section className="py-16 lg:py-32 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
+        <div className="border-t border-black/[0.08] mb-8 lg:mb-12" />
         <motion.div
           initial="hidden"
           whileInView="show"
