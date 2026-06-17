@@ -57,8 +57,9 @@ const ProofSection = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-36 bg-slate" ref={ref}>
+    <section className="py-16 lg:py-36 bg-warm-stone" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
+        <div className="border-t border-black/[0.08] mb-8 lg:mb-12" />
         <span
           className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
         >
@@ -69,7 +70,7 @@ const ProofSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7, ease }}
-          className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-12 leading-tight tracking-tight"
+          className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-light mb-12 leading-tight tracking-tight"
         >
           The outcomes, and the work behind them.
         </motion.h2>
@@ -95,14 +96,14 @@ const ProofSection = () => {
             >
               <Link
                 to={point.href}
-                className="group relative flex h-full flex-col bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/40 overflow-hidden"
+                className="group relative flex h-full flex-col bg-off-white border border-black/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden"
               >
                 <span
                   aria-hidden
                   className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   style={{
                     background:
-                      "radial-gradient(420px circle at 50% 0%, hsl(var(--primary) / 0.10), transparent 60%)",
+                      "radial-gradient(420px circle at 50% 0%, hsl(var(--primary) / 0.08), transparent 60%)",
                   }}
                 />
                 <p
@@ -111,13 +112,13 @@ const ProofSection = () => {
                 >
                   {point.counter.display}
                 </p>
-                <p className="relative font-display text-lg font-extrabold text-foreground mb-3 tracking-tight">
+                <p className="relative font-display text-lg font-extrabold text-on-light mb-3 tracking-tight">
                   {point.label}
                 </p>
-                <p className="relative text-muted-foreground font-light leading-relaxed text-sm mb-5 flex-1">
+                <p className="relative text-on-light/60 font-light leading-relaxed text-sm mb-5 flex-1">
                   {point.detail}
                 </p>
-                <span className="relative inline-flex items-center gap-2 font-mono text-xs text-foreground/70 group-hover:text-primary transition-colors">
+                <span className="relative inline-flex items-center gap-2 font-mono text-xs text-on-light/60 group-hover:text-primary transition-colors">
                   Read the case study
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
@@ -144,26 +145,26 @@ const ProofSection = () => {
             >
               <Link
                 to={`/insights/${c.slug}`}
-                className="group relative flex h-full flex-col bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/40 overflow-hidden"
+                className="group relative flex h-full flex-col bg-off-white border border-black/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden"
               >
                 <span
                   aria-hidden
                   className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   style={{
                     background:
-                      "radial-gradient(420px circle at 50% 0%, hsl(var(--primary) / 0.10), transparent 60%)",
+                      "radial-gradient(420px circle at 50% 0%, hsl(var(--primary) / 0.08), transparent 60%)",
                   }}
                 />
                 <span className="relative font-mono text-xs text-primary font-semibold tracking-widest block mb-5">
                   [{c.sector.toUpperCase()}]
                 </span>
-                <p className="relative text-muted-foreground text-sm leading-relaxed mb-6">
+                <p className="relative text-on-light/60 text-sm leading-relaxed mb-6">
                   {c.problem}
                 </p>
                 <p className="relative font-display text-xl font-extrabold text-primary leading-snug tracking-tight mb-6 flex-1">
                   {c.result}
                 </p>
-                <span className="relative inline-flex items-center gap-2 font-mono text-xs text-foreground/80 group-hover:text-primary transition-colors">
+                <span className="relative inline-flex items-center gap-2 font-mono text-xs text-on-light/60 group-hover:text-primary transition-colors">
                   Read the case study
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
@@ -174,7 +175,7 @@ const ProofSection = () => {
 
         <Link
           to="/insights"
-          className="group inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors"
+          className="group inline-flex items-center gap-2 font-mono text-sm text-on-light/60 hover:text-primary transition-colors"
         >
           View all case studies
           <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
