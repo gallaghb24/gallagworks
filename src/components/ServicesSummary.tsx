@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import MonoLabel from "@/components/MonoLabel";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -43,15 +44,15 @@ const ServicesSummary = () => {
   return (
     <section className="py-16 lg:py-36 relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 relative">
-        <motion.span
+        <motion.div
           initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6, ease }}
-          className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block"
+          className="mb-6"
         >
-          [SERVICES]
-        </motion.span>
+          <MonoLabel text="[SERVICES]" />
+        </motion.div>
 
         <motion.div
           initial="hidden"

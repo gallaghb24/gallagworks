@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
+import MonoLabel from "@/components/MonoLabel";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -30,12 +31,9 @@ const Philosophy = () => {
           }}
           className="max-w-3xl"
         >
-          <motion.span
-            variants={item}
-            className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block"
-          >
-            [PHILOSOPHY]
-          </motion.span>
+          <motion.div variants={item} className="mb-6">
+            <MonoLabel text="[PHILOSOPHY]" />
+          </motion.div>
           <motion.h2
             variants={item}
             className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-light mb-10 leading-tight tracking-tight"

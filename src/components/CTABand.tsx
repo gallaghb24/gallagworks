@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import MagneticButton from "@/components/MagneticButton";
 
 interface CTABandProps {
   headline?: React.ReactNode;
@@ -27,16 +28,18 @@ const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wr
             </p>
           )}
           <div className={`flex flex-col sm:flex-row gap-4 ${subcopy ? "" : "mt-8"}`}>
-            <Link
-              to={primaryCTA?.to ?? "/contact"}
-              className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.5)] transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-            >
-              <span className="absolute inset-0 -translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
-              <span className="relative z-10 transition-colors duration-300 group-hover:text-background">
-                {primaryCTA?.label ?? "Request a Consultation"}
-              </span>
-              <ArrowRight className="relative z-10 h-5 w-5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-background" />
-            </Link>
+            <MagneticButton>
+              <Link
+                to={primaryCTA?.to ?? "/contact"}
+                className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.5)] transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+              >
+                <span className="absolute inset-0 -translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-background">
+                  {primaryCTA?.label ?? "Request a Consultation"}
+                </span>
+                <ArrowRight className="relative z-10 h-5 w-5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-background" />
+              </Link>
+            </MagneticButton>
             {secondaryCTA && (
               <Link
                 to={secondaryCTA.to}

@@ -3,6 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import MonoLabel from "@/components/MonoLabel";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -60,11 +61,9 @@ const ProofSection = () => {
     <section className="py-16 lg:py-36 bg-warm-stone" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="border-t border-black/[0.08] mb-8 lg:mb-12" />
-        <span
-          className={`font-mono text-xs text-primary uppercase tracking-widest mb-6 block clip-reveal ${isVisible ? "visible" : ""}`}
-        >
-          [PROOF]
-        </span>
+        <div className="mb-6">
+          <MonoLabel text="[PROOF]" />
+        </div>
         <motion.h2
           initial={reduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
