@@ -100,7 +100,7 @@ export const insightData: InsightEntry[] = [
         paragraphs: [
           "Every engagement begins with the Operational X-Ray — a 2–3 week fixed-scope diagnostic that identifies the small number of manual processes causing the majority of your capacity loss. This isn't a strategy document. It's a map of every manual touchpoint, with each one quantified by time, cost, error rate, and impact.",
           "The X-Ray produces a prioritised roadmap. Each item has a projected ROI. Each solution keeps humans in the loop — I automate the routine so your people retain control over the exceptions that need real judgement. This isn't about replacing people. It's about getting them back to the work that justifies their salary.",
-          "Every system is architected by me personally. No junior handoffs. No 50-page strategy decks. Just engineered systems that ship.",
+          "Every solution is architected by me personally, and I stay accountable for it end to end. No 50-page strategy decks. No being handed to a junior and left there. When a build scales, the specialists I bring in work under my direction. Just engineered systems that ship.",
         ],
       },
     ],
