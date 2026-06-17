@@ -141,8 +141,6 @@ const Insights = () => {
         <section className="pb-20 pt-12 md:pt-16 bg-warm-stone">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
-              {/* Technical Index Table */}
-              <div className="border border-black/[0.08] rounded-xl overflow-hidden bg-off-white">
               {/* Case studies list */}
               <div className="border border-black/[0.08] rounded-xl overflow-hidden bg-off-white">
                 {insights.map((item) => {
