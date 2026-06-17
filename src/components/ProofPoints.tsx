@@ -19,16 +19,19 @@ const ProofPoints = () => {
       counter: stat1,
       label: "Hours Reclaimed Annually",
       detail: "Capacity recovered from manual Human Middleware across enterprise engagements.",
+      href: "/insights/eradicating-enterprise-data-glue",
     },
     {
       counter: stat2,
       label: "Manual Effort Reduction",
       detail: "Enterprise reporting pipelines reduced from 30 hours to 10 minutes.",
+      href: "/insights/enterprise-reporting-automation",
     },
     {
       counter: stat3,
       label: "Lead Time Reduction",
       detail: "Brief-to-production turnaround times slashed through automated ingestion.",
+      href: "/insights/multichannel-content-orchestration",
     },
   ];
 
