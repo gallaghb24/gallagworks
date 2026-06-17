@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
 import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -17,16 +19,19 @@ const ProofPoints = () => {
       counter: stat1,
       label: "Hours Reclaimed Annually",
       detail: "Capacity recovered from manual Human Middleware across enterprise engagements.",
+      href: "/insights/eradicating-enterprise-data-glue",
     },
     {
       counter: stat2,
       label: "Manual Effort Reduction",
       detail: "Enterprise reporting pipelines reduced from 30 hours to 10 minutes.",
+      href: "/insights/enterprise-reporting-automation",
     },
     {
       counter: stat3,
       label: "Lead Time Reduction",
       detail: "Brief-to-production turnaround times slashed through automated ingestion.",
+      href: "/insights/multichannel-content-orchestration",
     },
   ];
 
@@ -57,28 +62,36 @@ const ProofPoints = () => {
                 show: { opacity: 1, y: 0, transition: { duration: 0.75, ease } },
               }}
               whileHover={reduce ? undefined : { y: -4 }}
-              className="group relative bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/40 overflow-hidden"
             >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                style={{
-                  background:
-                    "radial-gradient(420px circle at 50% 0%, hsl(var(--primary) / 0.10), transparent 60%)",
-                }}
-              />
-              <p
-                ref={point.counter.ref}
-                className="relative font-mono text-3xl md:text-4xl font-extrabold text-primary mb-3"
+              <Link
+                to={point.href}
+                className="group relative flex h-full flex-col bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/40 overflow-hidden"
               >
-                {point.counter.display}
-              </p>
-              <p className="relative font-display text-lg font-extrabold text-foreground mb-3 tracking-tight">
-                {point.label}
-              </p>
-              <p className="relative text-muted-foreground font-light leading-relaxed text-sm">
-                {point.detail}
-              </p>
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{
+                    background:
+                      "radial-gradient(420px circle at 50% 0%, hsl(var(--primary) / 0.10), transparent 60%)",
+                  }}
+                />
+                <p
+                  ref={point.counter.ref}
+                  className="relative font-mono text-3xl md:text-4xl font-extrabold text-primary mb-3"
+                >
+                  {point.counter.display}
+                </p>
+                <p className="relative font-display text-lg font-extrabold text-foreground mb-3 tracking-tight">
+                  {point.label}
+                </p>
+                <p className="relative text-muted-foreground font-light leading-relaxed text-sm mb-5 flex-1">
+                  {point.detail}
+                </p>
+                <span className="relative inline-flex items-center gap-2 font-mono text-xs text-foreground/70 group-hover:text-primary transition-colors">
+                  Read the case study
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
