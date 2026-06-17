@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import HeroSchematic from "@/components/HeroSchematic";
+import MagneticButton from "@/components/MagneticButton";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -54,16 +55,18 @@ const HeroSection = () => {
               {...fadeUp(0.4)}
               className="flex flex-wrap items-center gap-4"
             >
-              <Link
-                to="/contact"
-                className="group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.55)] transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-              >
-                <span className="absolute inset-0 -translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
-                <span className="relative z-10 transition-colors duration-300 group-hover:text-background">
-                  Request a Consultation
-                </span>
-                <ArrowRight className="relative z-10 h-5 w-5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-background" />
-              </Link>
+              <MagneticButton>
+                <Link
+                  to="/contact"
+                  className="group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-[0_10px_30px_-10px_hsl(var(--primary)/0.55)] transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+                >
+                  <span className="absolute inset-0 -translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
+                  <span className="relative z-10 transition-colors duration-300 group-hover:text-background">
+                    Request a Consultation
+                  </span>
+                  <ArrowRight className="relative z-10 h-5 w-5 transition-all duration-300 group-hover:translate-x-1 group-hover:text-background" />
+                </Link>
+              </MagneticButton>
 
               <Link
                 to="/diagnostic"

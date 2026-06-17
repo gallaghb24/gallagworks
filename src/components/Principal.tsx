@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import MonoLabel from "@/components/MonoLabel";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -25,12 +26,9 @@ const Principal = () => {
           }}
           className="max-w-5xl"
         >
-          <motion.span
-            variants={item}
-            className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block"
-          >
-            [THE FOUNDER]
-          </motion.span>
+          <motion.div variants={item} className="mb-6">
+            <MonoLabel text="[THE FOUNDER]" />
+          </motion.div>
 
           <motion.h2
             variants={item}

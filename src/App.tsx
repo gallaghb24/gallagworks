@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import StructuredData from "@/components/StructuredData";
+import ScrollProgress from "@/components/ScrollProgress";
 import { DiagnosticProvider } from "@/contexts/DiagnosticContext";
 import { Loader2 } from "lucide-react";
 import Index from "./pages/Index";
@@ -61,6 +62,7 @@ const App = () => (
         <Sonner />
         <StructuredData />
         <BrowserRouter>
+          <ScrollProgress />
           <ScrollToTop />
           <DiagnosticProvider>
             <Suspense fallback={<LoadingFallback />}>

@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
+import MonoLabel from "@/components/MonoLabel";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -24,15 +25,15 @@ const WhyDifferent = () => {
     <section className="py-16 lg:py-32 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="border-t border-black/[0.08] mb-8 lg:mb-12" />
-        <motion.span
+        <motion.div
           initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6, ease }}
-          className="font-mono text-xs text-primary uppercase tracking-widest mb-6 block"
+          className="mb-6"
         >
-          [WHY THIS IS DIFFERENT]
-        </motion.span>
+          <MonoLabel text="[WHY THIS IS DIFFERENT]" />
+        </motion.div>
         <motion.h2
           initial={reduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
