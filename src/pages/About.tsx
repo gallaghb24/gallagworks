@@ -126,7 +126,7 @@ const About = () => {
                 Engineering the problem, not the symptom.
               </motion.h2>
               <motion.p {...inViewBody(0.1)} className="text-lg text-on-light/70 font-light leading-relaxed max-w-[720px]">
-                Most organisations don't have an AI problem. They have a process problem that AI can't fix on its own. I find the Human Middleware — the senior people acting as manual routers between systems — and engineer it out, so your team goes back to making decisions instead of managing tasks.
+                By the time most businesses call me, they have usually tried to buy their way out with tools and found that nothing really changed. The technology was never the issue. It was the process underneath, and the Human Middleware holding it together: senior people acting as manual routers between systems. I find that layer and engineer it out, so your team goes back to making decisions instead of managing tasks.
               </motion.p>
               <motion.p {...inViewBody(0.18)} className="text-lg text-on-light/70 font-light leading-relaxed max-w-[720px] mt-6">
                 But fixing the process is only half the problem. The other half is designing tools that people actually want to use. The best automation in the world fails if the interface ignores how humans really work — how they make decisions, where they need to intervene, what they need to see at a glance. I design for adoption, not just for automation.
@@ -194,6 +194,9 @@ const About = () => {
               <motion.p {...inViewBody(0.1)} className="text-lg text-[#333] font-light leading-relaxed max-w-[720px]">
                 15 years directing enterprise client delivery and managing £15M+ contracts inside a 2,100-person agency taught me where businesses actually bleed time and money: not in the big strategic decisions, but in the thousands of small manual handoffs that nobody questions anymore. The last two years building an AI transformation function — governance, production tools, training programmes, adoption across the business — showed me that most companies need someone who can do all of it, not just advise on parts of it. That's what Gallag Works is.
               </motion.p>
+              <motion.a {...inViewBody(0.18)} href="/insights" className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors mt-6">
+                See the work →
+              </motion.a>
             </div>
           </div>
         </section>

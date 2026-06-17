@@ -72,13 +72,13 @@ const Services = () => {
                 {...fadeUp(0.08)}
                 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight leading-[1.05]"
               >
-                Eliminating Human Middleware.
+                Get your most expensive people out of manual work.
               </motion.h1>
               <motion.p
                 {...fadeUp(0.16)}
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px]"
               >
-                Most businesses over a certain size are held together by Human Middleware — senior people spending 30% of their time acting as manual routers between systems. I design how work should move through your organisation, then build the systems to make it happen. Strategy, build, and adoption — measured by capacity reclaimed and margin recovered.
+                In most businesses over a certain size, senior people spend up to a third of their week as manual routers between systems: re-keying data, reformatting outputs, chasing approvals. That hidden layer has a name, Human Middleware, and it is where capacity and margin quietly leak. I design how the work should move, then build the systems that make it happen. Strategy, build and adoption, measured by capacity reclaimed and margin recovered.
               </motion.p>
             </div>
           </div>
