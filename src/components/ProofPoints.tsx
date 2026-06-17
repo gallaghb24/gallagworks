@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
 import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
