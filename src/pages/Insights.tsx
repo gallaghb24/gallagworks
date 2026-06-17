@@ -87,7 +87,7 @@ const Insights = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Insights & Case Studies"
+        title="Case Studies"
         description="Real examples from real engagements. AI transformation case studies with verified results: 98% manual effort reduction, 1,200 hours reclaimed annually."
         path="/insights"
       />
@@ -97,10 +97,10 @@ const Insights = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl">
               <span className="font-mono text-xs text-primary uppercase tracking-widest mb-4 block opacity-0 animate-fade-in">
-                [INSIGHTS]
+                [CASE STUDIES]
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold text-foreground mb-6 opacity-0 animate-fade-in-up">
-                Insights &amp; Case Studies.
+                Case Studies.
               </h1>
               <p
                 className="text-lg text-muted-foreground font-light leading-relaxed max-w-[720px] opacity-0 animate-fade-in-up"
