@@ -606,6 +606,42 @@ const InsightManifesto = () => {
           </div>
         </section>
 
+        {/* Skim summary strip: sector / problem / result */}
+        {entry.schematic && (
+          <section className="pb-12 -mt-6">
+            <div className="container mx-auto px-6 lg:px-12">
+              <div className="max-w-3xl">
+                <div className="border border-black/[0.08] rounded-xl bg-off-white p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                  <div>
+                    <span className="font-mono text-[11px] uppercase tracking-widest block mb-2" style={{ color: '#666' }}>
+                      [SECTOR]
+                    </span>
+                    <p className="text-sm md:text-base font-medium" style={{ color: '#111113' }}>
+                      {entry.schematic.sector}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="font-mono text-[11px] uppercase tracking-widest block mb-2" style={{ color: '#666' }}>
+                      [THE PROBLEM]
+                    </span>
+                    <p className="text-sm md:text-base font-medium leading-snug" style={{ color: '#111113' }}>
+                      {entry.schematic.friction[0]}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="font-mono text-[11px] uppercase tracking-widest block mb-2" style={{ color: '#666' }}>
+                      [THE RESULT]
+                    </span>
+                    <p className="text-sm md:text-base font-semibold text-primary leading-snug">
+                      {entry.schematic.result}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Definition call-out for the primary manifesto */}
         {entry.slug === "eradicating-enterprise-data-glue" && (
           <section className="pb-16">
