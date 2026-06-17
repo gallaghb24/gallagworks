@@ -4,8 +4,7 @@ import SoundLikeYou from "@/components/SoundLikeYou";
 import Philosophy from "@/components/Philosophy";
 import ServicesSummary from "@/components/ServicesSummary";
 import Principal from "@/components/Principal";
-import ProofPoints from "@/components/ProofPoints";
-import FeaturedCaseStudies from "@/components/FeaturedCaseStudies";
+import ProofSection from "@/components/ProofSection";
 import WhyDifferent from "@/components/WhyDifferent";
 import LeakageEstimator from "@/components/LeakageEstimator";
 import CTABand from "@/components/CTABand";
@@ -26,8 +25,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <SoundLikeYou />
-        <ProofPoints />
-        <FeaturedCaseStudies />
+        <ProofSection />
         <Philosophy />
         <WhyDifferent />
         <ServicesSummary />
