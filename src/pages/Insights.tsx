@@ -5,7 +5,19 @@ import Footer from "@/components/Footer";
 import CTABand from "@/components/CTABand";
 import SEOHead from "@/components/SEOHead";
 
-const insights = [
+interface InsightRow {
+  ref: string;
+  topic: string;
+  metric: string;
+  status: string;
+  slug: string;
+  type: "TOOL" | "MANIFESTO" | "SCHEMATIC";
+  date?: string;
+  sector?: string;
+  problem?: string;
+}
+
+const insights: InsightRow[] = [
   {
     ref: "GW-TOOL-001",
     topic: "AI Readiness Diagnostic",
@@ -22,6 +34,8 @@ const insights = [
     slug: "eradicating-enterprise-data-glue",
     type: "MANIFESTO",
     date: "MAR 2025",
+    sector: "Cross-sector",
+    problem: "The hidden manual work draining capacity and margin across an enterprise.",
   },
   {
     ref: "GW-LOG-201",
@@ -31,6 +45,8 @@ const insights = [
     slug: "pos-job-workflow",
     type: "SCHEMATIC",
     date: "MAY 2025",
+    sector: "Professional Services",
+    problem: "Reporting run as a manual assembly line from disconnected systems.",
   },
   {
     ref: "GW-LOG-202",
@@ -40,6 +56,8 @@ const insights = [
     slug: "costing-process",
     type: "SCHEMATIC",
     date: "JUL 2025",
+    sector: "Media / Publishing",
+    problem: "Costing managed through spreadsheets, email chains and status chasing.",
   },
   {
     ref: "GW-LOG-203",
@@ -49,6 +67,8 @@ const insights = [
     slug: "validation-pipeline",
     type: "SCHEMATIC",
     date: "SEP 2025",
+    sector: "Financial Services",
+    problem: "20 hours a week of manual checking, with no capacity left to improve.",
   },
   {
     ref: "GW-LOG-204",
@@ -58,6 +78,8 @@ const insights = [
     slug: "multichannel-content-orchestration",
     type: "SCHEMATIC",
     date: "NOV 2025",
+    sector: "Retail & Commerce",
+    problem: "500-line client briefs triggering 5-hour manual QC loops.",
   },
   {
     ref: "GW-LOG-205",
@@ -67,6 +89,8 @@ const insights = [
     slug: "enterprise-reporting-automation",
     type: "SCHEMATIC",
     date: "JAN 2026",
+    sector: "Media / Entertainment",
+    problem: "30 hours of monthly Excel manipulation for pricing reports.",
   },
   {
     ref: "GW-LOG-206",
@@ -76,6 +100,8 @@ const insights = [
     slug: "high-volume-allocation-logistics",
     type: "SCHEMATIC",
     date: "MAR 2026",
+    sector: "Retail & Commerce",
+    problem: "A 10-hour monthly task merging dozens of allocation files by hand.",
   },
 ];
 
