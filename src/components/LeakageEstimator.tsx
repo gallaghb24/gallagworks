@@ -61,22 +61,27 @@ const LeakageEstimator = () => {
 
   return (
     <section
-      ref={ref}
       id="capacity-calculator"
       className="border-draw bg-warm-stone scroll-mt-24"
     >
       {/* Header */}
-      <div
-        className={`container mx-auto px-6 lg:px-12 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={revealViewport}
+        variants={revealContainer}
+        className="container mx-auto px-6 lg:px-12 pt-16 pb-10"
       >
-        <span
+        <motion.span
+          variants={revealItem}
           className="block mb-5 text-primary"
           style={{ ...MONO, letterSpacing: "0.12em" }}
         >
           [CAPACITY CALCULATOR]
-        </span>
+        </motion.span>
 
-        <h2
+        <motion.h2
+          variants={revealItem}
           className="font-display font-extrabold mb-3 text-on-light tracking-tight"
           style={{
             fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
@@ -84,9 +89,10 @@ const LeakageEstimator = () => {
           }}
         >
           Quantify your Human Middleware cost.
-        </h2>
+        </motion.h2>
 
-        <p
+        <motion.p
+          variants={revealItem}
           style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: "0.9rem",
@@ -97,14 +103,18 @@ const LeakageEstimator = () => {
           }}
         >
           Input your team's numbers below. See how much capacity and cost you're losing to manual friction — and what recovery looks like.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Input/Output Grid */}
-      <div
-        className={`container mx-auto px-6 lg:px-12 clip-reveal-down ${isVisible ? "visible" : ""}`}
-        style={{ transitionDelay: "0.2s" }}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={revealViewport}
+        variants={revealContainer}
+        className="container mx-auto px-6 lg:px-12"
       >
+
         <div
           className="border-t"
           style={{ borderColor: "rgba(0,0,0,0.08)" }}
