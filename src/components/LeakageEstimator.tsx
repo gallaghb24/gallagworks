@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
+import { revealContainer, revealItem, revealViewport } from "@/lib/motion";
+
 
 const RECOVERY_OPTIONS = [
   { pct: 50, label: "CONSERVATIVE" },
@@ -25,7 +27,7 @@ const MONO: React.CSSProperties = {
 };
 
 const LeakageEstimator = () => {
-  const { ref, isVisible } = useScrollAnimation();
+
 
   const [people, setPeople] = useState("8");
   const [hoursPerWeek, setHoursPerWeek] = useState("6");
