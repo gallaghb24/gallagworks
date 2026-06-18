@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import MonoLabel from "@/components/MonoLabel";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -33,7 +32,7 @@ const SoundLikeYou = () => {
           className="max-w-4xl"
         >
           <motion.div variants={item} className="mb-6">
-            <MonoLabel text="[SOUND FAMILIAR]" />
+            <span className="font-mono text-xs text-primary uppercase tracking-widest">[SOUND FAMILIAR]</span>
           </motion.div>
           <motion.h2
             variants={item}
