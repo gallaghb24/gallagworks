@@ -120,12 +120,13 @@ const LeakageEstimator = () => {
           style={{ borderColor: "rgba(0,0,0,0.08)" }}
         >
           {/* Section label */}
-          <div className="py-6">
+          <motion.div variants={revealItem} className="py-6">
             <p className="text-primary" style={MONO}>[INPUT TERMINAL]</p>
-          </div>
+          </motion.div>
 
           {/* Row 1: People → Annual Lost Hours */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="grid grid-cols-2 gap-4 md:gap-6 py-6 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -167,10 +168,11 @@ const LeakageEstimator = () => {
                 {hasInput ? formatHours(annualHours) : "—"}
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Row 2: Hours/week → Annual Cost */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="grid grid-cols-2 gap-4 md:gap-6 py-6 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -212,10 +214,11 @@ const LeakageEstimator = () => {
                 {hasInput ? formatGBP(annualCost) : "—"}
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Row 3: Hourly rate → (empty right, rate is a standalone input) */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="grid grid-cols-2 gap-4 md:gap-6 py-6 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -242,10 +245,11 @@ const LeakageEstimator = () => {
               />
             </div>
             <div />
-          </div>
+          </motion.div>
 
           {/* Recovery Scenario — unchanged layout */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="py-8 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -297,10 +301,11 @@ const LeakageEstimator = () => {
                 );
               })}
             </div>
-          </div>
+          </motion.div>
 
           {/* Recovered Capacity */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="py-8 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -321,9 +326,10 @@ const LeakageEstimator = () => {
               <span className="hidden lg:inline text-primary" style={{ margin: "0 0.4em" }}>·</span>
               <span>{hasInput ? formatGBP(recoveredCost) : "—"}</span>
             </p>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
+
 
       {/* Bottom padding */}
       <div className="pb-16" />
