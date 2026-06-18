@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { MotionConfig } from "framer-motion";
 import StructuredData from "@/components/StructuredData";
 import ScrollProgress from "@/components/ScrollProgress";
 import { DiagnosticProvider } from "@/contexts/DiagnosticContext";
@@ -58,41 +59,43 @@ const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <StructuredData />
-        <BrowserRouter>
-          <ScrollProgress />
-          <ScrollToTop />
-          <DiagnosticProvider>
-            <Suspense fallback={<LoadingFallback />}>
-              <Routes>
-                <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-                <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
-                <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-                <Route path="/insights" element={<PageWrapper><Insights /></PageWrapper>} />
-                <Route path="/insights/:slug" element={<PageWrapper><InsightManifesto /></PageWrapper>} />
-                <Route path="/diagnostic" element={<PageWrapper><Diagnostic /></PageWrapper>} />
-                <Route path="/diagnostic/assess" element={<PageWrapper><DiagnosticAssess /></PageWrapper>} />
-                <Route path="/diagnostic/capture" element={<PageWrapper><DiagnosticCapture /></PageWrapper>} />
-                <Route path="/diagnostic/results" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
-                <Route path="/diagnostic/results/:assessmentId" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
-                <Route path="/consultation/confirmed" element={<PageWrapper><ConsultationConfirmation /></PageWrapper>} />
-                <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-                <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
-                <Route path="/cookies" element={<PageWrapper><Cookies /></PageWrapper>} />
-                <Route path="/glossary" element={<PageWrapper><Glossary /></PageWrapper>} />
-                <Route path="/admin/login" element={<PageWrapper><AdminLogin /></PageWrapper>} />
-                <Route path="/admin" element={<AdminLayout />}>
-                  <Route index element={<AdminOverview />} />
-                  <Route path="leads" element={<AdminLeads />} />
-                  <Route path="assessments" element={<AdminAssessments />} />
-                </Route>
-                <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
-              </Routes>
-            </Suspense>
-          </DiagnosticProvider>
-        </BrowserRouter>
+        <MotionConfig reducedMotion="user">
+          <Toaster />
+          <Sonner />
+          <StructuredData />
+          <BrowserRouter>
+            <ScrollProgress />
+            <ScrollToTop />
+            <DiagnosticProvider>
+              <Suspense fallback={<LoadingFallback />}>
+                <Routes>
+                  <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
+                  <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+                  <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+                  <Route path="/insights" element={<PageWrapper><Insights /></PageWrapper>} />
+                  <Route path="/insights/:slug" element={<PageWrapper><InsightManifesto /></PageWrapper>} />
+                  <Route path="/diagnostic" element={<PageWrapper><Diagnostic /></PageWrapper>} />
+                  <Route path="/diagnostic/assess" element={<PageWrapper><DiagnosticAssess /></PageWrapper>} />
+                  <Route path="/diagnostic/capture" element={<PageWrapper><DiagnosticCapture /></PageWrapper>} />
+                  <Route path="/diagnostic/results" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
+                  <Route path="/diagnostic/results/:assessmentId" element={<PageWrapper><DiagnosticResults /></PageWrapper>} />
+                  <Route path="/consultation/confirmed" element={<PageWrapper><ConsultationConfirmation /></PageWrapper>} />
+                  <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+                  <Route path="/privacy" element={<PageWrapper><Privacy /></PageWrapper>} />
+                  <Route path="/cookies" element={<PageWrapper><Cookies /></PageWrapper>} />
+                  <Route path="/glossary" element={<PageWrapper><Glossary /></PageWrapper>} />
+                  <Route path="/admin/login" element={<PageWrapper><AdminLogin /></PageWrapper>} />
+                  <Route path="/admin" element={<AdminLayout />}>
+                    <Route index element={<AdminOverview />} />
+                    <Route path="leads" element={<AdminLeads />} />
+                    <Route path="assessments" element={<AdminAssessments />} />
+                  </Route>
+                  <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+                </Routes>
+              </Suspense>
+            </DiagnosticProvider>
+          </BrowserRouter>
+        </MotionConfig>
       </TooltipProvider>
     </QueryClientProvider>
   </HelmetProvider>

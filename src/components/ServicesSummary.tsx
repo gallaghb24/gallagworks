@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
-
-const ease = [0.16, 1, 0.3, 1] as const;
+import { motion } from "framer-motion";
+import { revealContainer, revealItem, revealViewport } from "@/lib/motion";
 
 const services = [
   {
@@ -38,79 +37,60 @@ const services = [
 ];
 
 const ServicesSummary = () => {
-  const reduce = useReducedMotion();
-
   return (
     <section className="py-16 lg:py-36 relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 relative">
         <motion.div
-          initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.6, ease }}
-          className="mb-6"
-        >
-          <span className="font-mono text-xs text-primary uppercase tracking-widest">[SERVICES]</span>
-        </motion.div>
-
-        <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+          viewport={revealViewport}
+          variants={revealContainer}
         >
-          {services.map((service) => (
-            <motion.div
-              key={service.id}
-              variants={{
-                hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.7, ease },
-                },
-              }}
-              whileHover={reduce ? undefined : { y: -4 }}
-              className="group relative bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/40 overflow-hidden"
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                style={{
-                  background:
-                    "radial-gradient(400px circle at 50% 0%, hsl(var(--primary) / 0.10), transparent 60%)",
-                }}
-              />
-              <span className="relative font-mono text-xs text-primary font-semibold tracking-widest block mb-4">
-                [{service.id}]
-              </span>
-              <h3 className="relative font-display text-xl font-extrabold text-foreground mb-4 tracking-tight">
-                {service.title}
-              </h3>
-              <p className="relative text-muted-foreground font-light leading-relaxed text-sm">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+          <motion.div variants={revealItem} className="mb-6">
+            <span className="font-mono text-xs text-primary uppercase tracking-widest">[SERVICES]</span>
+          </motion.div>
 
-        <motion.div
-          initial={reduce ? { opacity: 1 } : { opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.6, delay: 0.1, ease }}
-        >
-          <Link
-            to="/services"
-            className="group inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors"
+          <motion.div
+            variants={revealContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
           >
-            View all services
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+            {services.map((service) => (
+              <motion.div
+                key={service.id}
+                variants={revealItem}
+                whileHover={{ y: -4 }}
+                className="group relative bg-charcoal-mid border border-white/[0.08] rounded-xl p-8 transition-colors duration-300 hover:border-primary/40 overflow-hidden"
+              >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{
+                    background:
+                      "radial-gradient(400px circle at 50% 0%, hsl(var(--primary) / 0.10), transparent 60%)",
+                  }}
+                />
+                <span className="relative font-mono text-xs text-primary font-semibold tracking-widest block mb-4">
+                  [{service.id}]
+                </span>
+                <h3 className="relative font-display text-xl font-extrabold text-foreground mb-4 tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="relative text-muted-foreground font-light leading-relaxed text-sm">
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div variants={revealItem}>
+            <Link
+              to="/services"
+              className="group inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors"
+            >
+              View all services
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
+import { revealContainer, revealItem, revealViewport } from "@/lib/motion";
+
 
 const RECOVERY_OPTIONS = [
   { pct: 50, label: "CONSERVATIVE" },
@@ -25,7 +27,7 @@ const MONO: React.CSSProperties = {
 };
 
 const LeakageEstimator = () => {
-  const { ref, isVisible } = useScrollAnimation();
+
 
   const [people, setPeople] = useState("8");
   const [hoursPerWeek, setHoursPerWeek] = useState("6");
@@ -59,22 +61,27 @@ const LeakageEstimator = () => {
 
   return (
     <section
-      ref={ref}
       id="capacity-calculator"
       className="border-draw bg-warm-stone scroll-mt-24"
     >
       {/* Header */}
-      <div
-        className={`container mx-auto px-6 lg:px-12 pt-16 pb-10 clip-reveal ${isVisible ? "visible" : ""}`}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={revealViewport}
+        variants={revealContainer}
+        className="container mx-auto px-6 lg:px-12 pt-16 pb-10"
       >
-        <span
+        <motion.span
+          variants={revealItem}
           className="block mb-5 text-primary"
           style={{ ...MONO, letterSpacing: "0.12em" }}
         >
           [CAPACITY CALCULATOR]
-        </span>
+        </motion.span>
 
-        <h2
+        <motion.h2
+          variants={revealItem}
           className="font-display font-extrabold mb-3 text-on-light tracking-tight"
           style={{
             fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
@@ -82,9 +89,10 @@ const LeakageEstimator = () => {
           }}
         >
           Quantify your Human Middleware cost.
-        </h2>
+        </motion.h2>
 
-        <p
+        <motion.p
+          variants={revealItem}
           style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: "0.9rem",
@@ -95,25 +103,30 @@ const LeakageEstimator = () => {
           }}
         >
           Input your team's numbers below. See how much capacity and cost you're losing to manual friction — and what recovery looks like.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Input/Output Grid */}
-      <div
-        className={`container mx-auto px-6 lg:px-12 clip-reveal-down ${isVisible ? "visible" : ""}`}
-        style={{ transitionDelay: "0.2s" }}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={revealViewport}
+        variants={revealContainer}
+        className="container mx-auto px-6 lg:px-12"
       >
+
         <div
           className="border-t"
           style={{ borderColor: "rgba(0,0,0,0.08)" }}
         >
           {/* Section label */}
-          <div className="py-6">
+          <motion.div variants={revealItem} className="py-6">
             <p className="text-primary" style={MONO}>[INPUT TERMINAL]</p>
-          </div>
+          </motion.div>
 
           {/* Row 1: People → Annual Lost Hours */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="grid grid-cols-2 gap-4 md:gap-6 py-6 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -155,10 +168,11 @@ const LeakageEstimator = () => {
                 {hasInput ? formatHours(annualHours) : "—"}
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Row 2: Hours/week → Annual Cost */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="grid grid-cols-2 gap-4 md:gap-6 py-6 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -200,10 +214,11 @@ const LeakageEstimator = () => {
                 {hasInput ? formatGBP(annualCost) : "—"}
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Row 3: Hourly rate → (empty right, rate is a standalone input) */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="grid grid-cols-2 gap-4 md:gap-6 py-6 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -230,10 +245,11 @@ const LeakageEstimator = () => {
               />
             </div>
             <div />
-          </div>
+          </motion.div>
 
           {/* Recovery Scenario — unchanged layout */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="py-8 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -285,10 +301,11 @@ const LeakageEstimator = () => {
                 );
               })}
             </div>
-          </div>
+          </motion.div>
 
           {/* Recovered Capacity */}
-          <div
+          <motion.div
+            variants={revealItem}
             className="py-8 border-t"
             style={{ borderColor: "rgba(0,0,0,0.08)" }}
           >
@@ -309,9 +326,10 @@ const LeakageEstimator = () => {
               <span className="hidden lg:inline text-primary" style={{ margin: "0 0.4em" }}>·</span>
               <span>{hasInput ? formatGBP(recoveredCost) : "—"}</span>
             </p>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
+
 
       {/* Bottom padding */}
       <div className="pb-16" />
