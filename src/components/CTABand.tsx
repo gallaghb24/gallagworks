@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
 import MagneticButton from "@/components/MagneticButton";
+import { revealContainer, revealItem, revealViewport } from "@/lib/motion";
 
 interface CTABandProps {
   headline?: React.ReactNode;
@@ -13,21 +13,29 @@ interface CTABandProps {
 }
 
 const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wrapperClassName, primaryCTA, secondaryCTA }: CTABandProps) => {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
-    <section className="py-20 lg:py-40 border-t border-border border-draw" ref={ref}>
+    <section className="py-20 lg:py-40 border-t border-border border-draw">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className={`max-w-2xl clip-reveal ${isVisible ? "visible" : ""} ${wrapperClassName || ""}`}>
-          <h2 className="font-display text-[23px] md:text-3xl font-extrabold text-foreground mb-4 tracking-tight" style={{ textWrap: 'balance' } as React.CSSProperties}>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={revealViewport}
+          variants={revealContainer}
+          className={`max-w-2xl ${wrapperClassName || ""}`}
+        >
+          <motion.h2
+            variants={revealItem}
+            className="font-display text-[23px] md:text-3xl font-extrabold text-foreground mb-4 tracking-tight"
+            style={{ textWrap: 'balance' } as React.CSSProperties}
+          >
             {headline}
-          </h2>
+          </motion.h2>
           {subcopy && (
-            <p className="text-foreground/70 font-light mb-8 max-w-[720px]">
+            <motion.p variants={revealItem} className="text-foreground/70 font-light mb-8 max-w-[720px]">
               {subcopy}
-            </p>
+            </motion.p>
           )}
-          <div className={`flex flex-col sm:flex-row gap-4 ${subcopy ? "" : "mt-8"}`}>
+          <motion.div variants={revealItem} className={`flex flex-col sm:flex-row gap-4 ${subcopy ? "" : "mt-8"}`}>
             <MagneticButton>
               <Link
                 to={primaryCTA?.to ?? "/contact"}
@@ -49,8 +57,8 @@ const CTABand = ({ headline = "Ready to build scalable operations?", subcopy, wr
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
