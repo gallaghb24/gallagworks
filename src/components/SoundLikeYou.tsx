@@ -32,7 +32,7 @@ const SoundLikeYou = () => {
           className="max-w-4xl"
         >
           <motion.div variants={item} className="mb-6">
-            <MonoLabel text="[SOUND FAMILIAR]" />
+            <span className="font-mono text-xs text-primary uppercase tracking-widest">[SOUND FAMILIAR]</span>
           </motion.div>
           <motion.h2
             variants={item}

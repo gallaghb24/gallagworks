@@ -50,7 +50,7 @@ const ServicesSummary = () => {
           transition={{ duration: 0.6, ease }}
           className="mb-6"
         >
-          <MonoLabel text="[SERVICES]" />
+          <span className="font-mono text-xs text-primary uppercase tracking-widest">[SERVICES]</span>
         </motion.div>
 
         <motion.div

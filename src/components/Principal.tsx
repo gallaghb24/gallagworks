@@ -26,7 +26,7 @@ const Principal = () => {
           className="max-w-5xl"
         >
           <motion.div variants={item} className="mb-6">
-            <MonoLabel text="[THE FOUNDER]" />
+            <span className="font-mono text-xs text-primary uppercase tracking-widest">[THE FOUNDER]</span>
           </motion.div>
 
           <motion.h2

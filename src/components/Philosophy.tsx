@@ -31,7 +31,7 @@ const Philosophy = () => {
           className="max-w-3xl"
         >
           <motion.div variants={item} className="mb-6">
-            <MonoLabel text="[PHILOSOPHY]" />
+            <span className="font-mono text-xs text-primary uppercase tracking-widest">[PHILOSOPHY]</span>
           </motion.div>
           <motion.h2
             variants={item}

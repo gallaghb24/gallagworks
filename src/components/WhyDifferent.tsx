@@ -31,7 +31,7 @@ const WhyDifferent = () => {
           transition={{ duration: 0.6, ease }}
           className="mb-6"
         >
-          <MonoLabel text="[WHY THIS IS DIFFERENT]" />
+          <span className="font-mono text-xs text-primary uppercase tracking-widest">[WHY THIS IS DIFFERENT]</span>
         </motion.div>
         <motion.h2
           initial={reduce ? { opacity: 1 } : { opacity: 0, y: 16 }}
