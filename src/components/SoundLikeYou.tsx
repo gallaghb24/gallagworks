@@ -1,8 +1,7 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-
-const ease = [0.16, 1, 0.3, 1] as const;
+import { revealContainer, revealItem, revealViewport } from "@/lib/motion";
 
 const statements = [
   "We can't take on more work without adding headcount, and the headcount is what's eating the margin.",
@@ -14,41 +13,34 @@ const statements = [
 ];
 
 const SoundLikeYou = () => {
-  const reduce = useReducedMotion();
-
-  const item = {
-    hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.65, ease } },
-  };
-
   return (
     <section className="py-16 lg:py-32 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
+          viewport={revealViewport}
+          variants={revealContainer}
           className="max-w-4xl"
         >
-          <motion.div variants={item} className="mb-6">
+          <motion.div variants={revealItem} className="mb-6">
             <span className="font-mono text-xs text-primary uppercase tracking-widest">[SOUND FAMILIAR]</span>
           </motion.div>
           <motion.h2
-            variants={item}
+            variants={revealItem}
             className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-light mb-12 leading-tight tracking-tight"
           >
             You don't have an AI problem. You have a process that only works because people hold it together by hand.
           </motion.h2>
 
           <motion.ul
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05 } } }}
+            variants={revealContainer}
             className="space-y-4 mb-12 max-w-[760px]"
           >
             {statements.map((s) => (
               <motion.li
                 key={s}
-                variants={item}
+                variants={revealItem}
                 className="border-l-2 border-primary/60 pl-5 py-1 text-on-light/85 text-lg leading-relaxed italic"
               >
                 "{s}"
@@ -57,13 +49,13 @@ const SoundLikeYou = () => {
           </motion.ul>
 
           <motion.p
-            variants={item}
+            variants={revealItem}
             className="text-lg text-on-light/70 leading-relaxed max-w-[680px] mb-8"
           >
             If you recognised yourself in two or three of those, the technology isn't the problem. Nobody has redesigned how the work moves, and nobody has built the tools around the people who actually do it. That gap has a name: Human Middleware, the senior people quietly acting as manual routers between systems, holding the operation together by hand. It's the largest hidden cost in most businesses, and it's the thing I engineer out.
           </motion.p>
 
-          <motion.div variants={item} className="flex flex-wrap items-center gap-x-8 gap-y-4">
+          <motion.div variants={revealItem} className="flex flex-wrap items-center gap-x-8 gap-y-4">
             <a
               href="#capacity-calculator"
               className="group inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors"

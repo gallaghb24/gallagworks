@@ -1,6 +1,5 @@
-import { motion, useReducedMotion } from "framer-motion";
-
-const ease = [0.16, 1, 0.3, 1] as const;
+import { motion } from "framer-motion";
+import { revealContainer, revealItem, revealViewport } from "@/lib/motion";
 
 const paragraphs = [
   "Process before technology. You cannot scale a business on brute-force human effort, but you also cannot fix bad logic with shiny technology. I simplify the workflow first, kill the redundant steps, and build the automation second.",
@@ -9,13 +8,6 @@ const paragraphs = [
 ];
 
 const Philosophy = () => {
-  const reduce = useReducedMotion();
-
-  const item = {
-    hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
-  };
-
   return (
     <section className="py-16 lg:py-32 bg-warm-stone">
       <div className="container mx-auto px-6 lg:px-12">
@@ -23,18 +15,15 @@ const Philosophy = () => {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.08 } },
-          }}
+          viewport={revealViewport}
+          variants={revealContainer}
           className="max-w-3xl"
         >
-          <motion.div variants={item} className="mb-6">
+          <motion.div variants={revealItem} className="mb-6">
             <span className="font-mono text-xs text-primary uppercase tracking-widest">[PHILOSOPHY]</span>
           </motion.div>
           <motion.h2
-            variants={item}
+            variants={revealItem}
             className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-on-light mb-10 leading-tight tracking-tight"
           >
             Automating a broken process just creates a faster mess.
@@ -43,7 +32,7 @@ const Philosophy = () => {
             {paragraphs.map((p, i) => (
               <motion.p
                 key={i}
-                variants={item}
+                variants={revealItem}
                 className="text-lg text-on-light/70 leading-relaxed"
               >
                 {p}
@@ -51,7 +40,7 @@ const Philosophy = () => {
             ))}
           </div>
           <motion.p
-            variants={item}
+            variants={revealItem}
             className="text-lg text-primary font-bold leading-relaxed max-w-[600px] mt-8"
           >
             Everyone is buying AI tools. No one is designing how work should move through them. I do the latter.
