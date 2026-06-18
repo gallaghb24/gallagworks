@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { MotionConfig } from "framer-motion";
 import StructuredData from "@/components/StructuredData";
 import ScrollProgress from "@/components/ScrollProgress";
 import { DiagnosticProvider } from "@/contexts/DiagnosticContext";
